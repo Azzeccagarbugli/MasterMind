@@ -1,12 +1,12 @@
 /**
  * 
  */
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.players;
 
 /**
  * Interazione con l'utente durante il gioco via linea di comando
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class CommandLineInteractionManager implements InteractionManager {

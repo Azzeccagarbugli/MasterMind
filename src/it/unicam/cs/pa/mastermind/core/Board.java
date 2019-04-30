@@ -1,7 +1,9 @@
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.core;
 
 import java.util.List;
 import java.util.Map;
+
+import it.unicam.cs.pa.mastermind.pegs.CodePegs;
 
 /**
  * Immagazzina i dati relativi alla plancia di gioco, quali posizione e natura
@@ -9,7 +11,7 @@ import java.util.Map;
  * gioco alle classi che lo gestiscono (Coordinator, Starter e
  * InteractionManager)
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class Board {
@@ -32,7 +34,7 @@ public class Board {
 	}
 
 	/**
-	 * Costruttore senza parametri. La plancia è inizializzata con le regole
+	 * Costruttore senza parametri. La plancia ï¿½ inizializzata con le regole
 	 * standard
 	 */
 	public Board() {
@@ -70,7 +72,7 @@ public class Board {
 	}
 
 	/**
-	 * Indica se la plancia è completamente vuota o meno
+	 * Indica se la plancia ï¿½ completamente vuota o meno
 	 * 
 	 * @return
 	 */

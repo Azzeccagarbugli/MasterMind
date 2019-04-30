@@ -1,9 +1,9 @@
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.players;
 
 /**
  * Interfaccia relativa alla gestione dell'interazione con l'utente
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public interface InteractionManager {

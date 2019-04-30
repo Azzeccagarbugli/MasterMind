@@ -1,9 +1,13 @@
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.core;
+
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
+import it.unicam.cs.pa.mastermind.players.InteractionManager;
 
 /**
  * Rappresentazione concreta di una singola partita a due giocatori
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class Game {

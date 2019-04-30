@@ -1,9 +1,12 @@
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.core;
+
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
 
 /**
  * Interagisce continuamente con i giocatori aggiornando la plancia di gioco di conseguenza
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class Coordinator {
@@ -23,9 +26,9 @@ public class Coordinator {
 	}
 
 	/**
-	 * Indica se la partita termina o meno. Può terminare solo se i tentativi sono
+	 * Indica se la partita termina o meno. Puï¿½ terminare solo se i tentativi sono
 	 * finiti, se il giocatore breaker ha indovinato la sequenza o se, infine, il
-	 * giocatore breaker si è arreso
+	 * giocatore breaker si ï¿½ arreso
 	 * 
 	 * @param breaker
 	 * @param boardToUpdate

@@ -1,15 +1,17 @@
 /**
  * 
  */
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.players;
 
 import java.util.List;
 
+import it.unicam.cs.pa.mastermind.pegs.CodePegs;
+
 /**
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class HumanBreaker implements CodeBreaker {
+public class BotBreaker implements CodeBreaker {
 
 	private boolean giveUp = false;
 

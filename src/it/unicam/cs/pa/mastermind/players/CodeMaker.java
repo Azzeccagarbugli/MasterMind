@@ -1,11 +1,13 @@
-package it.unicam.cs.pa.mastermind;
+package it.unicam.cs.pa.mastermind.players;
 
 import java.util.List;
+
+import it.unicam.cs.pa.mastermind.pegs.CodePegs;
 
 /**
  * Interfaccia relativa ai giocatori che forniscono la sequenza da codificare
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public interface CodeMaker {
