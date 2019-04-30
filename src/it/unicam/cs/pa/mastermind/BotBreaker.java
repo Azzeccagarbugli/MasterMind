@@ -10,14 +10,15 @@ package it.unicam.cs.pa.mastermind;
 public class BotBreaker implements CodeBreaker {
 
 	private boolean giveUp = false;
-	
+
 	public boolean isGiveUp() {
 		return giveUp;
 	}
+
 	public void setGiveUp(boolean giveUp) {
 		this.giveUp = giveUp;
 	}
-	
+
 	@Override
 	public CodePegs[] getCode(InteractionManager inputManager) {
 		// TODO Auto-generated method stub

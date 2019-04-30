@@ -1,7 +1,8 @@
 package it.unicam.cs.pa.mastermind;
 
 /**
- * Interfaccia per la prima interazione con l'utente 
+ * Interfaccia per la prima interazione con l'utente
+ * 
  * @author Francesco
  *
  */
