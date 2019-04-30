@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.mastermind;
 
+import java.util.List;
+
 /**
  * Interfaccia relativa ai giocatori che forniscono la sequenza da codificare
  * 
@@ -14,5 +16,5 @@ public interface CodeMaker {
 	 * @param inputManager
 	 * @return
 	 */
-	public CodePegs[] getCodeToGuess(InteractionManager inputManager);
+	public List<CodePegs> getCodeToGuess(InteractionManager inputManager);
 }

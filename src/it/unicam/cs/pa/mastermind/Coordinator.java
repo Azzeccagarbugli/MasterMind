@@ -1,8 +1,7 @@
 package it.unicam.cs.pa.mastermind;
 
 /**
- * Interagisce continuamente con il giocatore che decifra il codice e con la
- * plancia di gioco
+ * Interagisce continuamente con i giocatori aggiornando la plancia di gioco di conseguenza
  * 
  * @author Francesco
  *
@@ -33,6 +32,19 @@ public class Coordinator {
 	 * @return
 	 */
 	public boolean checkEnd(CodeBreaker breaker, Board boardToUpdate) {
+		// TODO
+		return false;
+	}
+	
+	/**
+	 * Interroga il maker sulla sequenza da inserire nella plancia come sequenza da
+	 * indovinare ed effettua la relativa operazione
+	 * 
+	 * @param maker
+	 * @param boardToUpdate
+	 * @return
+	 */
+	public boolean insertCodeToGuess(CodeMaker maker, Board boardToUpdate) {
 		// TODO
 		return false;
 	}

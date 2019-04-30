@@ -9,7 +9,6 @@ package it.unicam.cs.pa.mastermind;
 public class Game {
 
 	private Board board;
-	private Starter starter;
 	private Coordinator coordinator;
 	private CodeMaker maker;
 	private CodeBreaker breaker;
@@ -28,7 +27,6 @@ public class Game {
 		this.maker = maker;
 		this.breaker = breaker;
 		this.board = new Board(sequenceLength, attempts);
-		this.starter = new Starter();
 		this.coordinator = new Coordinator();
 		this.manager = manager;
 	}

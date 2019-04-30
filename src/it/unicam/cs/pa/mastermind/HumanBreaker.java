@@ -3,6 +3,8 @@
  */
 package it.unicam.cs.pa.mastermind;
 
+import java.util.List;
+
 /**
  * @author Francesco
  *
@@ -20,7 +22,7 @@ public class HumanBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public CodePegs[] getCode(InteractionManager inputManager) {
+	public List<CodePegs> getCode(InteractionManager inputManager) {
 		// TODO Auto-generated method stub
 		return null;
 	}

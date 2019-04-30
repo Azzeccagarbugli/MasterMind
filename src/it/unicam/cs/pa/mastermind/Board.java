@@ -1,5 +1,6 @@
 package it.unicam.cs.pa.mastermind;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Map;
 public class Board {
 
 	private CodePegs[] sequenceToGuess;
-	private Map<CodePegs[], KeyPegs[]> board;
+	private Map<List<CodePegs>, List<CodePegs>> board;
 	private final int maxAttempts;
 	private final int sequenceLength;
 
@@ -86,7 +87,7 @@ public class Board {
 	 * @param clue
 	 * @return
 	 */
-	public boolean addAttempt(CodePegs[] attempt, KeyPegs[] clue) {
+	public boolean addAttempt(List<CodePegs> attempt, List<CodePegs> clue) {
 		// TODO
 		return false;
 	}
@@ -97,7 +98,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public Map.Entry<CodePegs[], KeyPegs[]> lastAttempt() {
+	public Map.Entry<List<CodePegs>, List<CodePegs>> lastAttempt() {
 		// TODO
 		return null;
 	}

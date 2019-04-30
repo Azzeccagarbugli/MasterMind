@@ -3,6 +3,8 @@
  */
 package it.unicam.cs.pa.mastermind;
 
+import java.util.List;
+
 /**
  * @author Francesco
  *
@@ -10,7 +12,7 @@ package it.unicam.cs.pa.mastermind;
 public class BotMaker implements CodeMaker {
 
 	@Override
-	public CodePegs[] getCodeToGuess(InteractionManager inputManager) {
+	public List<CodePegs> getCodeToGuess(InteractionManager inputManager) {
 		// TODO Auto-generated method stub
 		return null;
 	}

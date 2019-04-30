@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.mastermind;
 
+import java.util.List;
+
 /**
  * Interfaccia relativa ai giocatori che cercano di indovinare la sequenza
  * 
@@ -13,5 +15,5 @@ public interface CodeBreaker {
 	 * @param inputManager
 	 * @return
 	 */
-	public CodePegs[] getCode(InteractionManager inputManager);
+	public List<CodePegs> getCode(InteractionManager inputManager);
 }
