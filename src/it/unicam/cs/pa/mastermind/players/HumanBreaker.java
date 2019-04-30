@@ -5,6 +5,7 @@ package it.unicam.cs.pa.mastermind.players;
 
 import java.util.List;
 
+import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.pegs.CodePegs;
 
 /**

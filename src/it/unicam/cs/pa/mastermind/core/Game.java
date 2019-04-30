@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.mastermind.core;
 
+import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
-import it.unicam.cs.pa.mastermind.players.InteractionManager;
 
 /**
  * Rappresentazione concreta di una singola partita a due giocatori
