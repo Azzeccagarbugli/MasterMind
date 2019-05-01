@@ -1,9 +1,7 @@
 /**
  * 
  */
-package it.unicam.cs.pa.mastermind.players;
-
-import it.unicam.cs.pa.mastermind.gui.InteractionManager;
+package it.unicam.cs.pa.mastermind.gui;
 
 /**
  * Interazione con l'utente durante il gioco via linea di comando

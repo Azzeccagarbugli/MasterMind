@@ -10,7 +10,7 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class Game {
+public class SingleGame {
 
 	private Board board;
 	private Coordinator coordinator;
@@ -27,7 +27,7 @@ public class Game {
 	 * @param sequenceLength
 	 * @param attempts
 	 */
-	public Game(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts, InteractionManager manager) {
+	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts, InteractionManager manager) {
 		this.maker = maker;
 		this.breaker = breaker;
 		this.board = new Board(sequenceLength, attempts);

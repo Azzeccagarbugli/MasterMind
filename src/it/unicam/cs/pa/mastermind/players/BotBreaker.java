@@ -6,7 +6,7 @@ package it.unicam.cs.pa.mastermind.players;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
-import it.unicam.cs.pa.mastermind.pegs.CodePegs;
+import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
  * @author Francesco Pio Stelluti, Francesco Coppola
@@ -25,7 +25,7 @@ public class BotBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public List<CodePegs> getCode(InteractionManager inputManager) {
+	public List<ColorPegs> getCode(InteractionManager inputManager) {
 		// TODO Auto-generated method stub
 		return null;
 	}

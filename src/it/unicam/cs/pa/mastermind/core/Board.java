@@ -3,7 +3,7 @@ package it.unicam.cs.pa.mastermind.core;
 import java.util.List;
 import java.util.Map;
 
-import it.unicam.cs.pa.mastermind.pegs.CodePegs;
+import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
  * Immagazzina i dati relativi alla plancia di gioco, quali posizione e natura
@@ -16,8 +16,8 @@ import it.unicam.cs.pa.mastermind.pegs.CodePegs;
  */
 public class Board {
 
-	private CodePegs[] sequenceToGuess;
-	private Map<List<CodePegs>, List<CodePegs>> board;
+	private List<ColorPegs> sequenceToGuess;
+	private Map<List<ColorPegs>, List<ColorPegs>> board;
 	private final int maxAttempts;
 	private final int sequenceLength;
 
@@ -46,7 +46,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public CodePegs[] getSequenceToGuess() {
+	public List<ColorPegs> getSequenceToGuess() {
 		// TODO
 		return null;
 	}
@@ -56,7 +56,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public boolean setSequenceToGuess(CodePegs[] toGuess) {
+	public boolean setSequenceToGuess(ColorPegs[] toGuess) {
 		// TODO
 		return false;
 	}
@@ -89,7 +89,7 @@ public class Board {
 	 * @param clue
 	 * @return
 	 */
-	public boolean addAttempt(List<CodePegs> attempt, List<CodePegs> clue) {
+	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) {
 		// TODO
 		return false;
 	}
@@ -100,7 +100,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public Map.Entry<List<CodePegs>, List<CodePegs>> lastAttempt() {
+	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttempt() {
 		// TODO
 		return null;
 	}
