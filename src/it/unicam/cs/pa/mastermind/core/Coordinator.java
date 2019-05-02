@@ -102,7 +102,13 @@ public class Coordinator {
 					 * AttemptCopy, in questo modo avremo delle occorrenze non nulle per ogni coppia
 					 * ancora non identificata come corretta
 					 */
+					
+					System.out.println("Prima di modifica: " + attemptCopy);
+					System.out.println("PegAC: " + pegAC + " - PegTG: " + pegTG);
 					attemptCopy.set(attemptCopy.indexOf(pegAC), null);
+					
+					System.out.println("Dopo modifica: " + attemptCopy + "\n");
+					
 					break;
 				}
 			}
