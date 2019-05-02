@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.core.Board;
@@ -68,17 +69,56 @@ public class CommandLineInteractionManager implements InteractionManager {
 	@Override
 	public void showGame(Board board) {
 		System.out.println("The current secret sequence is this one: " + board.getSequenceToGuess());
-		System.out.println("-------------------");
-		System.out.println("Your current combination: ");
+		System.out.println("\n+-------------------------------------------------------------+");
+		System.out.format("%s %42s %18s \n", "|", "Your current combination", "|");
+		System.out.println("+------------------------------+------------------------------+");
+		System.out.format("|%20s %10s %15s %14s\n", "Attempt", "|", "Clue", "|");
+		System.out.println("+------------------------------+------------------------------+");
+		System.out.format("%s %30s %30s \n", "|", "|", "|");
 		board.getAttemptAndClueSet().stream()
-				.forEach(entry -> System.out.println("Attempt: " + entry.getKey() + " - Clue: " + entry.getValue()));
-		System.out.println("-------------------");
+				.forEach(entry -> System.out.format("| %s | %s %" + dynamicSpace(entry.getValue().size()) + "s \n",
+						entry.getKey(), entry.getValue(), "|"));
+		System.out.format("%s %30s %30s \n", "|", "|", "|");
+		System.out.println("+------------------------------+------------------------------+");
+	}
+
+	/**
+	 * Metodo privato che garantisce la giusta formattazione della tabella
+	 * 
+	 * @param lenght
+	 * @return
+	 */
+	private int dynamicSpace(int lenght) {
+		switch (lenght) {
+		case 0:
+			return 32;
+		case 1:
+			return 24;
+		case 2:
+			return 16;
+		case 3:
+			return 8;
+		case 4:
+			return 1;
+		default:
+			System.out.println("Error!");
+			return 0;
+		}
 	}
 
 	@Override
 	public boolean[] ending() {
 		// TODO
 		return null;
+	}
+
+	public static void main(String[] args) {
+		Board bb = new Board();
+		Coordinator cord = new Coordinator();
+		CommandLineInteractionManager command = new CommandLineInteractionManager();
+		bb.setSequenceToGuess(List.of(ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED));
+		cord.insertNewAttempt(List.of(ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED), bb);
+		command.showGame(bb);
 	}
 
 }
