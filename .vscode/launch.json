@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CommandLineStartManager",
+            "request": "launch",
+            "mainClass": "it.unicam.cs.pa.mastermind.gui.CommandLineStartManager",
+            "projectName": "MasterMind"
+        }
+    ]
+}

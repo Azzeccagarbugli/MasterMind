@@ -9,11 +9,18 @@ package it.unicam.cs.pa.mastermind.gui;
 public interface InteractionManager {
 
 	/**
-	 * Richiede all'utente la sequenza
+	 * Richiede all'utente umano la sequenza tentativo
 	 * 
 	 * @return
 	 */
-	public int[] getSequence();
+	public int[] getSequenceToGuess();
+
+	/**
+	 * Richiede all'utente umano la sequenza da indovinare
+	 * 
+	 * @return
+	 */
+	public int[] getSequenceAttempt();
 
 	/**
 	 * Mostra all'utente la situazione corrente del gioco
