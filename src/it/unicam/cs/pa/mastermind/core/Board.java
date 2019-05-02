@@ -1,5 +1,6 @@
 package it.unicam.cs.pa.mastermind.core;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +49,7 @@ public class Board {
 	 * @return
 	 */
 	public List<ColorPegs> getSequenceToGuess() {
-		return sequenceToGuess;
+		return new ArrayList<ColorPegs>(sequenceToGuess);
 	}
 
 	/**
@@ -56,7 +57,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public boolean setSequenceToGuess(List<ColorPegs> toGuess) {
+	public boolean setSequenceToGuess(List<ColorPegs> toGuess) throws IllegalArgumentException {
 		if (toGuess.size() != this.sequenceLength) {
 			throw new IllegalArgumentException(
 					"Si è provato ad inserire nella plancia una sequenza con dimensione illegale");
@@ -76,7 +77,7 @@ public class Board {
 	}
 
 	/**
-	 * Indica se la plancia � completamente vuota o meno
+	 * Plancia completamente vuota o meno
 	 * 
 	 * @return
 	 */
@@ -92,16 +93,16 @@ public class Board {
 	 * @param clue
 	 * @return
 	 */
-	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) {
-		if ((attempt.size() != this.sequenceLength) || (clue.size() != this.sequenceLength)) {
+	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) throws IllegalArgumentException {
+		if ((attempt.size() != this.sequenceLength) || (clue.size() > this.sequenceLength)) {
 			throw new IllegalArgumentException(
 					"Si è provato ad inserire nella plancia una sequenza con dimensione illegale");
 		} else {
 			/*
-			* Aggiorno l'ultimo tentativo 
-			*/
+			 * Aggiorno l'ultimo tentativo andando a fare il clear della struttura dati
+			 */
 			lastAttemptAndClue.clear();
-			lastAttemptAndClue.put(attempt,clue);
+			lastAttemptAndClue.put(attempt, clue);
 			board.put(attempt, clue);
 			return true;
 		}
@@ -114,6 +115,7 @@ public class Board {
 	 * @return
 	 */
 	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue() {
-		return lastAttemptAndClue.entrySet().iterator().next();
+		Map.Entry<List<ColorPegs>, List<ColorPegs>> temp = lastAttemptAndClue.entrySet().iterator().next();
+		return Map.entry(new ArrayList<ColorPegs>(temp.getKey()), new ArrayList<ColorPegs>(temp.getValue()));
 	}
 }
