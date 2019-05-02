@@ -25,7 +25,7 @@ public class BotBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getCode(InteractionManager inputManager) {
+	public List<ColorPegs> getCode(int sequenceLength, InteractionManager inputManager) {
 		// TODO Auto-generated method stub
 		return null;
 	}

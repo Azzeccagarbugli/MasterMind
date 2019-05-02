@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.mastermind.gui;
 
+import java.util.List;
+
 /**
  * Interfaccia relativa alla gestione dell'interazione con l'utente
  * 
@@ -13,14 +15,8 @@ public interface InteractionManager {
 	 * 
 	 * @return
 	 */
-	public int[] getSequenceToGuess();
+	public List<Integer> getSequence(int sequenceLength, boolean toGuess);
 
-	/**
-	 * Richiede all'utente umano la sequenza da indovinare
-	 * 
-	 * @return
-	 */
-	public int[] getSequenceAttempt();
 
 	/**
 	 * Mostra all'utente la situazione corrente del gioco

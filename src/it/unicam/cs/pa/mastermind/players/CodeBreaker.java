@@ -18,7 +18,7 @@ public interface CodeBreaker {
 	 * @param inputManager
 	 * @return
 	 */
-	public List<ColorPegs> getCode(InteractionManager inputManager);
+	public List<ColorPegs> getCode(int sequenceLength, InteractionManager inputManager);
 	public boolean isGiveUp();
 	public void setGiveUp(boolean giveUp);
 }

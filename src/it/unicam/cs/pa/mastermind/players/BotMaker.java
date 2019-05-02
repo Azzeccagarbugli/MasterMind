@@ -15,7 +15,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class BotMaker implements CodeMaker {
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(InteractionManager inputManager) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager inputManager) {
 		// TODO Auto-generated method stub
 		return null;
 	}

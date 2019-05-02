@@ -44,10 +44,10 @@ public class SingleGame {
 	 * @return
 	 */
 	public boolean[] start() {
-		coordinator.insertCodeToGuess(maker.getCodeToGuess(manager), board);
+		coordinator.insertCodeToGuess(maker.getCodeToGuess(board.getSequenceLength(), manager), board);
 		while (!coordinator.checkEnd(breaker, board)) {
 			manager.showGame();
-			coordinator.insertNewAttempt(breaker.getCode(manager), board);
+			coordinator.insertNewAttempt(breaker.getCode(board.getSequenceLength(), manager), board);
 		}
 		return manager.ending();
 	}

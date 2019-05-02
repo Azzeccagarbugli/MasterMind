@@ -37,48 +37,64 @@ public class CommandLineStartManager implements StartManager {
 					while (!((intInput >= 1) && (intInput <= 3))) {
 						System.out.print("Select the game mode: " + "\n" + "G1BreakerVSG2Maker [1]" + "\n"
 								+ "G1BreakerVSBOTMaker [2]" + "\n" + "BOTBreakerVSBOTMaker [3]" + "\n" + "> ");
-						intInput = reader.read();
+						try {
+							intInput = Integer.parseInt(reader.readLine());
+						} catch (NumberFormatException e) {
+							System.out.println("Please insert a numeric value");
+						}
 					}
 					mode = (GameMode.values())[intInput - 1];
-
-					switch(mode){
-						case PLAYERVSPLAYER:
-							maker = new HumanMaker();
-							breaker = new HumanBreaker();
-							break;
-						case PLAYERVSBOT:
-							maker = new BotMaker();
-							breaker = new HumanBreaker();
-							break;		
-						case BOTVSBOT:
-							maker = new BotMaker();
-							breaker = new BotBreaker();
-							break;
+					System.out.println("Chosen mode: " + mode);
+					
+					switch (mode) {
+					case PLAYERVSPLAYER:
+						maker = new HumanMaker();
+						breaker = new HumanBreaker();
+						break;
+					case PLAYERVSBOT:
+						maker = new BotMaker();
+						breaker = new HumanBreaker();
+						break;
+					case BOTVSBOT:
+						maker = new BotMaker();
+						breaker = new BotBreaker();
+						break;
 					}
 
 					String strInput = "";
 					while (!((strInput.equals("Y")) ^ (strInput.equals("N")))) {
-						System.out.print("\033[H\033[2J");
 						System.out.print(
 								"Would you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]"
 										+ "\n" + "> ");
 						strInput = reader.readLine();
 					}
-					if (strInput.equals("N")) {
+					if (strInput.equals("Y")) {
 						attempts = 9;
 						sequenceLength = 4;
 					} else {
-						System.out.print("\033[H\033[2J");
-						System.out.print("Insert the number of attempts: " + "\n" + "> ");
-						attempts = (reader.read());
-						System.out.print("Insert the length of pegs sequences: " + "\n" + "> ");
-						sequenceLength = (reader.read());
+						while (attempts <= 0) {
+							try {
+								System.out.print("Insert the number of attempts: " + "\n" + "> ");
+								attempts = Integer.parseInt(reader.readLine());
+							} catch (NumberFormatException e) {
+								System.out.println("Please insert a numeric value");
+							}
+						}
+						while (sequenceLength <= 0) {
+							try {
+								System.out.print("Insert the length of pegs sequences: " + "\n" + "> ");
+								sequenceLength = Integer.parseInt(reader.readLine());
+							} catch (NumberFormatException e) {
+								System.out.println("Please insert a numeric value");
+							}
+						}
 					}
 					reader.close();
 				}
-				
-				System.out.print("Now starting the game");
-				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts, new CommandLineInteractionManager());
+
+				System.out.println("Now starting the game");
+				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts,
+						new CommandLineInteractionManager());
 				boolean[] newSettings = game.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
@@ -87,6 +103,7 @@ public class CommandLineStartManager implements StartManager {
 			System.out.print(e.getMessage());
 		}
 	}
+
 	public static void main(String[] args) {
 		CommandLineStartManager startManager = new CommandLineStartManager();
 		startManager.start();

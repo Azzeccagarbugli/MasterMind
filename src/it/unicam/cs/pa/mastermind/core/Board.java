@@ -43,6 +43,11 @@ public class Board {
 		this(4, 9);
 	}
 
+
+
+	public int getSequenceLength(){
+		return this.sequenceLength;
+	}
 	/**
 	 * Restituisce la sequenza di pioli da indovinare
 	 * 
@@ -51,6 +56,8 @@ public class Board {
 	public List<ColorPegs> getSequenceToGuess() {
 		return new ArrayList<ColorPegs>(sequenceToGuess);
 	}
+
+
 
 	/**
 	 * Imposta la sequenza di pioli da indovinare
