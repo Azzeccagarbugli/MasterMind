@@ -11,7 +11,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import it.unicam.cs.pa.mastermind.core.Board;
+import it.unicam.cs.pa.mastermind.core.Coordinator;
 import it.unicam.cs.pa.mastermind.pegs.*;
+import it.unicam.cs.pa.mastermind.players.HumanBreaker;
 
 /**
  * Interazione con l'utente durante il gioco via linea di comando
@@ -35,9 +38,9 @@ public class CommandLineInteractionManager implements InteractionManager {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 
 			/*
-			 * Di tutto ciò se ne assume la più piena responsabilità lo studente
-			 * Francesco Pio Stelluti, colui con il quale lei ha discusso intensamente
-			 * riguardo il film della Marvel Avengers: The End Game.
+			 * Di tutto ciò se ne assume la più piena responsabilità lo studente Francesco
+			 * Pio Stelluti, colui con il quale lei ha discusso intensamente riguardo il
+			 * film della Marvel Avengers: The End Game.
 			 */
 			IntStream.range(0, ColorPegs.values().length)
 					.mapToObj(index -> String.format("[%s - %d]", ColorPegs.values()[index].toString(), index + 1))
@@ -63,9 +66,13 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public void showGame() {
-		// TODO Auto-generated method stub
-
+	public void showGame(Board board) {
+		System.out.println("The current secret sequence is this one: " + board.getSequenceToGuess());
+		System.out.println("-------------------");
+		System.out.println("Your current combination: ");
+		board.getAttemptAndClueSet().stream()
+				.forEach(entry -> System.out.println("Attempt: " + entry.getKey() + " - Clue: " + entry.getValue()));
+		System.out.println("-------------------");
 	}
 
 	@Override
@@ -74,8 +81,4 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return null;
 	}
 
-	public static void main(String[] args) {
-		CommandLineInteractionManager sassi = new CommandLineInteractionManager();
-		System.out.println(sassi.getSequence(10, false));
-	}
 }

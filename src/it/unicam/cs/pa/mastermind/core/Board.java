@@ -1,8 +1,11 @@
 package it.unicam.cs.pa.mastermind.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
@@ -21,7 +24,6 @@ public class Board {
 	private Map<List<ColorPegs>, List<ColorPegs>> board;
 	private final int maxAttempts;
 	private final int sequenceLength;
-	private Map<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue;
 
 	/**
 	 * Costruttore che riceve come parametri la lunghezza delle sequenze di pioli e
@@ -31,6 +33,7 @@ public class Board {
 	 * @param attempts
 	 */
 	public Board(int sequenceLength, int maxAttempts) {
+		this.board = new LinkedHashMap<List<ColorPegs>, List<ColorPegs>>();
 		this.sequenceLength = sequenceLength;
 		this.maxAttempts = maxAttempts;
 	}
@@ -43,11 +46,10 @@ public class Board {
 		this(4, 9);
 	}
 
-
-
-	public int getSequenceLength(){
+	public int getSequenceLength() {
 		return this.sequenceLength;
 	}
+
 	/**
 	 * Restituisce la sequenza di pioli da indovinare
 	 * 
@@ -57,7 +59,9 @@ public class Board {
 		return new ArrayList<ColorPegs>(sequenceToGuess);
 	}
 
-
+	public Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueSet() {
+		return this.board.entrySet();
+	}
 
 	/**
 	 * Imposta la sequenza di pioli da indovinare
@@ -101,15 +105,13 @@ public class Board {
 	 * @return
 	 */
 	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) throws IllegalArgumentException {
+		if(this.isEmpty()){
+			throw new NullPointerException("Tentativo di inserimento in plancia senza sequenza da indovinare");
+		}
 		if ((attempt.size() != this.sequenceLength) || (clue.size() > this.sequenceLength)) {
 			throw new IllegalArgumentException(
 					"Si è provato ad inserire nella plancia una sequenza con dimensione illegale");
 		} else {
-			/*
-			 * Aggiorno l'ultimo tentativo andando a fare il clear della struttura dati
-			 */
-			lastAttemptAndClue.clear();
-			lastAttemptAndClue.put(attempt, clue);
 			board.put(attempt, clue);
 			return true;
 		}
@@ -122,7 +124,12 @@ public class Board {
 	 * @return
 	 */
 	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue() {
-		Map.Entry<List<ColorPegs>, List<ColorPegs>> temp = lastAttemptAndClue.entrySet().iterator().next();
-		return Map.entry(new ArrayList<ColorPegs>(temp.getKey()), new ArrayList<ColorPegs>(temp.getValue()));
+		Map.Entry<List<ColorPegs>, List<ColorPegs>> temp = null;
+		Iterator<Map.Entry<List<ColorPegs>, List<ColorPegs>>> it = this.board.entrySet().iterator();
+		while (it.hasNext()) {
+			temp = it.next();
+		}
+		return temp;
 	}
+
 }

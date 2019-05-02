@@ -46,7 +46,7 @@ public class SingleGame {
 	public boolean[] start() {
 		coordinator.insertCodeToGuess(maker.getCodeToGuess(board.getSequenceLength(), manager), board);
 		while (!coordinator.checkEnd(breaker, board)) {
-			manager.showGame();
+			manager.showGame(this.board);
 			coordinator.insertNewAttempt(breaker.getCode(board.getSequenceLength(), manager), board);
 		}
 		return manager.ending();
