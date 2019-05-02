@@ -20,6 +20,7 @@ public class Board {
 	private Map<List<ColorPegs>, List<ColorPegs>> board;
 	private final int maxAttempts;
 	private final int sequenceLength;
+	private Map<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue;
 
 	/**
 	 * Costruttore che riceve come parametri la lunghezza delle sequenze di pioli e
@@ -47,8 +48,7 @@ public class Board {
 	 * @return
 	 */
 	public List<ColorPegs> getSequenceToGuess() {
-		// TODO
-		return null;
+		return sequenceToGuess;
 	}
 
 	/**
@@ -56,9 +56,14 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public boolean setSequenceToGuess(ColorPegs[] toGuess) {
-		// TODO
-		return false;
+	public boolean setSequenceToGuess(List<ColorPegs> toGuess) {
+		if (toGuess.size() != this.sequenceLength) {
+			throw new IllegalArgumentException(
+					"Si è provato ad inserire nella plancia una sequenza con dimensione illegale");
+		} else {
+			this.sequenceToGuess = toGuess;
+			return true;
+		}
 	}
 
 	/**
@@ -67,8 +72,7 @@ public class Board {
 	 * @return
 	 */
 	public int leftAttempts() {
-		// TODO
-		return 0;
+		return maxAttempts - board.size();
 	}
 
 	/**
@@ -77,8 +81,7 @@ public class Board {
 	 * @return
 	 */
 	public boolean isEmpty() {
-		// TODO
-		return false;
+		return sequenceToGuess.isEmpty() && board.isEmpty();
 	}
 
 	/**
@@ -90,8 +93,18 @@ public class Board {
 	 * @return
 	 */
 	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) {
-		// TODO
-		return false;
+		if ((attempt.size() != this.sequenceLength) || (clue.size() != this.sequenceLength)) {
+			throw new IllegalArgumentException(
+					"Si è provato ad inserire nella plancia una sequenza con dimensione illegale");
+		} else {
+			/*
+			* Aggiorno l'ultimo tentativo 
+			*/
+			lastAttemptAndClue.clear();
+			lastAttemptAndClue.put(attempt,clue);
+			board.put(attempt, clue);
+			return true;
+		}
 	}
 
 	/**
@@ -100,8 +113,7 @@ public class Board {
 	 * 
 	 * @return
 	 */
-	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttempt() {
-		// TODO
-		return null;
+	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue() {
+		return lastAttemptAndClue.entrySet().iterator().next();
 	}
 }
