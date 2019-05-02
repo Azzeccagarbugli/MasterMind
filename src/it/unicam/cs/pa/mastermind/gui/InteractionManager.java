@@ -13,11 +13,17 @@ public interface InteractionManager {
 	 * 
 	 * @return
 	 */
-	public byte[] getSequence();
+	public int[] getSequence();
 
 	/**
 	 * Mostra all'utente la situazione corrente del gioco
 	 */
 	public void showGame();
 
+
+	/**
+	 * Gestisce la fine di una singola partita
+	 * @return
+	 */
+	public boolean[] ending();
 }

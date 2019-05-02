@@ -27,7 +27,8 @@ public class SingleGame {
 	 * @param sequenceLength
 	 * @param attempts
 	 */
-	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts, InteractionManager manager) {
+	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
+			InteractionManager manager) {
 		this.maker = maker;
 		this.breaker = breaker;
 		this.board = new Board(sequenceLength, attempts);
@@ -36,10 +37,19 @@ public class SingleGame {
 	}
 
 	/**
-	 * Avvio effettivo della partita
+	 * Avvio effettivo di una singola partita. Il metodo restituisce un array con
+	 * due valori booleani, che indicano la volontà di iniziare o meno una nuova
+	 * partita e la volontà di iniziarla con altre impostazioni
+	 * 
+	 * @return
 	 */
-	public void start() {
-		// TODO
+	public boolean[] start() {
+		coordinator.insertCodeToGuess(maker.getCodeToGuess(manager), board);
+		while (!coordinator.checkEnd(breaker, board)) {
+			manager.showGame();
+			coordinator.insertNewAttempt(breaker.getCode(manager), board);
+		}
+		return manager.ending();
 	}
 
 }

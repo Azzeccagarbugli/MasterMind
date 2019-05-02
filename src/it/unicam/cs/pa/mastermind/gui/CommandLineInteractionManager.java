@@ -12,7 +12,7 @@ package it.unicam.cs.pa.mastermind.gui;
 public class CommandLineInteractionManager implements InteractionManager {
 
 	@Override
-	public byte[] getSequence() {
+	public int[] getSequence() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -21,6 +21,12 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public void showGame() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean[] ending(){
+		//TODO
+		return null;
 	}
 
 }
