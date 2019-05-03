@@ -110,9 +110,9 @@ public class CommandLineInteractionManager implements InteractionManager {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 			int intInput = 0;
 			System.out.println("\nThe game has finished, what would you like to do now?");
-			while (!((intInput >= 1) && (intInput <= 2))) {
+			while (!((intInput >= 1) && (intInput <= 3))) {
 				System.out.print("• Start a new game with the same settings [1]" + "\n"
-						+ "• Start a new game with different settings [2]" + "\n> ");
+						+ "• Start a new game with different settings [2]" + "\n• Exit from the game [3]" + "\n> ");
 				try {
 					intInput = Integer.parseInt(reader.readLine());
 				} catch (NumberFormatException e) {
@@ -121,14 +121,19 @@ public class CommandLineInteractionManager implements InteractionManager {
 			}
 			if (intInput == 1) {
 				endingSettings[0] = true;
-				endingSettings[1] = false;
-			} else if (intInput == 2) {
-				endingSettings[0] = false;
 				endingSettings[1] = true;
+			} else if (intInput == 2) {
+				endingSettings[0] = true;
+				endingSettings[1] = false;
+			} else if (intInput == 3) {
+				System.out.println("Thank you for taking part in Mastermind!");
+				System.exit(0);
 			} else {
 				System.out.println("Error in the settingsEnding variable");
 			}
-		} catch (IOException e) {
+		} catch (
+
+		IOException e) {
 			System.out.print(e.getMessage());
 		}
 		return endingSettings;
@@ -138,14 +143,16 @@ public class CommandLineInteractionManager implements InteractionManager {
 		Board bb = new Board();
 		Coordinator cord = new Coordinator();
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
-		//CommandLineStartManager commandStart = new CommandLineStartManager();
+		CommandLineStartManager commandStart = new CommandLineStartManager();
 		bb.setSequenceToGuess(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED));
 		cord.insertNewAttempt(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED), bb);
 
 		command.showGame(bb);
-		/*if (cord.checkEnd(new HumanBreaker(), bb)) {
+
+		if (cord.checkEnd(new HumanBreaker(), bb)) {
 			command.ending();
-		}*/
+		}
+
 	}
 
 }
