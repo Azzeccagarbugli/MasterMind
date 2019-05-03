@@ -35,8 +35,8 @@ public class CommandLineStartManager implements StartManager {
 				System.out.println("Welcome to MasterMind!");
 				if (!keepSettings) {
 					while (!((intInput >= 1) && (intInput <= 3))) {
-						System.out.print("Select the game mode: " + "\n" + "G1BreakerVSG2Maker [1]" + "\n"
-								+ "G1BreakerVSBOTMaker [2]" + "\n" + "BOTBreakerVSBOTMaker [3]" + "\n" + "> ");
+						System.out.print("Select the game mode: " + "\n" + "• G1BreakerVSG2Maker [1]" + "\n"
+								+ "• G1BreakerVSBOTMaker [2]" + "\n" + "• BOTBreakerVSBOTMaker [3]" + "\n" + "> ");
 						try {
 							intInput = Integer.parseInt(reader.readLine());
 						} catch (NumberFormatException e) {
@@ -45,7 +45,7 @@ public class CommandLineStartManager implements StartManager {
 					}
 					mode = (GameMode.values())[intInput - 1];
 					System.out.println("Chosen mode: " + mode);
-					
+
 					switch (mode) {
 					case PLAYERVSPLAYER:
 						maker = new HumanMaker();
@@ -62,13 +62,14 @@ public class CommandLineStartManager implements StartManager {
 					}
 
 					String strInput = "";
-					while (!((strInput.equals("Y")) ^ (strInput.equals("N")))) {
+					while (!(((strInput.equals("Y") || (strInput.equals("y")))
+							^ ((strInput.equals("N") || (strInput.equals("n"))))))) {
 						System.out.print(
 								"Would you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]"
 										+ "\n" + "> ");
 						strInput = reader.readLine();
 					}
-					if (strInput.equals("Y")) {
+					if (strInput.equals("Y") || strInput.equals("y")) {
 						attempts = 9;
 						sequenceLength = 4;
 					} else {

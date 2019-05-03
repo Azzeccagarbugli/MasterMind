@@ -7,9 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.core.Board;
@@ -39,9 +37,9 @@ public class CommandLineInteractionManager implements InteractionManager {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 
 			/*
-			 * Di tutto ciò se ne assume la più piena responsabilità lo studente
-			 * Francesco Pio Stelluti, colui con il quale lei ha discusso intensamente
-			 * riguardo il film della Marvel Avengers: The End Game.
+			 * Di tutto ciò se ne assume la più piena responsabilità lo studente Francesco
+			 * Pio Stelluti, colui con il quale lei ha discusso intensamente riguardo il
+			 * film della Marvel Avengers: The End Game.
 			 */
 			IntStream.range(1, ColorPegs.values().length)
 					.mapToObj(index -> String.format("[%s - %d]", ColorPegs.values()[index].toString(), index))
@@ -108,18 +106,46 @@ public class CommandLineInteractionManager implements InteractionManager {
 
 	@Override
 	public boolean[] ending() {
-		// TODO
-		return null;
+		boolean[] endingSettings = new boolean[2];
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+			int intInput = 0;
+			System.out.println("\nThe game has finished, what would you like to do now?");
+			while (!((intInput >= 1) && (intInput <= 2))) {
+				System.out.print("• Start a new game with the same settings [1]" + "\n"
+						+ "• Start a new game with different settings [2]" + "\n> ");
+				try {
+					intInput = Integer.parseInt(reader.readLine());
+				} catch (NumberFormatException e) {
+					System.out.println("Please insert a numeric value");
+				}
+			}
+			if (intInput == 1) {
+				endingSettings[0] = true;
+				endingSettings[1] = false;
+			} else if (intInput == 2) {
+				endingSettings[0] = false;
+				endingSettings[1] = true;
+			} else {
+				System.out.println("Error in the settingsEnding variable");
+			}
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
+		}
+		return endingSettings;
 	}
 
 	public static void main(String[] args) {
 		Board bb = new Board();
 		Coordinator cord = new Coordinator();
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
-		command.getSequence(bb.getSequenceLength(), true);
+		//CommandLineStartManager commandStart = new CommandLineStartManager();
 		bb.setSequenceToGuess(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED));
-		cord.insertNewAttempt(List.of(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.YELLOW, ColorPegs.YELLOW), bb);
+		cord.insertNewAttempt(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED), bb);
+
 		command.showGame(bb);
+		/*if (cord.checkEnd(new HumanBreaker(), bb)) {
+			command.ending();
+		}*/
 	}
 
 }
