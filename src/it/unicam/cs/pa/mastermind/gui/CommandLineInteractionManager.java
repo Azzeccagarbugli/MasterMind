@@ -39,12 +39,12 @@ public class CommandLineInteractionManager implements InteractionManager {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 
 			/*
-			 * Di tutto ciò se ne assume la più piena responsabilità lo studente Francesco
-			 * Pio Stelluti, colui con il quale lei ha discusso intensamente riguardo il
-			 * film della Marvel Avengers: The End Game.
+			 * Di tutto ciò se ne assume la più piena responsabilità lo studente
+			 * Francesco Pio Stelluti, colui con il quale lei ha discusso intensamente
+			 * riguardo il film della Marvel Avengers: The End Game.
 			 */
-			IntStream.range(0, ColorPegs.values().length)
-					.mapToObj(index -> String.format("[%s - %d]", ColorPegs.values()[index].toString(), index + 1))
+			IntStream.range(1, ColorPegs.values().length)
+					.mapToObj(index -> String.format("[%s - %d]", ColorPegs.values()[index].toString(), index))
 					.forEach(System.out::print);
 			System.out.println("");
 			for (int i = 1; i <= sequenceLength; i++) {
@@ -56,8 +56,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 					} catch (NumberFormatException e) {
 						System.out.println("Please insert a numeric value");
 					}
-				} while (temp <= 0 || temp > sequenceLength);
-				indexPegs.add(temp - 1);
+				} while (temp < 1 || temp > sequenceLength);
+				indexPegs.add(temp);
 			}
 
 		} catch (IOException e) {
@@ -116,8 +116,9 @@ public class CommandLineInteractionManager implements InteractionManager {
 		Board bb = new Board();
 		Coordinator cord = new Coordinator();
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
-		bb.setSequenceToGuess(List.of(ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED));
-		cord.insertNewAttempt(List.of(ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED), bb);
+		command.getSequence(bb.getSequenceLength(), true);
+		bb.setSequenceToGuess(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED));
+		cord.insertNewAttempt(List.of(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.YELLOW, ColorPegs.YELLOW), bb);
 		command.showGame(bb);
 	}
 

@@ -81,8 +81,9 @@ public class Coordinator {
 	 */
 	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt);
+		List<ColorPegs> toGuessCopy = new ArrayList<ColorPegs>(toGuess);
 		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-		Iterator<ColorPegs> itTG = toGuess.iterator();
+		Iterator<ColorPegs> itTG = toGuessCopy.iterator();
 		Iterator<ColorPegs> itAC;
 		ColorPegs pegTG;
 		ColorPegs pegAC;
@@ -92,7 +93,7 @@ public class Coordinator {
 			while (itAC.hasNext()) {
 				pegAC = itAC.next();
 				if (pegTG == pegAC) {
-					if (toGuess.indexOf(pegTG) == attemptCopy.indexOf(pegAC)) {
+					if (toGuessCopy.indexOf(pegTG) == attemptCopy.indexOf(pegAC)) {
 						clue.add(ColorPegs.BLACK);
 					} else {
 						clue.add(ColorPegs.WHITE);
@@ -102,13 +103,13 @@ public class Coordinator {
 					 * AttemptCopy, in questo modo avremo delle occorrenze non nulle per ogni coppia
 					 * ancora non identificata come corretta
 					 */
-					
-					System.out.println("Prima di modifica: " + attemptCopy);
-					System.out.println("PegAC: " + pegAC + " - PegTG: " + pegTG);
-					attemptCopy.set(attemptCopy.indexOf(pegAC), null);
-					
-					System.out.println("Dopo modifica: " + attemptCopy + "\n");
-					
+
+					System.out.println("Prima di modifica TG: " + toGuessCopy);
+					System.out.println("PegAC: " + pegAC +" "+attemptCopy.indexOf(pegAC)+ " - PegTG: " + pegTG+" "+toGuessCopy.indexOf(pegTG));
+					attemptCopy.set(attemptCopy.indexOf(pegAC), ColorPegs.NONE);
+					toGuessCopy.set(toGuessCopy.indexOf(pegTG), ColorPegs.NONE);
+
+					System.out.println("Dopo modifica TG: " + toGuessCopy+"\n");
 					break;
 				}
 			}
