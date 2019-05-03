@@ -18,15 +18,23 @@ import it.unicam.cs.pa.mastermind.players.*;
  */
 public class CommandLineStartManager implements StartManager {
 
-	GameMode mode;
-	int attempts;
-	int sequenceLength;
-	boolean toContinue = true;
-	boolean keepSettings = false;
-	SingleGame game;
-	CodeMaker maker;
-	CodeBreaker breaker;
+	private GameMode mode;
+	private int attempts;
+	private int sequenceLength;
+	private boolean toContinue = true;
+	private boolean keepSettings = false;
+	private SingleGame game;
+	private CodeMaker maker;
+	private CodeBreaker breaker;
+	private InteractionManager intManager;
 
+	public CommandLineStartManager() {
+		attempts = 9;
+		sequenceLength = 4;
+		toContinue = true;
+		keepSettings = false;
+		intManager = new CommandLineInteractionManager();
+	}
 	@Override
 	public void start() {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -48,12 +56,12 @@ public class CommandLineStartManager implements StartManager {
 
 					switch (mode) {
 					case PLAYERVSPLAYER:
-						maker = new HumanMaker();
-						breaker = new HumanBreaker();
+						maker = new HumanMaker(this.intManager);
+						breaker = new HumanBreaker(this.intManager);
 						break;
 					case PLAYERVSBOT:
 						maker = new BotMaker();
-						breaker = new HumanBreaker();
+						breaker = new HumanBreaker(this.intManager);
 						break;
 					case BOTVSBOT:
 						maker = new BotMaker();
@@ -69,10 +77,7 @@ public class CommandLineStartManager implements StartManager {
 										+ "\n" + "> ");
 						strInput = reader.readLine();
 					}
-					if (strInput.equals("Y") || strInput.equals("y")) {
-						attempts = 9;
-						sequenceLength = 4;
-					} else {
+					if (strInput.equals("N") || strInput.equals("n")) {
 						while (attempts <= 0) {
 							try {
 								System.out.print("Insert the number of attempts: " + "\n" + "> ");
@@ -93,7 +98,7 @@ public class CommandLineStartManager implements StartManager {
 				}
 				System.out.println("Now starting the game");
 				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts,
-						new CommandLineInteractionManager());
+						this.intManager);
 				boolean[] newSettings = game.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];

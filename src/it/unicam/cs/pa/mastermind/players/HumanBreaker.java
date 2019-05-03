@@ -15,7 +15,11 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class HumanBreaker implements CodeBreaker {
 
 	private boolean giveUp = false;
-
+	private InteractionManager manager;
+	
+	public HumanBreaker(InteractionManager intManager) {
+		this.manager = intManager;
+	}
 	public boolean isGiveUp() {
 		return giveUp;
 	}
@@ -25,7 +29,7 @@ public class HumanBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getCode(int sequenceLength, InteractionManager inputManager) {
+	public List<ColorPegs> getCode(int sequenceLength) {
 		// TODO Auto-generated method stub
 		return null;
 	}

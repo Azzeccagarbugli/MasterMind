@@ -12,8 +12,8 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
  */
 public class SingleGame {
 
-	private Board board;
-	private Coordinator coordinator;
+	
+	private BoardCoordinator coordinator;
 	private CodeMaker maker;
 	private CodeBreaker breaker;
 	private InteractionManager manager;
@@ -31,8 +31,7 @@ public class SingleGame {
 			InteractionManager manager) {
 		this.maker = maker;
 		this.breaker = breaker;
-		this.board = new Board(sequenceLength, attempts);
-		this.coordinator = new Coordinator();
+		this.coordinator = new BoardCoordinator(new Board(sequenceLength, attempts));
 		this.manager = manager;
 	}
 
@@ -44,10 +43,10 @@ public class SingleGame {
 	 * @return
 	 */
 	public boolean[] start() {
-		coordinator.insertCodeToGuess(maker.getCodeToGuess(board.getSequenceLength(), manager), board);
-		while (!coordinator.checkEnd(breaker, board)) {
-			manager.showGame(this.board);
-			coordinator.insertNewAttempt(breaker.getCode(board.getSequenceLength(), manager), board);
+		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));
+		while (!coordinator.checkEnd(breaker)) {
+			manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
+			coordinator.insertNewAttempt(breaker.getCode(coordinator.getSequenceLength()));
 		}
 		return manager.ending();
 	}

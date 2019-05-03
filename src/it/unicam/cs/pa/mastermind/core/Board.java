@@ -56,7 +56,7 @@ public class Board {
 	 * @return
 	 */
 	public List<ColorPegs> getSequenceToGuess() {
-		return new ArrayList<ColorPegs>(sequenceToGuess);
+		return this.sequenceToGuess;
 	}
 
 	public Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueSet() {

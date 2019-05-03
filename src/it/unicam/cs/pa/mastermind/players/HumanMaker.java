@@ -14,8 +14,15 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  */
 public class HumanMaker implements CodeMaker {
 
+
+	private InteractionManager manager;
+	
+	public HumanMaker(InteractionManager intManager) {
+		this.manager = intManager;
+	}
+	
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager inputManager) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
 		// TODO Auto-generated method stub
 		return null;
 	}

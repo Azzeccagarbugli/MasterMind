@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.core.Board;
-import it.unicam.cs.pa.mastermind.core.Coordinator;
+import it.unicam.cs.pa.mastermind.core.BoardCoordinator;
 import it.unicam.cs.pa.mastermind.pegs.*;
 import it.unicam.cs.pa.mastermind.players.HumanBreaker;
 
@@ -65,15 +67,28 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public void showGame(Board board) {
-		System.out.println("The current secret sequence is this one: " + board.getSequenceToGuess());
+	public void showGame(Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+		System.out.format("%s %42s %18s \n", "|", "Your current combination", "|");
+		System.out.println("+------------------------------+------------------------------+");
+		System.out.format("|%20s %10s %15s %14s\n", "Attempt", "|", "Clue", "|");
+		System.out.println("+------------------------------+------------------------------+");
+		System.out.format("%s %30s %30s \n", "|", "|", "|");
+		attemptsAndClues.stream()
+				.forEach(entry -> System.out.format("| %s | %s %" + dynamicSpace(entry.getValue().size()) + "s \n",
+						entry.getKey(), entry.getValue(), "|"));
+		System.out.format("%s %30s %30s \n", "|", "|", "|");
+		System.out.println("+------------------------------+------------------------------+");
+	}
+	
+	public void showGame(List<ColorPegs> toGuess, Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+		System.out.println("The current secret sequence is this one: " + toGuess);
 		System.out.println("\n+-------------------------------------------------------------+");
 		System.out.format("%s %42s %18s \n", "|", "Your current combination", "|");
 		System.out.println("+------------------------------+------------------------------+");
 		System.out.format("|%20s %10s %15s %14s\n", "Attempt", "|", "Clue", "|");
 		System.out.println("+------------------------------+------------------------------+");
 		System.out.format("%s %30s %30s \n", "|", "|", "|");
-		board.getAttemptAndClueSet().stream()
+		attemptsAndClues.stream()
 				.forEach(entry -> System.out.format("| %s | %s %" + dynamicSpace(entry.getValue().size()) + "s \n",
 						entry.getKey(), entry.getValue(), "|"));
 		System.out.format("%s %30s %30s \n", "|", "|", "|");
@@ -141,7 +156,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {/*
 		Board bb = new Board();
 		Coordinator cord = new Coordinator();
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
@@ -151,9 +166,9 @@ public class CommandLineInteractionManager implements InteractionManager {
 
 		command.showGame(bb);
 
-		if (cord.checkEnd(new HumanBreaker(), bb)) {
+		if (cord.checkEnd(new HumanBreaker(command), bb)) {
 			command.ending();
-		}
+		}*/
 
 	}
 
