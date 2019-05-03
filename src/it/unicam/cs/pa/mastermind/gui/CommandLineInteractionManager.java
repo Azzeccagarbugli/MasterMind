@@ -119,17 +119,19 @@ public class CommandLineInteractionManager implements InteractionManager {
 					System.out.println("Please insert a numeric value");
 				}
 			}
-			if (intInput == 1) {
+			switch(intInput) {
+			case 1:
 				endingSettings[0] = true;
 				endingSettings[1] = true;
-			} else if (intInput == 2) {
+				break;
+			case 2:
 				endingSettings[0] = true;
 				endingSettings[1] = false;
-			} else if (intInput == 3) {
-				System.out.println("Thank you for taking part in Mastermind!");
-				System.exit(0);
-			} else {
-				System.out.println("Error in the settingsEnding variable");
+				break;
+			case 3:
+				endingSettings[0] = false;
+				endingSettings[1] = false;
+				break;
 			}
 		} catch (
 

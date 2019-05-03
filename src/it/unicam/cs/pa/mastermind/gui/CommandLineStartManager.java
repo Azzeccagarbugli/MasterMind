@@ -92,7 +92,6 @@ public class CommandLineStartManager implements StartManager {
 					}
 					reader.close();
 				}
-
 				System.out.println("Now starting the game");
 				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts,
 						new CommandLineInteractionManager());
@@ -100,6 +99,8 @@ public class CommandLineStartManager implements StartManager {
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
 			}
+			System.out.println("Thank you for taking part in Mastermind!");
+			System.exit(0);
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
 		}
