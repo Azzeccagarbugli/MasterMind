@@ -35,7 +35,6 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public static final String ANSI_WHITE = "\u001B[37m";
 	public static final String ANSI_CYAN = "\033[0;36m";
 
-
 	@Override
 	public List<Integer> getSequence(int sequenceLength, boolean toGuess) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
@@ -112,28 +111,36 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 * @param list
 	 */
 	private String beautifyTable(List<ColorPegs> list) {
-
-		// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-
 		String combination = "[ ";
 
 		for (ColorPegs entry : list) {
-			if (entry.equals(ColorPegs.RED)) {
+			switch (entry) {
+			case RED:
 				combination += ANSI_RED + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.YELLOW)) {
+				break;
+			case YELLOW:
 				combination += ANSI_YELLOW + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.BLUE)) {
+				break;
+			case BLUE:
 				combination += ANSI_BLUE + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.BLACK)) {
+				break;
+			case BLACK:
 				combination += ANSI_BLACK + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.GREEN)) {
+				break;
+			case GREEN:
 				combination += ANSI_GREEN + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.WHITE)) {
+				break;
+			case WHITE:
 				combination += ANSI_WHITE + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.PURPLE)) {
+				break;
+			case PURPLE:
 				combination += ANSI_PURPLE + entry + ANSI_RESET + " ";
-			} else if (entry.equals(ColorPegs.ORANGE)) {
+				break;
+			case ORANGE:
 				combination += ANSI_RED + entry + ANSI_RESET + " ";
+				break;
+			default:
+				break;
 			}
 		}
 		combination += "]";
@@ -169,9 +176,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 				endingSettings[1] = false;
 				break;
 			}
-		} catch (
-
-		IOException e) {
+		} catch (IOException e) {
 			System.out.print(e.getMessage());
 		}
 		return endingSettings;
@@ -182,7 +187,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		BoardCoordinator cord = new BoardCoordinator(bb);
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
 		bb.setSequenceToGuess(List.of(ColorPegs.RED, ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.WHITE));
-		cord.insertNewAttempt(List.of(ColorPegs.RED, ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.WHITE));
+		cord.insertNewAttempt(List.of(ColorPegs.PURPLE, ColorPegs.RED, ColorPegs.YELLOW, ColorPegs.WHITE));
 
 		command.showGame(bb.getSequenceToGuess(), bb.getAttemptAndClueSet());
 
