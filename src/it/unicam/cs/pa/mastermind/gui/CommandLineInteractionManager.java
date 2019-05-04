@@ -25,6 +25,17 @@ import it.unicam.cs.pa.mastermind.players.HumanBreaker;
  */
 public class CommandLineInteractionManager implements InteractionManager {
 
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_WHITE = "\u001B[37m";
+	public static final String ANSI_CYAN = "\033[0;36m";
+
+
 	@Override
 	public List<Integer> getSequence(int sequenceLength, boolean toGuess) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
@@ -68,55 +79,65 @@ public class CommandLineInteractionManager implements InteractionManager {
 
 	@Override
 	public void showGame(Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
-		System.out.format("%s %42s %18s \n", "|", "Your current combination", "|");
-		System.out.println("+------------------------------+------------------------------+");
-		System.out.format("|%20s %10s %15s %14s\n", "Attempt", "|", "Clue", "|");
-		System.out.println("+------------------------------+------------------------------+");
-		System.out.format("%s %30s %30s \n", "|", "|", "|");
-		attemptsAndClues.stream()
-				.forEach(entry -> System.out.format("| %s | %s %" + dynamicSpace(entry.getValue().size()) + "s \n",
-						entry.getKey(), entry.getValue(), "|"));
-		System.out.format("%s %30s %30s \n", "|", "|", "|");
-		System.out.println("+------------------------------+------------------------------+");
+		System.out.println("+---------------------------------------------------------------------+");
+		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN + "Your current combination" + ANSI_RESET, "|");
+		System.out.println("+----------------------------------+----------------------------------+");
+		System.out.format("|%20s %14s %19s %14s\n", "Attempt", "|", "Clue", "|");
+		System.out.println("+----------------------------------+----------------------------------+");
+		System.out.format("%s %34s %34s \n", "|", "|", "|");
+		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-68s | %-68s |\n",
+				beautifyTable(entry.getKey()), beautifyTable(entry.getValue())));
+		System.out.format("%s %34s %34s \n", "|", "|", "|");
+		System.out.println("+----------------------------------+----------------------------------+");
 	}
-	
+
 	public void showGame(List<ColorPegs> toGuess, Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
-		System.out.println("The current secret sequence is this one: " + toGuess);
-		System.out.println("\n+-------------------------------------------------------------+");
-		System.out.format("%s %42s %18s \n", "|", "Your current combination", "|");
-		System.out.println("+------------------------------+------------------------------+");
-		System.out.format("|%20s %10s %15s %14s\n", "Attempt", "|", "Clue", "|");
-		System.out.println("+------------------------------+------------------------------+");
-		System.out.format("%s %30s %30s \n", "|", "|", "|");
-		attemptsAndClues.stream()
-				.forEach(entry -> System.out.format("| %s | %s %" + dynamicSpace(entry.getValue().size()) + "s \n",
-						entry.getKey(), entry.getValue(), "|"));
-		System.out.format("%s %30s %30s \n", "|", "|", "|");
-		System.out.println("+------------------------------+------------------------------+");
+		System.out.println("The current secret sequence is this one: " + toGuess + "\n");
+		System.out.println("+---------------------------------------------------------------------+");
+		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN + "Your current combination" + ANSI_RESET, "|");
+		System.out.println("+----------------------------------+----------------------------------+");
+		System.out.format("|%20s %14s %19s %14s\n", "Attempt", "|", "Clue", "|");
+		System.out.println("+----------------------------------+----------------------------------+");
+		System.out.format("%s %34s %34s \n", "|", "|", "|");
+		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-68s | %-68s |\n",
+				beautifyTable(entry.getKey()), beautifyTable(entry.getValue())));
+		System.out.format("%s %34s %34s \n", "|", "|", "|");
+		System.out.println("+----------------------------------+----------------------------------+");
 	}
 
 	/**
-	 * Metodo privato che garantisce la giusta formattazione della tabella
+	 * Metodo privato che aggiunge una nota colorata per ogni pedina inserita
+	 * all'interno della tabella ASCII generata dal metodo <code>showGame</code>.
 	 * 
-	 * @param lenght
-	 * @return
+	 * @param list
 	 */
-	private int dynamicSpace(int lenght) {
-		switch (lenght) {
-		case 0:
-			return 32;
-		case 1:
-			return 24;
-		case 2:
-			return 16;
-		case 3:
-			return 8;
-		case 4:
-			return 1;
-		default:
-			System.out.println("Error!");
-			return 0;
+	private String beautifyTable(List<ColorPegs> list) {
+
+		// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
+
+		String combination = "[ ";
+
+		for (ColorPegs entry : list) {
+			if (entry.equals(ColorPegs.RED)) {
+				combination += ANSI_RED + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.YELLOW)) {
+				combination += ANSI_YELLOW + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.BLUE)) {
+				combination += ANSI_BLUE + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.BLACK)) {
+				combination += ANSI_BLACK + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.GREEN)) {
+				combination += ANSI_GREEN + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.WHITE)) {
+				combination += ANSI_WHITE + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.PURPLE)) {
+				combination += ANSI_PURPLE + entry + ANSI_RESET + " ";
+			} else if (entry.equals(ColorPegs.ORANGE)) {
+				combination += ANSI_RED + entry + ANSI_RESET + " ";
+			}
 		}
+		combination += "]";
+		return combination;
 	}
 
 	@Override
@@ -134,7 +155,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 					System.out.println("Please insert a numeric value");
 				}
 			}
-			switch(intInput) {
+			switch (intInput) {
 			case 1:
 				endingSettings[0] = true;
 				endingSettings[1] = true;
@@ -156,19 +177,18 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	public static void main(String[] args) {/*
+	public static void main(String[] args) {
 		Board bb = new Board();
-		Coordinator cord = new Coordinator();
+		BoardCoordinator cord = new BoardCoordinator(bb);
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
-		CommandLineStartManager commandStart = new CommandLineStartManager();
-		bb.setSequenceToGuess(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED));
-		cord.insertNewAttempt(List.of(ColorPegs.YELLOW, ColorPegs.YELLOW, ColorPegs.BLACK, ColorPegs.RED), bb);
+		bb.setSequenceToGuess(List.of(ColorPegs.RED, ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.WHITE));
+		cord.insertNewAttempt(List.of(ColorPegs.RED, ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.WHITE));
 
-		command.showGame(bb);
+		command.showGame(bb.getSequenceToGuess(), bb.getAttemptAndClueSet());
 
-		if (cord.checkEnd(new HumanBreaker(command), bb)) {
+		if (cord.checkEnd(new HumanBreaker(command))) {
 			command.ending();
-		}*/
+		}
 
 	}
 
