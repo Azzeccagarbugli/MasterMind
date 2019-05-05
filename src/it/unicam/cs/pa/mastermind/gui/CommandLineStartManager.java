@@ -6,6 +6,7 @@ package it.unicam.cs.pa.mastermind.gui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.function.Function;
 
 import it.unicam.cs.pa.mastermind.core.SingleGame;
 import it.unicam.cs.pa.mastermind.players.*;
@@ -35,6 +36,7 @@ public class CommandLineStartManager implements StartManager {
 		keepSettings = false;
 		intManager = new CommandLineInteractionManager();
 	}
+
 	@Override
 	public void start() {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -42,9 +44,10 @@ public class CommandLineStartManager implements StartManager {
 			while (toContinue) {
 				System.out.println("Welcome to MasterMind!");
 				if (!keepSettings) {
-					while (!((intInput >= 1) && (intInput <= 3))) {
-						System.out.print("Select the game mode: " + "\n" + "• G1BreakerVSG2Maker [1]" + "\n"
-								+ "• G1BreakerVSBOTMaker [2]" + "\n" + "• BOTBreakerVSBOTMaker [3]" + "\n" + "> ");
+					while (!((intInput >= 1) && (intInput <= 4))) {
+						System.out.print("Select the game mode: " + "\n" + "- Human Breaker VS Human Maker [1]" + "\n"
+								+ "- Human Breaker VS Bot Maker [2]" + "\n" + "- Bot Breaker VS Human Maker [3]"
+								+ "\n" + "- Bot Breaker VS Bot Maker [4]" + "\n" + "> ");
 						try {
 							intInput = Integer.parseInt(reader.readLine());
 						} catch (NumberFormatException e) {
@@ -54,20 +57,18 @@ public class CommandLineStartManager implements StartManager {
 					mode = (GameMode.values())[intInput - 1];
 					System.out.println("Chosen mode: " + mode);
 
-					switch (mode) {
-					case PLAYERVSPLAYER:
-						maker = new HumanMaker(this.intManager);
-						breaker = new HumanBreaker(this.intManager);
-						break;
-					case PLAYERVSBOT:
-						maker = new BotMaker();
-						breaker = new HumanBreaker(this.intManager);
-						break;
-					case BOTVSBOT:
-						maker = new BotMaker();
-						breaker = new BotBreaker();
-						break;
-					}
+					maker = makerFactory.apply(mode);
+					breaker = breakerFactory.apply(mode);
+
+					/*
+					 * switch (mode) { case HUMANBREAKERVSHUMANMAKER: maker = new
+					 * HumanMaker(this.intManager); breaker = new HumanBreaker(this.intManager);
+					 * break; case HUMANBREAKERVSBOTMAKER: maker = new BotMaker(); breaker = new
+					 * HumanBreaker(this.intManager); break; case BOTBREAKERVSHUMANMAKER: maker =
+					 * new HumanMaker(this.intManager); breaker = new BotBreaker(); break; case
+					 * BOTBREAKERVSBOTMAKER: maker = new BotMaker(); breaker = new BotBreaker();
+					 * break; }
+					 */
 
 					String strInput = "";
 					while (!(((strInput.equals("Y") || (strInput.equals("y")))
@@ -97,8 +98,7 @@ public class CommandLineStartManager implements StartManager {
 					}
 				}
 				System.out.println("Now starting the game");
-				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts,
-						this.intManager);
+				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts, this.intManager);
 				boolean[] newSettings = game.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
@@ -110,6 +110,11 @@ public class CommandLineStartManager implements StartManager {
 			System.out.print(e.getMessage());
 		}
 	}
+
+	private Function<GameMode, CodeMaker> makerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
+			|| gm.equals(GameMode.BOTBREAKERVSHUMANMAKER)) ? new HumanMaker(this.intManager) : new BotMaker();
+	private Function<GameMode, CodeBreaker> breakerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
+			|| gm.equals(GameMode.HUMANBREAKERVSBOTMAKER)) ? new HumanBreaker(this.intManager) : new BotBreaker();
 
 	public static void main(String[] args) {
 		CommandLineStartManager startManager = new CommandLineStartManager();
