@@ -44,10 +44,9 @@ public class SingleGame {
 	public boolean[] start() {
 		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength(), this.manager));
 		do {
-			manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
 			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength(), this.manager));
+			manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
 		} while (!coordinator.checkEnd(breaker));
-		manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
 		return manager.ending();
 	}
 

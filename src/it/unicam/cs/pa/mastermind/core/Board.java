@@ -21,7 +21,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class Board {
 
 	private List<ColorPegs> sequenceToGuess;
-	private Map<List<ColorPegs>, List<ColorPegs>> board;
+	private LinkedHashMap<List<ColorPegs>, List<ColorPegs>> board;
 	private final int maxAttempts;
 	private final int sequenceLength;
 

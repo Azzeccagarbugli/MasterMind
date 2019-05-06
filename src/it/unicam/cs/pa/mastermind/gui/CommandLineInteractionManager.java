@@ -26,7 +26,6 @@ import it.unicam.cs.pa.mastermind.players.HumanBreaker;
 public class CommandLineInteractionManager implements InteractionManager {
 
 	public static final String ANSI_RESET = "\u001B[0m";
-
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_WHITE = "\033[0;97m";
 	public static final String ANSI_WHITE_BOLD = "\033[1;37m";
@@ -40,35 +39,38 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public static final String ANSI_CYAN_BACKGROUND = "\033[0;106m";
 	public static final String ANSI_WHITE_BACKGROUND = "\033[0;107m";
 	public static final String ANSI_ORANGE_BACKGROUND = "\033[41m";
+	
+	private BufferedReader reader;
+	
 
+	public CommandLineInteractionManager(BufferedReader newReader) {
+		this.reader = newReader;
+	}
+	
 	@Override
 	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		if (toGuess) {
-			System.out.println("Defining the sequence to guess: ");
+			System.out.println("VVV Defining the sequence to guess VVV ");
 		} else {
-			System.out.println("Defining an attempt: ");
+			System.out.println("VVV Defining an attempt VVV ");
 		}
 
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+		try{
 
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 
-			/*
-			 * Di tutto ciò se ne assume la più piena responsabilità lo studente Francesco
-			 * Pio Stelluti, colui con il quale lei ha discusso intensamente riguardo il
-			 * film della Marvel Avengers: The End Game.
-			 */
 			IntStream.range(1, ColorPegs.values().length)
 					.mapToObj(index -> String.format("[%s - %d]", ColorPegs.values()[index].toString(), index))
 					.forEach(System.out::print);
 			System.out.println("");
+			
 			for (int i = 1; i <= sequenceLength; i++) {
 				int temp = 0;
 				do {
 					System.out.print("Insert value nr." + i + " > ");
 					try {
-						temp = Integer.parseInt(reader.readLine());
+						temp = Integer.parseInt(this.reader.readLine());
 					} catch (NumberFormatException e) {
 						System.out.println("Please insert a numeric value");
 					}
@@ -213,8 +215,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 			int intInput = 0;
 			System.out.println("\nThe game has finished, what would you like to do now?");
 			while (!((intInput >= 1) && (intInput <= 3))) {
-				System.out.print("• Start a new game with the same settings [1]" + "\n"
-						+ "• Start a new game with different settings [2]" + "\n• Exit from the game [3]" + "\n> ");
+				System.out.print("- Start a new game with the same settings [1]" + "\n"
+						+ "- Start a new game with different settings [2]" + "\n" +"- Exit from the game [3]" + "\n> ");
 				try {
 					intInput = Integer.parseInt(reader.readLine());
 				} catch (NumberFormatException e) {
