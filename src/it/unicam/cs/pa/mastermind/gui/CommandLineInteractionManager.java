@@ -241,7 +241,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {/*
 		Board bb = new Board();
 		BoardCoordinator cord = new BoardCoordinator(bb);
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
@@ -255,7 +255,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 
 		if (cord.checkEnd(new HumanBreaker(command))) {
 			command.ending();
-		}
+		}*/
 
 	}
 

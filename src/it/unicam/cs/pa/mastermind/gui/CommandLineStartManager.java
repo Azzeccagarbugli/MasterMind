@@ -104,7 +104,7 @@ public class CommandLineStartManager implements StartManager {
 				this.keepSettings = newSettings[1];
 			}
 			reader.close();
-			System.out.println("Thank you for taking part in Mastermind!");
+			System.out.println("\n"+"Thank you for taking part in Mastermind!");
 			System.exit(0);
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
