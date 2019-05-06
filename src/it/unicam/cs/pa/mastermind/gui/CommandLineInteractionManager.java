@@ -26,14 +26,21 @@ import it.unicam.cs.pa.mastermind.players.HumanBreaker;
 public class CommandLineInteractionManager implements InteractionManager {
 
 	public static final String ANSI_RESET = "\u001B[0m";
+	
 	public static final String ANSI_BLACK = "\u001B[30m";
-	public static final String ANSI_RED = "\u001B[31m";
-	public static final String ANSI_GREEN = "\u001B[32m";
-	public static final String ANSI_YELLOW = "\u001B[33m";
-	public static final String ANSI_BLUE = "\u001B[34m";
-	public static final String ANSI_PURPLE = "\u001B[35m";
-	public static final String ANSI_WHITE = "\u001B[37m";
-	public static final String ANSI_CYAN = "\033[0;36m";
+	public static final String ANSI_RED = "\033[0;91m";
+	public static final String ANSI_GREEN = "\033[0;92m";
+	public static final String ANSI_YELLOW = "\033[0;93m";
+	public static final String ANSI_BLUE = "\033[0;94m";
+	public static final String ANSI_PURPLE = "\033[0;95m";
+	public static final String ANSI_WHITE = "\033[0;97m";
+	public static final String ANSI_ORANGE = "\033[0;31m";
+	
+	public static final String ANSI_WHITE_BOLD = "\033[1;37m";
+	public static final String ANSI_CYAN_BOLD = "\033[1;96m";
+
+	public static final String WHITE_BACKGROUND = "\033[47m";
+	public static final String BLACK_BACKGROUND = "\033[40m";
 
 	@Override
 	public List<Integer> getSequence(int sequenceLength, boolean toGuess) {
@@ -79,13 +86,15 @@ public class CommandLineInteractionManager implements InteractionManager {
 	@Override
 	public void showGame(Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		System.out.println("+---------------------------------------------------------------------+");
-		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN + "Your current combination" + ANSI_RESET, "|");
+		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
+		String attemptWhiteBold = ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET;
+		String clueWhiteBold = ANSI_WHITE_BOLD + "Clue" + ANSI_RESET;
 		System.out.println("+----------------------------------+----------------------------------+");
-		System.out.format("|%20s %14s %19s %14s\n", "Attempt", "|", "Clue", "|");
+		System.out.format("|%20s %14s %19s %14s\n", attemptWhiteBold, "|", clueWhiteBold, "|");
 		System.out.println("+----------------------------------+----------------------------------+");
 		System.out.format("%s %34s %34s \n", "|", "|", "|");
-		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-68s | %-68s |\n",
-				beautifyTable(entry.getKey()), beautifyTable(entry.getValue())));
+		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-76s | %-68s |\n",
+				beautifyAttempts(entry.getKey()), beautifyClues(entry.getValue())));
 		System.out.format("%s %34s %34s \n", "|", "|", "|");
 		System.out.println("+----------------------------------+----------------------------------+");
 	}
@@ -93,13 +102,15 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public void showGame(List<ColorPegs> toGuess, Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		System.out.println("The current secret sequence is this one: " + toGuess + "\n");
 		System.out.println("+---------------------------------------------------------------------+");
-		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN + "Your current combination" + ANSI_RESET, "|");
+		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
+		String attemptWhiteBold = ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET;
+		String clueWhiteBold = ANSI_WHITE_BOLD + "Clue" + ANSI_RESET;
 		System.out.println("+----------------------------------+----------------------------------+");
-		System.out.format("|%20s %14s %19s %14s\n", "Attempt", "|", "Clue", "|");
+		System.out.format("|%31s %14s %30s %14s\n", attemptWhiteBold, "|", clueWhiteBold, "|");
 		System.out.println("+----------------------------------+----------------------------------+");
 		System.out.format("%s %34s %34s \n", "|", "|", "|");
-		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-68s | %-68s |\n",
-				beautifyTable(entry.getKey()), beautifyTable(entry.getValue())));
+		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-76s | %-68s |\n",
+				beautifyAttempts(entry.getKey()), beautifyClues(entry.getValue())));
 		System.out.format("%s %34s %34s \n", "|", "|", "|");
 		System.out.println("+----------------------------------+----------------------------------+");
 	}
@@ -108,43 +119,62 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 * Metodo privato che aggiunge una nota colorata per ogni pedina inserita
 	 * all'interno della tabella ASCII generata dal metodo <code>showGame</code>.
 	 * 
-	 * @param list
+	 * @param attemptsList
 	 */
-	private String beautifyTable(List<ColorPegs> list) {
-		String combination = "[ ";
+	private String beautifyAttempts(List<ColorPegs> attemptsList) {
+		String attemptCombination = "[ ";
 
-		for (ColorPegs entry : list) {
-			switch (entry) {
+		for (ColorPegs attempt : attemptsList) {
+			switch (attempt) {
 			case RED:
-				combination += ANSI_RED + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_RED + attempt + ANSI_RESET + " ";
 				break;
 			case YELLOW:
-				combination += ANSI_YELLOW + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_YELLOW + attempt + ANSI_RESET + " ";
 				break;
 			case BLUE:
-				combination += ANSI_BLUE + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_BLUE + attempt + ANSI_RESET + " ";
 				break;
 			case BLACK:
-				combination += ANSI_BLACK + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_BLACK + attempt + ANSI_RESET + " ";
 				break;
 			case GREEN:
-				combination += ANSI_GREEN + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_GREEN + attempt + ANSI_RESET + " ";
 				break;
 			case WHITE:
-				combination += ANSI_WHITE + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_WHITE + attempt + ANSI_RESET + " ";
 				break;
 			case PURPLE:
-				combination += ANSI_PURPLE + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_PURPLE + attempt + ANSI_RESET + " ";
 				break;
 			case ORANGE:
-				combination += ANSI_RED + entry + ANSI_RESET + " ";
+				attemptCombination += ANSI_ORANGE + attempt + ANSI_RESET + " ";
 				break;
 			default:
 				break;
 			}
 		}
-		combination += "]";
-		return combination;
+		attemptCombination += "]";
+		return attemptCombination;
+	}
+
+	private String beautifyClues(List<ColorPegs> cluesList) {
+		String clueCombination = "[ ";
+
+		for (ColorPegs clue : cluesList) {
+			switch (clue) {
+			case BLACK:
+				clueCombination += BLACK_BACKGROUND + "     " + ANSI_RESET + " ";
+				break;
+			case WHITE:
+				clueCombination += WHITE_BACKGROUND + "     " + ANSI_RESET + " ";
+				break;
+			default:
+				break;
+			}
+		}
+		clueCombination += "]";
+		return clueCombination;
 	}
 
 	@Override
@@ -186,8 +216,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 		Board bb = new Board();
 		BoardCoordinator cord = new BoardCoordinator(bb);
 		CommandLineInteractionManager command = new CommandLineInteractionManager();
-		bb.setSequenceToGuess(List.of(ColorPegs.RED, ColorPegs.PURPLE, ColorPegs.YELLOW, ColorPegs.WHITE));
-		cord.insertNewAttempt(List.of(ColorPegs.PURPLE, ColorPegs.RED, ColorPegs.YELLOW, ColorPegs.WHITE));
+		bb.setSequenceToGuess(List.of(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.YELLOW, ColorPegs.WHITE));
+		cord.insertNewAttempt(List.of(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.YELLOW, ColorPegs.WHITE));
 
 		command.showGame(bb.getSequenceToGuess(), bb.getAttemptAndClueSet());
 
