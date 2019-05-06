@@ -139,6 +139,12 @@ public class CommandLineInteractionManager implements InteractionManager {
 			case ORANGE:
 				attemptCombination += ANSI_ORANGE_BACKGROUND + "      " + ANSI_RESET + " ";
 				break;
+			case WHITE:
+				attemptCombination += ANSI_WHITE_BACKGROUND + "      " + ANSI_RESET + " ";
+				break;
+			case BLACK:
+				attemptCombination += ANSI_BLACK_BACKGROUND + "      " + ANSI_RESET + " ";
+				break;
 			default:
 				break;
 			}
