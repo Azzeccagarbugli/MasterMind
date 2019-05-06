@@ -47,6 +47,7 @@ public class SingleGame {
 			manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
 			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength(), this.manager));
 		} while (!coordinator.checkEnd(breaker));
+		manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
 		return manager.ending();
 	}
 
