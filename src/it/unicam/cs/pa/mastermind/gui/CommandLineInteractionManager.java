@@ -211,14 +211,14 @@ public class CommandLineInteractionManager implements InteractionManager {
 	@Override
 	public boolean[] ending() {
 		boolean[] endingSettings = new boolean[2];
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+		try {
 			int intInput = 0;
 			System.out.println("\nThe game has finished, what would you like to do now?");
 			while (!((intInput >= 1) && (intInput <= 3))) {
 				System.out.print("- Start a new game with the same settings [1]" + "\n"
 						+ "- Start a new game with different settings [2]" + "\n" +"- Exit from the game [3]" + "\n> ");
 				try {
-					intInput = Integer.parseInt(reader.readLine());
+					intInput = Integer.parseInt(this.reader.readLine());
 				} catch (NumberFormatException e) {
 					System.out.println("Please insert a numeric value");
 				}
@@ -243,22 +243,5 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	public static void main(String[] args) {/*
-		Board bb = new Board();
-		BoardCoordinator cord = new BoardCoordinator(bb);
-		CommandLineInteractionManager command = new CommandLineInteractionManager();
-		bb.setSequenceToGuess(List.of(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.YELLOW, ColorPegs.PURPLE));
-		cord.insertNewAttempt(List.of(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.YELLOW, ColorPegs.PURPLE));
-		cord.insertNewAttempt(List.of(ColorPegs.BLUE, ColorPegs.RED, ColorPegs.YELLOW, ColorPegs.PURPLE));
-		cord.insertNewAttempt(List.of(ColorPegs.BLUE, ColorPegs.YELLOW, ColorPegs.ORANGE, ColorPegs.PURPLE));
-		cord.insertNewAttempt(List.of(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.YELLOW, ColorPegs.PURPLE));
-
-		command.showGame(bb.getSequenceToGuess(), bb.getAttemptAndClueSet());
-
-		if (cord.checkEnd(new HumanBreaker(command))) {
-			command.ending();
-		}*/
-
-	}
 
 }

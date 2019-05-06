@@ -41,10 +41,9 @@ public class CommandLineStartManager implements StartManager {
 
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 
-			intManager = new CommandLineInteractionManager(reader);
 			while (toContinue) {
 				int intInput = 0;
-
+				intManager = new CommandLineInteractionManager(reader);
 				System.out.println("Welcome to MasterMind!");
 				if (!keepSettings) {
 					while (!((intInput >= 1) && (intInput <= 4))) {
@@ -63,15 +62,6 @@ public class CommandLineStartManager implements StartManager {
 					maker = makerFactory.apply(mode);
 					breaker = breakerFactory.apply(mode);
 
-					/*
-					 * switch (mode) { case HUMANBREAKERVSHUMANMAKER: maker = new
-					 * HumanMaker(this.intManager); breaker = new HumanBreaker(this.intManager);
-					 * break; case HUMANBREAKERVSBOTMAKER: maker = new BotMaker(); breaker = new
-					 * HumanBreaker(this.intManager); break; case BOTBREAKERVSHUMANMAKER: maker =
-					 * new HumanMaker(this.intManager); breaker = new BotBreaker(); break; case
-					 * BOTBREAKERVSBOTMAKER: maker = new BotMaker(); breaker = new BotBreaker();
-					 * break; }
-					 */
 
 					String strInput = "";
 					while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {

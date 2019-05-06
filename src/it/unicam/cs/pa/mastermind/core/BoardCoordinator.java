@@ -22,10 +22,11 @@ import it.unicam.cs.pa.mastermind.pegs.*;
 public class BoardCoordinator {
 
 	private Board currentBoard;
-	
+
 	public BoardCoordinator(Board newBoard) {
 		this.currentBoard = newBoard;
 	}
+
 	/**
 	 * Riceve come argomento una nuova sequenza da inserire nella plancia come nuovo
 	 * tentativo. Inserisce nella plancia anche la sequenza di pioli indizio
@@ -55,7 +56,8 @@ public class BoardCoordinator {
 	 */
 	public boolean checkEnd(CodeBreaker breaker) {
 		if (breaker.isGiveUp() || currentBoard.leftAttempts() == 0
-				|| currentBoard.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK)) {
+				|| (currentBoard.lastAttemptAndClue().getValue().size() == this.getSequenceLength() && currentBoard
+						.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK))) {
 			return true;
 		} else {
 			return false;
@@ -112,12 +114,15 @@ public class BoardCoordinator {
 					 * ancora non identificata come corretta
 					 */
 
-					/*System.out.println("Prima di modifica TG: " + toGuessCopy);
-					System.out.println("PegAC: " + pegAC +" "+attemptCopy.indexOf(pegAC)+ " - PegTG: " + pegTG+" "+toGuessCopy.indexOf(pegTG));*/
+					/*
+					 * System.out.println("Prima di modifica TG: " + toGuessCopy);
+					 * System.out.println("PegAC: " + pegAC +" "+attemptCopy.indexOf(pegAC)+
+					 * " - PegTG: " + pegTG+" "+toGuessCopy.indexOf(pegTG));
+					 */
 					attemptCopy.set(attemptCopy.indexOf(pegAC), ColorPegs.NONE);
 					toGuessCopy.set(toGuessCopy.indexOf(pegTG), ColorPegs.NONE);
 
-					/*System.out.println("Dopo modifica TG: " + toGuessCopy+"\n");*/
+					/* System.out.println("Dopo modifica TG: " + toGuessCopy+"\n"); */
 					break;
 				}
 			}
@@ -125,15 +130,15 @@ public class BoardCoordinator {
 		Collections.shuffle(clue);
 		return clue;
 	}
-	
+
 	public List<ColorPegs> getSequenceToGuess() {
 		return new ArrayList<ColorPegs>(currentBoard.getSequenceToGuess());
 	}
-	
+
 	public Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueSet() {
 		return new HashSet<Map.Entry<List<ColorPegs>, List<ColorPegs>>>(currentBoard.getAttemptAndClueSet());
 	}
-	
+
 	public int getSequenceLength() {
 		return this.currentBoard.getSequenceLength();
 	}
