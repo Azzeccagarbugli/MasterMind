@@ -12,7 +12,6 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
  */
 public class SingleGame {
 
-	
 	private BoardCoordinator coordinator;
 	private CodeMaker maker;
 	private CodeBreaker breaker;
@@ -43,11 +42,11 @@ public class SingleGame {
 	 * @return
 	 */
 	public boolean[] start() {
-		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));
-		while (!coordinator.checkEnd(breaker)) {
+		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength(), this.manager));
+		do {
 			manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueSet());
-			coordinator.insertNewAttempt(breaker.getCode(coordinator.getSequenceLength()));
-		}
+			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength(), this.manager));
+		} while (!coordinator.checkEnd(breaker));
 		return manager.ending();
 	}
 

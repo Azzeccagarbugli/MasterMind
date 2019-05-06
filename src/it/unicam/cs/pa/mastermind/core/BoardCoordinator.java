@@ -112,12 +112,12 @@ public class BoardCoordinator {
 					 * ancora non identificata come corretta
 					 */
 
-					System.out.println("Prima di modifica TG: " + toGuessCopy);
-					System.out.println("PegAC: " + pegAC +" "+attemptCopy.indexOf(pegAC)+ " - PegTG: " + pegTG+" "+toGuessCopy.indexOf(pegTG));
+					/*System.out.println("Prima di modifica TG: " + toGuessCopy);
+					System.out.println("PegAC: " + pegAC +" "+attemptCopy.indexOf(pegAC)+ " - PegTG: " + pegTG+" "+toGuessCopy.indexOf(pegTG));*/
 					attemptCopy.set(attemptCopy.indexOf(pegAC), ColorPegs.NONE);
 					toGuessCopy.set(toGuessCopy.indexOf(pegTG), ColorPegs.NONE);
 
-					System.out.println("Dopo modifica TG: " + toGuessCopy+"\n");
+					/*System.out.println("Dopo modifica TG: " + toGuessCopy+"\n");*/
 					break;
 				}
 			}

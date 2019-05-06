@@ -3,6 +3,7 @@
  */
 package it.unicam.cs.pa.mastermind.players;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
@@ -22,9 +23,10 @@ public class HumanMaker implements CodeMaker {
 	}
 	
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager) {
+		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
+		intManager.getIndexSequence(sequenceLength, true).stream().map(index -> ColorPegs.values()[index]).forEach(listToGuess::add);
+		return listToGuess;
 	}
 
 }

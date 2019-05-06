@@ -29,10 +29,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_WHITE = "\033[0;97m";
-
 	public static final String ANSI_WHITE_BOLD = "\033[1;37m";
 	public static final String ANSI_CYAN_BOLD = "\033[1;96m";
-
 	public static final String ANSI_BLACK_BACKGROUND = "\033[40m";
 	public static final String ANSI_RED_BACKGROUND = "\033[0;101m";
 	public static final String ANSI_GREEN_BACKGROUND = "\033[0;102m";
@@ -44,7 +42,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public static final String ANSI_ORANGE_BACKGROUND = "\033[41m";
 
 	@Override
-	public List<Integer> getSequence(int sequenceLength, boolean toGuess) {
+	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		if (toGuess) {
 			System.out.println("Defining the sequence to guess: ");
@@ -74,7 +72,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 					} catch (NumberFormatException e) {
 						System.out.println("Please insert a numeric value");
 					}
-				} while (temp < 1 || temp > sequenceLength);
+				} while (temp < 1 || temp >= ColorPegs.values().length);
 				indexPegs.add(temp);
 			}
 

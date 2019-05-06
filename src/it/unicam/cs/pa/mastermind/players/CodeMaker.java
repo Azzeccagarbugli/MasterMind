@@ -19,5 +19,5 @@ public interface CodeMaker {
 	 * @param inputManager
 	 * @return
 	 */
-	public List<ColorPegs> getCodeToGuess(int sequenceLength);
+	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager);
 }

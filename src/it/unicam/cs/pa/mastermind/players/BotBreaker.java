@@ -3,7 +3,9 @@
  */
 package it.unicam.cs.pa.mastermind.players;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
@@ -25,9 +27,10 @@ public class BotBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getCode(int sequenceLength) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager) {
+		List<ColorPegs> listAttempt = new ArrayList<ColorPegs>();
+		new Random().ints(sequenceLength, 1, ColorPegs.values().length).boxed().map(index -> ColorPegs.values()[index]).forEach(listAttempt::add);
+		return listAttempt;
 	}
 
 }

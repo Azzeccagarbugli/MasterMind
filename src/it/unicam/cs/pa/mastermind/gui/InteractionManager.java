@@ -20,7 +20,7 @@ public interface InteractionManager {
 	 * 
 	 * @return
 	 */
-	public List<Integer> getSequence(int sequenceLength, boolean toGuess);
+	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess);
 
 
 	/**
