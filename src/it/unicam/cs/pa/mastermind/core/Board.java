@@ -38,14 +38,6 @@ public class Board {
 		this.maxAttempts = maxAttempts;
 	}
 
-	/**
-	 * Costruttore senza parametri. La plancia � inizializzata con le regole
-	 * standard
-	 */
-	public Board() {
-		this(4, 9);
-	}
-
 	public int getSequenceLength() {
 		return this.sequenceLength;
 	}
@@ -60,7 +52,7 @@ public class Board {
 	}
 
 	public Map<List<ColorPegs>, List<ColorPegs>> getAttemptAndClueMap() {
-		return Map.copyOf(board);
+		return board;
 	}
 
 	/**

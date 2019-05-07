@@ -130,7 +130,7 @@ public class BoardCoordinator {
 	public List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueList() {
 		ArrayList<Map.Entry<List<ColorPegs>, List<ColorPegs>>> newList = new ArrayList<>();
 		this.currentBoard.getAttemptAndClueMap().forEach((key, value) -> newList.add(Map.entry(key, value)));
-return newList;
+		return newList;
 	}
 
 	public int getSequenceLength() {
