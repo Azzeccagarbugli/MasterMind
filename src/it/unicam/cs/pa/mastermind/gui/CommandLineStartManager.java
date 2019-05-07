@@ -10,7 +10,6 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.core.SingleGame;
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 import it.unicam.cs.pa.mastermind.players.*;
 
 /**
@@ -27,8 +26,6 @@ public class CommandLineStartManager implements StartManager {
 	private boolean toContinue = true;
 	private boolean keepSettings = false;
 	private SingleGame game;
-	private CodeMaker maker;
-	private CodeBreaker breaker;
 	private InteractionManager intManager;
 
 	private static final String ANSI_RESET = "\u001B[0m";
@@ -83,8 +80,6 @@ public class CommandLineStartManager implements StartManager {
 							ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
 					System.out.format(String.format("+%13s+%30s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
 
-					maker = makerFactory.apply(mode);
-					breaker = breakerFactory.apply(mode);
 
 					String strInput = "";
 					while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
@@ -117,7 +112,7 @@ public class CommandLineStartManager implements StartManager {
 				}
 
 				System.out.println("\nNow starting the game");
-				game = new SingleGame(this.maker, this.breaker, this.sequenceLength, this.attempts, this.intManager);
+				game = new SingleGame(makerFactory.apply(mode), breakerFactory.apply(mode), this.sequenceLength, this.attempts, this.intManager);
 				boolean[] newSettings = game.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
