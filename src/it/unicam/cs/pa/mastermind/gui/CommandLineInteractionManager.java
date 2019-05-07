@@ -1,4 +1,4 @@
-/**
+/*
  * 
  */
 package it.unicam.cs.pa.mastermind.gui;
@@ -39,32 +39,31 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public static final String ANSI_CYAN_BACKGROUND = "\033[0;106m";
 	public static final String ANSI_WHITE_BACKGROUND = "\033[0;107m";
 	public static final String ANSI_ORANGE_BACKGROUND = "\033[41m";
-	
+
 	private BufferedReader reader;
-	
 
 	public CommandLineInteractionManager(BufferedReader newReader) {
 		this.reader = newReader;
 	}
-	
+
 	@Override
 	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		if (toGuess) {
-			System.out.println("VVV Defining the sequence to guess VVV ");
+			System.out.println("\nDefining the sequence to guess");
 		} else {
-			System.out.println("VVV Defining an attempt VVV ");
+			System.out.println("\nDefining an attempt");
 		}
 
-		try{
+		try {
 
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 
-			IntStream.range(1, ColorPegs.values().length)
-					.mapToObj(index -> String.format("[%s - %d]", ColorPegs.values()[index].toString(), index))
+			IntStream.range(1, ColorPegs.values().length).mapToObj(
+					index -> String.format("[%s - %d] ", beutifyColor(ColorPegs.values()[index].toString()), index))
 					.forEach(System.out::print);
 			System.out.println("");
-			
+
 			for (int i = 1; i <= sequenceLength; i++) {
 				int temp = 0;
 				do {
@@ -110,10 +109,11 @@ public class CommandLineInteractionManager implements InteractionManager {
 				beautifyAttempts(entry.getKey()), "|", beautifyClues(entry.getValue())));
 	}
 
-	/**
-	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
-	 * tentativo inserita all'interno della tabella ASCII generata dal metodo
-	 * <code>showGame</code>.
+	/*
+	 * 
+	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine*
+	 * tentativo inserita all'interno della tabella ASCII generata dal
+	 * metodo*<code>showGame</code>.**
 	 * 
 	 * @param attemptsList
 	 */
@@ -156,12 +156,14 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return attemptCombination;
 	}
 
-	/**
-	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
-	 * indizio visualizzata all'interno della tabella ASCII generata dal metodo
-	 * <code>showGame</code>.
+	/*
+	 * 
+	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine*
+	 * indizio visualizzata all'interno della tabella ASCII generata dal
+	 * metodo*<code>showGame</code>.**
 	 * 
 	 * @param cluesList
+	 * 
 	 * @return
 	 */
 	private String beautifyClues(List<ColorPegs> cluesList) {
@@ -187,6 +189,37 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	/**
+	 * Dato un colore sottoforma di stringa viene restituito il suo corrispetivo
+	 * secondo i canoni della decodifica ANSI.
+	 * 
+	 * @param color
+	 * @return
+	 */
+	private String beutifyColor(String color) {
+		// BLUE, RED, YELLOW, GREEN, WHITE, BLACK, ORANGE, PURPLE
+		switch (color) {
+		case "RED":
+			return ANSI_RED_BACKGROUND + "      " + ANSI_RESET;
+		case "YELLOW":
+			return ANSI_YELLOW_BACKGROUND + "      " + ANSI_RESET;
+		case "BLUE":
+			return ANSI_BLUE_BACKGROUND + "      " + ANSI_RESET;
+		case "GREEN":
+			return ANSI_GREEN_BACKGROUND + "      " + ANSI_RESET;
+		case "PURPLE":
+			return ANSI_PURPLE_BACKGROUND + "      " + ANSI_RESET;
+		case "ORANGE":
+			return ANSI_ORANGE_BACKGROUND + "      " + ANSI_RESET;
+		case "WHITE":
+			return ANSI_WHITE_BACKGROUND + "      " + ANSI_RESET;
+		case "BLACK":
+			return ANSI_BLACK_BACKGROUND + "      " + ANSI_RESET;
+		default:
+			return new String();
+		}
+	}
+
+	/**
 	 * Metodo privato che formatta in maniera corretta la visualizzazione della
 	 * tabella in base alla lunghezza della sequenza delle pedine indizio.
 	 * 
@@ -195,8 +228,10 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 */
 	private int dynamicTableLenght(int size) {
 		switch (size) {
+		case 0:
+			return 30;
 		case 1:
-			return 20;
+			return 23;
 		case 2:
 			return 16;
 		case 3:
@@ -216,7 +251,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 			System.out.println("\nThe game has finished, what would you like to do now?");
 			while (!((intInput >= 1) && (intInput <= 3))) {
 				System.out.print("- Start a new game with the same settings [1]" + "\n"
-						+ "- Start a new game with different settings [2]" + "\n" +"- Exit from the game [3]" + "\n> ");
+						+ "- Start a new game with different settings [2]" + "\n" + "- Exit from the game [3]"
+						+ "\n> ");
 				try {
 					intInput = Integer.parseInt(this.reader.readLine());
 				} catch (NumberFormatException e) {
@@ -242,6 +278,5 @@ public class CommandLineInteractionManager implements InteractionManager {
 		}
 		return endingSettings;
 	}
-
 
 }
