@@ -57,7 +57,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 
 			IntStream.range(1, ColorPegs.values().length).mapToObj(
-					index -> String.format("[%s - %d] ", beutifyColor(ColorPegs.values()[index].toString()), index))
+					index -> String.format("[%s - %d] ", beautifyColor(ColorPegs.values()[index].toString()), index))
 					.forEach(System.out::print);
 			System.out.println("");
 
@@ -94,16 +94,33 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
-		System.out.println("The current secret sequence is this one: " + toGuess + "\n");
-		System.out.println("+---------------------------------------------------------------------+");
-		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
+		int dynamicTable = toGuess.size();
+		System.out.println("\nThe current secret sequence is this one: " + toGuess + "\n");
+		
 		String attemptWhiteBold = ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET;
 		String clueWhiteBold = ANSI_WHITE_BOLD + "Clue" + ANSI_RESET;
-		System.out.println("+----------------------------------+----------------------------------+");
-		System.out.format("|%31s %14s %30s %14s\n", attemptWhiteBold, "|", clueWhiteBold, "|");
-		System.out.println("+----------------------------------+----------------------------------+");
-		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %2s %-80s",
-				beautifyAttempts(entry.getKey()), "|", beautifyClues(entry.getValue())));
+
+		showGameBasingOnLenght(dynamicTable, attemptWhiteBold, clueWhiteBold);
+
+		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s", beautifyAttempts(entry.getKey()),
+				beautifyClues(entry.getValue())));
+	}
+
+	public void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
+		if (size > 0 && size < 5) {
+			System.out.format(String.format("\n+%69s+\n", " ").replace(' ', '-'));
+			System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
+			System.out.format(String.format("+%69s+\n", " ").replace(' ', '-'));
+			System.out.format("|%31s %14s %30s %14s\n", attemptLabel, "|", clueLabel, "|");
+			System.out.format(String.format("+%69s+\n", " ").replace(' ', '-'));
+		} else if (size > 4 && size < 9) {
+			System.out.format(String.format("\n+%130s+\n", " ").replace(' ', '-'));
+			System.out.format("%s %114s %44s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
+			System.out.format(String.format("+%138s+\n", " ").replace(' ', '-'));
+			System.out.format("|%62s %28s %60s %28s\n", attemptLabel, "|", clueLabel, "|");
+			System.out.format(String.format("+%130s+\n", " ").replace(' ', '-'));
+		}
+
 	}
 
 	/*
@@ -149,7 +166,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 			}
 		}
 
-		attemptCombination += "]";
+		attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "|");
+		;
 		return attemptCombination;
 	}
 
@@ -192,8 +210,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 * @param color
 	 * @return
 	 */
-	private String beutifyColor(String color) {
-		// BLUE, RED, YELLOW, GREEN, WHITE, BLACK, ORANGE, PURPLE
+	private String beautifyColor(String color) {
 		switch (color) {
 		case "RED":
 			return ANSI_RED_BACKGROUND + "      " + ANSI_RESET;

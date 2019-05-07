@@ -68,6 +68,7 @@ public class CommandLineStartManager implements StartManager {
 								.forEach(System.out::println);
 
 						try {
+							System.out.print("> ");
 							intInput = Integer.parseInt(reader.readLine());
 						} catch (NumberFormatException e) {
 							System.out.println("Please insert a numeric value");
@@ -122,7 +123,7 @@ public class CommandLineStartManager implements StartManager {
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
 		}
-		/* chiusura start */
+		/* Chiusura del gioco */
 		System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%50s" + ANSI_RESET, mastermindLogo,
 				mastermindCaptionEnd);
 		System.exit(0);
