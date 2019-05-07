@@ -28,15 +28,18 @@ public class CommandLineStartManager implements StartManager {
 	private CodeMaker maker;
 	private CodeBreaker breaker;
 	private InteractionManager intManager;
-	
-	private String mastermindLogo = "\r\n" + 
-			"                  _                      _           _ \r\n" + 
-			"  /\\/\\   __ _ ___| |_ ___ _ __ _ __ ___ (_)_ __   __| |\r\n" + 
-			" /    \\ / _` / __| __/ _ \\ '__| '_ ` _ \\| | '_ \\ / _` |\r\n" + 
-			"/ /\\/\\ \\ (_| \\__ \\ ||  __/ |  | | | | | | | | | | (_| |\r\n" + 
-			"\\/    \\/\\__,_|___/\\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|\r\n" + 
-			"                                                       \r\n" + 
-			"";
+
+	private static final String ANSI_RESET = "\u001B[0m";
+	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
+	private static final String ANSI_YELLOW = "\033[0;93m";
+	private static final String ANSI_PURPLE_BOLD = "\033[1;95m";
+
+	private String mastermindLogo = "\r\n" + "                  _                      _           _ \r\n"
+			+ "  /\\/\\   __ _ ___| |_ ___ _ __ _ __ ___ (_)_ __   __| |\r\n"
+			+ " /    \\ / _` / __| __/ _ \\ '__| '_ ` _ \\| | '_ \\ / _` |\r\n"
+			+ "/ /\\/\\ \\ (_| \\__ \\ ||  __/ |  | | | | | | | | | | (_| |\r\n"
+			+ "\\/    \\/\\__,_|___/\\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|\r\n"
+			+ "                                                       \r\n" + "";
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
@@ -55,7 +58,8 @@ public class CommandLineStartManager implements StartManager {
 			while (toContinue) {
 				int intInput = 0;
 				intManager = new CommandLineInteractionManager(reader);
-				System.out.format("%-1s %43s\n\n\n", mastermindLogo, mastermindCaptionStart);
+				System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%43s" + ANSI_RESET + "\n\n\n",
+						mastermindLogo, mastermindCaptionStart);
 				if (!keepSettings) {
 					while (!((intInput >= 1) && (intInput <= 4))) {
 						System.out.print("Select the game mode: " + "\n" + "- Human Breaker VS Human Maker [1]" + "\n"
@@ -69,9 +73,10 @@ public class CommandLineStartManager implements StartManager {
 					}
 					mode = (GameMode.values())[intInput - 1];
 
-					System.out.format(String.format("\n+%13s+%26s+\n", " ", " ").replace(' ', '-'));
-					System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n", mode, "|");
-					System.out.format(String.format("+%13s+%26s+\n", " ", " ").replace(' ', '-'));
+					System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%26s+\n", " ", " ").replace(' ', '-'));
+					System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n",
+							ANSI_RESET + mode + ANSI_PURPLE_BOLD, "|");
+					System.out.format(String.format("+%13s+%26s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
 
 					maker = makerFactory.apply(mode);
 					breaker = breakerFactory.apply(mode);
@@ -118,7 +123,8 @@ public class CommandLineStartManager implements StartManager {
 			System.out.print(e.getMessage());
 		}
 		/* chiusura start */
-		System.out.format("\n%-1s %50s", mastermindLogo, mastermindCaptionEnd);
+		System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%50s" + ANSI_RESET, mastermindLogo,
+				mastermindCaptionEnd);
 		System.exit(0);
 	}
 
