@@ -127,8 +127,10 @@ public class BoardCoordinator {
 		return new ArrayList<ColorPegs>(currentBoard.getSequenceToGuess());
 	}
 
-	public Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueSet() {
-		return new HashSet<Map.Entry<List<ColorPegs>, List<ColorPegs>>>(currentBoard.getAttemptAndClueSet());
+	public List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueList() {
+		ArrayList<Map.Entry<List<ColorPegs>, List<ColorPegs>>> newList = new ArrayList<>();
+		this.currentBoard.getAttemptAndClueMap().forEach((key, value) -> newList.add(Map.entry(key, value)));
+return newList;
 	}
 
 	public int getSequenceLength() {

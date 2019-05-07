@@ -81,7 +81,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public void showGame(Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+	public void showGame(List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		System.out.println("+---------------------------------------------------------------------+");
 		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
 		String attemptWhiteBold = ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET;
@@ -93,7 +93,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 				beautifyAttempts(entry.getKey()), "|", beautifyClues(entry.getValue())));
 	}
 
-	public void showGame(List<ColorPegs> toGuess, Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		System.out.println("The current secret sequence is this one: " + toGuess + "\n");
 		System.out.println("+---------------------------------------------------------------------+");
 		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");

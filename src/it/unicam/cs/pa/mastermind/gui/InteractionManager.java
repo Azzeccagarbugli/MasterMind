@@ -26,9 +26,9 @@ public interface InteractionManager {
 	/**
 	 * Mostra all'utente la situazione corrente del gioco
 	 */
-	public void showGame(Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
+	public void showGame(List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
 	
-	public void showGame(List<ColorPegs> toGuess, Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
+	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
 
 
 	/**

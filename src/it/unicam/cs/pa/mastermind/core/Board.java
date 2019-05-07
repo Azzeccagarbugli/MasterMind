@@ -21,7 +21,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class Board {
 
 	private List<ColorPegs> sequenceToGuess;
-	private LinkedHashMap<List<ColorPegs>, List<ColorPegs>> board;
+	private Map<List<ColorPegs>, List<ColorPegs>> board;
 	private final int maxAttempts;
 	private final int sequenceLength;
 
@@ -59,8 +59,8 @@ public class Board {
 		return this.sequenceToGuess;
 	}
 
-	public Set<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueSet() {
-		return this.board.entrySet();
+	public Map<List<ColorPegs>, List<ColorPegs>> getAttemptAndClueMap() {
+		return Map.copyOf(board);
 	}
 
 	/**
