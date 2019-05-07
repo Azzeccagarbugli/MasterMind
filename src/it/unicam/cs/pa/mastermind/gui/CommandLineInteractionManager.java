@@ -35,7 +35,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	private static final String ANSI_BLUE_BACKGROUND = "\033[0;104m";
 	private static final String ANSI_PURPLE_BACKGROUND = "\033[0;105m";
 	private static final String ANSI_WHITE_BACKGROUND = "\033[0;107m";
-	private static final String ANSI_ORANGE_BACKGROUND = "\033[41m";
+	private static final String ANSI_CYAN_BACKGROUND = "\033[0;106m";
 
 	private BufferedReader reader;
 
@@ -135,8 +135,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 			case PURPLE:
 				attemptCombination += ANSI_PURPLE_BACKGROUND + "      " + ANSI_RESET + " ";
 				break;
-			case ORANGE:
-				attemptCombination += ANSI_ORANGE_BACKGROUND + "      " + ANSI_RESET + " ";
+			case CYAN:
+				attemptCombination += ANSI_CYAN_BACKGROUND + "      " + ANSI_RESET + " ";
 				break;
 			case WHITE:
 				attemptCombination += ANSI_WHITE_BACKGROUND + "      " + ANSI_RESET + " ";
@@ -205,8 +205,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 			return ANSI_GREEN_BACKGROUND + "      " + ANSI_RESET;
 		case "PURPLE":
 			return ANSI_PURPLE_BACKGROUND + "      " + ANSI_RESET;
-		case "ORANGE":
-			return ANSI_ORANGE_BACKGROUND + "      " + ANSI_RESET;
+		case "CYAN":
+			return ANSI_CYAN_BACKGROUND + "      " + ANSI_RESET;
 		case "WHITE":
 			return ANSI_WHITE_BACKGROUND + "      " + ANSI_RESET;
 		case "BLACK":

@@ -78,10 +78,10 @@ public class CommandLineStartManager implements StartManager {
 					}
 					mode = (GameMode.values())[intInput - 1];
 
-					System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%26s+\n", " ", " ").replace(' ', '-'));
+					System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%30s+\n", " ", " ").replace(' ', '-'));
 					System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n",
 							ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
-					System.out.format(String.format("+%13s+%26s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
+					System.out.format(String.format("+%13s+%30s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
 
 					maker = makerFactory.apply(mode);
 					breaker = breakerFactory.apply(mode);
