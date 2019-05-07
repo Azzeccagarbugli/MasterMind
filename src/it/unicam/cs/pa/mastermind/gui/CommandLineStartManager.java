@@ -7,8 +7,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.core.SingleGame;
+import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 import it.unicam.cs.pa.mastermind.players.*;
 
 /**
@@ -62,9 +64,12 @@ public class CommandLineStartManager implements StartManager {
 						mastermindLogo, mastermindCaptionStart);
 				if (!keepSettings) {
 					while (!((intInput >= 1) && (intInput <= 4))) {
-						System.out.print("Select the game mode: " + "\n" + "- Human Breaker VS Human Maker [1]" + "\n"
-								+ "- Human Breaker VS Bot Maker [2]" + "\n" + "- Bot Breaker VS Human Maker [3]" + "\n"
-								+ "- Bot Breaker VS Bot Maker [4]" + "\n" + "> ");
+						System.out.print("Select the game mode: " + "\n");
+						IntStream.range(0, GameMode.values().length)
+								.mapToObj(index -> String.format("- %s [%d] ",
+										GameMode.values()[index].getDescription(), index + 1))
+								.forEach(System.out::println);
+
 						try {
 							intInput = Integer.parseInt(reader.readLine());
 						} catch (NumberFormatException e) {
@@ -75,7 +80,7 @@ public class CommandLineStartManager implements StartManager {
 
 					System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%26s+\n", " ", " ").replace(' ', '-'));
 					System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n",
-							ANSI_RESET + mode + ANSI_PURPLE_BOLD, "|");
+							ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
 					System.out.format(String.format("+%13s+%26s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
 
 					maker = makerFactory.apply(mode);
