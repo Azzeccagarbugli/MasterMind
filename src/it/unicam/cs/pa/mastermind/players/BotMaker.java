@@ -17,7 +17,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class BotMaker implements CodeMaker {
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
 		new Random().ints(sequenceLength, 1, ColorPegs.values().length).boxed().map(index -> ColorPegs.values()[index]).forEach(listToGuess::add);
 		return listToGuess;

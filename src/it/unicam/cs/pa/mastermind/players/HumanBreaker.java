@@ -30,9 +30,9 @@ public class HumanBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getAttempt(int sequenceLength) {
 		List<ColorPegs> listAttempt = new ArrayList<ColorPegs>();
-		intManager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index]).forEach(listAttempt::add);
+		manager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index]).forEach(listAttempt::add);
 		return listAttempt;
 	}
 

@@ -23,9 +23,9 @@ public class HumanMaker implements CodeMaker {
 	}
 	
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-		intManager.getIndexSequence(sequenceLength, true).stream().map(index -> ColorPegs.values()[index]).forEach(listToGuess::add);
+		manager.getIndexSequence(sequenceLength, true).stream().map(index -> ColorPegs.values()[index]).forEach(listToGuess::add);
 		return listToGuess;
 	}
 
