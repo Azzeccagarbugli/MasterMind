@@ -9,7 +9,7 @@ package it.unicam.cs.pa.mastermind.gui;
 public interface StartManager {
 
 	/**
-	 * Interazione iniziale con l'utente e avvio di una sessione di partite
+	 * Interazione iniziale con l'utente e avvio di una o più sessione di partite.
 	 */
 	public void start();
 }

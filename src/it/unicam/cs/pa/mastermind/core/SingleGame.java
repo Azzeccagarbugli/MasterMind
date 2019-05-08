@@ -12,19 +12,34 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
  */
 public class SingleGame {
 
+	/**
+	 * Variabile che descrive il BoardCoordinator.
+	 */
 	private BoardCoordinator coordinator;
+	
+	/**
+	 * Variabile che inizializza il player che costruirà la sequenza da indovinare.
+	 */
 	private CodeMaker maker;
+	
+	/**
+	 * Variabile che inizializza il player che decodificherà la sequenza da indovinare. 
+	 */
 	private CodeBreaker breaker;
+	
+	/**
+	 * Manager con il quale si andranno a determinare le varie interazioni con il gioco.
+	 */
 	private InteractionManager manager;
 
 	/**
 	 * Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che
-	 * decodifica
+	 * decodifica.
 	 * 
-	 * @param maker
-	 * @param breaker
-	 * @param sequenceLength
-	 * @param attempts
+	 * @param maker player addetto alla creazione della sequenza da indovinare
+	 * @param breaker player addetto alla risoluzione della sequenza da indovinare
+	 * @param sequenceLength la lunghezza di tale sequenza
+	 * @param attempts il numero di tentativi concessi
 	 */
 	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
 			InteractionManager manager) {
@@ -37,9 +52,11 @@ public class SingleGame {
 	/**
 	 * Avvio effettivo di una singola partita. Il metodo restituisce un array con
 	 * due valori booleani, che indicano la volontà di iniziare o meno una nuova
-	 * partita e la volontà di iniziarla con altre impostazioni
+	 * partita e la volontà di iniziarla con altre impostazioni.
 	 * 
-	 * @return
+	 * @return un Array di booleani che stabiliranno le condizioni di ending del
+	 *         gioco, come ad esempio inziare una nuova partita o ricominciare il
+	 *         gioco con le precendenti impostazioni
 	 */
 	public boolean[] start() {
 		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));

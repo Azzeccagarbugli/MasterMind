@@ -1,21 +1,13 @@
-/*
- * 
- */
 package it.unicam.cs.pa.mastermind.gui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.core.Board;
-import it.unicam.cs.pa.mastermind.core.BoardCoordinator;
 import it.unicam.cs.pa.mastermind.pegs.*;
-import it.unicam.cs.pa.mastermind.players.HumanBreaker;
 
 /**
  * Interazione con l'utente durante il gioco via linea di comando

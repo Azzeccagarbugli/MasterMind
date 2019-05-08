@@ -2,13 +2,11 @@ package it.unicam.cs.pa.mastermind.gui;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import it.unicam.cs.pa.mastermind.core.Board;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
- * Interfaccia relativa alla gestione dell'interazione con l'utente
+ * Interfaccia relativa alla gestione dell'interazione con l'utente.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -16,25 +14,37 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public interface InteractionManager {
 
 	/**
-	 * Richiede all'utente umano la sequenza tentativo
+	 * Richiede all'utente umano la sequenza tentativo.
 	 * 
-	 * @return
+	 * @param sequenceLength la lunghezza della sequenza inserita
+	 * @param toGuess        se la sequenza da inserire è la sequenza da indovinare
+	 *                       o meno
+	 * @return la lista di interi che andranno a definire la sequenza
 	 */
 	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess);
 
-
 	/**
-	 * Mostra all'utente la situazione corrente del gioco
+	 * Mostra all'utente la situazione corrente del gioco.
+	 * 
+	 * @param attemptsAndClues la lista di indizi e tentativi da visualizzare
 	 */
 	public void showGame(List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
-	
-	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
-
 
 	/**
-	 * Gestisce la fine di una singola partita
-	 * @return
+	 * Mostra all'utente la situazione corrente del gioco e inoltre visualizza la
+	 * sequenza da indovinare. Fondamentalmente il seguente metodo può essere
+	 * utilizzato durante la fase di debugging.
+	 * 
+	 * @param toGuess          la lista da indovinare
+	 * @param attemptsAndClues la lista di indizi e tentativi da visualizzare
+	 */
+	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
+
+	/**
+	 * Gestisce la fine di una singola partita.
+	 * 
+	 * @return un array di boolean contenente i settaggi di ending della partita
 	 */
 	public boolean[] ending();
-	
+
 }
