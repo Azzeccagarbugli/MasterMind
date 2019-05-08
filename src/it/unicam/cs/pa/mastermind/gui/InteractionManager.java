@@ -42,7 +42,7 @@ public interface InteractionManager {
 
 	/**
 	 * Gestisce la fine di una singola partita.
-	 * 
+	 * Metodo da richiamare dopo che è stato garantinto che la partita in atto è da definirsi conclusa.
 	 * @return un array di boolean contenente i settaggi di ending della partita
 	 */
 	public boolean[] ending();

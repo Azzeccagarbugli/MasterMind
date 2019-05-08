@@ -19,7 +19,7 @@ import it.unicam.cs.pa.mastermind.pegs.*;
 public class BoardCoordinator {
 
 	/**
-	 * Variabile privata in cui si inializza la plancia di gioco corrente.
+	 * Variabile privata relativa alla plancia di gioco corrente.
 	 */
 	private Board currentBoard;
 
@@ -133,7 +133,7 @@ public class BoardCoordinator {
 	}
 
 	/**
-	 * Metodo getter il quale restituisce la sequenza da indovinare.
+	 * Metodo getter il quale restituisce una lista contenente la sequenza da indovinare.
 	 *
 	 * @return l'ArrayList contenente la sequenza da indovinare
 	 */
@@ -142,7 +142,7 @@ public class BoardCoordinator {
 	}
 
 	/**
-	 * Metodo che restituisce le sequenze di attempt e clue all'interno di un'unica
+	 * Metodo che restituisce le entry di tentativi e relativi indizi all'interno di un'unica
 	 * lista.
 	 * 
 	 * @return la lista contenente le sequenze relative a tentativi e indizi
@@ -154,7 +154,7 @@ public class BoardCoordinator {
 	}
 
 	/**
-	 * Metodo pubblico che restituisce la lunghezza della sequenza inserita.
+	 * Metodo pubblico che restituisce il valore della lunghezza della sequenza inserita.
 	 *
 	 * @return un intero che stabilisce la lunghezza della sequenza inserita
 	 */

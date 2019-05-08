@@ -1,7 +1,7 @@
 package it.unicam.cs.pa.mastermind.gui;
 
 /**
- * L'enum di seguito descrive attraverso dei label le modalità di gioco
+ * L'enum descrive attraverso dei label le modalità di gioco
  * disponibili all'interno della piattaforma.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola

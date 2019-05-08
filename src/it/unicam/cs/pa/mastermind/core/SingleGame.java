@@ -40,6 +40,7 @@ public class SingleGame {
 	 * @param breaker player addetto alla risoluzione della sequenza da indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts il numero di tentativi concessi
+	 * @param manager entità relativa alla gestione delle interazioni con gli utenti fisici
 	 */
 	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
 			InteractionManager manager) {

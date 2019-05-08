@@ -115,7 +115,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 
 	}
 
-	/*
+	/**
 	 * 
 	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine*
 	 * tentativo inserita all'interno della tabella ASCII generata dal
@@ -163,8 +163,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return attemptCombination;
 	}
 
-	/*
-	 * 
+	/**
 	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine*
 	 * indizio visualizzata all'interno della tabella ASCII generata dal
 	 * metodo*<code>showGame</code>.**
