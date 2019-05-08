@@ -101,13 +101,13 @@ public class CommandLineStartManager implements StartManager {
 						} while (attempts < 1);
 						do {
 							try {
-								System.out.print("Insert the length of pegs sequences: [between 1 and 20, inclusive]"
+								System.out.print("Insert the length of pegs sequences: [between 1 and 10, inclusive]"
 										+ "\n" + "> ");
 								sequenceLength = Integer.parseInt(reader.readLine());
 							} catch (NumberFormatException e) {
-								System.out.println("Please insert a numeric value between 1 and 20, inclusive");
+								System.out.println("Please insert a numeric value between 1 and 10, inclusive");
 							}
-						} while (sequenceLength < 1 || sequenceLength > 20);
+						} while (sequenceLength < 1 || sequenceLength > 10);
 					}
 				}
 
