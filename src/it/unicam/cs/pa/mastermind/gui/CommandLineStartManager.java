@@ -43,8 +43,6 @@ public class CommandLineStartManager implements StartManager {
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
 	public CommandLineStartManager() {
-		attempts = 9;
-		sequenceLength = 4;
 		toContinue = true;
 		keepSettings = false;
 	}
@@ -81,7 +79,8 @@ public class CommandLineStartManager implements StartManager {
 							ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
 					System.out.format(String.format("+%13s+%30s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
 
-
+					attempts = 9;
+					sequenceLength = 4;
 					String strInput = "";
 					while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
 						System.out.print(
