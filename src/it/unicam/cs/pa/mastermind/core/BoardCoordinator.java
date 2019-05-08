@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.pegs.*;
@@ -41,8 +43,8 @@ public class BoardCoordinator {
 	 * 
 	 * @param attempt la lista di pioli tentativo che si vuole inserire
 	 * @return un booleano che controlla lo stato della operazione,
-	 *         <strong>true</strong> se l'operazione è stata effettuata con successo
-	 *         o <strong>false</strong> se l'operazione è fallita
+	 *         <strong>true</strong> se l'operazione è stata effettuata con
+	 *         successo o <strong>false</strong> se l'operazione è fallita
 	 */
 	public boolean insertNewAttempt(List<ColorPegs> attempt) {
 		try {
@@ -99,41 +101,33 @@ public class BoardCoordinator {
 	 *         tentativi
 	 */
 	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
-		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt);
-		List<ColorPegs> toGuessCopy = new ArrayList<ColorPegs>(toGuess);
-		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-		Iterator<ColorPegs> itTG = toGuessCopy.iterator();
-		Iterator<ColorPegs> itAC;
-		ColorPegs pegTG;
-		ColorPegs pegAC;
-		while (itTG.hasNext()) {
-			pegTG = itTG.next();
-			itAC = attemptCopy.iterator();
-			while (itAC.hasNext()) {
-				pegAC = itAC.next();
-				if (pegTG == pegAC) {
-					if (toGuessCopy.indexOf(pegTG) == attemptCopy.indexOf(pegAC)) {
-						clue.add(ColorPegs.BLACK);
-					} else {
-						clue.add(ColorPegs.WHITE);
-					}
-					/*
-					 * Per ogni posizione confermata inseriamo null all'interno della struttura
-					 * AttemptCopy, in questo modo avremo delle occorrenze non nulle per ogni coppia
-					 * ancora non identificata come corretta.
-					 */
-					attemptCopy.set(attemptCopy.indexOf(pegAC), ColorPegs.NONE);
-					toGuessCopy.set(toGuessCopy.indexOf(pegTG), ColorPegs.NONE);
-					break;
-				}
+		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
+				toGuessCopy = new ArrayList<ColorPegs>(toGuess), clue = new ArrayList<ColorPegs>();
+
+		for (int i = 0; i < toGuessCopy.size(); i++) {
+			if (toGuessCopy.get(i) == attemptCopy.get(i)) {
+				clue.add(ColorPegs.BLACK);
+				attemptCopy.set(attemptCopy.indexOf(toGuessCopy.get(i)), ColorPegs.NONE);
+				toGuessCopy.set(i, ColorPegs.NONE);
+			}
+
+		}
+
+		for (int i = 0; i < attemptCopy.size(); i++) {
+			if (attemptCopy.get(i) != ColorPegs.NONE && toGuessCopy.contains(attemptCopy.get(i))) {
+				clue.add(ColorPegs.WHITE);
+				toGuessCopy.set(toGuessCopy.indexOf(attemptCopy.get(i)), ColorPegs.NONE);
+				attemptCopy.set(i, ColorPegs.NONE);
 			}
 		}
+
 		Collections.shuffle(clue);
 		return clue;
 	}
 
 	/**
-	 * Metodo getter il quale restituisce una lista contenente la sequenza da indovinare.
+	 * Metodo getter il quale restituisce una lista contenente la sequenza da
+	 * indovinare.
 	 *
 	 * @return l'ArrayList contenente la sequenza da indovinare
 	 */
@@ -142,8 +136,8 @@ public class BoardCoordinator {
 	}
 
 	/**
-	 * Metodo che restituisce le entry di tentativi e relativi indizi all'interno di un'unica
-	 * lista.
+	 * Metodo che restituisce le entry di tentativi e relativi indizi all'interno di
+	 * un'unica lista.
 	 * 
 	 * @return la lista contenente le sequenze relative a tentativi e indizi
 	 */
@@ -154,11 +148,13 @@ public class BoardCoordinator {
 	}
 
 	/**
-	 * Metodo pubblico che restituisce il valore della lunghezza della sequenza inserita.
+	 * Metodo pubblico che restituisce il valore della lunghezza della sequenza
+	 * inserita.
 	 *
 	 * @return un intero che stabilisce la lunghezza della sequenza inserita
 	 */
 	public int getSequenceLength() {
 		return this.currentBoard.getSequenceLength();
 	}
+
 }
