@@ -18,11 +18,15 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  */
 public class BotBreaker implements CodeBreaker {
 
-	private boolean giveUp = false;
+	private boolean giveUp;
 
-	private Set<List<ColorPegs>> combinationAttempts= new HashSet<>();
+	private Set<List<ColorPegs>> combinationAttempts;
 
-
+	public BotBreaker() {
+		giveUp = false;
+		combinationAttempts= new HashSet<>();
+	}
+	
 
 	public boolean isGiveUp() {
 		return giveUp;

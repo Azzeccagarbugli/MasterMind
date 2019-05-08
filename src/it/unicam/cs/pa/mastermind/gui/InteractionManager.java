@@ -36,4 +36,5 @@ public interface InteractionManager {
 	 * @return
 	 */
 	public boolean[] ending();
+	
 }

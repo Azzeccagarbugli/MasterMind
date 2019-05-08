@@ -4,7 +4,9 @@
 package it.unicam.cs.pa.mastermind.players;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
@@ -15,12 +17,16 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  */
 public class HumanBreaker implements CodeBreaker {
 
-	private boolean giveUp = false;
+	private boolean giveUp;
 	private InteractionManager manager;
-	
+	private Set<List<ColorPegs>> combinationAttempts;
+
 	public HumanBreaker(InteractionManager intManager) {
+		giveUp = false;
 		this.manager = intManager;
+		combinationAttempts = new HashSet<>();
 	}
+
 	public boolean isGiveUp() {
 		return giveUp;
 	}
@@ -31,8 +37,11 @@ public class HumanBreaker implements CodeBreaker {
 
 	@Override
 	public List<ColorPegs> getAttempt(int sequenceLength) {
-		List<ColorPegs> listAttempt = new ArrayList<ColorPegs>();
-		manager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index]).forEach(listAttempt::add);
+		List<ColorPegs> listAttempt;
+		do {
+			listAttempt = new ArrayList<ColorPegs>();
+			manager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index]).forEach(listAttempt::add);
+		} while (combinationAttempts.contains(listAttempt));
 		return listAttempt;
 	}
 
