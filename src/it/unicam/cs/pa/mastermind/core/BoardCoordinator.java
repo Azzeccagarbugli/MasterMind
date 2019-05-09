@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.pegs.*;
@@ -103,24 +104,20 @@ public class BoardCoordinator {
 	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
 				toGuessCopy = new ArrayList<ColorPegs>(toGuess), clue = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < toGuessCopy.size(); i++) {
+		IntStream.range(0, attemptCopy.size()).forEach(i -> {
 			if (toGuessCopy.get(i) == attemptCopy.get(i)) {
 				clue.add(ColorPegs.BLACK);
-				attemptCopy.set(attemptCopy.indexOf(toGuessCopy.get(i)), ColorPegs.NONE);
+				attemptCopy.set(i, ColorPegs.NONE);
 				toGuessCopy.set(i, ColorPegs.NONE);
 			}
-
-		}
-
-		for (int i = 0; i < attemptCopy.size(); i++) {
+		});
+		IntStream.range(0, attemptCopy.size()).forEach(i -> {
 			if (attemptCopy.get(i) != ColorPegs.NONE && toGuessCopy.contains(attemptCopy.get(i))) {
 				clue.add(ColorPegs.WHITE);
 				toGuessCopy.set(toGuessCopy.indexOf(attemptCopy.get(i)), ColorPegs.NONE);
 				attemptCopy.set(i, ColorPegs.NONE);
 			}
-		}
-
+		});
 		Collections.shuffle(clue);
 		return clue;
 	}
