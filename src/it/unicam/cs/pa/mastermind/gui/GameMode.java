@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.mastermind.gui;
 
 /**
- * L'enum descrive attraverso dei label le modalità di gioco
- * disponibili all'interno della piattaforma.
+ * L'enum descrive attraverso dei label le modalità di gioco disponibili
+ * all'interno della piattaforma.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -20,7 +20,7 @@ public enum GameMode {
 	/**
 	 * Setter per la selezione della descrizione.
 	 *
-	 * @param desc la descrizione della modalità di gioco 
+	 * @param desc la descrizione della modalità di gioco
 	 */
 	private GameMode(String desc) {
 		this.description = desc;

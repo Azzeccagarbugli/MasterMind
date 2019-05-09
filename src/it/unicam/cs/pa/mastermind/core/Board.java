@@ -24,7 +24,8 @@ public class Board {
 	private List<ColorPegs> sequenceToGuess;
 
 	/**
-	 * Mappa composta da entry aventi due liste di ColorPegs e rappresentante la board di gioco.
+	 * Mappa composta da entry aventi due liste di ColorPegs e rappresentante la
+	 * board di gioco.
 	 */
 	private Map<List<ColorPegs>, List<ColorPegs>> board;
 

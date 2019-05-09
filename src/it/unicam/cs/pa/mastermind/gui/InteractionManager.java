@@ -41,8 +41,9 @@ public interface InteractionManager {
 	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
 
 	/**
-	 * Gestisce la fine di una singola partita.
-	 * Metodo da richiamare dopo che è stato garantinto che la partita in atto è da definirsi conclusa.
+	 * Gestisce la fine di una singola partita. Metodo da richiamare dopo che ï¿½
+	 * stato garantinto che la partita in atto ï¿½ da definirsi conclusa.
+	 * 
 	 * @return un array di boolean contenente i settaggi di ending della partita
 	 */
 	public boolean[] ending();

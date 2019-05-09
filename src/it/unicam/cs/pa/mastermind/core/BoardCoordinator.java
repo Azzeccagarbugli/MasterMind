@@ -2,11 +2,8 @@ package it.unicam.cs.pa.mastermind.core;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
@@ -44,8 +41,8 @@ public class BoardCoordinator {
 	 * 
 	 * @param attempt la lista di pioli tentativo che si vuole inserire
 	 * @return un booleano che controlla lo stato della operazione,
-	 *         <strong>true</strong> se l'operazione è stata effettuata con
-	 *         successo o <strong>false</strong> se l'operazione è fallita
+	 *         <strong>true</strong> se l'operazione è stata effettuata con successo
+	 *         o <strong>false</strong> se l'operazione è fallita
 	 */
 	public boolean insertNewAttempt(List<ColorPegs> attempt) {
 		try {

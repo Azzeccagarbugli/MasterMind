@@ -28,7 +28,8 @@ public class HumanBreaker implements CodeBreaker {
 	private InteractionManager manager;
 
 	/**
-	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi effettuati.
+	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi
+	 * effettuati.
 	 */
 	private Set<List<ColorPegs>> combinationAttempts;
 

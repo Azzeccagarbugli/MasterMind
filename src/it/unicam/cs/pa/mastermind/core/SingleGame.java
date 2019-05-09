@@ -16,19 +16,21 @@ public class SingleGame {
 	 * Variabile che descrive il BoardCoordinator.
 	 */
 	private BoardCoordinator coordinator;
-	
+
 	/**
 	 * Variabile che inizializza il player che costruirà la sequenza da indovinare.
 	 */
 	private CodeMaker maker;
-	
+
 	/**
-	 * Variabile che inizializza il player che decodificherà la sequenza da indovinare. 
+	 * Variabile che inizializza il player che decodificherà la sequenza da
+	 * indovinare.
 	 */
 	private CodeBreaker breaker;
-	
+
 	/**
-	 * Manager con il quale si andranno a determinare le varie interazioni con il gioco.
+	 * Manager con il quale si andranno a determinare le varie interazioni con il
+	 * gioco.
 	 */
 	private InteractionManager manager;
 
@@ -36,11 +38,14 @@ public class SingleGame {
 	 * Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che
 	 * decodifica.
 	 * 
-	 * @param maker player addetto alla creazione della sequenza da indovinare
-	 * @param breaker player addetto alla risoluzione della sequenza da indovinare
+	 * @param maker          player addetto alla creazione della sequenza da
+	 *                       indovinare
+	 * @param breaker        player addetto alla risoluzione della sequenza da
+	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
-	 * @param attempts il numero di tentativi concessi
-	 * @param manager entit� relativa alla gestione delle interazioni con gli utenti fisici
+	 * @param attempts       il numero di tentativi concessi
+	 * @param manager        entit� relativa alla gestione delle interazioni con gli
+	 *                       utenti fisici
 	 */
 	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
 			InteractionManager manager) {

@@ -88,7 +88,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		int dynamicTable = toGuess.size();
 		System.out.println("\nThe current secret sequence is this one: " + toGuess + "\n");
-		
+
 		String attemptWhiteBold = ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET;
 		String clueWhiteBold = ANSI_WHITE_BOLD + "Clue" + ANSI_RESET;
 
