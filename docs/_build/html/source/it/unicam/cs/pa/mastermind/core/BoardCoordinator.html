@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BoardCoordinator &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="../../../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#indici-e-tabelle">Indici e tabelle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>BoardCoordinator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/source/it/unicam/cs/pa/mastermind/core/BoardCoordinator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="boardcoordinator">
+<h1>BoardCoordinator<a class="headerlink" href="#boardcoordinator" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator">
+public class <code class="descname">BoardCoordinator</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator" title="Link a questa definizione">¶</a></dt>
+<dd><p>Interagisce continuamente con i giocatori aggiornando la plancia di gioco di conseguenza.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="id1">
+<h3>BoardCoordinator<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<dl class="constructor">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.BoardCoordinator(Board)">
+public <code class="descname">BoardCoordinator</code><span class="sig-paren">(</span><a class="reference internal" href="Board.html#it.unicam.cs.pa.mastermind.core.Board" title="it.unicam.cs.pa.mastermind.core.Board">Board</a><em> newBoard</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.BoardCoordinator(Board)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore che va ad inizializzare la nuova plancia di gioco in cui verranno effettuate le operazioni descritte dai metodi presenti nella medesima classe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>newBoard</strong> – la board su cui si vogliono effettuare le operazioni di coordinazione</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="checkend">
+<h3>checkEnd<a class="headerlink" href="#checkend" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.checkEnd(CodeBreaker)">
+public boolean <code class="descname">checkEnd</code><span class="sig-paren">(</span><a class="reference internal" href="../players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><em> breaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.checkEnd(CodeBreaker)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Indica se la partita termina o meno. Puo terminare solo se i tentativi sono finiti, se il giocatore breaker ha indovinato la sequenza o se, infine, il giocatore breaker si è arreso.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>breaker</strong> – il player, che sia Bot o Human, il quale sta cercando di decodificare la sequenza</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>un booleano che afferma l’ending positivo o negativo della partita corrente</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getattemptandcluelist">
+<h3>getAttemptAndClueList<a class="headerlink" href="#getattemptandcluelist" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.getAttemptAndClueList()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>.Entry&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt;&gt;&gt; <code class="descname">getAttemptAndClueList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.getAttemptAndClueList()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restituisce le entry di tentativi e relativi indizi all’interno di un’unica lista.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>la lista contenente le sequenze relative a tentativi e indizi</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getsequencelength">
+<h3>getSequenceLength<a class="headerlink" href="#getsequencelength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.getSequenceLength()">
+public int <code class="descname">getSequenceLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.getSequenceLength()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo pubblico che restituisce il valore della lunghezza della sequenza inserita.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>un intero che stabilisce la lunghezza della sequenza inserita</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getsequencetoguess">
+<h3>getSequenceToGuess<a class="headerlink" href="#getsequencetoguess" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.getSequenceToGuess()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt; <code class="descname">getSequenceToGuess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.getSequenceToGuess()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo getter il quale restituisce una lista contenente la sequenza da indovinare.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>l’ArrayList contenente la sequenza da indovinare</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="insertcodetoguess">
+<h3>insertCodeToGuess<a class="headerlink" href="#insertcodetoguess" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.insertCodeToGuess(List)">
+public boolean <code class="descname">insertCodeToGuess</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.insertCodeToGuess(List)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Riceve come argomento la sequenza da inserire nella plancia come sequenza da indovinare ed effettua la relativa operazione.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>toGuess</strong> – la lista da indovinare</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>un booleano che afferma il corretto inserimento della sequenza</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="insertnewattempt">
+<h3>insertNewAttempt<a class="headerlink" href="#insertnewattempt" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.insertNewAttempt(List)">
+public boolean <code class="descname">insertNewAttempt</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt;<em> attempt</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.insertNewAttempt(List)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Riceve come argomento una nuova sequenza da inserire nella plancia come nuovo tentativo. Inserisce nella plancia anche la sequenza di pioli indizio relativa.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attempt</strong> – la lista di pioli tentativo che si vuole inserire</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>un booleano che controlla lo stato della operazione, <strong>true</strong> se l’operazione è stata effettuata con successo o <strong>false</strong> se l’operazione è fallita</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
