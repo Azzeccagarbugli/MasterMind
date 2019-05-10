@@ -50,11 +50,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	@Override
 	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
-		if (toGuess) {
-			System.out.println("\nDefining the sequence to guess");
-		} else {
-			System.out.println("\nDefining an attempt");
-		}
+		System.out.println(toGuess ? "\nDefining the sequence to guess" : "\nDefining an attempt");
 		try {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 			IntStream.range(1, ColorPegs.values().length)
@@ -235,6 +231,32 @@ public class CommandLineInteractionManager implements InteractionManager {
 		}
 	}
 
+	/**
+	 * Restituisce le informazioni sull'esito finale della partita, andando a
+	 * chiedere all'utente quale settaggi impostare per la prossima.
+	 * 
+	 * @param input il valore in input selezionato dall'utente
+	 * @return l'Array di booleani contenente i settaggi
+	 */
+	private boolean[] settingEnd(int input) {
+		boolean[] endingSettings = new boolean[2];
+		switch (input) {
+		case 1:
+			endingSettings[0] = true;
+			endingSettings[1] = true;
+			break;
+		case 2:
+			endingSettings[0] = true;
+			endingSettings[1] = false;
+			break;
+		case 3:
+			endingSettings[0] = false;
+			endingSettings[1] = false;
+			break;
+		}
+		return endingSettings;
+	}
+
 	@Override
 	public boolean[] ending() {
 		boolean[] endingSettings = new boolean[2];
@@ -251,20 +273,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 					System.out.println("Please insert a numeric value");
 				}
 			}
-			switch (intInput) {
-			case 1:
-				endingSettings[0] = true;
-				endingSettings[1] = true;
-				break;
-			case 2:
-				endingSettings[0] = true;
-				endingSettings[1] = false;
-				break;
-			case 3:
-				endingSettings[0] = false;
-				endingSettings[1] = false;
-				break;
-			}
+			endingSettings = settingEnd(intInput);
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
 		}
