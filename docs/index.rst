@@ -5,9 +5,11 @@
 
 Benvenuto alla documentazione di MasterMind!
 ================================================
-    "Our education might stop, if we so choose. Our brains’ never does. 
+    *"Our education might stop, if we so choose. Our brains’ never does. 
     The brain will keep reacting to how we decide to use it. The difference 
-    is not whether or not we learn, but what and how we learn."[1]_
+    is not whether or not we learn, but what and how we learn."*
+	
+	*Maria Konnikova* [1]_
 
 All'interno della seguente pagina web sarà possibile trovare la documentazione 
 generata per il progetto **MasterMind**, realizzato per il corso di *Programmazione Avanzata*

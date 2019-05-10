@@ -57,8 +57,6 @@ Indici e tabelle
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-
 
 .. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
 .. [2] `Crittoanalisi <https://it.wikipedia.org/wiki/Crittoanalisi>`_
