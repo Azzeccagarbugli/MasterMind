@@ -8,8 +8,9 @@ package it.unicam.cs.pa.mastermind.gui;
  */
 public interface StartManager {
 
+
 	/**
-	 * Interazione iniziale con l'utente e avvio di una o più sessione di partite.
+	 * Si avvia ufficialmente l'interazione con il giocatore per poter disputare partite di MasterMind
 	 */
 	public void start();
 }

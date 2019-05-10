@@ -27,6 +27,9 @@ public class CommandLineStartManager implements StartManager {
 	private boolean keepSettings = false;
 	private SingleGame game;
 	private InteractionManager intManager;
+	int lowTreshholdLength;
+	int highTresholdLength;
+	int lowTreshholdAttempts;
 
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
@@ -42,97 +45,176 @@ public class CommandLineStartManager implements StartManager {
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
+	private Function<GameMode, CodeMaker> makerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
+			|| gm.equals(GameMode.BOTBREAKERVSHUMANMAKER)) ? new HumanMaker(this.intManager) : new BotMaker();
+	private Function<GameMode, CodeBreaker> breakerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
+			|| gm.equals(GameMode.HUMANBREAKERVSBOTMAKER)) ? new HumanBreaker(this.intManager) : new BotBreaker();
+
 	public CommandLineStartManager() {
 		toContinue = true;
 		keepSettings = false;
+		lowTreshholdLength = 1;
+		highTresholdLength = 10;
+		lowTreshholdAttempts = 1;
 	}
 
 	@Override
 	public void start() {
-
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-
 			while (toContinue) {
-				int intInput = 0;
 				intManager = new CommandLineInteractionManager(reader);
 				System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%43s" + ANSI_RESET + "\n\n\n",
 						mastermindLogo, mastermindCaptionStart);
 				if (!keepSettings) {
-					while (!((intInput >= 1) && (intInput <= 4))) {
-						System.out.print("Select the game mode: " + "\n");
-						IntStream.range(0, GameMode.values().length)
-								.mapToObj(index -> String.format("- %s [%d] ",
-										GameMode.values()[index].getDescription(), index + 1))
-								.forEach(System.out::println);
-
-						try {
-							System.out.print("> ");
-							intInput = Integer.parseInt(reader.readLine());
-						} catch (NumberFormatException e) {
-							System.out.println("Please insert a numeric value");
-						}
-					}
-					mode = (GameMode.values())[intInput - 1];
-
-					System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%30s+\n", " ", " ").replace(' ', '-'));
-					System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n",
-							ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
-					System.out.format(String.format("+%13s+%30s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
-
 					attempts = 9;
 					sequenceLength = 4;
-					String strInput = "";
-					while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
-						System.out.print(
-								"\nWould you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]"
-										+ "\n" + "> ");
-						strInput = reader.readLine();
-					}
-
-					if (strInput.toLowerCase().equals("n")) {
-						do {
-							try {
-								System.out.print(
-										"Insert the number of attempts: [equal or greater than 1]" + "\n" + "> ");
-								attempts = Integer.parseInt(reader.readLine());
-							} catch (NumberFormatException e) {
-								System.out.println("Please insert a numeric value greater than 1");
-							}
-						} while (attempts < 1);
-						do {
-							try {
-								System.out.print("Insert the length of pegs sequences: [between 1 and 10, inclusive]"
-										+ "\n" + "> ");
-								sequenceLength = Integer.parseInt(reader.readLine());
-							} catch (NumberFormatException e) {
-								System.out.println("Please insert a numeric value between 1 and 10, inclusive");
-							}
-						} while (sequenceLength < 1 || sequenceLength > 10);
+					mode = this.getGameMode(reader);
+					if (this.askNewSettings(reader)) {
+						attempts = askNewAttempts(reader, lowTreshholdAttempts);
+						sequenceLength = askNewlength(reader, lowTreshholdLength, highTresholdLength);
 					}
 				}
-
 				System.out.println("\nNow starting the game");
-				game = new SingleGame(makerFactory.apply(mode), breakerFactory.apply(mode), this.sequenceLength,
-						this.attempts, this.intManager);
-				boolean[] newSettings = game.start();
+				boolean[] newSettings = new SingleGame(makerFactory.apply(mode), breakerFactory.apply(mode),
+						this.sequenceLength, this.attempts, this.intManager).start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
-				clearScreen();
-
+				this.clearScreen();
 			}
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
 		}
-		/* Chiusura del gioco */
+		this.ending();
+	}
+
+	public static void main(String[] args) {
+		CommandLineStartManager startManager = new CommandLineStartManager();
+		startManager.start();
+	}
+
+	/**
+	 * Chiede all'utente quale modalità di gioco desidera per la nuova partita
+	 * 
+	 * @param reader
+	 * @return
+	 * @throws IOException
+	 */
+	private GameMode getGameMode(BufferedReader reader) throws IOException {
+		int intInput = 0;
+		do {
+			System.out.print("Select the game mode: " + "\n");
+			IntStream.range(0, GameMode.values().length)
+					.mapToObj(
+							index -> String.format("- %s [%d] ", GameMode.values()[index].getDescription(), index + 1))
+					.forEach(System.out::println);
+			try {
+				System.out.print("> ");
+				intInput = Integer.parseInt(reader.readLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Please insert a numeric value");
+			}
+		} while (!((intInput >= 1) && (intInput <= 4)));
+
+		this.printChosenMode((GameMode.values())[intInput - 1]);
+		return (GameMode.values())[intInput - 1];
+	}
+
+	/**
+	 * Stampa su console la modalità di gioco scelta dall'utente
+	 * 
+	 * @param mode
+	 */
+	private void printChosenMode(GameMode mode) {
+		System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%30s+\n", " ", " ").replace(' ', '-'));
+		System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n",
+				ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
+		System.out.format(String.format("+%13s+%30s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
+	}
+
+	/**
+	 * Chiede all'utente via console se vuole iniziare una nuova partita con le
+	 * impostazioni standard o meno
+	 * 
+	 * @param reader
+	 * @return
+	 * @throws IOException
+	 */
+	private boolean askNewSettings(BufferedReader reader) throws IOException {
+		String strInput = "";
+		while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
+			System.out.print(
+					"\nWould you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]"
+							+ "\n" + "> ");
+			strInput = reader.readLine();
+		}
+		return strInput.toLowerCase().equals("n") ? true : false;
+	}
+
+	/**
+	 * Chiede all'utente via console il nuovo numero di tentativi per indovinare la
+	 * sequenza
+	 * 
+	 * @param reader
+	 * @param lowTres
+	 * @return
+	 * @throws IOException
+	 */
+	private int askNewAttempts(BufferedReader reader, int lowTres) throws IOException {
+		int attempts = 0;
+		do {
+			try {
+				System.out
+						.print("Insert the number of attempts: [equal or greater than " + lowTres + "]" + "\n" + "> ");
+				attempts = Integer.parseInt(reader.readLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Please insert a numeric value greater than " + lowTres);
+			}
+		} while (attempts < lowTres);
+		return attempts;
+	}
+
+	/**
+	 * Chiede all'utente via console la nuova lunghezza delle sequenze da indovinare
+	 * e tentativo
+	 * 
+	 * @param reader
+	 * @param lowTres
+	 * @param highTres
+	 * @return
+	 * @throws IOException
+	 */
+	private int askNewlength(BufferedReader reader, int lowTres, int highTres) throws IOException {
+		int length = 0;
+		do {
+			try {
+				System.out.print("Insert the length of pegs sequences: [between " + lowTres + " and " + highTres
+						+ ", inclusive]" + "\n" + "> ");
+				length = Integer.parseInt(reader.readLine());
+			} catch (NumberFormatException e) {
+				System.out.println(
+						"Please insert a numeric value between " + lowTres + " and " + highTres + ", inclusive");
+			}
+		} while (length < lowTres || length > highTres);
+		return length;
+	}
+
+	/**
+	 * Comunica la fine del gioco e interrompe il processo
+	 */
+	private void ending() {
 		System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%50s" + ANSI_RESET, mastermindLogo,
 				mastermindCaptionEnd);
 		System.exit(0);
 	}
 
-	private Function<GameMode, CodeMaker> makerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
-			|| gm.equals(GameMode.BOTBREAKERVSHUMANMAKER)) ? new HumanMaker(this.intManager) : new BotMaker();
-	private Function<GameMode, CodeBreaker> breakerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
-			|| gm.equals(GameMode.HUMANBREAKERVSBOTMAKER)) ? new HumanBreaker(this.intManager) : new BotBreaker();
+	/**
+	 * Viene effettuata una sorta di operazione clean per la console stampando 100
+	 * linee di testo vuote
+	 */
+	private void clearScreen() {
+		System.out.println("##################################################################################");
+		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
+	}
 
 	/**
 	 * Metodo privato per una migliore formattazione del riquadro contenente la
@@ -154,18 +236,6 @@ public class CommandLineStartManager implements StartManager {
 		default:
 			return 0;
 		}
-	}
-
-	/**
-	 * Clear della console.
-	 */
-	public void clearScreen() {
-		System.out.println(new String(new char[50]).replace("\0", "\r\n"));
-	}
-
-	public static void main(String[] args) {
-		CommandLineStartManager startManager = new CommandLineStartManager();
-		startManager.start();
 	}
 
 }

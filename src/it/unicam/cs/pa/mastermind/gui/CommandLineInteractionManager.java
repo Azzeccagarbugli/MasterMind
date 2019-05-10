@@ -58,16 +58,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 					.forEach(System.out::print);
 			System.out.println();
 			for (int i = 1; i <= sequenceLength; i++) {
-				int temp = 0;
-				do {
-					System.out.print("Insert value nr." + i + " > ");
-					try {
-						temp = Integer.parseInt(this.reader.readLine());
-					} catch (NumberFormatException e) {
-						System.out.println("Please insert a numeric value");
-					}
-				} while (temp < 1 || temp >= ColorPegs.values().length);
-				indexPegs.add(temp);
+				this.askPegs(indexPegs, i);
 			}
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
@@ -126,52 +117,12 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	/**
-	 * 
-	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
-	 * tentativo inserite all'interno della tabella ASCII generata dal metodo
-	 * <code>showGame</code>.
-	 * 
-	 * @param attemptsList la lista di pedine tentativo inserite
-	 * @return la stringa contenente la corriespetiva sequenza colorata
-	 */
-	private String beautifyAttempts(List<ColorPegs> attemptsList) {
-		System.out.format("%s %34s %34s\n", "|", "|", "|");
-		String attemptCombination = "[ ";
-
-		for (ColorPegs attempt : attemptsList) {
-			attemptCombination += beautifyGeneral(attempt);
-		}
-		attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "|");
-		return attemptCombination;
-	}
-
-	/**
-	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
-	 * indizio visualizzata all'interno della tabella ASCII generata dal metodo
-	 * <code>showGame</code>.
-	 * 
-	 * @param cluesList la lista di pedine indizio
-	 * @return la stringa contenente la corriespetiva sequenza colorata
-	 */
-	private String beautifyClues(List<ColorPegs> cluesList) {
-		String clueCombination = "[ ";
-		for (ColorPegs clue : cluesList) {
-			clueCombination += beautifyGeneral(clue);
-		}
-		clueCombination += String.format("] %" + dynamicTableLenght(cluesList.size()) + "s \n", "|");
-		clueCombination += String.format("%s %34s %34s \n", "|", "|", "|");
-		clueCombination += "+----------------------------------+----------------------------------+\n";
-
-		return clueCombination;
-	}
-
-	/**
 	 * Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo
 	 * secondo i canoni della decodifica ANSI.
 	 * 
 	 * @param color il colore che si vuole codificare in una stringa colorata
-	 * @return la stringa contenente i valori della stringa visualizzati in modalità
-	 *         colorata
+	 * @return la stringa contenente i valori della stringa visualizzati in
+	 *         modalità colorata
 	 */
 	public String beautifyGeneral(ColorPegs color) {
 		String colorfulPeg = new String();
@@ -206,6 +157,41 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return colorfulPeg;
 	}
 
+	@Override
+	public boolean[] ending() {
+		int intInput = 0;
+		try {
+			System.out.println("\nThe game has finished, what would you like to do now?");
+			while (!((intInput >= 1) && (intInput <= 3))) {
+				System.out.print("- Start a new game with the same settings [1]" + "\n"
+						+ "- Start a new game with different settings [2]" + "\n" + "- Exit from the game [3]"
+						+ "\n> ");
+				try {
+					intInput = Integer.parseInt(this.reader.readLine());
+				} catch (NumberFormatException e) {
+					System.out.println("Please insert a numeric value");
+				}
+			}
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
+		}
+		boolean[] endingSettings = settingEnd(intInput);
+		return endingSettings;
+	}
+
+	private void askPegs(List<Integer> list, int index) throws IOException {
+		int temp = 0;
+		do {
+			System.out.print("Insert value nr." + index + " > ");
+			try {
+				temp = Integer.parseInt(this.reader.readLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Please insert a numeric value");
+			}
+		} while (temp < 1 || temp >= ColorPegs.values().length);
+		list.add(temp);
+	}
+
 	/**
 	 * Metodo privato che formatta in maniera corretta la visualizzazione della
 	 * tabella in base alla lunghezza della sequenza delle pedine indizio.
@@ -232,6 +218,46 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	/**
+	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
+	 * indizio visualizzata all'interno della tabella ASCII generata dal metodo
+	 * <code>showGame</code>.
+	 * 
+	 * @param cluesList la lista di pedine indizio
+	 * @return la stringa contenente la corriespetiva sequenza colorata
+	 */
+	private String beautifyClues(List<ColorPegs> cluesList) {
+		String clueCombination = "[ ";
+		for (ColorPegs clue : cluesList) {
+			clueCombination += beautifyGeneral(clue);
+		}
+		clueCombination += String.format("] %" + dynamicTableLenght(cluesList.size()) + "s \n", "|");
+		clueCombination += String.format("%s %34s %34s \n", "|", "|", "|");
+		clueCombination += "+----------------------------------+----------------------------------+\n";
+
+		return clueCombination;
+	}
+
+	/**
+	 * 
+	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
+	 * tentativo inserite all'interno della tabella ASCII generata dal metodo
+	 * <code>showGame</code>.
+	 * 
+	 * @param attemptsList la lista di pedine tentativo inserite
+	 * @return la stringa contenente la corriespetiva sequenza colorata
+	 */
+	private String beautifyAttempts(List<ColorPegs> attemptsList) {
+		System.out.format("%s %34s %34s\n", "|", "|", "|");
+		String attemptCombination = "[ ";
+
+		for (ColorPegs attempt : attemptsList) {
+			attemptCombination += beautifyGeneral(attempt);
+		}
+		attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "|");
+		return attemptCombination;
+	}
+
+	/**
 	 * Restituisce le informazioni sull'esito finale della partita, andando a
 	 * chiedere all'utente quale settaggi impostare per la prossima.
 	 * 
@@ -253,29 +279,6 @@ public class CommandLineInteractionManager implements InteractionManager {
 			endingSettings[0] = false;
 			endingSettings[1] = false;
 			break;
-		}
-		return endingSettings;
-	}
-
-	@Override
-	public boolean[] ending() {
-		boolean[] endingSettings = new boolean[2];
-		try {
-			int intInput = 0;
-			System.out.println("\nThe game has finished, what would you like to do now?");
-			while (!((intInput >= 1) && (intInput <= 3))) {
-				System.out.print("- Start a new game with the same settings [1]" + "\n"
-						+ "- Start a new game with different settings [2]" + "\n" + "- Exit from the game [3]"
-						+ "\n> ");
-				try {
-					intInput = Integer.parseInt(this.reader.readLine());
-				} catch (NumberFormatException e) {
-					System.out.println("Please insert a numeric value");
-				}
-			}
-			endingSettings = settingEnd(intInput);
-		} catch (IOException e) {
-			System.out.print(e.getMessage());
 		}
 		return endingSettings;
 	}
