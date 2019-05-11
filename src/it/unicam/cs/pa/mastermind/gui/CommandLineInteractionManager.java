@@ -53,12 +53,12 @@ public class CommandLineInteractionManager implements InteractionManager {
 		System.out.println(toGuess ? "\nDefining the sequence to guess" : "\nDefining an attempt");
 		try {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
-			IntStream.range(1, ColorPegs.values().length)
-					.mapToObj(index -> String.format("[%s - %d] ", beautifyGeneral(ColorPegs.values()[index]), index))
+			IntStream.range(0, ColorPegs.values().length)
+					.mapToObj(index -> String.format("[%s - %d] ", beautifyGeneral(ColorPegs.values()[index]), index+1))
 					.forEach(System.out::print);
 			System.out.println();
 			for (int i = 1; i <= sequenceLength; i++) {
-				this.askPegs(indexPegs, i);
+				this.askIndexOfPegs(indexPegs, i);
 			}
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
@@ -179,7 +179,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	private void askPegs(List<Integer> list, int index) throws IOException {
+	private void askIndexOfPegs(List<Integer> list, int index) throws IOException {
 		int temp = 0;
 		do {
 			System.out.print("Insert value nr." + index + " > ");
@@ -188,8 +188,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value");
 			}
-		} while (temp < 1 || temp >= ColorPegs.values().length);
-		list.add(temp);
+		} while (temp < 1 || temp > ColorPegs.values().length);
+		list.add(temp-1);
 	}
 
 	/**

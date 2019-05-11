@@ -9,5 +9,5 @@ package it.unicam.cs.pa.mastermind.pegs;
  *
  */
 public enum ColorPegs {
-	NONE, BLUE, RED, YELLOW, GREEN, WHITE, BLACK, CYAN, PURPLE;
+	BLUE, RED, YELLOW, GREEN, WHITE, BLACK, CYAN, PURPLE;
 }

@@ -52,7 +52,7 @@ public class BotBreaker implements CodeBreaker {
 		List<ColorPegs> listAttempt;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			new Random().ints(sequenceLength, 1, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
+			new Random().ints(sequenceLength, 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
 					.forEach(listAttempt::add);
 		} while (combinationAttempts.contains(listAttempt));
 		combinationAttempts.add(listAttempt);

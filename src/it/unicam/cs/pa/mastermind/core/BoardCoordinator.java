@@ -104,15 +104,15 @@ public class BoardCoordinator {
 		IntStream.range(0, attemptCopy.size()).forEach(i -> {
 			if (toGuessCopy.get(i) == attemptCopy.get(i)) {
 				clue.add(ColorPegs.BLACK);
-				attemptCopy.set(i, ColorPegs.NONE);
-				toGuessCopy.set(i, ColorPegs.NONE);
+				attemptCopy.set(i, null);
+				toGuessCopy.set(i, null);
 			}
 		});
 		IntStream.range(0, attemptCopy.size()).forEach(i -> {
-			if (attemptCopy.get(i) != ColorPegs.NONE && toGuessCopy.contains(attemptCopy.get(i))) {
+			if (attemptCopy.get(i) != null && toGuessCopy.contains(attemptCopy.get(i))) {
 				clue.add(ColorPegs.WHITE);
-				toGuessCopy.set(toGuessCopy.indexOf(attemptCopy.get(i)), ColorPegs.NONE);
-				attemptCopy.set(i, ColorPegs.NONE);
+				toGuessCopy.set(toGuessCopy.indexOf(attemptCopy.get(i)), null);
+				attemptCopy.set(i, null);
 			}
 		});
 		Collections.shuffle(clue);
