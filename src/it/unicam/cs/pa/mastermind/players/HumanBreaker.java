@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
@@ -47,13 +48,10 @@ public class HumanBreaker implements CodeBreaker {
 	}
 
 	@Override
-	public boolean isGiveUp() {
-		return giveUp;
-	}
-
-	@Override
-	public void setGiveUp(boolean giveUp) {
-		this.giveUp = giveUp;
+	public void askGiveUp() throws BreakerGiveUpException {
+		if(this.manager.askGiveUp()) {
+			throw new BreakerGiveUpException();
+		}
 	}
 
 	@Override

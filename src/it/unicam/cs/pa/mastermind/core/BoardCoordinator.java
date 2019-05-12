@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.exceptions.BreakerWinException;
+import it.unicam.cs.pa.mastermind.exceptions.NoAttemptsLeftException;
 import it.unicam.cs.pa.mastermind.pegs.*;
 
 /**
@@ -41,8 +43,8 @@ public class BoardCoordinator {
 	 * 
 	 * @param attempt la lista di pioli tentativo che si vuole inserire
 	 * @return un booleano che controlla lo stato della operazione,
-	 *         <strong>true</strong> se l'operazione è stata effettuata con successo
-	 *         o <strong>false</strong> se l'operazione è fallita
+	 *         <strong>true</strong> se l'operazione è stata effettuata con
+	 *         successo o <strong>false</strong> se l'operazione è fallita
 	 */
 	public boolean insertNewAttempt(List<ColorPegs> attempt) {
 		try {
@@ -54,22 +56,20 @@ public class BoardCoordinator {
 	}
 
 	/**
-	 * Indica se la partita termina o meno. Puo terminare solo se i tentativi sono
-	 * finiti, se il giocatore breaker ha indovinato la sequenza o se, infine, il
-	 * giocatore breaker si è arreso.
+	 * Verifica se il giocatore che decodifica ha indovinato la sequenza inserita
+	 * dal giocatore che codifica o se non ci sono tentativi rimanenti per
+	 * indovinare per poter sollevare le relative eccezioni.
 	 * 
-	 * @param breaker il player, che sia Bot o Human, il quale sta cercando di
-	 *                decodificare la sequenza
-	 * @return un booleano che afferma l'ending positivo o negativo della partita
-	 *         corrente
+	 * @throws BreakerWinException
+	 * @throws NoAttemptsLeftException
 	 */
-	public boolean checkEnd(CodeBreaker breaker) {
-		if (breaker.isGiveUp() || currentBoard.leftAttempts() == 0
-				|| (currentBoard.lastAttemptAndClue().getValue().size() == this.getSequenceLength() && currentBoard
-						.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK))) {
-			return true;
-		} else {
-			return false;
+	public void checkEnd() throws BreakerWinException, NoAttemptsLeftException {
+		if (this.currentBoard.lastAttemptAndClue().getValue().size() == this.currentBoard.getSequenceLength()
+				&& this.currentBoard.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK)) {
+			throw new BreakerWinException(this.currentBoard.getAttemptAndClueMap().size());
+		}
+		if (this.currentBoard.leftAttempts() == 0) {
+			throw new NoAttemptsLeftException();
 		}
 	}
 

@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
+import it.unicam.cs.pa.mastermind.exceptions.EndingException;
 import it.unicam.cs.pa.mastermind.pegs.*;
 
 /**
@@ -54,7 +56,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 		try {
 			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
 			IntStream.range(0, ColorPegs.values().length)
-					.mapToObj(index -> String.format("[%s - %d] ", beautifyGeneral(ColorPegs.values()[index]), index+1))
+					.mapToObj(
+							index -> String.format("[%s - %d] ", beautifyGeneral(ColorPegs.values()[index]), index + 1))
 					.forEach(System.out::print);
 			System.out.println();
 			for (int i = 1; i <= sequenceLength; i++) {
@@ -158,7 +161,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public boolean[] ending() {
+	public boolean[] ending(EndingException exe) {
+		System.out.println(exe.getMessage());
 		int intInput = 0;
 		try {
 			System.out.println("\nThe game has finished, what would you like to do now?");
@@ -179,6 +183,19 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
+	public boolean askGiveUp(){
+		String strInput = "";
+		try {
+			while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
+				System.out.print("\nWould you like to give up the match? [Y/N]" + "\n" + "> ");
+				strInput = reader.readLine();
+			}
+		} catch (IOException e) {
+			System.out.print(e.getMessage());
+		}
+		return (strInput.toLowerCase().equals("y") ? true : false);
+	}
+
 	private void askIndexOfPegs(List<Integer> list, int index) throws IOException {
 		int temp = 0;
 		do {
@@ -189,7 +206,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 				System.out.println("Please insert a numeric value");
 			}
 		} while (temp < 1 || temp > ColorPegs.values().length);
-		list.add(temp-1);
+		list.add(temp - 1);
 	}
 
 	/**

@@ -2,6 +2,7 @@ package it.unicam.cs.pa.mastermind.players;
 
 import java.util.List;
 
+import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
@@ -21,16 +22,8 @@ public interface CodeBreaker {
 	public List<ColorPegs> getAttempt(int sequenceLength);
 
 	/**
-	 * Definisce o meno una potenziale arresa da parte del player.
-	 * 
-	 * @return un booleano a seconda della sua scelta di resa
+	 * Metodo che chiede all'entità del giocatore che decodifica se ha intenzione di arrendersi
+	 * @throws BreakerGiveUpException
 	 */
-	public boolean isGiveUp();
-
-	/**
-	 * Setta lo stato di resa da parte del player.
-	 * 
-	 * @param giveUp un booleano a seconda della sua scelta di resa
-	 */
-	public void setGiveUp(boolean giveUp);
+	public void askGiveUp() throws BreakerGiveUpException;
 }

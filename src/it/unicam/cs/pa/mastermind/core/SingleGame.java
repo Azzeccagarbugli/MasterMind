@@ -1,5 +1,6 @@
 package it.unicam.cs.pa.mastermind.core;
 
+import it.unicam.cs.pa.mastermind.exceptions.EndingException;
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
@@ -44,8 +45,8 @@ public class SingleGame {
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
-	 * @param manager        entit� relativa alla gestione delle interazioni con gli
-	 *                       utenti fisici
+	 * @param manager        entit� relativa alla gestione delle interazioni con
+	 *                       gli utenti fisici
 	 */
 	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
 			InteractionManager manager) {
@@ -66,11 +67,16 @@ public class SingleGame {
 	 */
 	public boolean[] start() {
 		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));
-		do {
-			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
-			manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueList());
-		} while (!coordinator.checkEnd(breaker));
-		return manager.ending();
+		try {
+			while (true) {
+				coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
+				manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueList());
+				coordinator.checkEnd();
+				breaker.askGiveUp();
+			}
+		} catch (EndingException e) {
+			return manager.ending(e);
+		}
 	}
 
 }

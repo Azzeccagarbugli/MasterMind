@@ -3,6 +3,8 @@ package it.unicam.cs.pa.mastermind.gui;
 import java.util.List;
 import java.util.Map;
 
+import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
+import it.unicam.cs.pa.mastermind.exceptions.EndingException;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
@@ -46,6 +48,11 @@ public interface InteractionManager {
 	 * 
 	 * @return un array di boolean contenente i settaggi di ending della partita
 	 */
-	public boolean[] ending();
+	public boolean[] ending(EndingException exe);
 
+	/**
+	 * Metodo per chiedere all'utente fisico che sta giocando se ha intenzione di arrendersi.
+	 * @return
+	 */
+	public boolean askGiveUp();
 }
