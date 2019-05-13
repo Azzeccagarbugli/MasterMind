@@ -50,18 +50,19 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
+	public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker) throws BreakerGiveUpException {
 		List<Integer> indexPegs = new ArrayList<Integer>();
-		System.out.println(toGuess ? "\nDefining the sequence to guess" : "\nDefining an attempt");
+		System.out.println(isBreaker ? "\nDefining an attempt" : "\nDefining the sequence to guess");
 		try {
-			System.out.print("Please define the color of each of the pegs knowing that: " + "\n");
+			System.out.print("Please define the color of each of the pegs knowing that "
+					+ (isBreaker ? "[Insert the number 0 to give up]:" : "") + "\n");
 			IntStream.range(0, ColorPegs.values().length)
 					.mapToObj(
 							index -> String.format("[%s - %d] ", beautifyGeneral(ColorPegs.values()[index]), index + 1))
 					.forEach(System.out::print);
 			System.out.println();
 			for (int i = 1; i <= sequenceLength; i++) {
-				this.askIndexOfPegs(indexPegs, i);
+				this.askIndexOfPegs(indexPegs, i, isBreaker);
 			}
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
@@ -79,7 +80,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		System.out.format("|%31s %14s %30s %14s\n", attemptWhiteBold, "|", clueWhiteBold, "|");
 		System.out.println("+----------------------------------+----------------------------------+");
 		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %2s %-80s",
-				beautifyAttempts(entry.getKey()), "|", beautifyClues(entry.getValue())));
+				beautifyAttempts(entry.getKey()), "|", beautifyClues(entry.getValue(), true)));
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 		showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
 				ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
 		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s", beautifyAttempts(entry.getKey()),
-				beautifyClues(entry.getValue())));
+				beautifyClues(entry.getValue(), true)));
 	}
 
 	/**
@@ -124,8 +125,8 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 * secondo i canoni della decodifica ANSI.
 	 * 
 	 * @param color il colore che si vuole codificare in una stringa colorata
-	 * @return la stringa contenente i valori della stringa visualizzati in
-	 *         modalità colorata
+	 * @return la stringa contenente i valori della stringa visualizzati in modalità
+	 *         colorata
 	 */
 	public String beautifyGeneral(ColorPegs color) {
 		String colorfulPeg = new String();
@@ -161,10 +162,11 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public boolean[] ending(EndingException exe) {
+	public boolean[] ending(EndingException exe, List<ColorPegs> toGuess) {
 		System.out.println(exe.getMessage());
 		int intInput = 0;
 		try {
+			System.out.println("\nThe correct sequence was: " + beautifyClues(toGuess, false));
 			System.out.println("\nThe game has finished, what would you like to do now?");
 			while (!((intInput >= 1) && (intInput <= 3))) {
 				System.out.print("- Start a new game with the same settings [1]" + "\n"
@@ -183,25 +185,15 @@ public class CommandLineInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	public boolean askGiveUp(){
-		String strInput = "";
-		try {
-			while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
-				System.out.print("\nWould you like to give up the match? [Y/N]" + "\n" + "> ");
-				strInput = reader.readLine();
-			}
-		} catch (IOException e) {
-			System.out.print(e.getMessage());
-		}
-		return (strInput.toLowerCase().equals("y") ? true : false);
-	}
-
-	private void askIndexOfPegs(List<Integer> list, int index) throws IOException {
+	private void askIndexOfPegs(List<Integer> list, int index, boolean isBreaker)
+			throws IOException, BreakerGiveUpException {
 		int temp = 0;
 		do {
 			System.out.print("Insert value nr." + index + " > ");
 			try {
 				temp = Integer.parseInt(this.reader.readLine());
+				if (isBreaker && temp == 0)
+					throw new BreakerGiveUpException();
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value");
 			}
@@ -240,16 +232,22 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 * <code>showGame</code>.
 	 * 
 	 * @param cluesList la lista di pedine indizio
+	 * @param flag      imposta la stampa anche della tabella
 	 * @return la stringa contenente la corriespetiva sequenza colorata
 	 */
-	private String beautifyClues(List<ColorPegs> cluesList) {
+	private String beautifyClues(List<ColorPegs> cluesList, boolean flag) {
 		String clueCombination = "[ ";
 		for (ColorPegs clue : cluesList) {
 			clueCombination += beautifyGeneral(clue);
 		}
-		clueCombination += String.format("] %" + dynamicTableLenght(cluesList.size()) + "s \n", "|");
-		clueCombination += String.format("%s %34s %34s \n", "|", "|", "|");
-		clueCombination += "+----------------------------------+----------------------------------+\n";
+
+		if (!flag) {
+			clueCombination += String.format("]");
+		} else {
+			clueCombination += String.format("] %" + dynamicTableLenght(cluesList.size()) + "s \n", "|");
+			clueCombination += String.format("%s %34s %34s \n", "|", "|", "|");
+			clueCombination += "+----------------------------------+----------------------------------+\n";
+		}
 
 		return clueCombination;
 	}

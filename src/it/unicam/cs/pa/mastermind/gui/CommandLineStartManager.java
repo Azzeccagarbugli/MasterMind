@@ -25,7 +25,6 @@ public class CommandLineStartManager implements StartManager {
 	private int sequenceLength;
 	private boolean toContinue = true;
 	private boolean keepSettings = false;
-	private SingleGame game;
 	private InteractionManager intManager;
 	int lowTreshholdLength;
 	int highTresholdLength;
@@ -87,17 +86,12 @@ public class CommandLineStartManager implements StartManager {
 		this.ending();
 	}
 
-	public static void main(String[] args) {
-		CommandLineStartManager startManager = new CommandLineStartManager();
-		startManager.start();
-	}
-
 	/**
-	 * Chiede all'utente quale modalit� di gioco desidera per la nuova partita
+	 * Chiede all'utente quale modalità di gioco desidera per la nuova partita.
 	 * 
-	 * @param reader
-	 * @return
-	 * @throws IOException
+	 * @param reader il <code>BufferReader</code> passato come argomento
+	 * @return la modalità di gioco selezionata
+	 * @throws IOException se il valore inserito non è un valore numerico
 	 */
 	private GameMode getGameMode(BufferedReader reader) throws IOException {
 		int intInput = 0;
@@ -120,9 +114,9 @@ public class CommandLineStartManager implements StartManager {
 	}
 
 	/**
-	 * Stampa su console la modalit� di gioco scelta dall'utente
+	 * Stampa su console la modalità di gioco scelta dall'utente.
 	 * 
-	 * @param mode
+	 * @param mode la modalità di gioco inserito
 	 */
 	private void printChosenMode(GameMode mode) {
 		System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%30s+\n", " ", " ").replace(' ', '-'));
@@ -133,11 +127,11 @@ public class CommandLineStartManager implements StartManager {
 
 	/**
 	 * Chiede all'utente via console se vuole iniziare una nuova partita con le
-	 * impostazioni standard o meno
+	 * impostazioni standard o meno.
 	 * 
-	 * @param reader
-	 * @return
-	 * @throws IOException
+	 * @param reader il <code>BufferReader</code> passato come argomento
+	 * @return un array di booleani contenente i settaggi per la prossima partita
+	 * @throws IOException se il valore inserito non è un valore numerico
 	 */
 	private boolean askNewSettings(BufferedReader reader) throws IOException {
 		String strInput = "";
@@ -152,12 +146,12 @@ public class CommandLineStartManager implements StartManager {
 
 	/**
 	 * Chiede all'utente via console il nuovo numero di tentativi per indovinare la
-	 * sequenza
+	 * sequenza.
 	 * 
-	 * @param reader
-	 * @param lowTres
-	 * @return
-	 * @throws IOException
+	 * @param reader  il <code>BufferReader</code> passato come argomento
+	 * @param lowTres il valore di tentativi che si desidera effettuare
+	 * @return il nuovo numero di tentativi
+	 * @throws IOException se il valore inserito non è un valore numerico
 	 */
 	private int askNewAttempts(BufferedReader reader, int lowTres) throws IOException {
 		int attempts = 0;
@@ -175,13 +169,13 @@ public class CommandLineStartManager implements StartManager {
 
 	/**
 	 * Chiede all'utente via console la nuova lunghezza delle sequenze da indovinare
-	 * e tentativo
+	 * e tentativo.
 	 * 
-	 * @param reader
-	 * @param lowTres
-	 * @param highTres
-	 * @return
-	 * @throws IOException
+	 * @param reader   il <code>BufferReader</code> passato come argomento
+	 * @param lowTres  il numero precedente dei tentativi
+	 * @param highTres il valore numerico della lunghezza della sequenza
+	 * @return la nuova lunghezza della sequenza da inserire
+	 * @throws IOException se il valore inserito non è un valore numerico
 	 */
 	private int askNewlength(BufferedReader reader, int lowTres, int highTres) throws IOException {
 		int length = 0;
@@ -199,7 +193,7 @@ public class CommandLineStartManager implements StartManager {
 	}
 
 	/**
-	 * Comunica la fine del gioco e interrompe il processo
+	 * Comunica la fine del gioco e interrompe il processo.
 	 */
 	private void ending() {
 		System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%50s" + ANSI_RESET, mastermindLogo,
@@ -209,7 +203,7 @@ public class CommandLineStartManager implements StartManager {
 
 	/**
 	 * Viene effettuata una sorta di operazione clean per la console stampando 100
-	 * linee di testo vuote
+	 * linee di testo vuote.
 	 */
 	private void clearScreen() {
 		System.out.println("##################################################################################");
@@ -218,7 +212,7 @@ public class CommandLineStartManager implements StartManager {
 
 	/**
 	 * Metodo privato per una migliore formattazione del riquadro contenente la
-	 * modalità di gioco
+	 * modalità di gioco.
 	 * 
 	 * @param gm
 	 * @return
@@ -238,4 +232,8 @@ public class CommandLineStartManager implements StartManager {
 		}
 	}
 
+	public static void main(String[] args) {
+		CommandLineStartManager startManager = new CommandLineStartManager();
+		startManager.start();
+	}
 }

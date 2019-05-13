@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.exceptions.BreakerWinException;
 import it.unicam.cs.pa.mastermind.exceptions.NoAttemptsLeftException;
 import it.unicam.cs.pa.mastermind.pegs.*;

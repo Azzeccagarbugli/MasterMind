@@ -168,12 +168,18 @@ public interface <code class="descname">InteractionManager</code><a class="heade
 <div class="section" id="ending">
 <h3>ending<a class="headerlink" href="#ending" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.gui.InteractionManager.ending()">
-public boolean[] <code class="descname">ending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.InteractionManager.ending()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestisce la fine di una singola partita. Metodo da richiamare dopo che � stato garantinto che la partita in atto � da definirsi conclusa.</p>
+<dt id="it.unicam.cs.pa.mastermind.gui.InteractionManager.ending(EndingException, List)">
+public boolean[] <code class="descname">ending</code><span class="sig-paren">(</span><a class="reference internal" href="../exceptions/EndingException.html#it.unicam.cs.pa.mastermind.exceptions.EndingException" title="it.unicam.cs.pa.mastermind.exceptions.EndingException">EndingException</a><em> exe</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.InteractionManager.ending(EndingException, List)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestisce la fine di una singola partita. Metodo da richiamare dopo che è stato garantinto che la partita in atto è da definirsi conclusa.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>un array di boolean contenente i settaggi di ending della partita</p>
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exe</strong> – eccezione personalizzata</p></li>
+<li><p><strong>toGuess</strong> – i valori della sequenza da indovinare</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>un array di boolean contenente i settaggi di ending della partita</p>
 </dd>
 </dl>
 </dd></dl>
@@ -192,8 +198,13 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <li><p><strong>toGuess</strong> – se la sequenza da inserire è la sequenza da indovinare o meno</p></li>
 </ul>
 </dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>la lista di interi che andranno a definire la sequenza</p>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/BreakerGiveUpException.html#it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException" title="it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException"><strong>BreakerGiveUpException</strong></a> – la resa condizionata del player</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>la lista di interi che andranno a definire la sequenza</p>
 </dd>
 </dl>
 </dd></dl>

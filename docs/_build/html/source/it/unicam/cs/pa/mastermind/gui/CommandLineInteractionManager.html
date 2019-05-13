@@ -170,17 +170,44 @@ public class <code class="descname">CommandLineInteractionManager</code> impleme
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.CommandLineInteractionManager(BufferedReader)">
 public <code class="descname">CommandLineInteractionManager</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html" title="java.io.BufferedReader">BufferedReader</a><em> newReader</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.CommandLineInteractionManager(BufferedReader)" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Costruisco l’elemento <code class="docutils literal notranslate"><span class="pre">CommandLineInteractionManager</span></code>, il quale permette l’interazione tra il gioco e i vari player disponibili.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>newReader</strong> – il BufferReader necessario alla generazione della classe</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="beautifygeneral">
+<h3>beautifyGeneral<a class="headerlink" href="#beautifygeneral" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.beautifyGeneral(ColorPegs)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">beautifyGeneral</code><span class="sig-paren">(</span><a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a><em> color</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.beautifyGeneral(ColorPegs)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo secondo i canoni della decodifica ANSI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – il colore che si vuole codificare in una stringa colorata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>la stringa contenente i valori della stringa visualizzati in modalità colorata</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="ending">
 <h3>ending<a class="headerlink" href="#ending" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.ending()">
-public boolean[] <code class="descname">ending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.ending()" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.ending(EndingException, List)">
+public boolean[] <code class="descname">ending</code><span class="sig-paren">(</span><a class="reference internal" href="../exceptions/EndingException.html#it.unicam.cs.pa.mastermind.exceptions.EndingException" title="it.unicam.cs.pa.mastermind.exceptions.EndingException">EndingException</a><em> exe</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.ending(EndingException, List)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -188,7 +215,7 @@ public boolean[] <code class="descname">ending</code><span class="sig-paren">(</
 <h3>getIndexSequence<a class="headerlink" href="#getindexsequence" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.getIndexSequence(int, boolean)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, boolean<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.getIndexSequence(int, boolean)" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.getIndexSequence(int, boolean)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -213,7 +240,17 @@ public void <code class="descname">showGame</code><span class="sig-paren">(</spa
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.showGameBasingOnLenght(int, String, String)">
 public void <code class="descname">showGameBasingOnLenght</code><span class="sig-paren">(</span>int<em> size</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> attemptLabel</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> clueLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager.showGameBasingOnLenght(int, String, String)" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Metodo necessario alla creazione del disegno tabulare che contiene le informazioni di gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> – la launghezza dell’array che viene inserito come parametro locale</p></li>
+<li><p><strong>attemptLabel</strong> – il nome dell’etichetta che si vuole dare al titolo dei tentativi inseriti</p></li>
+<li><p><strong>clueLabel</strong> – il nome dell’etichetta che si vuole dare al titolo degli indizi generati</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

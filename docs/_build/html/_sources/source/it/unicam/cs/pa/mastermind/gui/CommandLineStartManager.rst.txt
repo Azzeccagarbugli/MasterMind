@@ -22,6 +22,26 @@ CommandLineStartManager
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
+Fields
+------
+highTresholdLength
+^^^^^^^^^^^^^^^^^^
+
+.. java:field::  int highTresholdLength
+   :outertype: CommandLineStartManager
+
+lowTreshholdAttempts
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:field::  int lowTreshholdAttempts
+   :outertype: CommandLineStartManager
+
+lowTreshholdLength
+^^^^^^^^^^^^^^^^^^
+
+.. java:field::  int lowTreshholdLength
+   :outertype: CommandLineStartManager
+
 Constructors
 ------------
 CommandLineStartManager
@@ -32,14 +52,6 @@ CommandLineStartManager
 
 Methods
 -------
-clearScreen
-^^^^^^^^^^^
-
-.. java:method:: public void clearScreen()
-   :outertype: CommandLineStartManager
-
-   Clear della console.
-
 main
 ^^^^
 

@@ -40,15 +40,3 @@ getAttempt
 .. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength)
    :outertype: BotBreaker
 
-isGiveUp
-^^^^^^^^
-
-.. java:method:: @Override public boolean isGiveUp()
-   :outertype: BotBreaker
-
-setGiveUp
-^^^^^^^^^
-
-.. java:method:: @Override public void setGiveUp(boolean giveUp)
-   :outertype: BotBreaker
-

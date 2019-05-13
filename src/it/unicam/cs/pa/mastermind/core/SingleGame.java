@@ -72,10 +72,10 @@ public class SingleGame {
 				coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
 				manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueList());
 				coordinator.checkEnd();
-				breaker.askGiveUp();
+				//breaker.askGiveUp();
 			}
 		} catch (EndingException e) {
-			return manager.ending(e);
+			return manager.ending(e, coordinator.getSequenceToGuess());
 		}
 	}
 

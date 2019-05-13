@@ -2,6 +2,10 @@
 
 .. java:import:: java.util Map
 
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerGiveUpException
+
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions EndingException
+
 .. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
 
 InteractionManager
@@ -21,23 +25,26 @@ Methods
 ending
 ^^^^^^
 
-.. java:method:: public boolean[] ending()
+.. java:method:: public boolean[] ending(EndingException exe, List<ColorPegs> toGuess)
    :outertype: InteractionManager
 
-   Gestisce la fine di una singola partita. Metodo da richiamare dopo che � stato garantinto che la partita in atto � da definirsi conclusa.
+   Gestisce la fine di una singola partita. Metodo da richiamare dopo che è stato garantinto che la partita in atto è da definirsi conclusa.
 
+   :param exe: eccezione personalizzata
+   :param toGuess: i valori della sequenza da indovinare
    :return: un array di boolean contenente i settaggi di ending della partita
 
 getIndexSequence
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess)
+.. java:method:: public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) throws BreakerGiveUpException
    :outertype: InteractionManager
 
    Richiede all'utente umano la sequenza tentativo.
 
    :param sequenceLength: la lunghezza della sequenza inserita
    :param toGuess: se la sequenza da inserire è la sequenza da indovinare o meno
+   :throws BreakerGiveUpException: la resa condizionata del player
    :return: la lista di interi che andranno a definire la sequenza
 
 showGame

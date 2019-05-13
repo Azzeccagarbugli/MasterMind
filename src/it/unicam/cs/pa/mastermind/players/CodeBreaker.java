@@ -17,13 +17,10 @@ public interface CodeBreaker {
 	 * Restituisce la sequenza di pioli valida come singolo tentativo.
 	 * 
 	 * @param sequenceLength la lunghezza della sequenza
+	 * @throws BreakerGiveUpException eccezione lanciata quando il player decide di
+	 *                                effettuare la resa
 	 * @return la lista dei valori ottenuta
 	 */
-	public List<ColorPegs> getAttempt(int sequenceLength);
+	public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException;
 
-	/**
-	 * Metodo che chiede all'entità del giocatore che decodifica se ha intenzione di arrendersi
-	 * @throws BreakerGiveUpException
-	 */
-	public void askGiveUp() throws BreakerGiveUpException;
 }

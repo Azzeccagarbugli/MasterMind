@@ -3,6 +3,7 @@ package it.unicam.cs.pa.mastermind.players;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
@@ -36,8 +37,12 @@ public class HumanMaker implements CodeMaker {
 	@Override
 	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-		manager.getIndexSequence(sequenceLength, true).stream().map(index -> ColorPegs.values()[index])
-				.forEach(listToGuess::add);
+		try {
+			manager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index])
+					.forEach(listToGuess::add);
+		} catch (BreakerGiveUpException e) {
+			System.out.println(e.getMessage());
+		}
 		return listToGuess;
 	}
 

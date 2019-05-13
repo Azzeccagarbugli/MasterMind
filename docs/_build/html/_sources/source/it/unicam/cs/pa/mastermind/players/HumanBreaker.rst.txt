@@ -6,6 +6,8 @@
 
 .. java:import:: java.util Set
 
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerGiveUpException
+
 .. java:import:: it.unicam.cs.pa.mastermind.gui InteractionManager
 
 .. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
@@ -39,18 +41,6 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength)
-   :outertype: HumanBreaker
-
-isGiveUp
-^^^^^^^^
-
-.. java:method:: @Override public boolean isGiveUp()
-   :outertype: HumanBreaker
-
-setGiveUp
-^^^^^^^^^
-
-.. java:method:: @Override public void setGiveUp(boolean giveUp)
+.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException
    :outertype: HumanBreaker
 

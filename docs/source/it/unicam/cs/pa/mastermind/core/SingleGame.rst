@@ -1,3 +1,5 @@
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions EndingException
+
 .. java:import:: it.unicam.cs.pa.mastermind.gui InteractionManager
 
 .. java:import:: it.unicam.cs.pa.mastermind.players CodeBreaker

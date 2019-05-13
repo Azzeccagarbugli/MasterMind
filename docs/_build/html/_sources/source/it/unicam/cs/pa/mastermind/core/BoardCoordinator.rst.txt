@@ -8,7 +8,9 @@
 
 .. java:import:: java.util.stream IntStream
 
-.. java:import:: it.unicam.cs.pa.mastermind.players CodeBreaker
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerWinException
+
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions NoAttemptsLeftException
 
 BoardCoordinator
 ================
@@ -39,13 +41,13 @@ Methods
 checkEnd
 ^^^^^^^^
 
-.. java:method:: public boolean checkEnd(CodeBreaker breaker)
+.. java:method:: public void checkEnd() throws BreakerWinException, NoAttemptsLeftException
    :outertype: BoardCoordinator
 
-   Indica se la partita termina o meno. Puo terminare solo se i tentativi sono finiti, se il giocatore breaker ha indovinato la sequenza o se, infine, il giocatore breaker si è arreso.
+   Verifica se il giocatore che decodifica ha indovinato la sequenza inserita dal giocatore che codifica o se non ci sono tentativi rimanenti per indovinare per poter sollevare le relative eccezioni.
 
-   :param breaker: il player, che sia Bot o Human, il quale sta cercando di decodificare la sequenza
-   :return: un booleano che afferma l'ending positivo o negativo della partita corrente
+   :throws BreakerWinException:
+   :throws NoAttemptsLeftException:
 
 getAttemptAndClueList
 ^^^^^^^^^^^^^^^^^^^^^

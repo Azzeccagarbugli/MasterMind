@@ -36,12 +36,6 @@ GREEN
 .. java:field:: public static final ColorPegs GREEN
    :outertype: ColorPegs
 
-NONE
-^^^^
-
-.. java:field:: public static final ColorPegs NONE
-   :outertype: ColorPegs
-
 PURPLE
 ^^^^^^
 

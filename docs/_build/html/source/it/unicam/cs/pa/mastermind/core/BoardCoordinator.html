@@ -187,17 +187,15 @@ public <code class="descname">BoardCoordinator</code><span class="sig-paren">(</
 <div class="section" id="checkend">
 <h3>checkEnd<a class="headerlink" href="#checkend" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.checkEnd(CodeBreaker)">
-public boolean <code class="descname">checkEnd</code><span class="sig-paren">(</span><a class="reference internal" href="../players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><em> breaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.checkEnd(CodeBreaker)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Indica se la partita termina o meno. Puo terminare solo se i tentativi sono finiti, se il giocatore breaker ha indovinato la sequenza o se, infine, il giocatore breaker si è arreso.</p>
+<dt id="it.unicam.cs.pa.mastermind.core.BoardCoordinator.checkEnd()">
+public void <code class="descname">checkEnd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.BoardCoordinator.checkEnd()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Verifica se il giocatore che decodifica ha indovinato la sequenza inserita dal giocatore che codifica o se non ci sono tentativi rimanenti per indovinare per poter sollevare le relative eccezioni.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
+<dt class="field-odd">Solleva</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>breaker</strong> – il player, che sia Bot o Human, il quale sta cercando di decodificare la sequenza</p></li>
+<li><p><a class="reference internal" href="../exceptions/BreakerWinException.html#it.unicam.cs.pa.mastermind.exceptions.BreakerWinException" title="it.unicam.cs.pa.mastermind.exceptions.BreakerWinException"><strong>BreakerWinException</strong></a> – </p></li>
+<li><p><a class="reference internal" href="../exceptions/NoAttemptsLeftException.html#it.unicam.cs.pa.mastermind.exceptions.NoAttemptsLeftException" title="it.unicam.cs.pa.mastermind.exceptions.NoAttemptsLeftException"><strong>NoAttemptsLeftException</strong></a> – </p></li>
 </ul>
-</dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>un booleano che afferma l’ending positivo o negativo della partita corrente</p>
 </dd>
 </dl>
 </dd></dl>

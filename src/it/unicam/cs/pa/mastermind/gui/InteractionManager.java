@@ -21,9 +21,10 @@ public interface InteractionManager {
 	 * @param sequenceLength la lunghezza della sequenza inserita
 	 * @param toGuess        se la sequenza da inserire è la sequenza da indovinare
 	 *                       o meno
+	 * @throws BreakerGiveUpException la resa condizionata del player 
 	 * @return la lista di interi che andranno a definire la sequenza
 	 */
-	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess);
+	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) throws BreakerGiveUpException;
 
 	/**
 	 * Mostra all'utente la situazione corrente del gioco.
@@ -43,16 +44,12 @@ public interface InteractionManager {
 	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
 
 	/**
-	 * Gestisce la fine di una singola partita. Metodo da richiamare dopo che �
-	 * stato garantinto che la partita in atto � da definirsi conclusa.
+	 * Gestisce la fine di una singola partita. Metodo da richiamare dopo che è
+	 * stato garantinto che la partita in atto è da definirsi conclusa.
 	 * 
+	 * @param exe eccezione personalizzata
+	 * @param toGuess i valori della sequenza da indovinare
 	 * @return un array di boolean contenente i settaggi di ending della partita
 	 */
-	public boolean[] ending(EndingException exe);
-
-	/**
-	 * Metodo per chiedere all'utente fisico che sta giocando se ha intenzione di arrendersi.
-	 * @return
-	 */
-	public boolean askGiveUp();
+	public boolean[] ending(EndingException exe, List<ColorPegs> toGuess);
 }

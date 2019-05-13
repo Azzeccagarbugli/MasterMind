@@ -19,11 +19,6 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class HumanBreaker implements CodeBreaker {
 
 	/**
-	 * Variabile booleana in cui setto la potenziale resa del player.
-	 */
-	private boolean giveUp;
-
-	/**
 	 * Instanza di <code>InteractionManager</code> per definire un manager locale.
 	 */
 	private InteractionManager manager;
@@ -42,24 +37,21 @@ public class HumanBreaker implements CodeBreaker {
 	 *                   interazioni
 	 */
 	public HumanBreaker(InteractionManager intManager) {
-		giveUp = false;
 		this.manager = intManager;
 		combinationAttempts = new HashSet<>();
 	}
 
-	@Override
-	public void askGiveUp() throws BreakerGiveUpException {
-		if(this.manager.askGiveUp()) {
-			throw new BreakerGiveUpException();
-		}
-	}
+	/*
+	 * @Override public void askGiveUp() throws BreakerGiveUpException {
+	 * if(this.manager.askGiveUp()) { throw new BreakerGiveUpException(); } }
+	 */
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength) {
+	public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException {
 		List<ColorPegs> listAttempt;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			manager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index])
+			manager.getIndexSequence(sequenceLength, true).stream().map(index -> ColorPegs.values()[index])
 					.forEach(listAttempt::add);
 		} while (combinationAttempts.contains(listAttempt));
 		return listAttempt;

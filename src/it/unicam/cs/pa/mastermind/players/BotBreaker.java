@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
 import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
@@ -20,11 +19,6 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 public class BotBreaker implements CodeBreaker {
 
 	/**
-	 * Variabile booleana in cui setto la potenziale resa del player.
-	 */
-	private boolean giveUp;
-
-	/**
 	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi
 	 * effettuati.
 	 */
@@ -34,14 +28,9 @@ public class BotBreaker implements CodeBreaker {
 	 * Costruisco un BotBreaker e lo rendo disponibile per una partita qualsisi.
 	 */
 	public BotBreaker() {
-		giveUp = false;
 		combinationAttempts = new HashSet<>();
 	}
-	
-	@Override
-	public void askGiveUp() throws BreakerGiveUpException {
-	}
-	
+
 	@Override
 	public List<ColorPegs> getAttempt(int sequenceLength) {
 		List<ColorPegs> listAttempt;

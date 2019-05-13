@@ -1,5 +1,7 @@
 .. java:import:: java.util List
 
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerGiveUpException
+
 .. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
 
 CodeBreaker
@@ -19,31 +21,12 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: public List<ColorPegs> getAttempt(int sequenceLength)
+.. java:method:: public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException
    :outertype: CodeBreaker
 
    Restituisce la sequenza di pioli valida come singolo tentativo.
 
    :param sequenceLength: la lunghezza della sequenza
+   :throws BreakerGiveUpException: eccezione lanciata quando il player decide di effettuare la resa
    :return: la lista dei valori ottenuta
-
-isGiveUp
-^^^^^^^^
-
-.. java:method:: public boolean isGiveUp()
-   :outertype: CodeBreaker
-
-   Definisce o meno una potenziale arresa da parte del player.
-
-   :return: un booleano a seconda della sua scelta di resa
-
-setGiveUp
-^^^^^^^^^
-
-.. java:method:: public void setGiveUp(boolean giveUp)
-   :outertype: CodeBreaker
-
-   Setta lo stato di resa da parte del player.
-
-   :param giveUp: un booleano a seconda della sua scelta di resa
 

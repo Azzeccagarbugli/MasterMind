@@ -2,6 +2,8 @@
 
 .. java:import:: java.util List
 
+.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerGiveUpException
+
 .. java:import:: it.unicam.cs.pa.mastermind.gui InteractionManager
 
 .. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
