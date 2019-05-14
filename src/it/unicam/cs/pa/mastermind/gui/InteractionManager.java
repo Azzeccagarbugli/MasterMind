@@ -41,7 +41,7 @@ public interface InteractionManager {
 	 * @param toGuess          la lista da indovinare
 	 * @param attemptsAndClues la lista di indizi e tentativi da visualizzare
 	 */
-	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
+	public void showGameDebug(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
 
 	/**
 	 * Gestisce la fine di una singola partita. Metodo da richiamare dopo che è

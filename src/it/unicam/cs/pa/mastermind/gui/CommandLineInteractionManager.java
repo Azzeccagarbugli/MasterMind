@@ -84,7 +84,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+	public void showGameDebug(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		int dynamicTable = toGuess.size();
 		System.out.println("\nThe current secret sequence is this one: " + toGuess + "\n");
 		showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,

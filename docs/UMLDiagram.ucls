@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="it.unicam.cs.pa.mastermind.exceptions.BreakerWinException" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/exceptions/BreakerWinException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="174" x="2302" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="it.unicam.cs.pa.mastermind.gui.InteractionManager" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/gui/InteractionManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="133" width="415" x="538" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/exceptions/BreakerGiveUpException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="174" x="1874" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="4" language="java" name="it.unicam.cs.pa.mastermind.pegs.ColorPegs" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/pegs/ColorPegs.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="223" width="149" x="993" y="1186"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="5" language="java" name="it.unicam.cs.pa.mastermind.gui.CommandLineInteractionManager" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/gui/CommandLineInteractionManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="493" width="415" x="367" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" language="java" name="it.unicam.cs.pa.mastermind.gui.StartManager" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/gui/StartManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="141" x="46" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="it.unicam.cs.pa.mastermind.players.BotMaker" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/players/BotMaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="209" x="1725" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="it.unicam.cs.pa.mastermind.players.CodeBreaker" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/players/CodeBreaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="178" x="1656" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <enumeration id="9" language="java" name="it.unicam.cs.pa.mastermind.gui.GameMode" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/gui/GameMode.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="187" width="271" x="227" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="10" language="java" name="it.unicam.cs.pa.mastermind.players.BotBreaker" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/players/BotBreaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="237" x="1974" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="it.unicam.cs.pa.mastermind.players.HumanBreaker" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/players/HumanBreaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="237" x="1071" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="it.unicam.cs.pa.mastermind.exceptions.NoAttemptsLeftException" 
+    project="MasterMind" file="/MasterMind/src/it/unicam/cs/pa/mastermind/exceptions/NoAttemptsLeftException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="174" x="2088" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="it.unicam.cs.pa.mastermind.gui.CommandLineStartManager" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/gui/CommandLineStartManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="547" width="281" x="46" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="it.unicam.cs.pa.mastermind.core.BoardCoordinator" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/core/BoardCoordinator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="205" width="374" x="993" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="15" language="java" name="it.unicam.cs.pa.mastermind.players.CodeMaker" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/players/CodeMaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="209" x="1407" y="624"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="16" language="java" name="it.unicam.cs.pa.mastermind.core.SingleGame" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/core/SingleGame.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="337" x="1348" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="it.unicam.cs.pa.mastermind.core.Board" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/core/Board.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="277" width="343" x="993" y="869"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="it.unicam.cs.pa.mastermind.exceptions.EndingException" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/exceptions/EndingException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="174" x="2251" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="it.unicam.cs.pa.mastermind.players.HumanMaker" project="MasterMind" 
+    file="/MasterMind/src/it/unicam/cs/pa/mastermind/players/HumanMaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="209" x="822" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="20">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="21" name="sequenceToGuess">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="24" name="mode">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="27" name="maker">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="30" name="intManager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="32">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="33">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="34" name="breaker">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <realization id="38">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="40">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="41" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="44" name="currentBoard">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="46">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="47">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="48" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="51" name="coordinator">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="53">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <association id="54">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="55" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="57">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <realization id="58">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

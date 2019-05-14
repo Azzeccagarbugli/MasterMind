@@ -70,7 +70,7 @@ public class SingleGame {
 		try {
 			while (true) {
 				coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
-				manager.showGame(coordinator.getSequenceToGuess(), coordinator.getAttemptAndClueList());
+				manager.showGame(coordinator.getAttemptAndClueList());
 				coordinator.checkEnd();
 				//breaker.askGiveUp();
 			}
