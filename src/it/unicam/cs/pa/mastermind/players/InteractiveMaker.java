@@ -15,7 +15,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class HumanMaker implements CodeMaker {
+public class InteractiveMaker implements CodeMaker {
 
 	/*
 	 * Instanzio la variabile manager con la quale andrò ad eseguire le varie
@@ -30,7 +30,7 @@ public class HumanMaker implements CodeMaker {
 	 * 
 	 * @param intManager il mangager con la quale effetuerò le interazioni
 	 */
-	public HumanMaker(InteractionManager intManager) {
+	public InteractiveMaker(InteractionManager intManager) {
 		this.manager = intManager;
 	}
 

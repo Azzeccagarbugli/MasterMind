@@ -16,7 +16,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class BotBreaker implements CodeBreaker {
+public class RandomBotBreaker implements CodeBreaker {
 
 	/**
 	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi
@@ -27,7 +27,7 @@ public class BotBreaker implements CodeBreaker {
 	/**
 	 * Costruisco un BotBreaker e lo rendo disponibile per una partita qualsisi.
 	 */
-	public BotBreaker() {
+	public RandomBotBreaker() {
 		combinationAttempts = new HashSet<>();
 	}
 

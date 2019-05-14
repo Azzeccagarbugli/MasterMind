@@ -16,7 +16,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class HumanBreaker implements CodeBreaker {
+public class InteractiveBreaker implements CodeBreaker {
 
 	/**
 	 * Instanza di <code>InteractionManager</code> per definire un manager locale.
@@ -36,7 +36,7 @@ public class HumanBreaker implements CodeBreaker {
 	 * @param intManager un <code>InteractionManager</code> per definire le sue
 	 *                   interazioni
 	 */
-	public HumanBreaker(InteractionManager intManager) {
+	public InteractiveBreaker(InteractionManager intManager) {
 		this.manager = intManager;
 		combinationAttempts = new HashSet<>();
 	}

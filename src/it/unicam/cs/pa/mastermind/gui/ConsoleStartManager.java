@@ -29,6 +29,8 @@ public class ConsoleStartManager implements StartManager {
 	int lowTreshholdLength;
 	int highTresholdLength;
 	int lowTreshholdAttempts;
+	BreakerFactory bFactory;
+	MakerFactory mFactory;
 
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
@@ -44,17 +46,14 @@ public class ConsoleStartManager implements StartManager {
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
-	private Function<GameMode, CodeMaker> makerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
-			|| gm.equals(GameMode.BOTBREAKERVSHUMANMAKER)) ? new HumanMaker(this.intManager) : new BotMaker();
-	private Function<GameMode, CodeBreaker> breakerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
-			|| gm.equals(GameMode.HUMANBREAKERVSBOTMAKER)) ? new HumanBreaker(this.intManager) : new BotBreaker();
-
 	public ConsoleStartManager() {
 		toContinue = true;
 		keepSettings = false;
 		lowTreshholdLength = 1;
 		highTresholdLength = 10;
 		lowTreshholdAttempts = 1;
+		bFactory = new BreakerFactory();
+		mFactory = new MakerFactory();
 	}
 
 	@Override
@@ -74,7 +73,7 @@ public class ConsoleStartManager implements StartManager {
 					}
 				}
 				System.out.println("\nNow starting the game");
-				boolean[] newSettings = new SingleGame(makerFactory.apply(mode), breakerFactory.apply(mode),
+				boolean[] newSettings = new SingleGame(mFactory.getMaker(mode, intManager), bFactory.getBreaker(mode, intManager),
 						this.sequenceLength, this.attempts, this.intManager).start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];

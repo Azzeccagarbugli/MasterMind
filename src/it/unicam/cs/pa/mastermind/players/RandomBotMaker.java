@@ -15,7 +15,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class BotMaker implements CodeMaker {
+public class RandomBotMaker implements CodeMaker {
 
 	@Override
 	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
