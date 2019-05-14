@@ -18,7 +18,7 @@ import it.unicam.cs.pa.mastermind.players.*;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class CommandLineStartManager implements StartManager {
+public class ConsoleStartManager implements StartManager {
 
 	private GameMode mode;
 	private int attempts;
@@ -49,7 +49,7 @@ public class CommandLineStartManager implements StartManager {
 	private Function<GameMode, CodeBreaker> breakerFactory = gm -> (gm.equals(GameMode.HUMANBREAKERVSHUMANMAKER)
 			|| gm.equals(GameMode.HUMANBREAKERVSBOTMAKER)) ? new HumanBreaker(this.intManager) : new BotBreaker();
 
-	public CommandLineStartManager() {
+	public ConsoleStartManager() {
 		toContinue = true;
 		keepSettings = false;
 		lowTreshholdLength = 1;
@@ -61,7 +61,7 @@ public class CommandLineStartManager implements StartManager {
 	public void start() {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 			while (toContinue) {
-				intManager = new CommandLineInteractionManager(reader);
+				intManager = new ConsoleInteractionManager(reader);
 				System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%43s" + ANSI_RESET + "\n\n\n",
 						mastermindLogo, mastermindCaptionStart);
 				if (!keepSettings) {
@@ -233,7 +233,7 @@ public class CommandLineStartManager implements StartManager {
 	}
 
 	public static void main(String[] args) {
-		CommandLineStartManager startManager = new CommandLineStartManager();
+		ConsoleStartManager startManager = new ConsoleStartManager();
 		startManager.start();
 	}
 }

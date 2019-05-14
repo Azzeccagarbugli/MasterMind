@@ -17,7 +17,7 @@ import it.unicam.cs.pa.mastermind.pegs.*;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class CommandLineInteractionManager implements InteractionManager {
+public class ConsoleInteractionManager implements InteractionManager {
 
 	/**
 	 * Di seguito i vari colori disponibili per la codifica ANSI.
@@ -45,7 +45,7 @@ public class CommandLineInteractionManager implements InteractionManager {
 	 * 
 	 * @param newReader il BufferReader necessario alla generazione della classe
 	 */
-	public CommandLineInteractionManager(BufferedReader newReader) {
+	public ConsoleInteractionManager(BufferedReader newReader) {
 		this.reader = newReader;
 	}
 
