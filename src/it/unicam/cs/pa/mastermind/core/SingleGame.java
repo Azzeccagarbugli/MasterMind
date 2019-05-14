@@ -45,8 +45,8 @@ public class SingleGame {
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
-	 * @param manager        entit� relativa alla gestione delle interazioni con
-	 *                       gli utenti fisici
+	 * @param manager        entit� relativa alla gestione delle interazioni con gli
+	 *                       utenti fisici
 	 */
 	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
 			InteractionManager manager) {
@@ -72,7 +72,6 @@ public class SingleGame {
 				coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
 				manager.showGame(coordinator.getAttemptAndClueList());
 				coordinator.checkEnd();
-				//breaker.askGiveUp();
 			}
 		} catch (EndingException e) {
 			return manager.ending(e, coordinator.getSequenceToGuess());

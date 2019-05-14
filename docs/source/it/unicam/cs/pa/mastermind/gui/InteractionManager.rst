@@ -57,10 +57,10 @@ showGame
 
    :param attemptsAndClues: la lista di indizi e tentativi da visualizzare
 
-showGame
-^^^^^^^^
+showGameDebug
+^^^^^^^^^^^^^
 
-.. java:method:: public void showGame(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues)
+.. java:method:: public void showGameDebug(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues)
    :outertype: InteractionManager
 
    Mostra all'utente la situazione corrente del gioco e inoltre visualizza la sequenza da indovinare. Fondamentalmente il seguente metodo può essere utilizzato durante la fase di debugging.

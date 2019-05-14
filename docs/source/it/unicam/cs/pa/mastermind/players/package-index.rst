@@ -8,10 +8,12 @@ Nel seguente package è possibile osservare come vengano definiti i vari attori 
 .. toctree::
    :maxdepth: 1
 
-   BotBreaker
-   BotMaker
+   BreakerFactory
    CodeBreaker
    CodeMaker
-   HumanBreaker
-   HumanMaker
+   InteractiveBreaker
+   InteractiveMaker
+   MakerFactory
+   RandomBotBreaker
+   RandomBotMaker
 

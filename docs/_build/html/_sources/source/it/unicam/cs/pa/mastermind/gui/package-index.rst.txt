@@ -8,8 +8,8 @@ Il seguente package contiene le classi relative a tutto ciò che concerne l'inte
 .. toctree::
    :maxdepth: 1
 
-   CommandLineInteractionManager
-   CommandLineStartManager
+   ConsoleInteractionManager
+   ConsoleStartManager
    GameMode
    InteractionManager
    StartManager

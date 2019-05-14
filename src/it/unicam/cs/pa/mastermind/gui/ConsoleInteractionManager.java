@@ -72,25 +72,32 @@ public class ConsoleInteractionManager implements InteractionManager {
 
 	@Override
 	public void showGame(List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
-		System.out.println("+---------------------------------------------------------------------+");
-		System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
-		String attemptWhiteBold = ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET;
-		String clueWhiteBold = ANSI_WHITE_BOLD + "Clue" + ANSI_RESET;
-		System.out.println("+----------------------------------+----------------------------------+");
-		System.out.format("|%31s %14s %30s %14s\n", attemptWhiteBold, "|", clueWhiteBold, "|");
-		System.out.println("+----------------------------------+----------------------------------+");
-		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %2s %-80s",
-				beautifyAttempts(entry.getKey()), "|", beautifyClues(entry.getValue(), true)));
+		int dynamicTable = attemptsAndClues.get(0).getKey().size();
+		showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
+				ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
+		if (dynamicTable < 5) {
+			attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s",
+					beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
+		} else {
+			attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s | %-80s\n",
+					beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+		}
 	}
 
 	@Override
-	public void showGameDebug(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+	public void showGameDebug(List<ColorPegs> toGuess,
+			List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
 		int dynamicTable = toGuess.size();
-		System.out.println("\nThe current secret sequence is this one: " + toGuess + "\n");
+		System.out.println("\n\nThe current secret sequence is this one: " + beautifyAttempts(toGuess, false) + "\n");
 		showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
 				ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
-		attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s", beautifyAttempts(entry.getKey()),
-				beautifyClues(entry.getValue(), true)));
+		if (dynamicTable < 5) {
+			attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s",
+					beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
+		} else {
+			attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s | %-80s\n",
+					beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+		}
 	}
 
 	/**
@@ -112,11 +119,8 @@ public class ConsoleInteractionManager implements InteractionManager {
 			System.out.format("|%31s %14s %30s %14s\n", attemptLabel, "|", clueLabel, "|");
 			System.out.format(String.format("+%69s+\n", " ").replace(' ', '-'));
 		} else {
-			System.out.format(String.format("\n+%130s+\n", " ").replace(' ', '-'));
-			System.out.format("%s %114s %44s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
-			System.out.format(String.format("+%138s+\n", " ").replace(' ', '-'));
-			System.out.format("|%62s %28s %60s %28s\n", attemptLabel, "|", clueLabel, "|");
-			System.out.format(String.format("+%130s+\n", " ").replace(' ', '-'));
+			System.out
+					.format(String.format("\nYour current combination is: [Attempt on left and clue on the right]\n"));
 		}
 	}
 
@@ -222,7 +226,7 @@ public class ConsoleInteractionManager implements InteractionManager {
 		case 4:
 			return 2;
 		default:
-			return 45;
+			return 4;
 		}
 	}
 
@@ -259,16 +263,25 @@ public class ConsoleInteractionManager implements InteractionManager {
 	 * <code>showGame</code>.
 	 * 
 	 * @param attemptsList la lista di pedine tentativo inserite
+	 * @param flag         imposta la stampa anche della tabella
 	 * @return la stringa contenente la corriespetiva sequenza colorata
 	 */
-	private String beautifyAttempts(List<ColorPegs> attemptsList) {
-		System.out.format("%s %34s %34s\n", "|", "|", "|");
-		String attemptCombination = "[ ";
-
-		for (ColorPegs attempt : attemptsList) {
-			attemptCombination += beautifyGeneral(attempt);
+	private String beautifyAttempts(List<ColorPegs> attemptsList, boolean flag) {
+		String attemptCombination;
+		if (!flag) {
+			attemptCombination = "[ ";
+			for (ColorPegs attempt : attemptsList) {
+				attemptCombination += beautifyGeneral(attempt);
+			}
+			attemptCombination += String.format(ANSI_RESET + "]");
+		} else {
+			System.out.format("%s %34s %34s\n", "|", "|", "|");
+			attemptCombination = "[ ";
+			for (ColorPegs attempt : attemptsList) {
+				attemptCombination += beautifyGeneral(attempt);
+			}
+			attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "|");
 		}
-		attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "|");
 		return attemptCombination;
 	}
 

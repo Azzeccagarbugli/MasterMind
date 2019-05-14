@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>it.unicam.cs.pa.mastermind.gui &mdash; MasterMind 1.0.0 documentazione</title>
+  <title>InteractiveBreaker &mdash; MasterMind 1.0.0 documentazione</title>
   
 
   
@@ -131,13 +131,13 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
-      <li>it.unicam.cs.pa.mastermind.gui</li>
+      <li>InteractiveBreaker</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../../../../_sources/source/it/unicam/cs/pa/mastermind/gui/package-index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../../../../_sources/source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -150,17 +150,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="it-unicam-cs-pa-mastermind-gui">
-<h1>it.unicam.cs.pa.mastermind.gui<a class="headerlink" href="#it-unicam-cs-pa-mastermind-gui" title="Link a questa intestazione">¶</a></h1>
-<p>Il seguente package contiene le classi relative a tutto ciò che concerne l’interfaccia grafica del progetto. Esso gestisce le varie interazioni con il menù di start e soprattutto le varie interzioni che i player compiono sul campo di gioco. Il ruolo di tutto ciò che è al suo interno è fondamentale per le meccaniche di gioco che vengono stabilite.</p>
-<span class="target" id="package-it.unicam.cs.pa.mastermind.gui"></span><div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ConsoleInteractionManager.html">ConsoleInteractionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ConsoleStartManager.html">ConsoleStartManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GameMode.html">GameMode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InteractionManager.html">InteractionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StartManager.html">StartManager</a></li>
+  <div class="section" id="interactivebreaker">
+<h1>InteractiveBreaker<a class="headerlink" href="#interactivebreaker" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker">
+public class <code class="descname">InteractiveBreaker</code> implements <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker" title="Link a questa definizione">¶</a></dt>
+<dd><p>La classe qui definita permette al giocatore umano di andare a creare una sequenza da decodificare.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="id1">
+<h3>InteractiveBreaker<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<dl class="constructor">
+<dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(InteractionManager)">
+public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../gui/InteractionManager.html#it.unicam.cs.pa.mastermind.gui.InteractionManager" title="it.unicam.cs.pa.mastermind.gui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(InteractionManager)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruisco lo HumanBreaker utilizzando l”<code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code> per gestire le varie interazioni.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>intManager</strong> – un <code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code> per definire le sue interazioni</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="getattempt">
+<h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt(int)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt(int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 </div>
 </div>
 
