@@ -6,7 +6,6 @@ package it.unicam.cs.pa.mastermind.gui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.core.SingleGame;
@@ -31,6 +30,7 @@ public class ConsoleStartManager implements StartManager {
 	int lowTreshholdAttempts;
 	BreakerFactory bFactory;
 	MakerFactory mFactory;
+	SingleGame currentGame;
 
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
@@ -73,8 +73,9 @@ public class ConsoleStartManager implements StartManager {
 					}
 				}
 				System.out.println("\nNow starting the game");
-				boolean[] newSettings = new SingleGame(mFactory.getMaker(mode, intManager), bFactory.getBreaker(mode, intManager),
-						this.sequenceLength, this.attempts, this.intManager).start();
+				currentGame = new SingleGame(mFactory.getMaker(mode, intManager), bFactory.getBreaker(mode, intManager),
+						this.sequenceLength, this.attempts, this.intManager);
+				boolean[] newSettings = currentGame.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
 				this.clearScreen();
