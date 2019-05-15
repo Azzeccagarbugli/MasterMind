@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/_static/logo.png">
+  <img src="https://i.imgur.com/W5p44bp.png">
 </p>
 
 --- 
@@ -9,11 +9,12 @@
 <img src="https://forthebadge.com/images/badges/made-with-java.svg"/>
 <img src="https://forthebadge.com/images/badges/winter-is-coming.svg" alt="Pio Stelluti uccide tutti i draghi"/>
 <img src="https://forthebadge.com/images/badges/cc-0.svg"/><br>
-    <b>MasterMind</b>, il gioco da tavolo realizzato in <b>Java</b> per il corso di laurea <b>L-31</b> presso <b>Unicam</b>, nell'anno accademico 2018/2019, realizzato dagli studenti Francesco Coppola e Francesco Pio Stelluti per il progetto di <b>Programmazione Avanzata</b>
+    <b>MasterMind</b>, il famoso gioco da tavolo realizzato in <b>Java</b> per il corso di laurea <b>L-31</b> presso <b>Unicam</b>, <i>nell'anno accademico 2018/2019</i>, realizzato dagli studenti Francesco Coppola e Francesco Pio Stelluti per il progetto di <b>Programmazione Avanzata</b> seguendo i canoni di sviluppo proposti
     <br>
 <a href="https://www.unicam.it/">• Unicam</a>
 <a href="https://www.github.io/azzeccagarbugli/MasterMind">• Documentazione</a>
 <a href="https://it.wikipedia.org/wiki/Licenza_MIT">• Licenza</a>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">• Contribuisci</a>
 </p>
 
 
