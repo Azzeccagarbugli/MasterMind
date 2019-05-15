@@ -28,8 +28,6 @@ public class ConsoleStartManager implements StartManager {
 	int lowTreshholdLength;
 	int highTresholdLength;
 	int lowTreshholdAttempts;
-	BreakerFactory bFactory;
-	MakerFactory mFactory;
 	SingleGame currentGame;
 
 	private static final String ANSI_RESET = "\u001B[0m";
@@ -52,8 +50,6 @@ public class ConsoleStartManager implements StartManager {
 		lowTreshholdLength = 1;
 		highTresholdLength = 10;
 		lowTreshholdAttempts = 1;
-		bFactory = new BreakerFactory();
-		mFactory = new MakerFactory();
 	}
 
 	@Override
@@ -73,8 +69,7 @@ public class ConsoleStartManager implements StartManager {
 					}
 				}
 				System.out.println("\nNow starting the game");
-				currentGame = new SingleGame(mFactory.getMaker(mode, intManager), bFactory.getBreaker(mode, intManager),
-						this.sequenceLength, this.attempts, this.intManager);
+				currentGame = new SingleGame(mode, this.sequenceLength, this.attempts, this.intManager);
 				boolean[] newSettings = currentGame.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];

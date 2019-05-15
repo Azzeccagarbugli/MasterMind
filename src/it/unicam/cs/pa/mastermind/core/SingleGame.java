@@ -1,9 +1,12 @@
 package it.unicam.cs.pa.mastermind.core;
 
 import it.unicam.cs.pa.mastermind.exceptions.EndingException;
+import it.unicam.cs.pa.mastermind.gui.GameMode;
 import it.unicam.cs.pa.mastermind.gui.InteractionManager;
+import it.unicam.cs.pa.mastermind.players.BreakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
+import it.unicam.cs.pa.mastermind.players.MakerFactory;
 
 /**
  * Rappresentazione concreta di una singola partita a due giocatori
@@ -36,6 +39,12 @@ public class SingleGame {
 	private InteractionManager manager;
 
 	/**
+	 * Oggetti factory per poter ottenere istanze di giocatori in base alla modalità di gioco scelta
+	 */
+	BreakerFactory bFactory;
+	MakerFactory mFactory;
+
+	/**
 	 * Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che
 	 * decodifica.
 	 * 
@@ -45,13 +54,14 @@ public class SingleGame {
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
-	 * @param manager        entitï¿½ relativa alla gestione delle interazioni con gli
-	 *                       utenti fisici
+	 * @param manager        entitï¿½ relativa alla gestione delle interazioni con
+	 *                       gli utenti fisici
 	 */
-	public SingleGame(CodeMaker maker, CodeBreaker breaker, int sequenceLength, int attempts,
-			InteractionManager manager) {
-		this.maker = maker;
-		this.breaker = breaker;
+	public SingleGame(GameMode mode, int sequenceLength, int attempts, InteractionManager manager) {
+		bFactory = new BreakerFactory();
+		mFactory = new MakerFactory();
+		this.maker = mFactory.getMaker(mode, manager);
+		this.breaker = bFactory.getBreaker(mode, manager);
 		this.coordinator = new BoardCoordinator(new Board(sequenceLength, attempts));
 		this.manager = manager;
 	}
