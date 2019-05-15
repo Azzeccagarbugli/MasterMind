@@ -47,16 +47,5 @@ Attraverso il *menù di gioco* l'utente potrà selezionare la modalità di gioco
 4. **Bot Breaker VS Bot Maker**
     - Verranno fatti scontrare semplicemente due *bot*, mediante dei meri e puri algoritmi  
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
-
-Indici e tabelle
-==================
-
-* :ref:`genindex`
-
 .. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
 .. [2] `Crittoanalisi <https://it.wikipedia.org/wiki/Crittoanalisi>`_

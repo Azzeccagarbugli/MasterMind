@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
-    <link rel="search" title="Cerca" href="../../../../../../../search.html" /> 
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="next" title="it.unicam.cs.pa.mastermind.exceptions" href="../exceptions/package-index.html" />
+    <link rel="prev" title="BoardCoordinator" href="BoardCoordinator.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,10 +84,27 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#indici-e-tabelle">Indici e tabelle</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Board.html">Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardCoordinator.html">BoardCoordinator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SingleGame</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">it.unicam.cs.pa.mastermind.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/package-index.html">it.unicam.cs.pa.mastermind.gui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pegs/package-index.html">it.unicam.cs.pa.mastermind.pegs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -131,6 +150,10 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+        
+          <li><a href="package-index.html">it.unicam.cs.pa.mastermind.core</a> &raquo;</li>
+        
       <li>SingleGame</li>
     
     
@@ -163,13 +186,33 @@ public class <code class="descname">SingleGame</code><a class="headerlink" href=
 </dl>
 </dd></dl>
 
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="bfactory">
+<h3>bFactory<a class="headerlink" href="#bfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.core.SingleGame.bFactory">
+ <a class="reference internal" href="../players/BreakerFactory.html#it.unicam.cs.pa.mastermind.players.BreakerFactory" title="it.unicam.cs.pa.mastermind.players.BreakerFactory">BreakerFactory</a> <code class="descname">bFactory</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.SingleGame.bFactory" title="Link a questa definizione">¶</a></dt>
+<dd><p>Oggetti factory per poter ottenere istanze di giocatori in base alla modalit� di gioco scelta</p>
+</dd></dl>
+
+</div>
+<div class="section" id="mfactory">
+<h3>mFactory<a class="headerlink" href="#mfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.core.SingleGame.mFactory">
+ <a class="reference internal" href="../players/MakerFactory.html#it.unicam.cs.pa.mastermind.players.MakerFactory" title="it.unicam.cs.pa.mastermind.players.MakerFactory">MakerFactory</a> <code class="descname">mFactory</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.SingleGame.mFactory" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
 <div class="section" id="constructors">
 <h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="id1">
 <h3>SingleGame<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.core.SingleGame.SingleGame(CodeMaker, CodeBreaker, int, int, InteractionManager)">
-public <code class="descname">SingleGame</code><span class="sig-paren">(</span><a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a><em> maker</em>, <a class="reference internal" href="../players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><em> breaker</em>, int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../gui/InteractionManager.html#it.unicam.cs.pa.mastermind.gui.InteractionManager" title="it.unicam.cs.pa.mastermind.gui.InteractionManager">InteractionManager</a><em> manager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.SingleGame.SingleGame(CodeMaker, CodeBreaker, int, int, InteractionManager)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.core.SingleGame.SingleGame(GameMode, int, int, InteractionManager)">
+public <code class="descname">SingleGame</code><span class="sig-paren">(</span><a class="reference internal" href="../gui/GameMode.html#it.unicam.cs.pa.mastermind.gui.GameMode" title="it.unicam.cs.pa.mastermind.gui.GameMode">GameMode</a><em> mode</em>, int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../gui/InteractionManager.html#it.unicam.cs.pa.mastermind.gui.InteractionManager" title="it.unicam.cs.pa.mastermind.gui.InteractionManager">InteractionManager</a><em> manager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.core.SingleGame.SingleGame(GameMode, int, int, InteractionManager)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che decodifica.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -178,7 +221,7 @@ public <code class="descname">SingleGame</code><span class="sig-paren">(</span><
 <li><p><strong>breaker</strong> – player addetto alla risoluzione della sequenza da indovinare</p></li>
 <li><p><strong>sequenceLength</strong> – la lunghezza di tale sequenza</p></li>
 <li><p><strong>attempts</strong> – il numero di tentativi concessi</p></li>
-<li><p><strong>manager</strong> – entit� relativa alla gestione delle interazioni con gli utenti fisici</p></li>
+<li><p><strong>manager</strong> – entità relativa alla gestione delle interazioni con gli utenti fisici</p></li>
 </ul>
 </dd>
 </dl>
@@ -210,6 +253,15 @@ public boolean[] <code class="descname">start</code><span class="sig-paren">(</s
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../exceptions/package-index.html" class="btn btn-neutral float-right" title="it.unicam.cs.pa.mastermind.exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BoardCoordinator.html" class="btn btn-neutral float-left" title="BoardCoordinator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

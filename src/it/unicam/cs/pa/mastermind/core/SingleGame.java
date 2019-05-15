@@ -39,7 +39,7 @@ public class SingleGame {
 	private InteractionManager manager;
 
 	/**
-	 * Oggetti factory per poter ottenere istanze di giocatori in base alla modalità di gioco scelta
+	 * Oggetti factory per poter ottenere istanze di giocatori in base alla modalitï¿½ di gioco scelta
 	 */
 	BreakerFactory bFactory;
 	MakerFactory mFactory;
@@ -54,7 +54,7 @@ public class SingleGame {
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
-	 * @param manager        entitï¿½ relativa alla gestione delle interazioni con
+	 * @param manager        entitÃ  relativa alla gestione delle interazioni con
 	 *                       gli utenti fisici
 	 */
 	public SingleGame(GameMode mode, int sequenceLength, int attempts, InteractionManager manager) {

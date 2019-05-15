@@ -61,7 +61,7 @@ La documentazione quindi sarà pronta per essere usata nei vari file con estensi
 	:maxdepth: 2
 	
 	introduzione
-	reference/index
+	source/packages
 
 .. [1] `Maria Konnikova, Mastermind: How to Think Like Sherlock Holmes <https://en.wikipedia.org/wiki/Mastermind:_How_to_Think_Like_Sherlock_Holmes>`_
 .. [2] *Javadoc è un applicativo incluso nel Java Development Kit della Sun Microsystems, utilizzato per la generazione automatica della documentazione del codice sorgente scritto in linguaggio Java*

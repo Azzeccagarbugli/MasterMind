@@ -22,12 +22,6 @@ ConsoleStartManager
 
 Fields
 ------
-bFactory
-^^^^^^^^
-
-.. java:field::  BreakerFactory bFactory
-   :outertype: ConsoleStartManager
-
 currentGame
 ^^^^^^^^^^^
 
@@ -50,12 +44,6 @@ lowTreshholdLength
 ^^^^^^^^^^^^^^^^^^
 
 .. java:field::  int lowTreshholdLength
-   :outertype: ConsoleStartManager
-
-mFactory
-^^^^^^^^
-
-.. java:field::  MakerFactory mFactory
    :outertype: ConsoleStartManager
 
 Constructors
