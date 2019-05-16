@@ -8,7 +8,7 @@ import it.unicam.cs.pa.mastermind.ui.GameMode;
 import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 
 /**
- * Rappresentazione concreta di una singola partita a due giocatori
+ * Rappresentazione concreta di una singola partita a due giocatori.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -38,14 +38,19 @@ public class SingleGame {
 	private InteractionManager manager;
 
 	/**
-	 * Oggetti factory per poter ottenere istanze di giocatori in base alla
-	 * modalit� di gioco scelta
+	 * Oggetto factory per poter ottenere istanze di Breaker in base alla
+	 * modalit� di gioco scelta.
 	 */
 	BreakerFactory bFactory;
+	
+	/**
+	 * Oggetto factory per poter ottenere istanze di Maker in base alla
+	 * modalit� di gioco scelta.
+	 */
 	MakerFactory mFactory;
 	
 	/**
-	 * Oggetto contenente informazioni relative al vincitore della partita in corso
+	 * Oggetto contenente informazioni relative al vincitore della partita in corso.
 	 */
 	WinStats winStats;
 
@@ -73,7 +78,7 @@ public class SingleGame {
 	}
 
 	/**
-	 * Aggiornamento delle informazioni relative al vincitore della partita
+	 * Aggiornamento delle informazioni relative al vincitore della partita.
 	 */
 	private void updateWinStats() {
 		if (this.breaker.hasGivenUp()) {
@@ -95,7 +100,7 @@ public class SingleGame {
 	 * 
 	 * @return un Array di booleani che stabiliranno le condizioni di ending del
 	 *         gioco, come ad esempio inziare una nuova partita o ricominciare il
-	 *         gioco con le precendenti impostazioni
+	 *         gioco con le precendenti impostazioni.
 	 */
 	public boolean[] start() {
 		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));

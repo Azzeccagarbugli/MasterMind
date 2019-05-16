@@ -46,6 +46,10 @@ public class BoardCoordinator {
 			return currentBoard.addAttempt(attempt, getClueFromAttempt(attempt, currentBoard.getSequenceToGuess()));
 	}
 
+	/**
+	 * 
+	 * @return un booleano rappresentante la possibilità o meno di inserire nuovi tentativi.
+	 */
 	public boolean hasLeftAttempts() {
 		if (this.currentBoard.leftAttempts() == 0)
 			return false;
@@ -53,6 +57,10 @@ public class BoardCoordinator {
 			return true;
 	}
 
+	/**
+	 * 
+	 * @return un booleano che indica se il giocatore Breaker ha indovinato o meno la sequenza del maker.
+	 */
 	public boolean hasBreakerGuessed() {
 		if (this.currentBoard.lastAttemptAndClue().getValue().size() == this.currentBoard.getSequenceLength()
 				&& this.currentBoard.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK))
@@ -61,7 +69,10 @@ public class BoardCoordinator {
 			return false;
 	}
 
-	
+	/**
+	 * 
+	 * @return il numero di sequenze tentativo inserite dal Breaker finora.
+	 */
 	public int numberOfAttemptsInserted() {
 		return this.currentBoard.attemptsInserted();
 	}
@@ -70,8 +81,8 @@ public class BoardCoordinator {
 	 * Riceve come argomento la sequenza da inserire nella plancia come sequenza da
 	 * indovinare ed effettua la relativa operazione.
 	 * 
-	 * @param toGuess la lista da indovinare
-	 * @return un booleano che afferma il corretto inserimento della sequenza
+	 * @param toGuess la lista da indovinare.
+	 * @return boolean che afferma il corretto inserimento della sequenza.
 	 */
 	public boolean insertCodeToGuess(List<ColorPegs> toGuess) {
 		try {
@@ -86,10 +97,10 @@ public class BoardCoordinator {
 	 * Metodo privato a cui passare una sequenza quale nuovo tentativo per ottenere
 	 * la relativa sequenza indizio.
 	 * 
-	 * @param attempt la lista che si inserisce come tentativo di risoluzione
-	 * @param toGuess la lista che contiene la sequenza da indovinare
-	 * @return la lista di indizi generata automaticamente a partire dalla lista di
-	 *         tentativi
+	 * @param attempt la lista che si inserisce come tentativo di risoluzione.
+	 * @param toGuess la lista che contiene la sequenza da indovinare.
+	 * @return List<ColorPegs> di indizi generata automaticamente a partire dalla lista di
+	 *         tentativi.
 	 */
 	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
@@ -116,7 +127,7 @@ public class BoardCoordinator {
 	 * Metodo getter il quale restituisce una lista contenente la sequenza da
 	 * indovinare.
 	 *
-	 * @return l'ArrayList contenente la sequenza da indovinare
+	 * @return l'ArrayList contenente la sequenza da indovinare.
 	 */
 	public List<ColorPegs> getSequenceToGuess() {
 		return new ArrayList<ColorPegs>(currentBoard.getSequenceToGuess());
@@ -126,7 +137,7 @@ public class BoardCoordinator {
 	 * Metodo che restituisce le entry di tentativi e relativi indizi all'interno di
 	 * un'unica lista.
 	 * 
-	 * @return la lista contenente le sequenze relative a tentativi e indizi
+	 * @return la lista contenente le sequenze relative a tentativi e indizi.
 	 */
 	public List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueList() {
 		ArrayList<Map.Entry<List<ColorPegs>, List<ColorPegs>>> newList = new ArrayList<>();
@@ -138,7 +149,7 @@ public class BoardCoordinator {
 	 * Metodo pubblico che restituisce il valore della lunghezza della sequenza
 	 * inserita.
 	 *
-	 * @return un intero che stabilisce la lunghezza della sequenza inserita
+	 * @return int che rappresenta la lunghezza delle sequenze da inserire.
 	 */
 	public int getSequenceLength() {
 		return this.currentBoard.getSequenceLength();
