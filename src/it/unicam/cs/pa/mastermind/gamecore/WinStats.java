@@ -13,10 +13,12 @@ public class WinStats {
 	 * Booleano relativo alla condizione di vittoria del Maker.
 	 */
 	private boolean hasMakerWon;
+
 	/**
 	 * Booleano relativo alla condizione di vittoria del Breaker.
 	 */
 	private boolean hasBreakerWon;
+
 	/**
 	 * Numero di tentativi relativi alla condizione di vittoria del Breaker.
 	 */
@@ -32,15 +34,19 @@ public class WinStats {
 	}
 
 	/**
+	 * Metodo attraverso il quale vengono restituiti i tentativi rimanenti al player
+	 * per vincere il game corrente.
 	 * 
-	 * @return int il numero di tentativi che sono stati necessari al Breaker per vincere.
+	 * @return il numero di tentativi che sono stati necessari al Breaker per
+	 *         vincere.
 	 */
 	public int getAttempts() {
 		return (hasBreakerWon) ? attempts : 0;
 	}
 
 	/**
-	 * Operazione di toggle sulle variabili private per indicare la vittoria del Maker.
+	 * Operazione di toggle sulle variabili private per indicare la vittoria del
+	 * Maker.
 	 */
 	public void toggleMakerWin() {
 		hasMakerWon = true;
@@ -48,7 +54,10 @@ public class WinStats {
 	}
 
 	/**
-	 * Operazione di toggle sulle variabili private per indicare la vittoria del Breaker.
+	 * Operazione di toggle sulle variabili private per indicare la vittoria del
+	 * Breaker.
+	 * 
+	 * @param attempts il numero di tentativi
 	 */
 	public void toggleBreakerWin(int attempts) {
 		hasMakerWon = false;
@@ -57,6 +66,7 @@ public class WinStats {
 	}
 
 	/**
+	 * Metodo che stabilisce la vittoria del player maker o meno.
 	 * 
 	 * @return boolean che indica se il Maker ha vinto o meno.
 	 */
@@ -65,6 +75,7 @@ public class WinStats {
 	}
 
 	/**
+	 * Metodo che stabilisce la vittoria del player breaker o meno.
 	 * 
 	 * @return boolean che indica se il Breaker ha vinto o meno.
 	 */
@@ -73,8 +84,10 @@ public class WinStats {
 	}
 
 	/**
+	 * Metodo che comunica l'esito finale della partita corrente.
 	 * 
-	 * @return String che comunica il vincitore attuale della partita. In caso non ci siano vincitori non viene comunicato nulla.
+	 * @return String che comunica il vincitore attuale della partita. In caso non
+	 *         ci siano vincitori non viene comunicato nulla.
 	 */
 	public String getMessage() {
 		if (this.getHasBreakerWon()) {

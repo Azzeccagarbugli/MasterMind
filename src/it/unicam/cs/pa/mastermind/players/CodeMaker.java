@@ -5,7 +5,7 @@ import java.util.List;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
- * Interfaccia relativa ai giocatori che forniscono la sequenza da codificare
+ * Classe astratta relativa ai giocatori che forniscono la sequenza da codificare
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

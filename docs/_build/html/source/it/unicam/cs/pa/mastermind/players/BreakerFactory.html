@@ -87,11 +87,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../core/package-index.html">it.unicam.cs.pa.mastermind.core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">it.unicam.cs.pa.mastermind.exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gui/package-index.html">it.unicam.cs.pa.mastermind.gui</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pegs/package-index.html">it.unicam.cs.pa.mastermind.pegs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">BreakerFactory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
@@ -106,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMaker.html">RandomBotMaker</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
 </ul>
 </li>
 </ul>
@@ -153,7 +151,7 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+          <li><a href="../../../../../../packages.html">Documentazione</a> &raquo;</li>
         
           <li><a href="package-index.html">it.unicam.cs.pa.mastermind.players</a> &raquo;</li>
         
@@ -181,7 +179,13 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.BreakerFactory">
 public class <code class="descname">BreakerFactory</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.BreakerFactory" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dd><p>La classe BreakerFactory genera dei player decodificatori all’interno della piattaforma di gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
 
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
@@ -189,8 +193,20 @@ public class <code class="descname">BreakerFactory</code><a class="headerlink" h
 <h3>getBreaker<a class="headerlink" href="#getbreaker" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.BreakerFactory.getBreaker(GameMode, InteractionManager)">
-public <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a> <code class="descname">getBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../gui/GameMode.html#it.unicam.cs.pa.mastermind.gui.GameMode" title="it.unicam.cs.pa.mastermind.gui.GameMode">GameMode</a><em> mode</em>, <a class="reference internal" href="../gui/InteractionManager.html#it.unicam.cs.pa.mastermind.gui.InteractionManager" title="it.unicam.cs.pa.mastermind.gui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.BreakerFactory.getBreaker(GameMode, InteractionManager)" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+public <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a> <code class="descname">getBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/GameMode.html#it.unicam.cs.pa.mastermind.ui.GameMode" title="it.unicam.cs.pa.mastermind.ui.GameMode">GameMode</a><em> mode</em>, <a class="reference internal" href="../ui/InteractionManager.html#it.unicam.cs.pa.mastermind.ui.InteractionManager" title="it.unicam.cs.pa.mastermind.ui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.BreakerFactory.getBreaker(GameMode, InteractionManager)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Il seguente metodo consente di effettuare il get di un player breaker.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – la gamemode con la quale si vuole effettuare la partita</p></li>
+<li><p><strong>intManager</strong> – l’InteractionManager con il quale effettuare le interazioni di gioco</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>il tipo di player corrente</p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

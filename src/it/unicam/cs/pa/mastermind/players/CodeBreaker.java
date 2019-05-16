@@ -5,7 +5,7 @@ import java.util.List;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
- * Interfaccia relativa ai giocatori che cercano di indovinare la sequenza.
+ * Classe astratta relativa ai giocatori che cercano di indovinare la sequenza.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -13,7 +13,6 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 public abstract class CodeBreaker {
 
 	private boolean giveUp = false;
-	
 	
 	/**
 	 * Restituisce la sequenza di pioli valida come singolo tentativo.
@@ -26,14 +25,14 @@ public abstract class CodeBreaker {
 	public abstract List<ColorPegs> getAttempt(int sequenceLength);
 
 	/**
-	 * Metodo invocabile dal giocatore per segnalare la volontà di arrendersi
+	 * Metodo invocabile dal giocatore per segnalare la volontï¿½ di arrendersi
 	 */
 	public void toggleGiveUp() {
 		giveUp = true;
 	}
 	
 	/**
-	 * Metodo che restituisce la volontà del giocatore di arrendersi o meno
+	 * Metodo che restituisce la volontï¿½ del giocatore di arrendersi o meno
 	 */
 	public boolean hasGivenUp() {
 		return giveUp;

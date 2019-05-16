@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-
 /**
  * Interagisce continuamente con i giocatori aggiornando la plancia di gioco di
  * conseguenza.
@@ -48,7 +47,7 @@ public class BoardCoordinator {
 
 	/**
 	 * 
-	 * @return un booleano rappresentante la possibilità o meno di inserire nuovi tentativi.
+	 * @return un booleano rappresentante la possibilitï¿½ o meno di inserire nuovi tentativi.
 	 */
 	public boolean hasLeftAttempts() {
 		if (this.currentBoard.leftAttempts() == 0)

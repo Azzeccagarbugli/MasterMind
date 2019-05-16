@@ -87,11 +87,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../core/package-index.html">it.unicam.cs.pa.mastermind.core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">it.unicam.cs.pa.mastermind.exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gui/package-index.html">it.unicam.cs.pa.mastermind.gui</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pegs/package-index.html">it.unicam.cs.pa.mastermind.pegs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CodeBreaker</a><ul>
@@ -106,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMaker.html">RandomBotMaker</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
 </ul>
 </li>
 </ul>
@@ -153,7 +151,7 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+          <li><a href="../../../../../../packages.html">Documentazione</a> &raquo;</li>
         
           <li><a href="package-index.html">it.unicam.cs.pa.mastermind.players</a> &raquo;</li>
         
@@ -180,8 +178,8 @@
 <h1>CodeBreaker<a class="headerlink" href="#codebreaker" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker">
-public interface <code class="descname">CodeBreaker</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interfaccia relativa ai giocatori che cercano di indovinare la sequenza.</p>
+public abstract class <code class="descname">CodeBreaker</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="Link a questa definizione">¶</a></dt>
+<dd><p>Classe astratta relativa ai giocatori che cercano di indovinare la sequenza.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -195,7 +193,7 @@ public interface <code class="descname">CodeBreaker</code><a class="headerlink" 
 <h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(int)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(int)" title="Link a questa definizione">¶</a></dt>
+public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(int)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Restituisce la sequenza di pioli valida come singolo tentativo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -212,6 +210,24 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dd class="field-odd"><p>la lista dei valori ottenuta</p>
 </dd>
 </dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hasgivenup">
+<h3>hasGivenUp<a class="headerlink" href="#hasgivenup" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.hasGivenUp()">
+public boolean <code class="descname">hasGivenUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.hasGivenUp()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restituisce la volont� del giocatore di arrendersi o meno</p>
+</dd></dl>
+
+</div>
+<div class="section" id="togglegiveup">
+<h3>toggleGiveUp<a class="headerlink" href="#togglegiveup" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.toggleGiveUp()">
+public void <code class="descname">toggleGiveUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.toggleGiveUp()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo invocabile dal giocatore per segnalare la volont� di arrendersi</p>
 </dd></dl>
 
 </div>

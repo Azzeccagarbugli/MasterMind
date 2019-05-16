@@ -1,6 +1,6 @@
 .. java:import:: java.util List
 
-.. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
 CodeMaker
 =========
@@ -8,9 +8,9 @@ CodeMaker
 .. java:package:: it.unicam.cs.pa.mastermind.players
    :noindex:
 
-.. java:type:: public interface CodeMaker
+.. java:type:: public abstract class CodeMaker
 
-   Interfaccia relativa ai giocatori che forniscono la sequenza da codificare
+   Classe astratta relativa ai giocatori che forniscono la sequenza da codificare
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -19,7 +19,7 @@ Methods
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: public List<ColorPegs> getCodeToGuess(int sequenceLength)
+.. java:method:: public abstract List<ColorPegs> getCodeToGuess(int sequenceLength)
    :outertype: CodeMaker
 
    Restituisce la sequenza di pioli da indovinare.

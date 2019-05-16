@@ -87,11 +87,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../core/package-index.html">it.unicam.cs.pa.mastermind.core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">it.unicam.cs.pa.mastermind.exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gui/package-index.html">it.unicam.cs.pa.mastermind.gui</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pegs/package-index.html">it.unicam.cs.pa.mastermind.pegs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
@@ -107,6 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMaker.html">RandomBotMaker</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
 </ul>
 </li>
 </ul>
@@ -154,7 +152,7 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+          <li><a href="../../../../../../packages.html">Documentazione</a> &raquo;</li>
         
           <li><a href="package-index.html">it.unicam.cs.pa.mastermind.players</a> &raquo;</li>
         
@@ -181,7 +179,7 @@
 <h1>InteractiveBreaker<a class="headerlink" href="#interactivebreaker" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker">
-public class <code class="descname">InteractiveBreaker</code> implements <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker" title="Link a questa definizione">¶</a></dt>
+public class <code class="descname">InteractiveBreaker</code> extends <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker" title="Link a questa definizione">¶</a></dt>
 <dd><p>La classe qui definita permette al giocatore umano di andare a creare una sequenza da decodificare.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -196,7 +194,7 @@ public class <code class="descname">InteractiveBreaker</code> implements <a clas
 <h3>InteractiveBreaker<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(InteractionManager)">
-public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../gui/InteractionManager.html#it.unicam.cs.pa.mastermind.gui.InteractionManager" title="it.unicam.cs.pa.mastermind.gui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(InteractionManager)" title="Link a questa definizione">¶</a></dt>
+public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/InteractionManager.html#it.unicam.cs.pa.mastermind.ui.InteractionManager" title="it.unicam.cs.pa.mastermind.ui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(InteractionManager)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruisco lo HumanBreaker utilizzando l”<code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code> per gestire le varie interazioni.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -215,7 +213,7 @@ public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(
 <h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt(int)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt(int)" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt(int)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>

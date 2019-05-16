@@ -6,11 +6,9 @@
 
 .. java:import:: java.util Set
 
-.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerGiveUpException
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.gui InteractionManager
-
-.. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
 
 InteractiveBreaker
 ==================
@@ -18,7 +16,7 @@ InteractiveBreaker
 .. java:package:: it.unicam.cs.pa.mastermind.players
    :noindex:
 
-.. java:type:: public class InteractiveBreaker implements CodeBreaker
+.. java:type:: public class InteractiveBreaker extends CodeBreaker
 
    La classe qui definita permette al giocatore umano di andare a creare una sequenza da decodificare.
 
@@ -41,6 +39,6 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException
+.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength)
    :outertype: InteractiveBreaker
 

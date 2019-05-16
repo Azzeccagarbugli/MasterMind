@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="next" title="it.unicam.cs.pa.mastermind.ui" href="../ui/package-index.html" />
     <link rel="prev" title="RandomBotBreaker" href="RandomBotBreaker.html" /> 
 </head>
 
@@ -86,11 +87,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../core/package-index.html">it.unicam.cs.pa.mastermind.core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">it.unicam.cs.pa.mastermind.exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gui/package-index.html">it.unicam.cs.pa.mastermind.gui</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pegs/package-index.html">it.unicam.cs.pa.mastermind.pegs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
@@ -105,6 +103,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
 </ul>
 </li>
 </ul>
@@ -152,7 +151,7 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+          <li><a href="../../../../../../packages.html">Documentazione</a> &raquo;</li>
         
           <li><a href="package-index.html">it.unicam.cs.pa.mastermind.players</a> &raquo;</li>
         
@@ -179,7 +178,7 @@
 <h1>RandomBotMaker<a class="headerlink" href="#randombotmaker" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.RandomBotMaker">
-public class <code class="descname">RandomBotMaker</code> implements <a class="reference internal" href="CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotMaker" title="Link a questa definizione">¶</a></dt>
+public class <code class="descname">RandomBotMaker</code> extends <a class="reference internal" href="CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotMaker" title="Link a questa definizione">¶</a></dt>
 <dd><p>La seguente classe definisce lo standard per cui un Bot possa essere colui che effettua la scelta della sequenza da indovinare. Questa sequenza poi potrà essere decoficata da altri Bot aventi la sua stessa natura o da player di natura Human.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -194,7 +193,7 @@ public class <code class="descname">RandomBotMaker</code> implements <a class="r
 <h3>getCodeToGuess<a class="headerlink" href="#getcodetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.RandomBotMaker.getCodeToGuess(int)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pegs/ColorPegs.html#it.unicam.cs.pa.mastermind.pegs.ColorPegs" title="it.unicam.cs.pa.mastermind.pegs.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotMaker.getCodeToGuess(int)" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotMaker.getCodeToGuess(int)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -208,6 +207,8 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ui/package-index.html" class="btn btn-neutral float-right" title="it.unicam.cs.pa.mastermind.ui" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="RandomBotBreaker.html" class="btn btn-neutral float-left" title="RandomBotBreaker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

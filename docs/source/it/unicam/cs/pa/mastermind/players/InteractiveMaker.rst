@@ -2,11 +2,9 @@
 
 .. java:import:: java.util List
 
-.. java:import:: it.unicam.cs.pa.mastermind.exceptions BreakerGiveUpException
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.gui InteractionManager
-
-.. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
 
 InteractiveMaker
 ================
@@ -14,7 +12,7 @@ InteractiveMaker
 .. java:package:: it.unicam.cs.pa.mastermind.players
    :noindex:
 
-.. java:type:: public class InteractiveMaker implements CodeMaker
+.. java:type:: public class InteractiveMaker extends CodeMaker
 
    La classe definita di seguito consente al giocatore umano, di andare a creare una sequenza che poi un altro player all'interno della piattaforma doverà decodificare per ottenere la vittoria.
 

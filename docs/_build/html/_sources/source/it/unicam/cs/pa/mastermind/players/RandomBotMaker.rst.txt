@@ -4,7 +4,7 @@
 
 .. java:import:: java.util Random
 
-.. java:import:: it.unicam.cs.pa.mastermind.pegs ColorPegs
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
 RandomBotMaker
 ==============
@@ -12,7 +12,7 @@ RandomBotMaker
 .. java:package:: it.unicam.cs.pa.mastermind.players
    :noindex:
 
-.. java:type:: public class RandomBotMaker implements CodeMaker
+.. java:type:: public class RandomBotMaker extends CodeMaker
 
    La seguente classe definisce lo standard per cui un Bot possa essere colui che effettua la scelta della sequenza da indovinare. Questa sequenza poi potrà essere decoficata da altri Bot aventi la sua stessa natura o da player di natura Human.
 

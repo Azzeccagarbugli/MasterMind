@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.gamecore.WinStats;
 
 /**
  * Interfaccia relativa alla gestione dell'interazione con l'utente.
