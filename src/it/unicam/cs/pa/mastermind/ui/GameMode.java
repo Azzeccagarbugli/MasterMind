@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.gui;
+package it.unicam.cs.pa.mastermind.ui;
 
 /**
  * L'enum descrive attraverso dei label le modalità di gioco disponibili

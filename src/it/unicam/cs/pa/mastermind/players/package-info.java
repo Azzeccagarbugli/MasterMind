@@ -1,9 +1,9 @@
 /**
- * Nel seguente package è possibile osservare come vengano definiti i vari
- * attori di un singolo game. Essi si dividono in due grandi catergorie: Bot e
- * Human. I primi sono gestiti da meri e puri algoritmi mentre gli Human
- * prendono input da un giocatore attraverso la tastiera. I protagonisti a loro
- * volta possono essere definiti come Breaker, ovvero avere il compito di
- * decodificare la sequenza proposta dal ruolo opposto, ovvero il Maker.
+ * Nel seguente package sono definiti i due principali attori del gioco, il
+ * Maker, colui che decide la sequenza da indovinare, e il Breaker, colui che
+ * deve cercare di indovinare la sequenza decisa dal Maker. Sono presenti varie
+ * implementazioni di questi due attori, tra le quali figurano anche una
+ * completamente interattiva ed una portata avanti da un'IA che segue specifici
+ * algoritmi.
  */
 package it.unicam.cs.pa.mastermind.players;

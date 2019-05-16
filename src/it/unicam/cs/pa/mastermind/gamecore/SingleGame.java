@@ -1,12 +1,11 @@
-package it.unicam.cs.pa.mastermind.core;
+package it.unicam.cs.pa.mastermind.gamecore;
 
-import it.unicam.cs.pa.mastermind.exceptions.EndingException;
-import it.unicam.cs.pa.mastermind.gui.GameMode;
-import it.unicam.cs.pa.mastermind.gui.InteractionManager;
 import it.unicam.cs.pa.mastermind.players.BreakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.players.MakerFactory;
+import it.unicam.cs.pa.mastermind.ui.GameMode;
+import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 
 /**
  * Rappresentazione concreta di una singola partita a due giocatori
@@ -39,10 +38,16 @@ public class SingleGame {
 	private InteractionManager manager;
 
 	/**
-	 * Oggetti factory per poter ottenere istanze di giocatori in base alla modalit� di gioco scelta
+	 * Oggetti factory per poter ottenere istanze di giocatori in base alla
+	 * modalit� di gioco scelta
 	 */
 	BreakerFactory bFactory;
 	MakerFactory mFactory;
+	
+	/**
+	 * Oggetto contenente informazioni relative al vincitore della partita in corso
+	 */
+	WinStats winStats;
 
 	/**
 	 * Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che
@@ -62,8 +67,25 @@ public class SingleGame {
 		mFactory = new MakerFactory();
 		this.maker = mFactory.getMaker(mode, manager);
 		this.breaker = bFactory.getBreaker(mode, manager);
+		winStats = new WinStats();
 		this.coordinator = new BoardCoordinator(new Board(sequenceLength, attempts));
 		this.manager = manager;
+	}
+
+	/**
+	 * Aggiornamento delle informazioni relative al vincitore della partita
+	 */
+	private void updateWinStats() {
+		if (this.breaker.hasGivenUp()) {
+			winStats.toggleMakerWin();
+			return;
+		} else if (this.coordinator.hasBreakerGuessed()) {
+			winStats.toggleBreakerWin(this.coordinator.numberOfAttemptsInserted());
+			return;
+		} else if (!this.coordinator.hasLeftAttempts()) {
+			winStats.toggleMakerWin();
+			return;
+		}
 	}
 
 	/**
@@ -77,15 +99,12 @@ public class SingleGame {
 	 */
 	public boolean[] start() {
 		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));
-		try {
-			while (true) {
-				coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
-				manager.showGame(coordinator.getAttemptAndClueList());
-				coordinator.checkEnd();
-			}
-		} catch (EndingException e) {
-			return manager.ending(e, coordinator.getSequenceToGuess());
-		}
+		do {
+			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
+			manager.showGame(coordinator.getAttemptAndClueList());
+			this.updateWinStats();
+		} while (!(winStats.getHasMakerWon() || winStats.getHasBreakerWon()));
+		return manager.ending(winStats.getMessage(), coordinator.getSequenceToGuess());
 	}
 
 }

@@ -1,11 +1,9 @@
-package it.unicam.cs.pa.mastermind.core;
+package it.unicam.cs.pa.mastermind.gamecore;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
 
 /**
  * Immagazzina i dati relativi alla plancia di gioco, quali posizione e natura
@@ -106,6 +104,14 @@ public class Board {
 	public int leftAttempts() {
 		return maxAttempts - board.size();
 	}
+	
+	/**
+	 * Restituisce il numero di tentativi inseriti fino ad ora
+	 * @return
+	 */
+	public int attemptsInserted() {
+		return board.size();
+	}
 
 	/**
 	 * Metodo che stabilisce se la plancia di gioco è completamente vuota o meno.
@@ -126,12 +132,9 @@ public class Board {
 	 * @return un booleano che conferma la riuscita o meno dell'inserimento della
 	 *         sequenza nella plancia
 	 */
-	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) throws IllegalArgumentException {
-		if (this.isEmpty()) {
-			throw new NullPointerException("The board is empty, there is nothing to add");
-		}
+	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue){
 		if ((attempt.size() != this.sequenceLength) || (clue.size() > this.sequenceLength)) {
-			throw new IllegalArgumentException("The lenght of the sequence is not valid");
+			return false;
 		} else {
 			board.put(attempt, clue);
 			return true;

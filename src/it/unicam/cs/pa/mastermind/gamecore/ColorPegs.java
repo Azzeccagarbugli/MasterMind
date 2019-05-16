@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.pegs;
+package it.unicam.cs.pa.mastermind.gamecore;
 
 /**
  * L'enum di seguito descrive in modo accurato quelli che sono i colori da poter

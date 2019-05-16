@@ -5,9 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
-import it.unicam.cs.pa.mastermind.gui.InteractionManager;
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 
 /**
  * La classe qui definita permette al giocatore umano di andare a creare una
@@ -16,7 +15,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class InteractiveBreaker implements CodeBreaker {
+public class InteractiveBreaker extends CodeBreaker {
 
 	/**
 	 * Instanza di <code>InteractionManager</code> per definire un manager locale.
@@ -41,17 +40,20 @@ public class InteractiveBreaker implements CodeBreaker {
 		combinationAttempts = new HashSet<>();
 	}
 
-	/*
-	 * @Override public void askGiveUp() throws BreakerGiveUpException {
-	 * if(this.manager.askGiveUp()) { throw new BreakerGiveUpException(); } }
-	 */
+
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException {
+	public List<ColorPegs> getAttempt(int sequenceLength){
 		List<ColorPegs> listAttempt;
+		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			manager.getIndexSequence(sequenceLength, true).stream().map(index -> ColorPegs.values()[index])
+			listIndex = manager.getIndexSequence(sequenceLength, true);
+			if(listIndex.contains(0)) {
+				this.toggleGiveUp();
+				break;
+			}
+			listIndex.stream().map(index -> ColorPegs.values()[index-1])
 					.forEach(listAttempt::add);
 		} while (combinationAttempts.contains(listAttempt));
 		return listAttempt;

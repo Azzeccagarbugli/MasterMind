@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.gui;
+package it.unicam.cs.pa.mastermind.ui;
 
 /**
  * Interfaccia per la prima interazione con l'utente

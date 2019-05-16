@@ -1,11 +1,10 @@
-package it.unicam.cs.pa.mastermind.gui;
+package it.unicam.cs.pa.mastermind.ui;
 
 import java.util.List;
 import java.util.Map;
 
-import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
-import it.unicam.cs.pa.mastermind.exceptions.EndingException;
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.WinStats;
 
 /**
  * Interfaccia relativa alla gestione dell'interazione con l'utente.
@@ -22,9 +21,9 @@ public interface InteractionManager {
 	 * @param toGuess        se la sequenza da inserire è la sequenza da indovinare
 	 *                       o meno
 	 * @throws BreakerGiveUpException la resa condizionata del player 
-	 * @return la lista di interi che andranno a definire la sequenza
+	 * @return la lista di interi che andranno a definire la sequenza. Posti n colori, gli elementi all'interno della lista avranno valore compreso tra 1 e n
 	 */
-	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) throws BreakerGiveUpException;
+	public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess);
 
 	/**
 	 * Mostra all'utente la situazione corrente del gioco.
@@ -51,5 +50,5 @@ public interface InteractionManager {
 	 * @param toGuess i valori della sequenza da indovinare
 	 * @return un array di boolean contenente i settaggi di ending della partita
 	 */
-	public boolean[] ending(EndingException exe, List<ColorPegs> toGuess);
+	public boolean[] ending(String gameEndingMessage, List<ColorPegs> toGuess);
 }

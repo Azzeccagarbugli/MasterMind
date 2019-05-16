@@ -1,7 +1,7 @@
 package it.unicam.cs.pa.mastermind.players;
 
-import it.unicam.cs.pa.mastermind.gui.GameMode;
-import it.unicam.cs.pa.mastermind.gui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.GameMode;
+import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 
 public class MakerFactory {
 

@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.gui;
+package it.unicam.cs.pa.mastermind.ui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
-import it.unicam.cs.pa.mastermind.exceptions.EndingException;
-import it.unicam.cs.pa.mastermind.pegs.*;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * Interazione con l'utente durante il gioco via linea di comando
@@ -50,7 +48,7 @@ public class ConsoleInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker) throws BreakerGiveUpException {
+	public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		System.out.println(isBreaker ? "\nDefining an attempt" : "\nDefining the sequence to guess");
 		try {
@@ -62,7 +60,10 @@ public class ConsoleInteractionManager implements InteractionManager {
 					.forEach(System.out::print);
 			System.out.println();
 			for (int i = 1; i <= sequenceLength; i++) {
-				this.askIndexOfPegs(indexPegs, i, isBreaker);
+				this.askIndexOfSinglePeg(indexPegs, i, isBreaker);
+				if (indexPegs.contains(0)) {
+					break;
+				}
 			}
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
@@ -72,15 +73,17 @@ public class ConsoleInteractionManager implements InteractionManager {
 
 	@Override
 	public void showGame(List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
-		int dynamicTable = attemptsAndClues.get(0).getKey().size();
-		showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
-				ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
-		if (dynamicTable < 5) {
-			attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s",
-					beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
-		} else {
-			attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s | %-80s\n",
-					beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+		if (!attemptsAndClues.isEmpty()) {
+			int dynamicTable = attemptsAndClues.get(0).getKey().size();
+			showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
+					ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
+			if (dynamicTable < 5) {
+				attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s",
+						beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
+			} else {
+				attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s | %-80s\n",
+						beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+			}
 		}
 	}
 
@@ -129,8 +132,8 @@ public class ConsoleInteractionManager implements InteractionManager {
 	 * secondo i canoni della decodifica ANSI.
 	 * 
 	 * @param color il colore che si vuole codificare in una stringa colorata
-	 * @return la stringa contenente i valori della stringa visualizzati in modalità
-	 *         colorata
+	 * @return la stringa contenente i valori della stringa visualizzati in
+	 *         modalità colorata
 	 */
 	public String beautifyGeneral(ColorPegs color) {
 		String colorfulPeg = new String();
@@ -166,8 +169,8 @@ public class ConsoleInteractionManager implements InteractionManager {
 	}
 
 	@Override
-	public boolean[] ending(EndingException exe, List<ColorPegs> toGuess) {
-		System.out.println(exe.getMessage());
+	public boolean[] ending(String gameEndingMessage, List<ColorPegs> toGuess) {
+		System.out.println(gameEndingMessage);
 		int intInput = 0;
 		try {
 			System.out.println("\nThe correct sequence was: " + beautifyClues(toGuess, false));
@@ -189,20 +192,21 @@ public class ConsoleInteractionManager implements InteractionManager {
 		return endingSettings;
 	}
 
-	private void askIndexOfPegs(List<Integer> list, int index, boolean isBreaker)
-			throws IOException, BreakerGiveUpException {
+	private void askIndexOfSinglePeg(List<Integer> list, int index, boolean isBreaker) throws IOException {
 		int temp = 0;
 		do {
 			System.out.print("Insert value nr." + index + " > ");
 			try {
 				temp = Integer.parseInt(this.reader.readLine());
-				if (isBreaker && temp == 0)
-					throw new BreakerGiveUpException();
+				if (isBreaker && temp == 0) {
+					System.out.println("You decided to give up");
+				}
+				;
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value");
 			}
-		} while (temp < 1 || temp > ColorPegs.values().length);
-		list.add(temp - 1);
+		} while (temp < 0 || temp > ColorPegs.values().length);
+		list.add(temp);
 	}
 
 	/**

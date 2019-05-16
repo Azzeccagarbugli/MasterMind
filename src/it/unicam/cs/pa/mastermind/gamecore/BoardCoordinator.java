@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.core;
+package it.unicam.cs.pa.mastermind.gamecore;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.exceptions.BreakerWinException;
-import it.unicam.cs.pa.mastermind.exceptions.NoAttemptsLeftException;
-import it.unicam.cs.pa.mastermind.pegs.*;
 
 /**
  * Interagisce continuamente con i giocatori aggiornando la plancia di gioco di
@@ -46,30 +43,27 @@ public class BoardCoordinator {
 	 *         successo o <strong>false</strong> se l'operazione è fallita
 	 */
 	public boolean insertNewAttempt(List<ColorPegs> attempt) {
-		try {
-			currentBoard.addAttempt(attempt, getClueFromAttempt(attempt, currentBoard.getSequenceToGuess()));
-			return true;
-		} catch (IllegalArgumentException e) {
-			return false;
-		}
+			return currentBoard.addAttempt(attempt, getClueFromAttempt(attempt, currentBoard.getSequenceToGuess()));
 	}
 
-	/**
-	 * Verifica se il giocatore che decodifica ha indovinato la sequenza inserita
-	 * dal giocatore che codifica o se non ci sono tentativi rimanenti per
-	 * indovinare per poter sollevare le relative eccezioni.
-	 * 
-	 * @throws BreakerWinException
-	 * @throws NoAttemptsLeftException
-	 */
-	public void checkEnd() throws BreakerWinException, NoAttemptsLeftException {
+	public boolean hasLeftAttempts() {
+		if (this.currentBoard.leftAttempts() == 0)
+			return false;
+		else
+			return true;
+	}
+
+	public boolean hasBreakerGuessed() {
 		if (this.currentBoard.lastAttemptAndClue().getValue().size() == this.currentBoard.getSequenceLength()
-				&& this.currentBoard.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK)) {
-			throw new BreakerWinException(this.currentBoard.getAttemptAndClueMap().size());
-		}
-		if (this.currentBoard.leftAttempts() == 0) {
-			throw new NoAttemptsLeftException();
-		}
+				&& this.currentBoard.lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK))
+			return true;
+		else
+			return false;
+	}
+
+	
+	public int numberOfAttemptsInserted() {
+		return this.currentBoard.attemptsInserted();
 	}
 
 	/**

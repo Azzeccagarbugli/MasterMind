@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * La classe di seguito permette la creazione di un player avente sembianze da
@@ -16,7 +16,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class RandomBotBreaker implements CodeBreaker {
+public class RandomBotBreaker extends CodeBreaker {
 
 	/**
 	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi

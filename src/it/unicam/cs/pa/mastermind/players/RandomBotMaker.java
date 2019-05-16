@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * La seguente classe definisce lo standard per cui un Bot possa essere colui
@@ -15,7 +15,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class RandomBotMaker implements CodeMaker {
+public class RandomBotMaker extends CodeMaker {
 
 	@Override
 	public List<ColorPegs> getCodeToGuess(int sequenceLength) {

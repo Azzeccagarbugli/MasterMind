@@ -2,7 +2,7 @@ package it.unicam.cs.pa.mastermind.players;
 
 import java.util.List;
 
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * Interfaccia relativa ai giocatori che forniscono la sequenza da codificare
@@ -10,7 +10,7 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public interface CodeMaker {
+public abstract class CodeMaker {
 
 	/**
 	 * Restituisce la sequenza di pioli da indovinare.
@@ -18,5 +18,7 @@ public interface CodeMaker {
 	 * @param sequenceLength la lunghezza della sequenza da indovinare
 	 * @return la lista contenente la sequenza corretta di colori da indovinare
 	 */
-	public List<ColorPegs> getCodeToGuess(int sequenceLength);
+	public abstract List<ColorPegs> getCodeToGuess(int sequenceLength);
+	
+	
 }

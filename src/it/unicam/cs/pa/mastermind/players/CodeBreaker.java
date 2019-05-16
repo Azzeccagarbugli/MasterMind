@@ -2,8 +2,7 @@ package it.unicam.cs.pa.mastermind.players;
 
 import java.util.List;
 
-import it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException;
-import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * Interfaccia relativa ai giocatori che cercano di indovinare la sequenza.
@@ -11,8 +10,11 @@ import it.unicam.cs.pa.mastermind.pegs.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public interface CodeBreaker {
+public abstract class CodeBreaker {
 
+	private boolean giveUp = false;
+	
+	
 	/**
 	 * Restituisce la sequenza di pioli valida come singolo tentativo.
 	 * 
@@ -21,6 +23,19 @@ public interface CodeBreaker {
 	 *                                effettuare la resa
 	 * @return la lista dei valori ottenuta
 	 */
-	public List<ColorPegs> getAttempt(int sequenceLength) throws BreakerGiveUpException;
+	public abstract List<ColorPegs> getAttempt(int sequenceLength);
 
+	/**
+	 * Metodo invocabile dal giocatore per segnalare la volontà di arrendersi
+	 */
+	public void toggleGiveUp() {
+		giveUp = true;
+	}
+	
+	/**
+	 * Metodo che restituisce la volontà del giocatore di arrendersi o meno
+	 */
+	public boolean hasGivenUp() {
+		return giveUp;
+	}
 }

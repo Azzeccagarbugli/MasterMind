@@ -1,11 +1,11 @@
-package it.unicam.cs.pa.mastermind.gui;
+package it.unicam.cs.pa.mastermind.ui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.core.SingleGame;
+import it.unicam.cs.pa.mastermind.gamecore.SingleGame;
 
 /**
  * Interazione iniziale con l'utente via linea di comando
