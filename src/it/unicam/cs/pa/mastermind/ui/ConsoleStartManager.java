@@ -90,7 +90,7 @@ public class ConsoleStartManager implements StartManager {
 			System.out.print("Select the game mode: " + "\n");
 			IntStream.range(0, GameMode.values().length)
 					.mapToObj(
-							index -> String.format("- %s [%d] ", GameMode.values()[index].getDescription(), index + 1))
+							index -> String.format("• %s [%d] ", GameMode.values()[index].getDescription(), index + 1))
 					.forEach(System.out::println);
 			try {
 				System.out.print("> ");
@@ -110,10 +110,10 @@ public class ConsoleStartManager implements StartManager {
 	 * @param mode la modalità di gioco inserito
 	 */
 	private void printChosenMode(GameMode mode) {
-		System.out.format(String.format(ANSI_PURPLE_BOLD + "\n+%13s+%30s+\n", " ", " ").replace(' ', '-'));
-		System.out.format("| Chosen mode | %12s %" + beautifyGameMode(mode) + "s\n",
-				ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "|");
-		System.out.format(String.format("+%13s+%30s+\n" + ANSI_RESET, " ", " ").replace(' ', '-'));
+		System.out.format(String.format(ANSI_PURPLE_BOLD + "\n┏%13s┳%30s┓\n", " ", " ").replace(' ', '━'));
+		System.out.format("┃ Chosen mode ┃ %12s %" + beautifyGameMode(mode) + "s\n",
+				ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "┃");
+		System.out.format(String.format("┗%13s┻%30s┛\n" + ANSI_RESET, " ", " ").replace(' ', '━'));
 	}
 
 	/**

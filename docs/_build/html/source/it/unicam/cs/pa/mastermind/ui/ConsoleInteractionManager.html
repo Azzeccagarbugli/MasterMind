@@ -87,7 +87,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul class="current">
@@ -149,7 +149,7 @@
     
       <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../../../../../packages.html">Documentazione</a> &raquo;</li>
+          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
         
           <li><a href="package-index.html">it.unicam.cs.pa.mastermind.ui</a> &raquo;</li>
         
@@ -241,6 +241,41 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dd></dd></dl>
 
 </div>
+<div class="section" id="isbreakermessagegiveup">
+<h3>isBreakerMessageGiveUp<a class="headerlink" href="#isbreakermessagegiveup" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.isBreakerMessageGiveUp(boolean)">
+public void <code class="descname">isBreakerMessageGiveUp</code><span class="sig-paren">(</span>boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.isBreakerMessageGiveUp(boolean)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Mostra la possibilità di resa al player durante la selezione dei colori.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isBreaker</strong> – booleano che conferma se il player è un breaker</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="selectioncolor">
+<h3>selectionColor<a class="headerlink" href="#selectioncolor" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.selectionColor(int)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">selectionColor</code><span class="sig-paren">(</span>int<em> index</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.selectionColor(int)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo necessario alla corretta formattazione tabluare della modalità di inserimento dei colori.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – l’indice restituito dallo stream</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>la stringa formattata secondo dei canoni tabulari</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="showgame">
 <h3>showGame<a class="headerlink" href="#showgame" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
@@ -273,6 +308,23 @@ public void <code class="descname">showGameBasingOnLenght</code><span class="sig
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.showGameDebug(List, List)">
 public void <code class="descname">showGameDebug</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>.Entry&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;&gt;&gt;<em> attemptsAndClues</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.showGameDebug(List, List)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
+
+</div>
+<div class="section" id="showmenucolor">
+<h3>showMenuColor<a class="headerlink" href="#showmenucolor" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.showMenuColor(String, String, boolean)">
+public void <code class="descname">showMenuColor</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> labelMsg1</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> labelMsg2</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.showMenuColor(String, String, boolean)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo necessario alla stampa della scelta dei colori da parte di un player qualsiasi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labelMsg1</strong> – il primo messaggio da visualizzare</p></li>
+<li><p><strong>labelMsg2</strong> – il secondo messaggio da visualizzare</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

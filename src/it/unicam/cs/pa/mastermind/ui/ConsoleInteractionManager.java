@@ -22,6 +22,7 @@ public class ConsoleInteractionManager implements InteractionManager {
 	 */
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_WHITE_BOLD = "\033[1;37m";
+	private static final String ANSI_RED_BOLD = "\033[1;91m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
 	private static final String ANSI_BLACK_BACKGROUND = "\033[40m";
 	private static final String ANSI_RED_BACKGROUND = "\033[0;101m";
@@ -50,21 +51,17 @@ public class ConsoleInteractionManager implements InteractionManager {
 	@Override
 	public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
-		System.out.println(isBreaker ? "\nDefining an attempt" : "\nDefining the sequence to guess");
+		String isBreakerMsg = isBreaker ? "Defining a new attempt" : "Defining the sequence to guess";
+		String isBreakerAttempts = "Please define the color of each of the pegs knowing that";
 		try {
-			System.out.print("Please define the color of each of the pegs knowing that "
-					+ (isBreaker ? "[Insert the number 0 to give up]:" : "") + "\n");
-			IntStream.range(0, ColorPegs.values().length)
-					.mapToObj(
-							index -> String.format("[%s - %d] ", beautifyGeneral(ColorPegs.values()[index]), index + 1))
-					.forEach(System.out::print);
-			System.out.println();
+			showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
 			for (int i = 1; i <= sequenceLength; i++) {
 				this.askIndexOfSinglePeg(indexPegs, i, isBreaker);
 				if (indexPegs.contains(0)) {
 					break;
 				}
 			}
+			clearScreen();
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
 		}
@@ -78,10 +75,10 @@ public class ConsoleInteractionManager implements InteractionManager {
 			showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
 					ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
 			if (dynamicTable < 5) {
-				attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s",
+				attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
 						beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
 			} else {
-				attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s | %-80s\n",
+				attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s ┃ %-80s\n",
 						beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
 			}
 		}
@@ -95,10 +92,10 @@ public class ConsoleInteractionManager implements InteractionManager {
 		showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
 				ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
 		if (dynamicTable < 5) {
-			attemptsAndClues.stream().forEach(entry -> System.out.format("| %-34s %-80s",
+			attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
 					beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
 		} else {
-			attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s | %-80s\n",
+			attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s ┃ %-80s\n",
 					beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
 		}
 	}
@@ -116,11 +113,11 @@ public class ConsoleInteractionManager implements InteractionManager {
 	 */
 	public void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
 		if (size < 5) {
-			System.out.format(String.format("\n+%69s+\n", " ").replace(' ', '-'));
-			System.out.format("%s %57s %22s \n", "|", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "|");
-			System.out.format(String.format("+%69s+\n", " ").replace(' ', '-'));
-			System.out.format("|%31s %14s %30s %14s\n", attemptLabel, "|", clueLabel, "|");
-			System.out.format(String.format("+%69s+\n", " ").replace(' ', '-'));
+			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
+			System.out.format("%s %57s %22s \n", "┃", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "┃");
+			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
+			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
+			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
 		} else {
 			System.out
 					.format(String.format("\nYour current combination is: [Attempt on left and clue on the right]\n"));
@@ -128,12 +125,74 @@ public class ConsoleInteractionManager implements InteractionManager {
 	}
 
 	/**
+	 * Metodo necessario alla stampa della scelta dei colori da parte di un player
+	 * qualsiasi.
+	 * 
+	 * @param labelMsg1 il primo messaggio da visualizzare
+	 * @param labelMsg2 il secondo messaggio da visualizzare
+	 */
+	public void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker) {
+		System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
+		System.out.format("%s %58s %21s \n", "┃", ANSI_CYAN_BOLD + labelMsg1 + ANSI_RESET, "┃");
+		System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
+		System.out.format("%s %74s %5s \n", "┃", ANSI_CYAN_BOLD + labelMsg2 + ANSI_RESET, "┃");
+		isBreakerMessageGiveUp(isBreaker);
+		System.out.format(String.format("┣%16s┳%16s┳%16s┳%18s┫\n", " ", " ", " ", " ").replace(" ", "━"));
+		IntStream.range(0, ColorPegs.values().length).mapToObj(index -> selectionColor(index))
+				.forEach(System.out::print);
+		System.out.format(String.format("\n┗%16s┻%16s┻%16s┻%18s┛\n\n", " ", " ", " ", " ").replace(' ', '━'));
+	}
+
+	/**
+	 * Mostra la possibilità di resa al player durante la selezione dei colori.
+	 * 
+	 * @param isBreaker booleano che conferma se il player è un breaker
+	 */
+	public void isBreakerMessageGiveUp(boolean isBreaker) {
+		if (isBreaker) {
+			String giveUpFormat = "Insert the number 0 to give up";
+			System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
+			System.out.format("%s %61s %18s \n", "┃", ANSI_RED_BOLD + giveUpFormat + ANSI_RESET, "┃");
+		}
+	}
+
+	/**
+	 * Metodo necessario alla corretta formattazione tabluare della modalità di
+	 * inserimento dei colori.
+	 * 
+	 * @param index l'indice restituito dallo stream
+	 * @return la stringa formattata secondo dei canoni tabulari
+	 */
+	public String selectionColor(int index) {
+
+		String tabulationColor = "┃";
+
+		if (index == 0) {
+			tabulationColor += String.format("  [%s - %d] ┃", beautifyGeneral(ColorPegs.values()[index]), index + 1);
+		} else if (index == 3) {
+			tabulationColor = String.format("  [%s - %d] %3s", beautifyGeneral(ColorPegs.values()[index]), index + 1,
+					"┃");
+			tabulationColor += "\n┃";
+			tabulationColor += String.format("%17s%17s%17s%19s", "┃", "┃", "┃", "┃");
+			tabulationColor += "\n┃";
+		} else if (index == 7) {
+			tabulationColor = String.format("  [%s - %d] %3s", beautifyGeneral(ColorPegs.values()[index]), index + 1,
+					"┃");
+		} else {
+			tabulationColor = " ";
+			tabulationColor += String.format(" [%s - %d] ┃", beautifyGeneral(ColorPegs.values()[index]), index + 1);
+		}
+
+		return tabulationColor;
+	}
+
+	/**
 	 * Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo
 	 * secondo i canoni della decodifica ANSI.
 	 * 
 	 * @param color il colore che si vuole codificare in una stringa colorata
-	 * @return la stringa contenente i valori della stringa visualizzati in
-	 *         modalità colorata
+	 * @return la stringa contenente i valori della stringa visualizzati in modalità
+	 *         colorata
 	 */
 	public String beautifyGeneral(ColorPegs color) {
 		String colorfulPeg = new String();
@@ -176,8 +235,8 @@ public class ConsoleInteractionManager implements InteractionManager {
 			System.out.println("\nThe correct sequence was: " + beautifyClues(toGuess, false));
 			System.out.println("\nThe game has finished, what would you like to do now?");
 			while (!((intInput >= 1) && (intInput <= 3))) {
-				System.out.print("- Start a new game with the same settings [1]" + "\n"
-						+ "- Start a new game with different settings [2]" + "\n" + "- Exit from the game [3]"
+				System.out.print("• Start a new game with the same settings [1]" + "\n"
+						+ "• Start a new game with different settings [2]" + "\n" + "• Exit from the game [3]"
 						+ "\n> ");
 				try {
 					intInput = Integer.parseInt(this.reader.readLine());
@@ -252,9 +311,9 @@ public class ConsoleInteractionManager implements InteractionManager {
 		if (!flag) {
 			clueCombination += String.format("]");
 		} else {
-			clueCombination += String.format("] %" + dynamicTableLenght(cluesList.size()) + "s \n", "|");
-			clueCombination += String.format("%s %34s %34s \n", "|", "|", "|");
-			clueCombination += "+----------------------------------+----------------------------------+\n";
+			clueCombination += String.format("] %" + dynamicTableLenght(cluesList.size()) + "s \n", "┃");
+			clueCombination += String.format("%s %34s %34s \n", "┃", "┃", "┃");
+			clueCombination += String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━');
 		}
 
 		return clueCombination;
@@ -279,12 +338,12 @@ public class ConsoleInteractionManager implements InteractionManager {
 			}
 			attemptCombination += String.format(ANSI_RESET + "]");
 		} else {
-			System.out.format("%s %34s %34s\n", "|", "|", "|");
+			System.out.format("%s %34s %34s\n", "┃", "┃", "┃");
 			attemptCombination = "[ ";
 			for (ColorPegs attempt : attemptsList) {
 				attemptCombination += beautifyGeneral(attempt);
 			}
-			attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "|");
+			attemptCombination += String.format("] %" + dynamicTableLenght(attemptsList.size()) + "s", "┃");
 		}
 		return attemptCombination;
 	}
@@ -313,5 +372,14 @@ public class ConsoleInteractionManager implements InteractionManager {
 			break;
 		}
 		return endingSettings;
+	}
+	
+	/**
+	 * Viene effettuata una sorta di operazione clean per la console stampando 100
+	 * linee di testo vuote.
+	 */
+	private void clearScreen() {
+		System.out.println("##################################################################################");
+		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
 	}
 }

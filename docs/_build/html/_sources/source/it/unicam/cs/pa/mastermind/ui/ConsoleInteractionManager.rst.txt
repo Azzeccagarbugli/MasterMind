@@ -61,6 +61,27 @@ getIndexSequence
 .. java:method:: @Override public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker)
    :outertype: ConsoleInteractionManager
 
+isBreakerMessageGiveUp
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void isBreakerMessageGiveUp(boolean isBreaker)
+   :outertype: ConsoleInteractionManager
+
+   Mostra la possibilità di resa al player durante la selezione dei colori.
+
+   :param isBreaker: booleano che conferma se il player è un breaker
+
+selectionColor
+^^^^^^^^^^^^^^
+
+.. java:method:: public String selectionColor(int index)
+   :outertype: ConsoleInteractionManager
+
+   Metodo necessario alla corretta formattazione tabluare della modalità di inserimento dei colori.
+
+   :param index: l'indice restituito dallo stream
+   :return: la stringa formattata secondo dei canoni tabulari
+
 showGame
 ^^^^^^^^
 
@@ -84,4 +105,15 @@ showGameDebug
 
 .. java:method:: @Override public void showGameDebug(List<ColorPegs> toGuess, List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues)
    :outertype: ConsoleInteractionManager
+
+showMenuColor
+^^^^^^^^^^^^^
+
+.. java:method:: public void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker)
+   :outertype: ConsoleInteractionManager
+
+   Metodo necessario alla stampa della scelta dei colori da parte di un player qualsiasi.
+
+   :param labelMsg1: il primo messaggio da visualizzare
+   :param labelMsg2: il secondo messaggio da visualizzare
 

@@ -1,11 +1,5 @@
-Documentazione
-===================
-
-Di seguito sarà possibile accedere a tutto ciò che concerne il **codice sorgente**
-del software realizzato.
-
-Esso viene suddiviso in tre package fondamentali, in cui al loro interno sarà possibile trovare
-le classi e i metodi relativi al funzionamento del progetto stesso. 
+MasterMind
+==========
 
 .. toctree::
    :maxdepth: 2
