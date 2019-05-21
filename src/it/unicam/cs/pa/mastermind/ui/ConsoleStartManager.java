@@ -3,9 +3,15 @@ package it.unicam.cs.pa.mastermind.ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.stream.IntStream;
 
+import it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.*;
 import it.unicam.cs.pa.mastermind.gamecore.SingleGame;
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
 
 /**
  * Interazione iniziale con l'utente via linea di comando
@@ -15,7 +21,6 @@ import it.unicam.cs.pa.mastermind.gamecore.SingleGame;
  */
 public class ConsoleStartManager implements StartManager {
 
-	private GameMode mode;
 	private int attempts;
 	private int sequenceLength;
 	private boolean toContinue = true;
@@ -25,6 +30,10 @@ public class ConsoleStartManager implements StartManager {
 	int highTresholdLength;
 	int lowTreshholdAttempts;
 	SingleGame currentGame;
+	MakerFactoryRegistry makers;
+	BreakerFactoryRegistry breakers;
+	CodeMaker currentMaker;
+	CodeBreaker currentBreaker;
 
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
@@ -46,6 +55,8 @@ public class ConsoleStartManager implements StartManager {
 		lowTreshholdLength = 1;
 		highTresholdLength = 10;
 		lowTreshholdAttempts = 1;
+		makers = new MakerFactoryRegistry();
+		breakers = new BreakerFactoryRegistry();
 	}
 
 	@Override
@@ -58,14 +69,22 @@ public class ConsoleStartManager implements StartManager {
 				if (!keepSettings) {
 					attempts = 9;
 					sequenceLength = 4;
-					mode = this.getGameMode(reader);
+
+					MakerFactory mFactory = (MakerFactory) makers
+							.getFactoryByName(getPlayerName(makers, false, reader));
+					BreakerFactory bFactory = (BreakerFactory) breakers
+							.getFactoryByName(getPlayerName(breakers, true, reader));
+					currentMaker = mFactory.getMaker();
+					currentBreaker = bFactory.getBreaker();
+
 					if (this.askNewSettings(reader)) {
 						attempts = askNewAttempts(reader, lowTreshholdAttempts);
 						sequenceLength = askNewlength(reader, lowTreshholdLength, highTresholdLength);
 					}
 				}
 				System.out.println("\nNow starting the game");
-				currentGame = new SingleGame(mode, this.sequenceLength, this.attempts, this.intManager);
+				currentGame = new SingleGame(this.sequenceLength, this.attempts, this.intManager, currentBreaker,
+						currentMaker);
 				boolean[] newSettings = currentGame.start();
 				this.toContinue = newSettings[0];
 				this.keepSettings = newSettings[1];
@@ -77,43 +96,23 @@ public class ConsoleStartManager implements StartManager {
 		this.ending();
 	}
 
-	/**
-	 * Chiede all'utente quale modalità di gioco desidera per la nuova partita.
-	 * 
-	 * @param reader il <code>BufferReader</code> passato come argomento
-	 * @return la modalità di gioco selezionata
-	 * @throws IOException se il valore inserito non è un valore numerico
-	 */
-	private GameMode getGameMode(BufferedReader reader) throws IOException {
+	private String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker, BufferedReader reader)
+			throws NumberFormatException, IOException {
+		System.out.println("Select the " + (isBreaker ? "breaker" : "maker") + " from this list");
+		List<String> nomi = registry.getPlayersNames();
+		IntStream.range(0, nomi.size())
+				.forEach(index -> System.out.println(index + 1 + " - " + nomi.get(index).toUpperCase()));
 		int intInput = 0;
 		do {
-			System.out.print("Select the game mode: " + "\n");
-			IntStream.range(0, GameMode.values().length)
-					.mapToObj(
-							index -> String.format("• %s [%d] ", GameMode.values()[index].getDescription(), index + 1))
-					.forEach(System.out::println);
 			try {
 				System.out.print("> ");
 				intInput = Integer.parseInt(reader.readLine());
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value");
 			}
-		} while (!((intInput >= 1) && (intInput <= 4)));
-
-		this.printChosenMode((GameMode.values())[intInput - 1]);
-		return (GameMode.values())[intInput - 1];
-	}
-
-	/**
-	 * Stampa su console la modalità di gioco scelta dall'utente.
-	 * 
-	 * @param mode la modalità di gioco inserito
-	 */
-	private void printChosenMode(GameMode mode) {
-		System.out.format(String.format(ANSI_PURPLE_BOLD + "\n┏%13s┳%30s┓\n", " ", " ").replace(' ', '━'));
-		System.out.format("┃ Chosen mode ┃ %12s %" + beautifyGameMode(mode) + "s\n",
-				ANSI_RESET + mode.getDescription() + ANSI_PURPLE_BOLD, "┃");
-		System.out.format(String.format("┗%13s┻%30s┛\n" + ANSI_RESET, " ", " ").replace(' ', '━'));
+		} while (intInput < 1 || intInput > nomi.size());
+		System.out.println("You chose a " + nomi.get(intInput - 1) + " " + (isBreaker ? "breaker" : "maker"));
+		return nomi.get(intInput - 1);
 	}
 
 	/**
@@ -199,28 +198,6 @@ public class ConsoleStartManager implements StartManager {
 	private void clearScreen() {
 		System.out.println("##################################################################################");
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
-	}
-
-	/**
-	 * Metodo privato per una migliore formattazione del riquadro contenente la
-	 * modalità di gioco.
-	 * 
-	 * @param gm
-	 * @return
-	 */
-	private int beautifyGameMode(GameMode gm) {
-		switch (gm) {
-		case HUMANBREAKERVSHUMANMAKER:
-			return 1;
-		case HUMANBREAKERVSBOTMAKER:
-			return 3;
-		case BOTBREAKERVSHUMANMAKER:
-			return 3;
-		case BOTBREAKERVSBOTMAKER:
-			return 5;
-		default:
-			return 0;
-		}
 	}
 
 	public static void main(String[] args) {

@@ -1,0 +1,2 @@
+Interactive it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory
+RandomBot it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory

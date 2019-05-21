@@ -1,10 +1,7 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
-import it.unicam.cs.pa.mastermind.players.BreakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
-import it.unicam.cs.pa.mastermind.players.MakerFactory;
-import it.unicam.cs.pa.mastermind.ui.GameMode;
 import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 
 /**
@@ -37,17 +34,6 @@ public class SingleGame {
 	 */
 	private InteractionManager manager;
 
-	/**
-	 * Oggetto factory per poter ottenere istanze di Breaker in base alla
-	 * modalit� di gioco scelta.
-	 */
-	BreakerFactory bFactory;
-	
-	/**
-	 * Oggetto factory per poter ottenere istanze di Maker in base alla
-	 * modalit� di gioco scelta.
-	 */
-	MakerFactory mFactory;
 	
 	/**
 	 * Oggetto contenente informazioni relative al vincitore della partita in corso.
@@ -67,11 +53,9 @@ public class SingleGame {
 	 * @param manager        entità relativa alla gestione delle interazioni con
 	 *                       gli utenti fisici
 	 */
-	public SingleGame(GameMode mode, int sequenceLength, int attempts, InteractionManager manager) {
-		bFactory = new BreakerFactory();
-		mFactory = new MakerFactory();
-		this.maker = mFactory.getMaker(mode, manager);
-		this.breaker = bFactory.getBreaker(mode, manager);
+	public SingleGame(int sequenceLength, int attempts, InteractionManager manager, CodeBreaker currentBreaker, CodeMaker currentMaker) {
+		this.maker = currentMaker;
+		this.breaker = currentBreaker;
 		winStats = new WinStats();
 		this.coordinator = new BoardCoordinator(new Board(sequenceLength, attempts));
 		this.manager = manager;
@@ -103,9 +87,9 @@ public class SingleGame {
 	 *         gioco con le precendenti impostazioni.
 	 */
 	public boolean[] start() {
-		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength()));
+		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength(), this.manager));
 		do {
-			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength()));
+			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength(), this.manager));
 			manager.showGame(coordinator.getAttemptAndClueList());
 			this.updateWinStats();
 		} while (!(winStats.getHasMakerWon() || winStats.getHasBreakerWon()));

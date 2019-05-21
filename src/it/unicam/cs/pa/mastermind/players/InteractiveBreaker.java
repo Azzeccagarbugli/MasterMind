@@ -17,10 +17,7 @@ import it.unicam.cs.pa.mastermind.ui.InteractionManager;
  */
 public class InteractiveBreaker extends CodeBreaker {
 
-	/**
-	 * Instanza di <code>InteractionManager</code> per definire un manager locale.
-	 */
-	private InteractionManager manager;
+
 
 	/**
 	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi
@@ -35,20 +32,19 @@ public class InteractiveBreaker extends CodeBreaker {
 	 * @param intManager un <code>InteractionManager</code> per definire le sue
 	 *                   interazioni
 	 */
-	public InteractiveBreaker(InteractionManager intManager) {
-		this.manager = intManager;
+	public InteractiveBreaker() {
 		combinationAttempts = new HashSet<>();
 	}
 
 
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength){
+	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager){
 		List<ColorPegs> listAttempt;
 		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			listIndex = manager.getIndexSequence(sequenceLength, true);
+			listIndex = intManager.getIndexSequence(sequenceLength, true);
 			if(listIndex.contains(0)) {
 				this.toggleGiveUp();
 				break;

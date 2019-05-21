@@ -3,6 +3,7 @@ package it.unicam.cs.pa.mastermind.players;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 
 /**
  * Classe astratta relativa ai giocatori che cercano di indovinare la sequenza.
@@ -22,7 +23,7 @@ public abstract class CodeBreaker {
 	 *                                effettuare la resa
 	 * @return la lista dei valori ottenuta
 	 */
-	public abstract List<ColorPegs> getAttempt(int sequenceLength);
+	public abstract List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager);
 
 	/**
 	 * Metodo invocabile dal giocatore per segnalare la volont� di arrendersi

@@ -16,27 +16,11 @@ import it.unicam.cs.pa.mastermind.ui.InteractionManager;
  */
 public class InteractiveMaker extends CodeMaker {
 
-	/*
-	 * Instanzio la variabile manager con la quale andrò ad eseguire le varie
-	 * interazioni.
-	 */
-	private InteractionManager manager;
-
-	/**
-	 * Costruisco il seguente oggetto HumanMaker utilizzando
-	 * un'<code>InteractionManager</code> per eseguire delle operazioni con
-	 * quest'ultimo.
-	 * 
-	 * @param intManager il mangager con la quale effetuerò le interazioni
-	 */
-	public InteractiveMaker(InteractionManager intManager) {
-		this.manager = intManager;
-	}
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-			manager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index-1])
+			intManager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index-1])
 					.forEach(listToGuess::add);
 		return listToGuess;
 	}
