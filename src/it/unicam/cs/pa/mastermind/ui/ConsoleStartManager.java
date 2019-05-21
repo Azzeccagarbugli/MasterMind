@@ -6,12 +6,13 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry;
-import it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.factories.*;
 import it.unicam.cs.pa.mastermind.gamecore.SingleGame;
+import it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
+import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
 
 /**
  * Interazione iniziale con l'utente via linea di comando
@@ -29,11 +30,11 @@ public class ConsoleStartManager implements StartManager {
 	int lowTreshholdLength;
 	int highTresholdLength;
 	int lowTreshholdAttempts;
-	SingleGame currentGame;
-	MakerFactoryRegistry makers;
-	BreakerFactoryRegistry breakers;
-	CodeMaker currentMaker;
-	CodeBreaker currentBreaker;
+	private SingleGame currentGame;
+	private MakerFactoryRegistry makers;
+	private BreakerFactoryRegistry breakers;
+	private CodeMaker currentMaker;
+	private CodeBreaker currentBreaker;
 
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
@@ -69,13 +70,7 @@ public class ConsoleStartManager implements StartManager {
 				if (!keepSettings) {
 					attempts = 9;
 					sequenceLength = 4;
-
-					MakerFactory mFactory = (MakerFactory) makers
-							.getFactoryByName(getPlayerName(makers, false, reader));
-					BreakerFactory bFactory = (BreakerFactory) breakers
-							.getFactoryByName(getPlayerName(breakers, true, reader));
-					currentMaker = mFactory.getMaker();
-					currentBreaker = bFactory.getBreaker();
+					setupNewPlayers(reader);
 
 					if (this.askNewSettings(reader)) {
 						attempts = askNewAttempts(reader, lowTreshholdAttempts);
@@ -94,6 +89,13 @@ public class ConsoleStartManager implements StartManager {
 			System.out.print(e.getMessage());
 		}
 		this.ending();
+	}
+
+	private void setupNewPlayers(BufferedReader reader) throws NumberFormatException, IOException {
+		MakerFactory mFactory = (MakerFactory) makers.getFactoryByName(getPlayerName(makers, false, reader));
+		BreakerFactory bFactory = (BreakerFactory) breakers.getFactoryByName(getPlayerName(breakers, true, reader));
+		currentMaker = mFactory.getMaker();
+		currentBreaker = bFactory.getBreaker();
 	}
 
 	private String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker, BufferedReader reader)
