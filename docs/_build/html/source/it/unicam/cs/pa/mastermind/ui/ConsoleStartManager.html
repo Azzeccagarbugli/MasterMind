@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="GameMode" href="GameMode.html" />
+    <link rel="next" title="InteractionManager" href="InteractionManager.html" />
     <link rel="prev" title="ConsoleInteractionManager" href="ConsoleInteractionManager.html" /> 
 </head>
 
@@ -88,17 +88,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ConsoleInteractionManager.html">ConsoleInteractionManager</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ConsoleStartManager</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="GameMode.html">GameMode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractionManager.html">InteractionManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="StartManager.html">StartManager</a></li>
 </ul>
@@ -178,7 +177,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartManager">
 public class <code class="descname">ConsoleStartManager</code> implements <a class="reference internal" href="StartManager.html#it.unicam.cs.pa.mastermind.ui.StartManager" title="it.unicam.cs.pa.mastermind.ui.StartManager">StartManager</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartManager" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interazione iniziale con l’utente via linea di comando</p>
+<dd><p>Interazione iniziale con l’utente via linea di comando.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -188,14 +187,6 @@ public class <code class="descname">ConsoleStartManager</code> implements <a cla
 
 <div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="currentgame">
-<h3>currentGame<a class="headerlink" href="#currentgame" title="Link a questa intestazione">¶</a></h3>
-<dl class="field">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartManager.currentGame">
- <a class="reference internal" href="../gamecore/SingleGame.html#it.unicam.cs.pa.mastermind.gamecore.SingleGame" title="it.unicam.cs.pa.mastermind.gamecore.SingleGame">SingleGame</a> <code class="descname">currentGame</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartManager.currentGame" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
-
-</div>
 <div class="section" id="hightresholdlength">
 <h3>highTresholdLength<a class="headerlink" href="#hightresholdlength" title="Link a questa intestazione">¶</a></h3>
 <dl class="field">
@@ -221,19 +212,22 @@ public class <code class="descname">ConsoleStartManager</code> implements <a cla
 
 </div>
 </div>
-<div class="section" id="constructors">
-<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id1">
-<h3>ConsoleStartManager<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
-<dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartManager.ConsoleStartManager()">
-public <code class="descname">ConsoleStartManager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartManager.ConsoleStartManager()" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-</div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="getistance">
+<h3>getIstance<a class="headerlink" href="#getistance" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartManager.getIstance()">
+public static <a class="reference internal" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartManager" title="it.unicam.cs.pa.mastermind.ui.ConsoleStartManager">ConsoleStartManager</a> <code class="descname">getIstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartManager.getIstance()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Il metodo getInstance garantisce la singolarità della classe all’interno del parco software.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>l’instanza della classe se presente o meno</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="main">
 <h3>main<a class="headerlink" href="#main" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
@@ -261,7 +255,7 @@ public void <code class="descname">start</code><span class="sig-paren">(</span><
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="GameMode.html" class="btn btn-neutral float-right" title="GameMode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="InteractionManager.html" class="btn btn-neutral float-right" title="InteractionManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ConsoleInteractionManager.html" class="btn btn-neutral float-left" title="ConsoleInteractionManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

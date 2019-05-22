@@ -15,7 +15,7 @@ import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
 
 /**
- * Interazione iniziale con l'utente via linea di comando
+ * Interazione iniziale con l'utente via linea di comando.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -26,7 +26,7 @@ public class ConsoleStartManager implements StartManager {
 	private int sequenceLength;
 	private boolean toContinue = true;
 	private boolean keepSettings = false;
-	private InteractionManager intManager;
+	private ConsoleInteractionManager intManager;
 	int lowTreshholdLength;
 	int highTresholdLength;
 	int lowTreshholdAttempts;
@@ -39,7 +39,6 @@ public class ConsoleStartManager implements StartManager {
 	private static final String ANSI_RESET = "\u001B[0m";
 	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
 	private static final String ANSI_YELLOW = "\033[0;93m";
-	private static final String ANSI_PURPLE_BOLD = "\033[1;95m";
 
 	private String mastermindLogo = "\r\n" + "                  _                      _           _ \r\n"
 			+ "  /\\/\\   __ _ ___| |_ ___ _ __ _ __ ___ (_)_ __   __| |\r\n"
@@ -50,7 +49,15 @@ public class ConsoleStartManager implements StartManager {
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
-	public ConsoleStartManager() {
+	/**
+	 * Riferimento all'instanza Singleton.
+	 */
+	private static ConsoleStartManager istance = null;
+
+	/**
+	 * Costruttore privato della classe ConsoleStartManager.
+	 */
+	private ConsoleStartManager() {
 		toContinue = true;
 		keepSettings = false;
 		lowTreshholdLength = 1;
@@ -60,11 +67,29 @@ public class ConsoleStartManager implements StartManager {
 		breakers = new BreakerFactoryRegistry();
 	}
 
+	/**
+	 * Il metodo getInstance garantisce la singolarità della classe all'interno del
+	 * parco software.
+	 * 
+	 * @return l'instanza della classe se presente o meno
+	 */
+	public static ConsoleStartManager getIstance() {
+		if (istance == null)
+			istance = new ConsoleStartManager();
+		return istance;
+	}
+
 	@Override
 	public void start() {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 			while (toContinue) {
-				intManager = new ConsoleInteractionManager(reader);
+				/*
+				 * Applicazione del pattern del Singleton attarverso il get dell'instanza per
+				 * poi passargli il BuffereReader generato in precedenza. Ciò per garantire
+				 * all'interno del software una sola instanza di una specifica classe.
+				 */
+				intManager = ConsoleInteractionManager.getIstance();
+				intManager.init(reader);
 				System.out.format(ANSI_CYAN_BOLD + "%-1s " + ANSI_YELLOW + "%43s" + ANSI_RESET + "\n\n\n",
 						mastermindLogo, mastermindCaptionStart);
 				if (!keepSettings) {
@@ -198,12 +223,14 @@ public class ConsoleStartManager implements StartManager {
 	 * linee di testo vuote.
 	 */
 	private void clearScreen() {
-		System.out.println("##################################################################################");
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
 	}
 
 	public static void main(String[] args) {
-		ConsoleStartManager startManager = new ConsoleStartManager();
+		/*
+		 * Singleton relativo al ConsoleStartManager.
+		 */
+		ConsoleStartManager startManager = ConsoleStartManager.getIstance();
 		startManager.start();
 	}
 }

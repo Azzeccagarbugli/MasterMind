@@ -6,6 +6,8 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+
 RandomBotMaker
 ==============
 
@@ -23,6 +25,6 @@ Methods
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getCodeToGuess(int sequenceLength)
+.. java:method:: @Override public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager)
    :outertype: RandomBotMaker
 

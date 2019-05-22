@@ -2,6 +2,8 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+
 CodeBreaker
 ===========
 
@@ -19,7 +21,7 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: public abstract List<ColorPegs> getAttempt(int sequenceLength)
+.. java:method:: public abstract List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager)
    :outertype: CodeBreaker
 
    Restituisce la sequenza di pioli valida come singolo tentativo.

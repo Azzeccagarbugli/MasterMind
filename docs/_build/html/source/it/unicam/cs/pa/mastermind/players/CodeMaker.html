@@ -88,9 +88,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CodeMaker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
@@ -98,7 +99,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreaker.html">InteractiveBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveMaker.html">InteractiveMaker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MakerFactory.html">MakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreaker.html">RandomBotBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMaker.html">RandomBotMaker</a></li>
 </ul>
@@ -192,8 +194,8 @@ public abstract class <code class="descname">CodeMaker</code><a class="headerlin
 <div class="section" id="getcodetoguess">
 <h3>getCodeToGuess<a class="headerlink" href="#getcodetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess(int)">
-public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess(int)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess(int, InteractionManager)">
+public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, <a class="reference internal" href="../ui/InteractionManager.html#it.unicam.cs.pa.mastermind.ui.InteractionManager" title="it.unicam.cs.pa.mastermind.ui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess(int, InteractionManager)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Restituisce la sequenza di pioli da indovinare.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>

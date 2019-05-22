@@ -27,7 +27,7 @@ Constructors
 InteractiveBreaker
 ^^^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public InteractiveBreaker(InteractionManager intManager)
+.. java:constructor:: public InteractiveBreaker()
    :outertype: InteractiveBreaker
 
    Costruisco lo HumanBreaker utilizzando l'\ ``InteractionManager``\  per gestire le varie interazioni.
@@ -39,6 +39,6 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength)
+.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager)
    :outertype: InteractiveBreaker
 

@@ -24,18 +24,6 @@ ConsoleInteractionManager
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
-Constructors
-------------
-ConsoleInteractionManager
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:constructor:: public ConsoleInteractionManager(BufferedReader newReader)
-   :outertype: ConsoleInteractionManager
-
-   Costruisco l'elemento \ ``CommandLineInteractionManager``\ , il quale permette l'interazione tra il gioco e i vari player disponibili.
-
-   :param newReader: il BufferReader necessario alla generazione della classe
-
 Methods
 -------
 beautifyGeneral
@@ -60,6 +48,26 @@ getIndexSequence
 
 .. java:method:: @Override public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker)
    :outertype: ConsoleInteractionManager
+
+getIstance
+^^^^^^^^^^
+
+.. java:method:: public static ConsoleInteractionManager getIstance()
+   :outertype: ConsoleInteractionManager
+
+   Il metodo getInstance garantisce la singolarità della classe all'interno del parco software.
+
+   :return: l'instanza della classe se presente o meno
+
+init
+^^^^
+
+.. java:method:: public void init(BufferedReader newReader)
+   :outertype: ConsoleInteractionManager
+
+   Inietto all'interno della classe il parametro desiderato che ha nataura \ ``BufferReader``\ .
+
+   :param newReader: il BufferReader necessario all'instanza della classe
 
 isBreakerMessageGiveUp
 ^^^^^^^^^^^^^^^^^^^^^^

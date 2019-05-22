@@ -88,16 +88,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ConsoleInteractionManager</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ConsoleStartManager.html">ConsoleStartManager</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GameMode.html">GameMode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractionManager.html">InteractionManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="StartManager.html">StartManager</a></li>
 </ul>
@@ -185,25 +184,6 @@ public class <code class="descname">ConsoleInteractionManager</code> implements 
 </dl>
 </dd></dl>
 
-<div class="section" id="constructors">
-<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id1">
-<h3>ConsoleInteractionManager<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
-<dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.ConsoleInteractionManager(BufferedReader)">
-public <code class="descname">ConsoleInteractionManager</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html" title="java.io.BufferedReader">BufferedReader</a><em> newReader</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.ConsoleInteractionManager(BufferedReader)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Costruisco l’elemento <code class="docutils literal notranslate"><span class="pre">CommandLineInteractionManager</span></code>, il quale permette l’interazione tra il gioco e i vari player disponibili.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>newReader</strong> – il BufferReader necessario alla generazione della classe</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-</div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="beautifygeneral">
@@ -239,6 +219,36 @@ public boolean[] <code class="descname">ending</code><span class="sig-paren">(</
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.getIndexSequence(int, boolean)">
 public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.getIndexSequence(int, boolean)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
+
+</div>
+<div class="section" id="getistance">
+<h3>getIstance<a class="headerlink" href="#getistance" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.getIstance()">
+public static <a class="reference internal" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager" title="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager">ConsoleInteractionManager</a> <code class="descname">getIstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.getIstance()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Il metodo getInstance garantisce la singolarità della classe all’interno del parco software.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>l’instanza della classe se presente o meno</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="init">
+<h3>init<a class="headerlink" href="#init" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.init(BufferedReader)">
+public void <code class="descname">init</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html" title="java.io.BufferedReader">BufferedReader</a><em> newReader</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionManager.init(BufferedReader)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Inietto all’interno della classe il parametro desiderato che ha nataura <code class="docutils literal notranslate"><span class="pre">BufferReader</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>newReader</strong> – il BufferReader necessario all’instanza della classe</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="isbreakermessagegiveup">

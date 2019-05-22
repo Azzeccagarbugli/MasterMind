@@ -8,12 +8,13 @@ Nel seguente package sono definiti i due principali attori del gioco, il Maker, 
 .. toctree::
    :maxdepth: 1
 
-   BreakerFactory
+   BreakerFactoryRegistry
    CodeBreaker
    CodeMaker
    InteractiveBreaker
    InteractiveMaker
-   MakerFactory
+   MakerFactoryRegistry
+   PlayerFactoryRegistry
    RandomBotBreaker
    RandomBotMaker
 

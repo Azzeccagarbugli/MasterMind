@@ -18,23 +18,11 @@ InteractiveMaker
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
-Constructors
-------------
-InteractiveMaker
-^^^^^^^^^^^^^^^^
-
-.. java:constructor:: public InteractiveMaker(InteractionManager intManager)
-   :outertype: InteractiveMaker
-
-   Costruisco il seguente oggetto HumanMaker utilizzando un'\ ``InteractionManager``\  per eseguire delle operazioni con quest'ultimo.
-
-   :param intManager: il mangager con la quale effetuerò le interazioni
-
 Methods
 -------
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getCodeToGuess(int sequenceLength)
+.. java:method:: @Override public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager)
    :outertype: InteractiveMaker
 

@@ -39,12 +39,39 @@ public class ConsoleInteractionManager implements InteractionManager {
 	private BufferedReader reader;
 
 	/**
+	 * Riferimento all'instanza Singleton.
+	 */
+	private static ConsoleInteractionManager istance = null;
+
+	/**
 	 * Costruisco l'elemento <code>CommandLineInteractionManager</code>, il quale
 	 * permette l'interazione tra il gioco e i vari player disponibili.
 	 * 
 	 * @param newReader il BufferReader necessario alla generazione della classe
 	 */
-	public ConsoleInteractionManager(BufferedReader newReader) {
+	private ConsoleInteractionManager() {
+		// Applicazione del pattern relativo al Singleton.
+	}
+
+	/**
+	 * Il metodo getInstance garantisce la singolarità della classe all'interno del
+	 * parco software.
+	 * 
+	 * @return l'instanza della classe se presente o meno
+	 */
+	public static ConsoleInteractionManager getIstance() {
+		if (istance == null)
+			istance = new ConsoleInteractionManager();
+		return istance;
+	}
+
+	/**
+	 * Inietto all'interno della classe il parametro desiderato che ha nataura
+	 * <code>BufferReader</code>.
+	 * 
+	 * @param newReader il BufferReader necessario all'instanza della classe
+	 */
+	public void init(BufferedReader newReader) {
 		this.reader = newReader;
 	}
 
@@ -373,13 +400,12 @@ public class ConsoleInteractionManager implements InteractionManager {
 		}
 		return endingSettings;
 	}
-	
+
 	/**
 	 * Viene effettuata una sorta di operazione clean per la console stampando 100
 	 * linee di testo vuote.
 	 */
 	private void clearScreen() {
-		System.out.println("##################################################################################");
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
 	}
 }

@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="MakerFactory" href="MakerFactory.html" />
+    <link rel="next" title="MakerFactoryRegistry" href="MakerFactoryRegistry.html" />
     <link rel="prev" title="InteractiveBreaker" href="InteractiveBreaker.html" /> 
 </head>
 
@@ -88,18 +88,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeMaker.html">CodeMaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreaker.html">InteractiveBreaker</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">InteractiveMaker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="MakerFactory.html">MakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreaker.html">RandomBotBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMaker.html">RandomBotMaker</a></li>
 </ul>
@@ -188,32 +189,13 @@ public class <code class="descname">InteractiveMaker</code> extends <a class="re
 </dl>
 </dd></dl>
 
-<div class="section" id="constructors">
-<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id1">
-<h3>InteractiveMaker<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
-<dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.players.InteractiveMaker.InteractiveMaker(InteractionManager)">
-public <code class="descname">InteractiveMaker</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/InteractionManager.html#it.unicam.cs.pa.mastermind.ui.InteractionManager" title="it.unicam.cs.pa.mastermind.ui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveMaker.InteractiveMaker(InteractionManager)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Costruisco il seguente oggetto HumanMaker utilizzando un”<code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code> per eseguire delle operazioni con quest’ultimo.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>intManager</strong> – il mangager con la quale effetuerò le interazioni</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-</div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="getcodetoguess">
 <h3>getCodeToGuess<a class="headerlink" href="#getcodetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.players.InteractiveMaker.getCodeToGuess(int)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveMaker.getCodeToGuess(int)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.players.InteractiveMaker.getCodeToGuess(int, InteractionManager)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, <a class="reference internal" href="../ui/InteractionManager.html#it.unicam.cs.pa.mastermind.ui.InteractionManager" title="it.unicam.cs.pa.mastermind.ui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveMaker.getCodeToGuess(int, InteractionManager)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -228,7 +210,7 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="MakerFactory.html" class="btn btn-neutral float-right" title="MakerFactory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MakerFactoryRegistry.html" class="btn btn-neutral float-right" title="MakerFactoryRegistry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="InteractiveBreaker.html" class="btn btn-neutral float-left" title="InteractiveBreaker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

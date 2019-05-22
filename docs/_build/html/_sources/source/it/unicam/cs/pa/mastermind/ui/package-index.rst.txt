@@ -10,7 +10,6 @@ Il seguente package contiene le classi relative a tutto ciò che concerne l'inte
 
    ConsoleInteractionManager
    ConsoleStartManager
-   GameMode
    InteractionManager
    StartManager
 

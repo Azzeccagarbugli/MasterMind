@@ -2,6 +2,8 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+
 CodeMaker
 =========
 
@@ -19,7 +21,7 @@ Methods
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: public abstract List<ColorPegs> getCodeToGuess(int sequenceLength)
+.. java:method:: public abstract List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager)
    :outertype: CodeMaker
 
    Restituisce la sequenza di pioli da indovinare.
