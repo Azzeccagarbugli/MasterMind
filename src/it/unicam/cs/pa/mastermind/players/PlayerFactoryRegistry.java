@@ -22,29 +22,36 @@ public abstract class PlayerFactoryRegistry {
 	public PlayerFactoryRegistry(String pathLettura) {
 		registroFactoryGiocatori = new LinkedHashMap<String, PlayerFactory>();
 		try {
-			load(new File(pathLettura));
+			load(pathLettura);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void load(File f) throws IOException, ClassNotFoundException, InstantiationException {
+	private void load(String pathLettura) throws IOException, ClassNotFoundException, InstantiationException {
+		File f = new File(pathLettura);
 		if (f.exists() && !f.isDirectory()) {
 			List<String> data = Files.readAllLines(f.toPath(), Charset.defaultCharset());
 			data.stream().forEach(l -> register(l));
-		} else {
+		} else if (pathLettura == "./BreakerFactoryLista.txt") {
 			List<String> linesCodeBreaker = Arrays.asList(
 					"Interactive it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory",
 					"RandomBot it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory");
+
+			Path fileBreaker = Paths.get("BreakerFactoryLista.txt");
+
+			Files.write(fileBreaker, linesCodeBreaker, Charset.forName("UTF-8"));
+		} else if (pathLettura == "./MakerFactoryLista.txt") {
 			List<String> linesCodeMaker = Arrays.asList(
 					"Interactive it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory",
 					"RandomBot it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory");
-			Path fileBreaker = Paths.get("BreakerFactoryLista.txt");
 			Path fileMaker = Paths.get("MakerFactoryLista.txt");
-			Files.write(fileBreaker, linesCodeBreaker, Charset.forName("UTF-8"));
 			Files.write(fileMaker, linesCodeMaker, Charset.forName("UTF-8"));
 		}
+
 	}
+
+	
 
 	private void register(String lineaFile) {
 		try {
