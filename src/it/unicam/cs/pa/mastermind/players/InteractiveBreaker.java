@@ -17,8 +17,6 @@ import it.unicam.cs.pa.mastermind.ui.InteractionManager;
  */
 public class InteractiveBreaker extends CodeBreaker {
 
-
-
 	/**
 	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi
 	 * effettuati.
@@ -35,8 +33,6 @@ public class InteractiveBreaker extends CodeBreaker {
 	public InteractiveBreaker() {
 		combinationAttempts = new HashSet<>();
 	}
-
-
 
 	@Override
 	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager){
