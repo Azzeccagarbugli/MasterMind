@@ -34,7 +34,6 @@ public class SingleGame {
 	 */
 	private InteractionManager manager;
 
-	
 	/**
 	 * Oggetto contenente informazioni relative al vincitore della partita in corso.
 	 */
@@ -50,13 +49,14 @@ public class SingleGame {
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
-	 * @param manager        entità relativa alla gestione delle interazioni con
-	 *                       gli utenti fisici
+	 * @param manager        entità relativa alla gestione delle interazioni con gli
+	 *                       utenti fisici
 	 */
-	public SingleGame(int sequenceLength, int attempts, InteractionManager manager, CodeBreaker currentBreaker, CodeMaker currentMaker) {
+	public SingleGame(int sequenceLength, int attempts, InteractionManager manager, CodeBreaker currentBreaker,
+			CodeMaker currentMaker) {
 		this.maker = currentMaker;
 		this.breaker = currentBreaker;
-		winStats = new WinStats();
+		this.winStats = new WinStats();
 		this.coordinator = new BoardCoordinator(new Board(sequenceLength, attempts));
 		this.manager = manager;
 	}

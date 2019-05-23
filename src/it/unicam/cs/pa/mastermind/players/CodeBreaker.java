@@ -26,7 +26,7 @@ public abstract class CodeBreaker {
 	public abstract List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager);
 
 	/**
-	 * Metodo invocabile dal giocatore per segnalare la volont� di arrendersi
+	 * Metodo invocabile dal giocatore per segnalare la volontà di arrendersi
 	 */
 	public void toggleGiveUp() {
 		giveUp = true;

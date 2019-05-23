@@ -104,10 +104,11 @@ public class Board {
 	public int leftAttempts() {
 		return maxAttempts - board.size();
 	}
-	
+
 	/**
-	 * Restituisce il numero di tentativi inseriti fino ad ora
-	 * @return
+	 * Restituisce il numero di tentativi inseriti fino ad ora.
+	 * 
+	 * @return il numero di tentativi inseriti fino ad ora
 	 */
 	public int attemptsInserted() {
 		return board.size();
@@ -119,7 +120,7 @@ public class Board {
 	 * @return un booleano a seconda dello stato vuoto o meno della plancia
 	 */
 	public boolean isEmpty() {
-		return sequenceToGuess.isEmpty() && board.isEmpty();
+		return board.isEmpty();
 	}
 
 	/**
@@ -128,11 +129,10 @@ public class Board {
 	 * 
 	 * @param attempt la lista della sequnza tentativo
 	 * @param clue    la lista degli indizi forniti
-	 * @throws IllegalArgumentException se il tentativo di inserimento fallisce
 	 * @return un booleano che conferma la riuscita o meno dell'inserimento della
 	 *         sequenza nella plancia
 	 */
-	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue){
+	public boolean addAttempt(List<ColorPegs> attempt, List<ColorPegs> clue) {
 		if ((attempt.size() != this.sequenceLength) || (clue.size() > this.sequenceLength)) {
 			return false;
 		} else {

@@ -46,8 +46,9 @@ public class BoardCoordinator {
 	}
 
 	/**
+	 * Metodo che rappresenta se ci sono nuovi tentativi disponibili.
 	 * 
-	 * @return un booleano rappresentante la possibilit� o meno di inserire nuovi tentativi.
+	 * @return un booleano rappresentante la possibilità o meno di inserire nuovi tentativi
 	 */
 	public boolean hasLeftAttempts() {
 		if (this.currentBoard.leftAttempts() == 0)
@@ -57,8 +58,9 @@ public class BoardCoordinator {
 	}
 
 	/**
+	 * Indica la vittoria o meno del breaker.
 	 * 
-	 * @return un booleano che indica se il giocatore Breaker ha indovinato o meno la sequenza del maker.
+	 * @return un booleano che indica se il giocatore Breaker ha indovinato o meno la sequenza del maker
 	 */
 	public boolean hasBreakerGuessed() {
 		if (this.currentBoard.lastAttemptAndClue().getValue().size() == this.currentBoard.getSequenceLength()
@@ -69,8 +71,9 @@ public class BoardCoordinator {
 	}
 
 	/**
+	 * Quanti tentativi ha inserito il breaker.
 	 * 
-	 * @return il numero di sequenze tentativo inserite dal Breaker finora.
+	 * @return il numero di sequenze tentativo inserite dal Breaker finora
 	 */
 	public int numberOfAttemptsInserted() {
 		return this.currentBoard.attemptsInserted();
@@ -101,7 +104,7 @@ public class BoardCoordinator {
 	 * @return List<ColorPegs> di indizi generata automaticamente a partire dalla lista di
 	 *         tentativi.
 	 */
-	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
+	public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
 				toGuessCopy = new ArrayList<ColorPegs>(toGuess), clue = new ArrayList<ColorPegs>();
 		IntStream.range(0, attemptCopy.size()).forEach(i -> {
