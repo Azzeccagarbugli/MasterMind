@@ -21,5 +21,4 @@ public abstract class CodeMaker {
 	 */
 	public abstract List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager);
 	
-	
 }
