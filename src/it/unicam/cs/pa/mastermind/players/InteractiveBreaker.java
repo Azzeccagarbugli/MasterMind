@@ -35,18 +35,17 @@ public class InteractiveBreaker extends CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager){
+	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager) {
 		List<ColorPegs> listAttempt;
 		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
 			listIndex = intManager.getIndexSequence(sequenceLength, true);
-			if(listIndex.contains(0)) {
+			if (listIndex.contains(0)) {
 				this.toggleGiveUp();
 				break;
 			}
-			listIndex.stream().map(index -> ColorPegs.values()[index-1])
-					.forEach(listAttempt::add);
+			listIndex.stream().map(index -> ColorPegs.values()[index - 1]).forEach(listAttempt::add);
 		} while (combinationAttempts.contains(listAttempt));
 		return listAttempt;
 	}

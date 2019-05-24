@@ -15,7 +15,7 @@ public class SingleGame {
 	/**
 	 * Variabile che descrive il BoardCoordinator.
 	 */
-	private BoardCoordinator coordinator;
+	private BoardController coordinator;
 
 	/**
 	 * Variabile che inizializza il player che costruirà la sequenza da indovinare.
@@ -57,7 +57,7 @@ public class SingleGame {
 		this.maker = currentMaker;
 		this.breaker = currentBreaker;
 		this.winStats = new WinStats();
-		this.coordinator = new BoardCoordinator(new Board(sequenceLength, attempts));
+		this.coordinator = new BoardController(new Board(sequenceLength, attempts));
 		this.manager = manager;
 	}
 

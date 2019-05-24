@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import it.unicam.cs.pa.mastermind.gamecore.Board;
-import it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator;
+import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
@@ -19,10 +19,10 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-class GameCoreBoardCoordinatorTest {
+class GameCoreBoardControllerTest {
 
 	private Board board;
-	private BoardCoordinator boardCord;
+	private BoardController boardCord;
 
 	private int sequenceLenght = 4;
 	private int maxAttempts = 9;
@@ -33,12 +33,12 @@ class GameCoreBoardCoordinatorTest {
 	@BeforeEach
 	void setUp() {
 		board = new Board(sequenceLenght, maxAttempts);
-		boardCord = new BoardCoordinator(board);
+		boardCord = new BoardController(board);
 	}
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#insertNewAttempt(java.util.List)}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#insertNewAttempt(java.util.List)}.
 	 */
 	@Test
 	void testInsertNewAttempt() {
@@ -56,7 +56,7 @@ class GameCoreBoardCoordinatorTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#hasLeftAttempts()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#hasLeftAttempts()}.
 	 */
 	@Test
 	void testHasLeftAttempts() {
@@ -75,7 +75,7 @@ class GameCoreBoardCoordinatorTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#hasBreakerGuessed()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#hasBreakerGuessed()}.
 	 */
 	@Test
 	void testHasBreakerGuessed() {
@@ -94,7 +94,7 @@ class GameCoreBoardCoordinatorTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#numberOfAttemptsInserted()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#numberOfAttemptsInserted()}.
 	 */
 	@Test
 	void testNumberOfAttemptsInserted() {
@@ -113,7 +113,7 @@ class GameCoreBoardCoordinatorTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#getSequenceToGuess()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#getSequenceToGuess()}.
 	 */
 	@Test
 	void testGetSequenceToGuess() {
@@ -125,7 +125,7 @@ class GameCoreBoardCoordinatorTest {
 	
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#insertCodeToGuess(java.util.List)}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#insertCodeToGuess(java.util.List)}.
 	 */
 	@Test
 	void testInsertCodeToGuess() {
@@ -143,7 +143,7 @@ class GameCoreBoardCoordinatorTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardCoordinator#getClueFromAttempt(java.util.List, java.util.List)}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#getClueFromAttempt(java.util.List, java.util.List)}.
 	 */
 	@Test
 	void testGetClueFromAttempt() {

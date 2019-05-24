@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class BoardCoordinator {
+public class BoardController {
 
 	/**
 	 * Variabile privata relativa alla plancia di gioco corrente.
@@ -27,7 +27,7 @@ public class BoardCoordinator {
 	 * @param newBoard la board su cui si vogliono effettuare le operazioni di
 	 *                 coordinazione
 	 */
-	public BoardCoordinator(Board newBoard) {
+	public BoardController(Board newBoard) {
 		this.currentBoard = newBoard;
 	}
 

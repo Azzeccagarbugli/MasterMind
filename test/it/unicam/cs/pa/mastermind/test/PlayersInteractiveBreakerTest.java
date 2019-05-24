@@ -1,0 +1,84 @@
+package it.unicam.cs.pa.mastermind.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map.Entry;
+
+import org.junit.jupiter.api.Test;
+
+import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardController;
+import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.players.InteractiveBreaker;
+import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+
+/**
+ * Test di controllo utili alla generazione di un player decodficatore di natura
+ * umana.
+ * 
+ * @author Francesco Pio Stelluti, Francesco Coppola
+ *
+ */
+class PlayersInteractiveBreakerTest {
+
+	private List<Integer> listAttempt;
+
+	/**
+	 * Test method for
+	 * {@link it.unicam.cs.pa.mastermind.players.InteractiveBreaker#getAttempt(int, it.unicam.cs.pa.mastermind.ui.InteractionManager)}.
+	 */
+	@Test
+	void testGetAttempt() {
+		Board tempBoard = new Board(4, 9);
+		BoardController boardController = new BoardController(tempBoard);
+		InteractionManager intManager = new InteractionManager() {
+			@Override
+			public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
+				listAttempt = new ArrayList<Integer>(Arrays.asList(2, 2, 2, 4));
+				return listAttempt;
+			}
+
+			@Override
+			public void showGame(List<Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void showGameDebug(List<ColorPegs> toGuess,
+					List<Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public boolean[] ending(String gameEndingMessage, List<ColorPegs> toGuess) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+		};
+		boardController.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
+		assertEquals(boardController.getSequenceToGuess(),
+				Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
+		InteractiveBreaker interactiveBreaker = new InteractiveBreaker();
+		boardController.insertNewAttempt(interactiveBreaker.getAttempt(tempBoard.getSequenceLength(), intManager));
+		assertEquals(tempBoard.attemptsInserted(), 1);
+		boardController.insertNewAttempt(interactiveBreaker.getAttempt(tempBoard.getSequenceLength(), intManager));
+		assertFalse(boardController.hasBreakerGuessed());
+	}
+
+	/**
+	 * Test method for
+	 * {@link it.unicam.cs.pa.mastermind.players.InteractiveBreaker#InteractiveBreaker()}.
+	 */
+	@Test
+	void testInteractiveBreaker() {
+		InteractiveBreaker interactivePlayer = new InteractiveBreaker();
+		assertNotNull(interactivePlayer);
+	}
+
+}
