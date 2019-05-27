@@ -29,7 +29,7 @@ public class ConsoleStartManager implements StartManager {
 	private ConsoleInteractionManager intManager;
 	int lowTreshholdLength;
 	int highTresholdLength;
-	int lowTreshholdAttempts;
+	int lowTresholdAttempts;
 	private SingleGame currentGame;
 	private MakerFactoryRegistry makers;
 	private BreakerFactoryRegistry breakers;
@@ -62,7 +62,7 @@ public class ConsoleStartManager implements StartManager {
 		keepSettings = false;
 		lowTreshholdLength = 1;
 		highTresholdLength = 10;
-		lowTreshholdAttempts = 1;
+		lowTresholdAttempts = 1;
 		makers = new MakerFactoryRegistry();
 		breakers = new BreakerFactoryRegistry();
 	}
@@ -98,7 +98,7 @@ public class ConsoleStartManager implements StartManager {
 					setupNewPlayers(reader);
 
 					if (this.askNewSettings(reader)) {
-						attempts = askNewAttempts(reader, lowTreshholdAttempts);
+						attempts = askNewAttempts(reader, lowTresholdAttempts);
 						sequenceLength = askNewlength(reader, lowTreshholdLength, highTresholdLength);
 					}
 				}
