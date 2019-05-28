@@ -27,7 +27,7 @@ public class ConsoleStartManager implements StartManager {
 	private boolean toContinue = true;
 	private boolean keepSettings = false;
 	private ConsoleInteractionManager intManager;
-	int lowTreshholdLength;
+	int lowTresholdLength;
 	int highTresholdLength;
 	int lowTresholdAttempts;
 	private SingleGame currentGame;
@@ -60,7 +60,7 @@ public class ConsoleStartManager implements StartManager {
 	private ConsoleStartManager() {
 		toContinue = true;
 		keepSettings = false;
-		lowTreshholdLength = 1;
+		lowTresholdLength = 1;
 		highTresholdLength = 10;
 		lowTresholdAttempts = 1;
 		makers = new MakerFactoryRegistry();
@@ -99,7 +99,7 @@ public class ConsoleStartManager implements StartManager {
 
 					if (this.askNewSettings(reader)) {
 						attempts = askNewAttempts(reader, lowTresholdAttempts);
-						sequenceLength = askNewlength(reader, lowTreshholdLength, highTresholdLength);
+						sequenceLength = askNewlength(reader, lowTresholdLength, highTresholdLength);
 					}
 				}
 				System.out.println("\nNow starting the game");
@@ -116,6 +116,14 @@ public class ConsoleStartManager implements StartManager {
 		this.ending();
 	}
 
+	/**
+	 * Metodo privato che esegue il setup dei player da predisporre poi all'interno
+	 * della partita corrente.
+	 * 
+	 * @param reader il buffer con il quale fare il parse delle opzioni passate
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	private void setupNewPlayers(BufferedReader reader) throws NumberFormatException, IOException {
 		MakerFactory mFactory = (MakerFactory) makers.getFactoryByName(getPlayerName(makers, false, reader));
 		BreakerFactory bFactory = (BreakerFactory) breakers.getFactoryByName(getPlayerName(breakers, true, reader));
@@ -123,12 +131,23 @@ public class ConsoleStartManager implements StartManager {
 		currentBreaker = bFactory.getBreaker();
 	}
 
+	/**
+	 * Metodo privato che stabilisce con quali players si vuole eseguire la partita
+	 * corrente.
+	 * 
+	 * @param registry il registro che contiene i giocatori disponibili
+	 * @param isBreaker valore che stabilisce la veridicità del player breaker o meno
+	 * @param reader il buffer con il quale fare il parse delle opzioni passate
+	 * @return la stringa contenente il nome del player
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	private String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker, BufferedReader reader)
 			throws NumberFormatException, IOException {
 		System.out.println("Select the " + (isBreaker ? "breaker" : "maker") + " from this list");
-		List<String> nomi = registry.getPlayersNames();
-		IntStream.range(0, nomi.size())
-				.forEach(index -> System.out.println(index + 1 + " - " + nomi.get(index).toUpperCase()));
+		List<String> names = registry.getPlayersNames();
+		IntStream.range(0, names.size())
+				.forEach(index -> System.out.println(index + 1 + " - " + names.get(index).toUpperCase()));
 		int intInput = 0;
 		do {
 			try {
@@ -137,9 +156,9 @@ public class ConsoleStartManager implements StartManager {
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value");
 			}
-		} while (intInput < 1 || intInput > nomi.size());
-		System.out.println("You chose a " + nomi.get(intInput - 1) + " " + (isBreaker ? "breaker" : "maker"));
-		return nomi.get(intInput - 1);
+		} while (intInput < 1 || intInput > names.size());
+		System.out.println("You chose a " + names.get(intInput - 1) + " " + (isBreaker ? "breaker" : "maker"));
+		return names.get(intInput - 1);
 	}
 
 	/**

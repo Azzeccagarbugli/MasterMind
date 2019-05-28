@@ -24,7 +24,7 @@ import it.unicam.cs.pa.mastermind.factories.PlayerFactory;
  */
 public abstract class PlayerFactoryRegistry {
 
-	private Map<String, PlayerFactory> registroFactoryGiocatori;
+	private Map<String, PlayerFactory> registryFactoryPlayers;
 
 	/**
 	 * Costruttore della classe astratta.
@@ -32,7 +32,7 @@ public abstract class PlayerFactoryRegistry {
 	 * @param pathLettura il pathname del file specificato
 	 */
 	public PlayerFactoryRegistry(String pathLettura) {
-		registroFactoryGiocatori = new LinkedHashMap<String, PlayerFactory>();
+		registryFactoryPlayers = new LinkedHashMap<String, PlayerFactory>();
 		try {
 			load(pathLettura);
 		} catch (Exception e) {
@@ -80,7 +80,7 @@ public abstract class PlayerFactoryRegistry {
 		try {
 			String[] elementi = lineaFile.split(" ");
 			if (elementi.length == 2) {
-				registerClasse(elementi[0], elementi[1]);
+				registerClass(elementi[0], elementi[1]);
 			} else {
 				throw new IllegalArgumentException();
 			}
@@ -103,11 +103,11 @@ public abstract class PlayerFactoryRegistry {
 	 * @throws NoSuchMethodException
 	 * @throws SecurityException
 	 */
-	public void registerClasse(String nomeFactory, String classeFactory)
+	public void registerClass(String nomeFactory, String classeFactory)
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException, NoSuchMethodException, SecurityException {
 		Class<? extends PlayerFactory> factory = Class.forName(classeFactory).asSubclass(PlayerFactory.class);
-		this.registroFactoryGiocatori.put(nomeFactory.toLowerCase(), factory.getConstructor().newInstance());
+		this.registryFactoryPlayers.put(nomeFactory.toLowerCase(), factory.getConstructor().newInstance());
 	}
 
 	/**
@@ -117,7 +117,7 @@ public abstract class PlayerFactoryRegistry {
 	 * @return
 	 */
 	public PlayerFactory getFactoryByName(String name) {
-		return registroFactoryGiocatori.get(name.toLowerCase());
+		return registryFactoryPlayers.get(name.toLowerCase());
 	}
 
 	/**
@@ -126,9 +126,9 @@ public abstract class PlayerFactoryRegistry {
 	 * @return la lista dei nomi dei player
 	 */
 	public List<String> getPlayersNames() {
-		List<String> nomi = new ArrayList<String>();
-		registroFactoryGiocatori.keySet().stream().forEach(nomi::add);
-		return nomi;
+		List<String> namesPlayers = new ArrayList<String>();
+		registryFactoryPlayers.keySet().stream().forEach(namesPlayers::add);
+		return namesPlayers;
 	}
 
 }
