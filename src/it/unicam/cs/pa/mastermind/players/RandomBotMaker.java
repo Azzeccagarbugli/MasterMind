@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * La seguente classe definisce lo standard per cui un Bot possa essere colui
@@ -19,7 +19,7 @@ import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 public class RandomBotMaker extends CodeMaker {
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionView intManager) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
 		new Random().ints(sequenceLength, 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
 				.forEach(listToGuess::add);

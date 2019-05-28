@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * La classe definita di seguito consente al giocatore umano, di andare a creare
@@ -17,7 +17,7 @@ import it.unicam.cs.pa.mastermind.ui.InteractionManager;
 public class InteractiveMaker extends CodeMaker {
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionView intManager) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
 		intManager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index - 1])
 				.forEach(listToGuess::add);

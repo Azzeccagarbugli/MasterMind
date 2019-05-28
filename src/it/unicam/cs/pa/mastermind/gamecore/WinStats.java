@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
+import it.unicam.cs.pa.mastermind.ui.BoardObserver;
+
 /**
  * Classe che tiene conto del vincitore di una singola partita e del numero di
  * tentativi relativi ad un'eventuale vittoria del breaker.
@@ -7,7 +9,7 @@ package it.unicam.cs.pa.mastermind.gamecore;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class WinStats {
+public class WinStats extends BoardObserver {
 
 	/**
 	 * Booleano relativo alla condizione di vittoria del Maker.
@@ -27,7 +29,8 @@ public class WinStats {
 	/**
 	 * Costruttore.
 	 */
-	public WinStats() {
+	public WinStats(BoardModel board) {
+		this.addSubject(board);
 		hasMakerWon = false;
 		hasBreakerWon = false;
 		attempts = 0;
@@ -91,10 +94,21 @@ public class WinStats {
 	 */
 	public String getMessage() {
 		if (this.getHasBreakerWon()) {
-			return "\nThe breaker guessed the combination after " + attempts + " attempts. The breaker wins";
+			return "The breaker guessed the combination after " + attempts + " attempts. The breaker wins";
 		} else if (this.hasMakerWon) {
-			return "\nThe breaker didn't guess the combination. The maker wins";
+			return "The breaker didn't guess the combination. The maker wins";
 		} else
 			return "";
+	}
+
+	@Override
+	public void update() {
+		if (subject.hasBreakerGuessed()) {
+			toggleBreakerWin(subject.attemptsInserted());
+			return;
+		} else if (subject.leftAttempts() <= 0) {
+			toggleMakerWin();
+			return;
+		}
 	}
 }

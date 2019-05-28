@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.ui.ConsoleStartManager;
+import it.unicam.cs.pa.mastermind.ui.ConsoleStartView;
 
 /**
  * Test di controllo utili al check dell'unica instanza della classe sotto
@@ -16,11 +16,11 @@ import it.unicam.cs.pa.mastermind.ui.ConsoleStartManager;
 class UIConsoleStartManagerTest {
 
 	/**
-	 * Test method for {@link it.unicam.cs.pa.mastermind.ui.ConsoleStartManager#getIstance()}.
+	 * Test method for {@link it.unicam.cs.pa.mastermind.ui.ConsoleStartView#getIstance()}.
 	 */
 	@Test
 	void testGetIstance() {
-		ConsoleStartManager cs = ConsoleStartManager.getIstance();
+		ConsoleStartView cs = ConsoleStartView.getIstance();
 		assertNotNull(cs);
 	}
 	

@@ -9,11 +9,11 @@ import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.players.InteractiveMaker;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * Test di controllo utili alla generazione di un player codficatore di natura
@@ -28,13 +28,13 @@ class PlayersInteractiveMakerTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.players.InteractiveMaker#getCodeToGuess(int, it.unicam.cs.pa.mastermind.ui.InteractionManager)}.
+	 * {@link it.unicam.cs.pa.mastermind.players.InteractiveMaker#getCodeToGuess(int, it.unicam.cs.pa.mastermind.ui.InteractionView)}.
 	 */
 	@Test
 	void testGetCodeToGuess() {
-		Board tempBoard = new Board(4, 9);
+		BoardModel tempBoard = new BoardModel(4, 9);
 		BoardController boardController = new BoardController(tempBoard);
-		InteractionManager intManager = new InteractionManager() {
+		InteractionView intManager = new InteractionView() {
 			@Override
 			public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
 				listToGuess = new ArrayList<Integer>(Arrays.asList(2, 2, 2, 3));

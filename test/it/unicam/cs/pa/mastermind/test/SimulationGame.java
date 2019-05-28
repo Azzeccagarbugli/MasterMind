@@ -8,7 +8,7 @@ import static java.time.Duration.ofMillis;
 
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
@@ -23,13 +23,13 @@ class SimulationGame {
 	private int sequenceLenght = 4;
 	private int maxAttempts = 9;
 
-	private Board board;
+	private BoardModel board;
 	private BoardController boardController;
 
 	@Test
 	void testSimulationGame() {
 		assertTimeout(ofMillis(5000), () -> {
-			board = new Board(sequenceLenght, maxAttempts);
+			board = new BoardModel(sequenceLenght, maxAttempts);
 			boardController = new BoardController(board);
 			assertEquals(maxAttempts - board.leftAttempts(), boardController.numberOfAttemptsInserted());
 			boardController

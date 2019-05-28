@@ -3,7 +3,7 @@ package it.unicam.cs.pa.mastermind.players;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * Classe astratta relativa ai giocatori che forniscono la sequenza da codificare
@@ -19,6 +19,6 @@ public abstract class CodeMaker {
 	 * @param sequenceLength la lunghezza della sequenza da indovinare
 	 * @return la lista contenente la sequenza corretta di colori da indovinare
 	 */
-	public abstract List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager);
+	public abstract List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionView intManager);
 	
 }

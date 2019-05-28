@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * La classe qui definita permette al giocatore umano di andare a creare una
@@ -35,12 +35,12 @@ public class InteractiveBreaker extends CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getAttempt(int sequenceLength, InteractionView intView) {
 		List<ColorPegs> listAttempt;
 		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			listIndex = intManager.getIndexSequence(sequenceLength, true);
+			listIndex = intView.getIndexSequence(sequenceLength, true);
 			if (listIndex.contains(0)) {
 				this.toggleGiveUp();
 				break;

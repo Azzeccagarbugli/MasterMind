@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.players.RandomBotBreaker;
 import it.unicam.cs.pa.mastermind.players.RandomBotMaker;
@@ -26,7 +26,7 @@ class PlayersRandomBotBreakerTest {
 	void testGetAttempt() {
 		RandomBotBreaker newBotBreaker = new RandomBotBreaker();
 		RandomBotMaker newBotMaker = new RandomBotMaker();
-		Board boardTemp = new Board(4, 9);
+		BoardModel boardTemp = new BoardModel(4, 9);
 		BoardController boardController = new BoardController(boardTemp);
 		boardController.insertCodeToGuess(newBotMaker.getCodeToGuess(boardTemp.getSequenceLength(), null));
 		assertTrue(boardController.insertNewAttempt(newBotBreaker.getAttempt(boardTemp.getSequenceLength(), null)));

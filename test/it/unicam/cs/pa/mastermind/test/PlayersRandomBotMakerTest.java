@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.players.RandomBotMaker;
@@ -27,7 +27,7 @@ class PlayersRandomBotMakerTest {
 	@Test
 	void testGetCodeToGuess() {
 		RandomBotMaker newBotMaker = new RandomBotMaker();
-		Board boardTemp = new Board(4, 9);
+		BoardModel boardTemp = new BoardModel(4, 9);
 		BoardController boardController = new BoardController(boardTemp);
 		List<ColorPegs> listToGuess = newBotMaker.getCodeToGuess(boardTemp.getSequenceLength(), null);
 		boardController.insertCodeToGuess(listToGuess);

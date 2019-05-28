@@ -2,7 +2,7 @@ package it.unicam.cs.pa.mastermind.gamecore;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * Rappresentazione concreta di una singola partita a due giocatori.
@@ -15,7 +15,7 @@ public class SingleGame {
 	/**
 	 * Variabile che descrive il BoardCoordinator.
 	 */
-	private BoardController coordinator;
+	private BoardController controller;
 
 	/**
 	 * Variabile che inizializza il player che costruirà la sequenza da indovinare.
@@ -32,7 +32,7 @@ public class SingleGame {
 	 * Manager con il quale si andranno a determinare le varie interazioni con il
 	 * gioco.
 	 */
-	private InteractionManager manager;
+	private InteractionView interactionView;
 
 	/**
 	 * Oggetto contenente informazioni relative al vincitore della partita in corso.
@@ -49,32 +49,19 @@ public class SingleGame {
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
-	 * @param manager        entità relativa alla gestione delle interazioni con gli
+	 * @param view           entità relativa alla gestione delle interazioni con gli
 	 *                       utenti fisici
 	 */
-	public SingleGame(int sequenceLength, int attempts, InteractionManager manager, CodeBreaker currentBreaker,
+	public SingleGame(int sequenceLength, int attempts, InteractionView view, CodeBreaker currentBreaker,
 			CodeMaker currentMaker) {
 		this.maker = currentMaker;
 		this.breaker = currentBreaker;
-		this.winStats = new WinStats();
-		this.coordinator = new BoardController(new Board(sequenceLength, attempts));
-		this.manager = manager;
-	}
+		this.controller = new BoardController(new BoardModel(sequenceLength, attempts));
 
-	/**
-	 * Aggiornamento delle informazioni relative al vincitore della partita.
-	 */
-	private void updateWinStats() {
-		if (this.breaker.hasGivenUp()) {
-			winStats.toggleMakerWin();
-			return;
-		} else if (this.coordinator.hasBreakerGuessed()) {
-			winStats.toggleBreakerWin(this.coordinator.numberOfAttemptsInserted());
-			return;
-		} else if (!this.coordinator.hasLeftAttempts()) {
-			winStats.toggleMakerWin();
-			return;
-		}
+		this.winStats = new WinStats(this.controller.getBoardReference());
+		
+		this.interactionView = view;
+		this.interactionView.addSubject(this.controller.getBoardReference());
 	}
 
 	/**
@@ -86,14 +73,15 @@ public class SingleGame {
 	 *         gioco, come ad esempio inziare una nuova partita o ricominciare il
 	 *         gioco con le precendenti impostazioni.
 	 */
-	public boolean[] start() {
-		coordinator.insertCodeToGuess(maker.getCodeToGuess(coordinator.getSequenceLength(), this.manager));
+	public void start() {
+		controller.insertCodeToGuess(maker.getCodeToGuess(controller.getSequenceLength(), this.interactionView));
 		do {
-			coordinator.insertNewAttempt(breaker.getAttempt(coordinator.getSequenceLength(), this.manager));
-			manager.showGame(coordinator.getAttemptAndClueList());
-			this.updateWinStats();
+			controller.insertNewAttempt(breaker.getAttempt(controller.getSequenceLength(), this.interactionView));
+			if (this.breaker.hasGivenUp()) {
+				winStats.toggleMakerWin();
+			}
 		} while (!(winStats.getHasMakerWon() || winStats.getHasBreakerWon()));
-		return manager.ending(winStats.getMessage(), coordinator.getSequenceToGuess());
+		interactionView.endingScreen(winStats.getMessage(), controller.getSequenceToGuess());
 	}
 
 }

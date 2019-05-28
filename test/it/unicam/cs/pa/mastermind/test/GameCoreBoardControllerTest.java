@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
@@ -21,7 +21,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 class GameCoreBoardControllerTest {
 
-	private Board board;
+	private BoardModel board;
 	private BoardController boardCord;
 
 	private int sequenceLenght = 4;
@@ -32,7 +32,7 @@ class GameCoreBoardControllerTest {
 	 */
 	@BeforeEach
 	void setUp() {
-		board = new Board(sequenceLenght, maxAttempts);
+		board = new BoardModel(sequenceLenght, maxAttempts);
 		boardCord = new BoardController(board);
 	}
 

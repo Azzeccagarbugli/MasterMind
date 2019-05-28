@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionManager;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * La classe di seguito permette la creazione di un player avente sembianze da
@@ -33,7 +33,7 @@ public class RandomBotBreaker extends CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager) {
+	public List<ColorPegs> getAttempt(int sequenceLength, InteractionView intManager) {
 		List<ColorPegs> listAttempt;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();

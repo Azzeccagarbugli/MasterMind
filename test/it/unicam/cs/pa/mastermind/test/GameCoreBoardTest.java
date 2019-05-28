@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import it.unicam.cs.pa.mastermind.gamecore.Board;
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
@@ -23,7 +23,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 class GameCoreBoardTest {
 
-	private Board board;
+	private BoardModel board;
 
 	private int sequenceLenght = 4;
 	private int maxAttempts = 9;
@@ -33,12 +33,12 @@ class GameCoreBoardTest {
 	 */
 	@BeforeEach
 	void setUp() {
-		board = new Board(sequenceLenght, maxAttempts);
+		board = new BoardModel(sequenceLenght, maxAttempts);
 	}
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.Board#Board(int, int)}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#Board(int, int)}.
 	 */
 	@Test
 	void testBoard() {
@@ -47,7 +47,7 @@ class GameCoreBoardTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.Board#setSequenceToGuess(java.util.List)}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#setSequenceToGuess(java.util.List)}.
 	 */
 	@Test
 	void testSetSequenceToGuess() {
@@ -62,7 +62,7 @@ class GameCoreBoardTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.Board#leftAttempts()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#leftAttempts()}.
 	 */
 	@Test
 	void testLeftAttempts() {
@@ -80,7 +80,7 @@ class GameCoreBoardTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.Board#attemptsInserted()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#attemptsInserted()}.
 	 */
 	@Test
 	void testAttemptsInserted() {
@@ -97,7 +97,7 @@ class GameCoreBoardTest {
 	}
 
 	/**
-	 * Test method for {@link it.unicam.cs.pa.mastermind.gamecore.Board#isEmpty()}.
+	 * Test method for {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#isEmpty()}.
 	 */
 	@Test
 	void testIsEmpty() {
@@ -115,7 +115,7 @@ class GameCoreBoardTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.Board#addAttempt(java.util.List, java.util.List)}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#addAttempt(java.util.List, java.util.List)}.
 	 */
 	@Test
 	void testAddAttempt() {
@@ -132,7 +132,7 @@ class GameCoreBoardTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.Board#lastAttemptAndClue()}.
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#lastAttemptAndClue()}.
 	 */
 	@Test
 	void testLastAttemptAndClue() {
