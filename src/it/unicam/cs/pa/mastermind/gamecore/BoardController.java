@@ -1,10 +1,7 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.IntStream;
 
 /**
  * Interagisce continuamente con i giocatori aggiornando la plancia di gioco di

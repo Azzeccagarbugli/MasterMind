@@ -1,7 +1,6 @@
 package it.unicam.cs.pa.mastermind.ui;
 
 import java.util.List;
-import java.util.Map;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
