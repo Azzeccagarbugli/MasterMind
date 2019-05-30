@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
@@ -21,12 +22,19 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-class GameCoreBoardTest {
+class GameCoreBoardModelTest {
 
 	private BoardModel board;
+	private BoardController boardContr;
 
 	private int sequenceLenght = 4;
 	private int maxAttempts = 9;
+
+	List<ColorPegs> toGuess = new ArrayList<ColorPegs>(
+			Arrays.asList(ColorPegs.RED, ColorPegs.WHITE, ColorPegs.BLUE, ColorPegs.BLUE));
+
+	List<ColorPegs> attempt = new ArrayList<ColorPegs>(
+			Arrays.asList(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.GREEN, ColorPegs.BLUE));
 
 	/**
 	 * Setup of the board runned before each other test.
@@ -34,6 +42,7 @@ class GameCoreBoardTest {
 	@BeforeEach
 	void setUp() {
 		board = new BoardModel(sequenceLenght, maxAttempts);
+		boardContr = new BoardController(board);
 	}
 
 	/**
@@ -51,11 +60,8 @@ class GameCoreBoardTest {
 	 */
 	@Test
 	void testSetSequenceToGuess() {
-		List<ColorPegs> toGuess = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < this.sequenceLenght + 1; i++) {
-			toGuess.add(ColorPegs.CYAN);
-		}
+		toGuess = new ArrayList<ColorPegs>(
+				Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK));
 
 		Assertions.assertThrows(IllegalArgumentException.class, () -> board.setSequenceToGuess(toGuess));
 	}
@@ -66,15 +72,8 @@ class GameCoreBoardTest {
 	 */
 	@Test
 	void testLeftAttempts() {
-		List<ColorPegs> attempt = new ArrayList<ColorPegs>();
-		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < this.sequenceLenght; i++) {
-			attempt.add(ColorPegs.CYAN);
-			clue.add(ColorPegs.WHITE);
-		}
-
-		board.addAttempt(attempt, clue);
+		boardContr.insertCodeToGuess(toGuess);
+		boardContr.insertNewAttempt(attempt);
 		assertEquals(maxAttempts - 1, board.leftAttempts());
 	}
 
@@ -84,32 +83,19 @@ class GameCoreBoardTest {
 	 */
 	@Test
 	void testAttemptsInserted() {
-		List<ColorPegs> attempt = new ArrayList<ColorPegs>();
-		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < this.sequenceLenght; i++) {
-			attempt.add(ColorPegs.CYAN);
-			clue.add(ColorPegs.WHITE);
-		}
-
-		board.addAttempt(attempt, clue);
+		boardContr.insertCodeToGuess(toGuess);
+		boardContr.insertNewAttempt(attempt);
 		assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 	}
 
 	/**
-	 * Test method for {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#isEmpty()}.
+	 * Test method for
+	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardModel#isEmpty()}.
 	 */
 	@Test
 	void testIsEmpty() {
-		List<ColorPegs> attempt = new ArrayList<ColorPegs>();
-		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < this.sequenceLenght; i++) {
-			attempt.add(ColorPegs.CYAN);
-			clue.add(ColorPegs.WHITE);
-		}
-
-		board.addAttempt(attempt, clue);
+		boardContr.insertCodeToGuess(toGuess);
+		boardContr.insertNewAttempt(attempt);
 		assertFalse(board.isEmpty());
 	}
 
@@ -119,15 +105,8 @@ class GameCoreBoardTest {
 	 */
 	@Test
 	void testAddAttempt() {
-		List<ColorPegs> attempt = new ArrayList<ColorPegs>();
-		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < this.sequenceLenght; i++) {
-			attempt.add(ColorPegs.CYAN);
-			clue.add(ColorPegs.WHITE);
-		}
-
-		assertTrue(board.addAttempt(attempt, clue));
+		boardContr.insertCodeToGuess(toGuess);
+		assertTrue(board.addAttempt(attempt));
 	}
 
 	/**
@@ -136,19 +115,12 @@ class GameCoreBoardTest {
 	 */
 	@Test
 	void testLastAttemptAndClue() {
-		List<ColorPegs> attempt = new ArrayList<ColorPegs>();
-		List<ColorPegs> clue = new ArrayList<ColorPegs>();
-
-		for (int i = 0; i < this.sequenceLenght; i++) {
-			attempt.add(ColorPegs.CYAN);
-			clue.add(ColorPegs.WHITE);
-		}
-
-		board.addAttempt(attempt, clue);
+		boardContr.insertCodeToGuess(toGuess);
+		board.addAttempt(attempt);
 
 		Map.Entry<List<ColorPegs>, List<ColorPegs>> map = new AbstractMap.SimpleEntry<>(
-				Arrays.asList(ColorPegs.CYAN, ColorPegs.CYAN, ColorPegs.CYAN, ColorPegs.CYAN),
-				Arrays.asList(ColorPegs.WHITE, ColorPegs.WHITE, ColorPegs.WHITE, ColorPegs.WHITE));
+				Arrays.asList(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.GREEN, ColorPegs.BLUE),
+				Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK));
 
 		assertEquals(board.lastAttemptAndClue(), map);
 	}

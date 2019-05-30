@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
 
@@ -42,22 +41,15 @@ class PlayersInteractiveBreakerTest {
 			}
 
 			@Override
-			public void showGame(List<Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+			public void endingScreen(String gameEndingMessage, List<ColorPegs> toGuess) {
 				// TODO Auto-generated method stub
-
+				
 			}
 
 			@Override
-			public void showGameDebug(List<ColorPegs> toGuess,
-					List<Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) {
+			public void update() {
 				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public boolean[] ending(String gameEndingMessage, List<ColorPegs> toGuess) {
-				// TODO Auto-generated method stub
-				return null;
+				
 			}
 
 		};
@@ -68,7 +60,7 @@ class PlayersInteractiveBreakerTest {
 		boardController.insertNewAttempt(interactiveBreaker.getAttempt(tempBoard.getSequenceLength(), intManager));
 		assertEquals(tempBoard.attemptsInserted(), 1);
 		boardController.insertNewAttempt(interactiveBreaker.getAttempt(tempBoard.getSequenceLength(), intManager));
-		assertFalse(boardController.hasBreakerGuessed());
+		assertFalse(tempBoard.hasBreakerGuessed());
 	}
 
 	/**

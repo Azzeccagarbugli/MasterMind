@@ -31,6 +31,6 @@ class PlayersRandomBotBreakerTest {
 		boardController.insertCodeToGuess(newBotMaker.getCodeToGuess(boardTemp.getSequenceLength(), null));
 		assertTrue(boardController.insertNewAttempt(newBotBreaker.getAttempt(boardTemp.getSequenceLength(), null)));
 		boardController.insertCodeToGuess(newBotMaker.getCodeToGuess(boardTemp.getSequenceLength(), null));
-		assertEquals(9 - boardTemp.leftAttempts(), boardController.numberOfAttemptsInserted());
+		assertEquals(9 - boardTemp.leftAttempts(), boardTemp.attemptsInserted());
 	}
 }

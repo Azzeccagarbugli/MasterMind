@@ -23,7 +23,6 @@ class UIConsoleInteractionManagerTest {
 	void testGetIstance() {
 		ConsoleInteractionView consoleIntMan = ConsoleInteractionView.getIstance();
 		assertNotNull(consoleIntMan);
-		;
 	}
 
 }
