@@ -16,11 +16,11 @@ import it.unicam.cs.pa.mastermind.ui.ConsoleStartView;
 class UIConsoleStartManagerTest {
 
 	/**
-	 * Test method for {@link it.unicam.cs.pa.mastermind.ui.ConsoleStartView#getIstance()}.
+	 * Test method for {@link it.unicam.cs.pa.mastermind.ui.ConsoleStartView#getInstance()}.
 	 */
 	@Test
 	void testGetIstance() {
-		ConsoleStartView cs = ConsoleStartView.getIstance();
+		ConsoleStartView cs = ConsoleStartView.getInstance();
 		assertNotNull(cs);
 	}
 	

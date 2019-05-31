@@ -17,21 +17,6 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 public class ConsoleInteractionView extends InteractionView {
 
-	/**
-	 * Di seguito i vari colori disponibili per la codifica ANSI.
-	 */
-	private static final String ANSI_RESET = "\u001B[0m";
-	private static final String ANSI_WHITE_BOLD = "\033[1;37m";
-	private static final String ANSI_RED_BOLD = "\033[1;91m";
-	private static final String ANSI_CYAN_BOLD = "\033[1;96m";
-	private static final String ANSI_BLACK_BACKGROUND = "\033[40m";
-	private static final String ANSI_RED_BACKGROUND = "\033[0;101m";
-	private static final String ANSI_GREEN_BACKGROUND = "\033[0;102m";
-	private static final String ANSI_YELLOW_BACKGROUND = "\033[0;103m";
-	private static final String ANSI_BLUE_BACKGROUND = "\033[0;104m";
-	private static final String ANSI_PURPLE_BACKGROUND = "\033[0;105m";
-	private static final String ANSI_WHITE_BACKGROUND = "\033[0;107m";
-	private static final String ANSI_CYAN_BACKGROUND = "\033[0;106m";
 
 	/**
 	 * Inizializzazione di un nuovo BufferReader.
@@ -41,7 +26,7 @@ public class ConsoleInteractionView extends InteractionView {
 	/**
 	 * Riferimento all'instanza Singleton.
 	 */
-	private static final ConsoleInteractionView istance = new ConsoleInteractionView();
+	private static final ConsoleInteractionView instance = new ConsoleInteractionView();
 
 	/**
 	 * Costruisco l'elemento <code>CommandLineInteractionManager</code>, il quale
@@ -59,8 +44,8 @@ public class ConsoleInteractionView extends InteractionView {
 	 * 
 	 * @return l'instanza della classe se presente o meno
 	 */
-	public static ConsoleInteractionView getIstance() {
-		return istance;
+	public static ConsoleInteractionView getInstance() {
+		return instance;
 	}
 
 	/**
@@ -93,20 +78,6 @@ public class ConsoleInteractionView extends InteractionView {
 		return indexPegs;
 	}
 
-	/*
-	 * @Override public void showGameDebug(List<ColorPegs> toGuess,
-	 * List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues) { int
-	 * dynamicTable = toGuess.size();
-	 * System.out.println("\n\nThe current secret sequence is this one: " +
-	 * beautifyAttempts(toGuess, false) + "\n");
-	 * showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" +
-	 * ANSI_RESET, ANSI_WHITE_BOLD + "Clue" + ANSI_RESET); if (dynamicTable < 5) {
-	 * attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
-	 * beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(),
-	 * true))); } else { attemptsAndClues.stream().forEach(entry ->
-	 * System.out.format("\n%-34s ┃ %-80s\n", beautifyAttempts(entry.getKey(),
-	 * false), beautifyClues(entry.getValue(), false))); } }
-	 */
 
 	/**
 	 * Metodo necessario alla creazione del disegno tabulare che contiene le
@@ -122,7 +93,7 @@ public class ConsoleInteractionView extends InteractionView {
 	private void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
 		if (size < 5) {
 			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-			System.out.format("%s %57s %22s \n", "┃", ANSI_CYAN_BOLD + "Your current combination" + ANSI_RESET, "┃");
+			System.out.format("%s %57s %22s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + "Your current combination" + AnsiUtility.ANSI_RESET, "┃");
 			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
 			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
 			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
@@ -141,9 +112,9 @@ public class ConsoleInteractionView extends InteractionView {
 	 */
 	public void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker) {
 		System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-		System.out.format("%s %58s %21s \n", "┃", ANSI_CYAN_BOLD + labelMsg1 + ANSI_RESET, "┃");
+		System.out.format("%s %58s %21s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg1 + AnsiUtility.ANSI_RESET, "┃");
 		System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
-		System.out.format("%s %74s %5s \n", "┃", ANSI_CYAN_BOLD + labelMsg2 + ANSI_RESET, "┃");
+		System.out.format("%s %74s %5s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg2 + AnsiUtility.ANSI_RESET, "┃");
 		isBreakerMessageGiveUp(isBreaker);
 		System.out.format(String.format("┣%16s┳%16s┳%16s┳%18s┫\n", " ", " ", " ", " ").replace(" ", "━"));
 		IntStream.range(0, ColorPegs.values().length).mapToObj(index -> selectionColor(index))
@@ -160,7 +131,7 @@ public class ConsoleInteractionView extends InteractionView {
 		if (isBreaker) {
 			String giveUpFormat = "Insert the number 0 to give up";
 			System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
-			System.out.format("%s %61s %18s \n", "┃", ANSI_RED_BOLD + giveUpFormat + ANSI_RESET, "┃");
+			System.out.format("%s %61s %18s \n", "┃", AnsiUtility.ANSI_RED_BOLD + giveUpFormat + AnsiUtility.ANSI_RESET, "┃");
 		}
 	}
 
@@ -206,28 +177,28 @@ public class ConsoleInteractionView extends InteractionView {
 		String colorfulPeg = new String();
 		switch (color) {
 		case RED:
-			colorfulPeg += ANSI_RED_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_RED_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case YELLOW:
-			colorfulPeg += ANSI_YELLOW_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_YELLOW_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case BLUE:
-			colorfulPeg += ANSI_BLUE_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_BLUE_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case GREEN:
-			colorfulPeg += ANSI_GREEN_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_GREEN_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case PURPLE:
-			colorfulPeg += ANSI_PURPLE_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_PURPLE_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case CYAN:
-			colorfulPeg += ANSI_CYAN_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_CYAN_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case WHITE:
-			colorfulPeg += ANSI_WHITE_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_WHITE_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case BLACK:
-			colorfulPeg += ANSI_BLACK_BACKGROUND + "      " + ANSI_RESET + " ";
+			colorfulPeg += AnsiUtility.ANSI_BLACK_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		default:
 			break;
@@ -326,7 +297,7 @@ public class ConsoleInteractionView extends InteractionView {
 			for (ColorPegs attempt : attemptsList) {
 				attemptCombination += beautifyGeneral(attempt);
 			}
-			attemptCombination += String.format(ANSI_RESET + "]");
+			attemptCombination += String.format(AnsiUtility.ANSI_RESET + "]");
 		} else {
 			System.out.format("%s %34s %34s\n", "┃", "┃", "┃");
 			attemptCombination = "[ ";
@@ -351,8 +322,8 @@ public class ConsoleInteractionView extends InteractionView {
 		List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = subject.getAttemptAndClueList();
 		if (!attemptsAndClues.isEmpty()) {
 			int dynamicTable = attemptsAndClues.get(0).getKey().size();
-			showGameBasingOnLenght(dynamicTable, ANSI_WHITE_BOLD + "Attempt" + ANSI_RESET,
-					ANSI_WHITE_BOLD + "Clue" + ANSI_RESET);
+			showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,
+					AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET);
 			if (dynamicTable < 5) {
 				attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
 						beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));

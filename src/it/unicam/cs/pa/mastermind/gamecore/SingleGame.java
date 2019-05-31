@@ -37,7 +37,7 @@ public class SingleGame {
 	/**
 	 * Oggetto contenente informazioni relative al vincitore della partita in corso.
 	 */
-	WinStats winStats;
+	CurrentGameStats winStats;
 
 	/**
 	 * Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che
@@ -58,7 +58,7 @@ public class SingleGame {
 		this.breaker = currentBreaker;
 		this.controller = new BoardController(new BoardModel(sequenceLength, attempts));
 
-		this.winStats = new WinStats(this.controller.getBoardReference());
+		this.winStats = new CurrentGameStats(this.controller.getBoardReference());
 		
 		this.interactionView = view;
 		this.interactionView.addSubject(this.controller.getBoardReference());

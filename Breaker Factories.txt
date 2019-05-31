@@ -1,0 +1,2 @@
+Interactive Player/it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory
+Random Bot/it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory

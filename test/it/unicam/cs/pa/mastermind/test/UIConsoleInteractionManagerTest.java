@@ -17,11 +17,11 @@ class UIConsoleInteractionManagerTest {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView#getIstance()}.
+	 * {@link it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView#getInstance()}.
 	 */
 	@Test
 	void testGetIstance() {
-		ConsoleInteractionView consoleIntMan = ConsoleInteractionView.getIstance();
+		ConsoleInteractionView consoleIntMan = ConsoleInteractionView.getInstance();
 		assertNotNull(consoleIntMan);
 	}
 
