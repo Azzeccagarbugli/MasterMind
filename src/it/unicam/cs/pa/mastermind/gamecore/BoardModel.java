@@ -121,7 +121,7 @@ public class BoardModel {
 	 * 
 	 * @return un booleano a seconda dello stato vuoto o meno della plancia
 	 */
-	public boolean isEmpty() {
+	public boolean isBoardEmpty() {
 		return board.isEmpty();
 	}
 
@@ -219,7 +219,7 @@ public class BoardModel {
 	 *         la sequenza del maker
 	 */
 	public boolean hasBreakerGuessed() {
-		if (!isEmpty() && lastAttemptAndClue().getValue().size() == sequenceLength
+		if (!isBoardEmpty() && lastAttemptAndClue().getValue().size() == sequenceLength
 				&& lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK))
 			return true;
 		else

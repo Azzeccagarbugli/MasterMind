@@ -321,7 +321,7 @@ public class ConsoleInteractionView extends InteractionView {
 	public void update() {
 		this.currentSequenceLength = subject.getSequenceLength();
 		this.currentSequenceToGuess = subject.getSequenceToGuess();
-		if (!subject.isEmpty()) {
+		if (!subject.isBoardEmpty()) {
 			this.lastAttemptAndClue = subject.lastAttemptAndClue();
 			List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = subject.getAttemptAndClueList();
 			if (!attemptsAndClues.isEmpty()) {
