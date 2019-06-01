@@ -57,9 +57,7 @@ public class SingleGame {
 		this.maker = currentMaker;
 		this.breaker = currentBreaker;
 		this.controller = new BoardController(new BoardModel(sequenceLength, attempts));
-
 		this.winStats = new CurrentGameStats(this.controller.getBoardReference());
-		
 		this.interactionView = view;
 		this.interactionView.addSubject(this.controller.getBoardReference());
 	}
@@ -74,14 +72,14 @@ public class SingleGame {
 	 *         gioco con le precendenti impostazioni.
 	 */
 	public void start() {
-		controller.insertCodeToGuess(maker.getCodeToGuess(controller.getSequenceLength(), this.interactionView));
+		controller.insertCodeToGuess(maker.getCodeToGuess(this.interactionView));
 		do {
-			controller.insertNewAttempt(breaker.getAttempt(controller.getSequenceLength(), this.interactionView));
+			controller.insertNewAttempt(breaker.getAttempt(this.interactionView));
 			if (this.breaker.hasGivenUp()) {
 				winStats.toggleMakerWin();
 			}
 		} while (!(winStats.getHasMakerWon() || winStats.getHasBreakerWon()));
-		interactionView.endingScreen(winStats.getMessage(), controller.getSequenceToGuess());
+		interactionView.endingScreen(winStats.getMessage(), this.interactionView.getCurrentSequenceToGuess());
 	}
 
 }

@@ -19,9 +19,9 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
 public class RandomBotMaker extends CodeMaker {
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionView intManager) {
+	public List<ColorPegs> getCodeToGuess(InteractionView intView) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-		new Random().ints(sequenceLength, 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
+		new Random().ints(intView.getCurrentSequenceLength(), 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
 				.forEach(listToGuess::add);
 		return listToGuess;
 	}

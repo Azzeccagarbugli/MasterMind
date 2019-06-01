@@ -33,11 +33,11 @@ public class RandomBotBreaker extends CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength, InteractionView intManager) {
+	public List<ColorPegs> getAttempt(InteractionView intView) {
 		List<ColorPegs> listAttempt;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			new Random().ints(sequenceLength, 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
+			new Random().ints(intView.getCurrentSequenceLength(), 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
 					.forEach(listAttempt::add);
 		} while (combinationAttempts.contains(listAttempt));
 		combinationAttempts.add(listAttempt);

@@ -35,12 +35,12 @@ public class InteractiveBreaker extends CodeBreaker {
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(int sequenceLength, InteractionView intView) {
+	public List<ColorPegs> getAttempt(InteractionView intView) {
 		List<ColorPegs> listAttempt;
 		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			listIndex = intView.getIndexSequence(sequenceLength, true);
+			listIndex = intView.getIndexSequence(true);
 			if (listIndex.contains(0)) {
 				this.toggleGiveUp();
 				break;

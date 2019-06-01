@@ -19,6 +19,6 @@ public abstract class CodeMaker {
 	 * @param sequenceLength la lunghezza della sequenza da indovinare
 	 * @return la lista contenente la sequenza corretta di colori da indovinare
 	 */
-	public abstract List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionView intManager);
+	public abstract List<ColorPegs> getCodeToGuess(InteractionView intManager);
 	
 }

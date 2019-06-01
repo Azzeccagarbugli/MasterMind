@@ -17,9 +17,9 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
 public class InteractiveMaker extends CodeMaker {
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionView intManager) {
+	public List<ColorPegs> getCodeToGuess(InteractionView intView) {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-		intManager.getIndexSequence(sequenceLength, false).stream().map(index -> ColorPegs.values()[index - 1])
+		intView.getIndexSequence(false).stream().map(index -> ColorPegs.values()[index - 1])
 				.forEach(listToGuess::add);
 		return listToGuess;
 	}

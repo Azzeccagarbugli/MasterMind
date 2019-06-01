@@ -17,7 +17,6 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 public class ConsoleInteractionView extends InteractionView {
 
-
 	/**
 	 * Inizializzazione di un nuovo BufferReader.
 	 */
@@ -59,13 +58,13 @@ public class ConsoleInteractionView extends InteractionView {
 	}
 
 	@Override
-	public List<Integer> getIndexSequence(int sequenceLength, boolean isBreaker) {
+	public List<Integer> getIndexSequence(boolean isBreaker) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		String isBreakerMsg = isBreaker ? "Defining a new attempt" : "Defining the sequence to guess";
 		String isBreakerAttempts = "Please define the color of each of the pegs knowing that";
 		try {
 			showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
-			for (int i = 1; i <= sequenceLength; i++) {
+			for (int i = 1; i <= this.getCurrentSequenceLength(); i++) {
 				this.askIndexOfSinglePeg(indexPegs, i, isBreaker);
 				if (indexPegs.contains(0)) {
 					break;
@@ -77,7 +76,6 @@ public class ConsoleInteractionView extends InteractionView {
 		}
 		return indexPegs;
 	}
-
 
 	/**
 	 * Metodo necessario alla creazione del disegno tabulare che contiene le
@@ -93,7 +91,8 @@ public class ConsoleInteractionView extends InteractionView {
 	private void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
 		if (size < 5) {
 			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-			System.out.format("%s %57s %22s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + "Your current combination" + AnsiUtility.ANSI_RESET, "┃");
+			System.out.format("%s %57s %22s \n", "┃",
+					AnsiUtility.ANSI_CYAN_BOLD + "Your current combination" + AnsiUtility.ANSI_RESET, "┃");
 			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
 			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
 			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
@@ -131,7 +130,8 @@ public class ConsoleInteractionView extends InteractionView {
 		if (isBreaker) {
 			String giveUpFormat = "Insert the number 0 to give up";
 			System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
-			System.out.format("%s %61s %18s \n", "┃", AnsiUtility.ANSI_RED_BOLD + giveUpFormat + AnsiUtility.ANSI_RESET, "┃");
+			System.out.format("%s %61s %18s \n", "┃", AnsiUtility.ANSI_RED_BOLD + giveUpFormat + AnsiUtility.ANSI_RESET,
+					"┃");
 		}
 	}
 
@@ -319,17 +319,22 @@ public class ConsoleInteractionView extends InteractionView {
 
 	@Override
 	public void update() {
-		List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = subject.getAttemptAndClueList();
-		if (!attemptsAndClues.isEmpty()) {
-			int dynamicTable = attemptsAndClues.get(0).getKey().size();
-			showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,
-					AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET);
-			if (dynamicTable < 5) {
-				attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
-						beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
-			} else {
-				attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s ┃ %-80s\n",
-						beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+		this.currentSequenceLength = subject.getSequenceLength();
+		this.currentSequenceToGuess = subject.getSequenceToGuess();
+		if (!subject.isEmpty()) {
+			this.lastAttemptAndClue = subject.lastAttemptAndClue();
+			List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = subject.getAttemptAndClueList();
+			if (!attemptsAndClues.isEmpty()) {
+				int dynamicTable = attemptsAndClues.get(0).getKey().size();
+				showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,
+						AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET);
+				if (dynamicTable < 5) {
+					attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
+							beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
+				} else {
+					attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s ┃ %-80s\n",
+							beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+				}
 			}
 		}
 	}

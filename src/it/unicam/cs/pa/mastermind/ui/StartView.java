@@ -19,6 +19,7 @@ public abstract class StartView {
 			startStats.setIntView(this.getInteractionView());
 			this.showLogo();
 			if (!startStats.isKeepSettings()) {
+				startStats.resetLengthAttempts();
 				setupNewPlayers();
 				if (this.askNewSettings()) {
 					startStats.setAttempts(askNewAttempts());

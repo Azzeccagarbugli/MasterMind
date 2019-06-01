@@ -25,8 +25,6 @@ public class StartStats {
 	private NewGameStats newGame;
 
 	public StartStats() {
-		attempts = 9;
-		sequenceLength = 4;
 		toContinue = true;
 		keepSettings = false;
 		lowTresholdLength = 1;
@@ -146,6 +144,11 @@ public class StartStats {
 
 	public void setCurrentBreaker(CodeBreaker currentBreaker) {
 		this.currentBreaker = currentBreaker;
+	}
+	
+	public void resetLengthAttempts() {
+		this.attempts = 9;
+		this.sequenceLength = 4;
 	}
 
 }

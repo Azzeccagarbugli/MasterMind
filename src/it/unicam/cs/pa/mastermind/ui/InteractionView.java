@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.mastermind.ui;
 
 import java.util.List;
+import java.util.Map;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
@@ -12,6 +13,25 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 public abstract class InteractionView extends BoardObserver{
 
+	protected List<ColorPegs> currentSequenceToGuess;
+	protected int currentSequenceLength;
+	protected Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue;
+	
+	public List<ColorPegs> getCurrentSequenceToGuess() {
+		return currentSequenceToGuess;
+	}
+
+
+	public int getCurrentSequenceLength() {
+		return currentSequenceLength;
+	}
+
+
+	public Map.Entry<List<ColorPegs>, List<ColorPegs>> getLastAttemptAndClue() {
+		return lastAttemptAndClue;
+	}
+
+
 	/**
 	 * Richiede all'utente umano la sequenza tentativo.
 	 * 
@@ -21,7 +41,7 @@ public abstract class InteractionView extends BoardObserver{
 	 * @throws BreakerGiveUpException la resa condizionata del player 
 	 * @return la lista di interi che andranno a definire la sequenza. Posti n colori, gli elementi all'interno della lista avranno valore compreso tra 1 e n
 	 */
-	public abstract List<Integer> getIndexSequence(int sequenceLength, boolean toGuess);
+	public abstract List<Integer> getIndexSequence(boolean toGuess);
 
 
 	/**

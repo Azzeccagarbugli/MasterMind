@@ -23,7 +23,7 @@ public abstract class CodeBreaker {
 	 *                                effettuare la resa
 	 * @return la lista dei valori ottenuta
 	 */
-	public abstract List<ColorPegs> getAttempt(int sequenceLength, InteractionView intManager);
+	public abstract List<ColorPegs> getAttempt(InteractionView intManager);
 
 	/**
 	 * Metodo invocabile dal giocatore per segnalare la volontà di arrendersi

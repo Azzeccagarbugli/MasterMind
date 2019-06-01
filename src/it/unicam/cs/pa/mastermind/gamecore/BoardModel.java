@@ -53,6 +53,7 @@ public class BoardModel {
 	 */
 	public BoardModel(int sequenceLength, int maxAttempts) {
 		this.board = new LinkedHashMap<List<ColorPegs>, List<ColorPegs>>();
+		this.sequenceToGuess = new ArrayList<ColorPegs>();
 		this.sequenceLength = sequenceLength;
 		this.maxAttempts = maxAttempts;
 		observers = new ArrayList<BoardObserver>();
@@ -73,7 +74,7 @@ public class BoardModel {
 	 * @return la lista composta da ColorPegs contente la sequenza da indovinare
 	 */
 	public List<ColorPegs> getSequenceToGuess() {
-		return this.sequenceToGuess;
+		return new ArrayList<ColorPegs>(this.sequenceToGuess);
 	}
 
 
@@ -92,6 +93,7 @@ public class BoardModel {
 			throw new IllegalArgumentException("The lenght of the sequence is not valid");
 		} else {
 			this.sequenceToGuess = toGuess;
+			this.notifyObservers();
 			return true;
 		}
 	}
@@ -189,6 +191,7 @@ public class BoardModel {
 
 	public void addObserver(BoardObserver observer) {
 		observers.add(observer);
+		this.notifyObservers();
 	}
 
 	private void notifyObservers() {
@@ -216,11 +219,13 @@ public class BoardModel {
 	 *         la sequenza del maker
 	 */
 	public boolean hasBreakerGuessed() {
-		if (lastAttemptAndClue().getValue().size() == sequenceLength
+		if (!isEmpty() && lastAttemptAndClue().getValue().size() == sequenceLength
 				&& lastAttemptAndClue().getValue().stream().allMatch(peg -> peg == ColorPegs.BLACK))
 			return true;
 		else
 			return false;
 	}
+	
+
 
 }
