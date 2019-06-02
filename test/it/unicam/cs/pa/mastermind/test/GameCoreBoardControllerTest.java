@@ -77,7 +77,7 @@ class GameCoreBoardControllerTest {
 	@Test
 	void testGetSequenceToGuess() {
 		boardCord.insertCodeToGuess(toGuess);
-		assertEquals(boardCord.getSequenceToGuess(), toGuess);
+		assertEquals(board.getSequenceToGuess(), toGuess);
 	}
 
 	/**
@@ -86,7 +86,7 @@ class GameCoreBoardControllerTest {
 	 */
 	@Test
 	void testGetSequenceLength() {
-		assertEquals(sequenceLenght, boardCord.getSequenceLength());
+		assertEquals(sequenceLenght, board.getSequenceLength());
 	}
 
 	/**

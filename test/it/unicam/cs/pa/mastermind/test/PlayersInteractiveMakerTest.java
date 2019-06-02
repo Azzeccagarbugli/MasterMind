@@ -35,7 +35,7 @@ class PlayersInteractiveMakerTest {
 		BoardController boardController = new BoardController(tempBoard);
 		InteractionView intManager = new InteractionView() {
 			@Override
-			public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
+			public List<Integer> getIndexSequence(boolean toGuess) {
 				listToGuess = new ArrayList<Integer>(Arrays.asList(2, 2, 2, 3));
 				return listToGuess;
 			}
@@ -54,10 +54,10 @@ class PlayersInteractiveMakerTest {
 
 		};
 		boardController.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
-		assertEquals(boardController.getSequenceToGuess(),
+		assertEquals(tempBoard.getSequenceToGuess(),
 				Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 		InteractiveMaker interactivePlayer = new InteractiveMaker();
-		boardController.insertNewAttempt(interactivePlayer.getCodeToGuess(tempBoard.getSequenceLength(), intManager));
+		boardController.insertNewAttempt(interactivePlayer.getCodeToGuess(intManager));
 		assertTrue(tempBoard.hasBreakerGuessed());
 	}	
 	

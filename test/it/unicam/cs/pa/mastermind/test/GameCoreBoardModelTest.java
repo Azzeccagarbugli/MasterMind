@@ -96,7 +96,7 @@ class GameCoreBoardModelTest {
 	void testIsEmpty() {
 		boardContr.insertCodeToGuess(toGuess);
 		boardContr.insertNewAttempt(attempt);
-		assertFalse(board.isEmpty());
+		assertFalse(board.isBoardEmpty());
 	}
 
 	/**

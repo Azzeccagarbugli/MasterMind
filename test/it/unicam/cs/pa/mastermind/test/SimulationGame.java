@@ -42,7 +42,6 @@ class SimulationGame {
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.YELLOW));
-			assertFalse(board.isEmpty());
 			assertEquals(Arrays.asList(ColorPegs.WHITE),
 					board.getClueFromAttempt(
 							Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.YELLOW),
@@ -62,7 +61,6 @@ class SimulationGame {
 							Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.CYAN),
 							Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.CYAN)));
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
-			assertFalse(board.isEmpty());
 			assertTrue(board.hasBreakerGuessed());
 		});
 	}

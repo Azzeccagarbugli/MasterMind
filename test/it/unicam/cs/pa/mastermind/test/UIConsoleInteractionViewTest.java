@@ -13,7 +13,7 @@ import it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-class UIConsoleInteractionManagerTest {
+class UIConsoleInteractionViewTest {
 
 	/**
 	 * Test method for

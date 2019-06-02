@@ -37,10 +37,10 @@ class PlayersFactoryRegistry {
 	@Test
 	void testBreakerFactoryRegistry() {
 		BreakerFactoryRegistry breakerFactory = new BreakerFactoryRegistry();
-		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("interactive");
+		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("interactive player");
 		codeBreaker = codeBreakerFactory.getBreaker();
 		assertNotNull(codeBreaker);
-		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("randombot");
+		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("random bot");
 		codeBreaker = codeBreakerFactory.getBreaker();
 		assertNotNull(codeBreaker);
 	}
@@ -53,11 +53,11 @@ class PlayersFactoryRegistry {
 	void testMakerFactoryRegistry() {
 		MakerFactoryRegistry makerFactory = new MakerFactoryRegistry();
 		playersFactory = makerFactory.getPlayersNames();
-		assertEquals(Arrays.asList("interactive", "randombot"), playersFactory);
-		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("interactive");
+		assertEquals(Arrays.asList("interactive player", "random bot"), playersFactory);
+		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("Interactive Player");
 		codeMaker = codeMakerFactory.getMaker();
 		assertNotNull(codeMaker);
-		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("randombot");
+		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("Random Bot");
 		codeMaker = codeMakerFactory.getMaker();
 		assertNotNull(codeMaker);
 	}
@@ -72,10 +72,10 @@ class PlayersFactoryRegistry {
 		BreakerFactoryRegistry breakerFactory = new BreakerFactoryRegistry();
 		assertNull(makerFactory.getFactoryByName("42"));
 		assertNull(breakerFactory.getFactoryByName("Guida Galattica per Autostoppisti"));
-		assertNotNull(makerFactory.getFactoryByName("interactive"));
-		assertNotNull(makerFactory.getFactoryByName("randombot"));
-		assertNotNull(breakerFactory.getFactoryByName("interactive"));
-		assertNotNull(breakerFactory.getFactoryByName("randombot"));
+		assertNotNull(makerFactory.getFactoryByName("Interactive Player"));
+		assertNotNull(makerFactory.getFactoryByName("Random Bot"));
+		assertNotNull(breakerFactory.getFactoryByName("Interactive Player"));
+		assertNotNull(breakerFactory.getFactoryByName("Random Bot"));
 	}
 
 	/**
@@ -86,7 +86,7 @@ class PlayersFactoryRegistry {
 	void testGetPlayersNames() {
 		MakerFactoryRegistry makerFactory = new MakerFactoryRegistry();
 		BreakerFactoryRegistry breakerFactory = new BreakerFactoryRegistry();
-		playersFactory = Arrays.asList("interactive", "randombot");
+		playersFactory = Arrays.asList("interactive player", "random bot");
 		assertEquals(playersFactory, makerFactory.getPlayersNames());
 		assertEquals(playersFactory, breakerFactory.getPlayersNames());
 	}

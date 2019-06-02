@@ -34,8 +34,15 @@ class PlayersInteractiveBreakerTest {
 		BoardModel tempBoard = new BoardModel(4, 9);
 		BoardController boardController = new BoardController(tempBoard);
 		InteractionView intManager = new InteractionView() {
+
 			@Override
-			public List<Integer> getIndexSequence(int sequenceLength, boolean toGuess) {
+			public void update() {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public List<Integer> getIndexSequence(boolean toGuess) {
 				listAttempt = new ArrayList<Integer>(Arrays.asList(2, 2, 2, 4));
 				return listAttempt;
 			}
@@ -43,23 +50,16 @@ class PlayersInteractiveBreakerTest {
 			@Override
 			public void endingScreen(String gameEndingMessage, List<ColorPegs> toGuess) {
 				// TODO Auto-generated method stub
-				
-			}
 
-			@Override
-			public void update() {
-				// TODO Auto-generated method stub
-				
 			}
-
 		};
 		boardController.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
-		assertEquals(boardController.getSequenceToGuess(),
+		assertEquals(tempBoard.getSequenceToGuess(),
 				Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 		InteractiveBreaker interactiveBreaker = new InteractiveBreaker();
-		boardController.insertNewAttempt(interactiveBreaker.getAttempt(tempBoard.getSequenceLength(), intManager));
+		boardController.insertNewAttempt(interactiveBreaker.getAttempt(intManager));
 		assertEquals(tempBoard.attemptsInserted(), 1);
-		boardController.insertNewAttempt(interactiveBreaker.getAttempt(tempBoard.getSequenceLength(), intManager));
+		boardController.insertNewAttempt(interactiveBreaker.getAttempt(intManager));
 		assertFalse(tempBoard.hasBreakerGuessed());
 	}
 

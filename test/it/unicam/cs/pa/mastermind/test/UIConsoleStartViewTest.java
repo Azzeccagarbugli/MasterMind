@@ -13,7 +13,7 @@ import it.unicam.cs.pa.mastermind.ui.ConsoleStartView;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-class UIConsoleStartManagerTest {
+class UIConsoleStartViewTest {
 
 	/**
 	 * Test method for {@link it.unicam.cs.pa.mastermind.ui.ConsoleStartView#getInstance()}.
