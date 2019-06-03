@@ -14,13 +14,12 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
 public abstract class CodeBreaker {
 
 	private boolean giveUp = false;
-	
+
 	/**
 	 * Restituisce la sequenza di pioli valida come singolo tentativo.
 	 * 
-	 * @param sequenceLength la lunghezza della sequenza
-	 * @throws BreakerGiveUpException eccezione lanciata quando il player decide di
-	 *                                effettuare la resa
+	 * @param intManager l'InteractionView che si occupa della gestione delle scelte
+	 *                   del player
 	 * @return la lista dei valori ottenuta
 	 */
 	public abstract List<ColorPegs> getAttempt(InteractionView intManager);
@@ -31,9 +30,9 @@ public abstract class CodeBreaker {
 	public void toggleGiveUp() {
 		giveUp = true;
 	}
-	
+
 	/**
-	 * Metodo che restituisce la volont� del giocatore di arrendersi o meno
+	 * Metodo che restituisce la volontà del giocatore di arrendersi o meno
 	 */
 	public boolean hasGivenUp() {
 		return giveUp;

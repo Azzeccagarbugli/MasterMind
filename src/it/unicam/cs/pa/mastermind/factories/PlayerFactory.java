@@ -8,5 +8,8 @@ package it.unicam.cs.pa.mastermind.factories;
  *
  */
 public interface PlayerFactory {
-
+	/**
+	 * Interfaccia usata al fine di avere un label tag disponibile per
+	 * contrassegnare le Player Factory.
+	 */
 }

@@ -24,11 +24,7 @@ public class InteractiveBreaker extends CodeBreaker {
 	private Set<List<ColorPegs>> combinationAttempts;
 
 	/**
-	 * Costruisco lo HumanBreaker utilizzando l'<code>InteractionManager</code> per
-	 * gestire le varie interazioni.
-	 * 
-	 * @param intManager un <code>InteractionManager</code> per definire le sue
-	 *                   interazioni
+	 * Viene costruito effettivamente l'InteractiveBreaker. 
 	 */
 	public InteractiveBreaker() {
 		combinationAttempts = new HashSet<>();

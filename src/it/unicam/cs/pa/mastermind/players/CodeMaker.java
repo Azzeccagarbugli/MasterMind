@@ -16,7 +16,8 @@ public abstract class CodeMaker {
 	/**
 	 * Restituisce la sequenza di pioli da indovinare.
 	 * 
-	 * @param sequenceLength la lunghezza della sequenza da indovinare
+	 * @param intManager l'InteractionView che si occupa della gestione delle scelte
+	 *                   del player
 	 * @return la lista contenente la sequenza corretta di colori da indovinare
 	 */
 	public abstract List<ColorPegs> getCodeToGuess(InteractionView intManager);

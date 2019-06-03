@@ -40,12 +40,12 @@ public class SingleGame {
 	CurrentGameStats winStats;
 
 	/**
-	 * Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che
+	 * Inizializza un nuovo gioco con un player che codifica e un player che
 	 * decodifica.
 	 * 
-	 * @param maker          player addetto alla creazione della sequenza da
+	 * @param currentMaker          player addetto alla creazione della sequenza da
 	 *                       indovinare
-	 * @param breaker        player addetto alla risoluzione della sequenza da
+	 * @param currentBreaker        player addetto alla risoluzione della sequenza da
 	 *                       indovinare
 	 * @param sequenceLength la lunghezza di tale sequenza
 	 * @param attempts       il numero di tentativi concessi
@@ -63,13 +63,10 @@ public class SingleGame {
 	}
 
 	/**
-	 * Avvio effettivo di una singola partita. Il metodo restituisce un array con
-	 * due valori booleani, che indicano la volontà di iniziare o meno una nuova
-	 * partita e la volontà di iniziarla con altre impostazioni.
+	 * Avvio effettivo di una singola partita. Il metodo di natura void esegue il
+	 * setup della partita e inizializza il tutto per permettere di eseguire la
+	 * partita.
 	 * 
-	 * @return un Array di booleani che stabiliranno le condizioni di ending del
-	 *         gioco, come ad esempio inziare una nuova partita o ricominciare il
-	 *         gioco con le precendenti impostazioni.
 	 */
 	public void start() {
 		controller.insertCodeToGuess(maker.getCodeToGuess(this.interactionView));

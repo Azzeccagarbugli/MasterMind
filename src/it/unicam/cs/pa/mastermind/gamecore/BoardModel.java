@@ -13,15 +13,22 @@ import it.unicam.cs.pa.mastermind.ui.BoardObserver;
 /**
  * Immagazzina i dati relativi alla plancia di gioco, quali posizione e natura
  * dei pioli codice e dei pioli chiave. Fornisce informazioni sullo stato di
- * gioco alle classi che lo gestiscono (Coordinator, Starter e
- * InteractionManager).
+ * gioco alle classi che lo gestiscono ed è l'elemento fondamentale sulla quale
+ * si base il nostro modello MVC. Questo determinato pattern di sviluppo infatti
+ * ci consente un intergrazione ottimale tra le classi del progetto stesso e un
+ * efficenza davvero molto elevata.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class BoardModel {
 
+	/**
+	 * Una lista di BoardObserver in cui verranno immagazinati gli observer della
+	 * seguente board.
+	 */
 	private List<BoardObserver> observers;
+
 	/**
 	 * Lista di ColorPegs contenente la sequenza da indovinare.
 	 */
@@ -76,8 +83,6 @@ public class BoardModel {
 	public List<ColorPegs> getSequenceToGuess() {
 		return new ArrayList<ColorPegs>(this.sequenceToGuess);
 	}
-
-
 
 	/**
 	 * Imposta la sequenza di pioli da indovinare.
@@ -189,17 +194,6 @@ public class BoardModel {
 		return temp;
 	}
 
-	public void addObserver(BoardObserver observer) {
-		observers.add(observer);
-		this.notifyObservers();
-	}
-
-	private void notifyObservers() {
-		for (BoardObserver obs : observers) {
-			obs.update();
-		}
-	}
-	
 	/**
 	 * Metodo che restituisce le entry di tentativi e relativi indizi all'interno di
 	 * un'unica lista.
@@ -211,7 +205,7 @@ public class BoardModel {
 		board.forEach((key, value) -> newList.add(Map.entry(key, value)));
 		return newList;
 	}
-	
+
 	/**
 	 * Indica la vittoria o meno del breaker.
 	 * 
@@ -225,7 +219,25 @@ public class BoardModel {
 		else
 			return false;
 	}
-	
 
+	/**
+	 * Metodo il quale registra un nuovo observer. All’interno di tale metodo
+	 * invochiamo il metodo update per far ricevere all'observer le informazioni a
+	 * lui necessarie.
+	 * 
+	 * @param observer l'observer attuale
+	 */
+	public void addObserver(BoardObserver observer) {
+		observers.add(observer);
+		this.notifyObservers();
+	}
 
+	/**
+	 * Metodo che notifica ogni observer iscritto al registro del cambio di stato.
+	 */
+	private void notifyObservers() {
+		for (BoardObserver obs : observers) {
+			obs.update();
+		}
+	}
 }

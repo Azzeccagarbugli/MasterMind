@@ -9,6 +9,16 @@ import java.util.stream.IntStream;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
 
+/**
+ * La seguente classe è il cuore pulsante dell'intero parco software, essa
+ * racchiude al suo interno tutti le componenti descritte fino adesso e ha la
+ * responsabilità più elevata di tutte, far usufruire all'utente del gioco
+ * Master Mind mediante il lancio del <code>main</code> che si cela al suo
+ * interno.
+ * 
+ * @author Francesco Pio Stelluti, Francesco Coppola
+ *
+ */
 public class ConsoleStartView extends StartView {
 
 	private BufferedReader reader;
@@ -22,13 +32,25 @@ public class ConsoleStartView extends StartView {
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
+	/**
+	 * Riferimento all'instanza Singleton.
+	 */
 	private final static ConsoleStartView instance = new ConsoleStartView();
-	
+
+	/**
+	 * Costruisco l'elemento <code>ConsoleStartView</code>.
+	 */
 	private ConsoleStartView() {
 		super();
 		this.reader = new BufferedReader(new InputStreamReader(System.in));
 	}
-	
+
+	/**
+	 * Il metodo getInstance garantisce la singolarità della classe all'interno del
+	 * parco software.
+	 * 
+	 * @return l'instanza della classe se presente o meno
+	 */
 	public static ConsoleStartView getInstance() {
 		return instance;
 	}
@@ -41,8 +63,9 @@ public class ConsoleStartView extends StartView {
 			e.printStackTrace();
 		}
 		this.clearScreen();
-		System.out.format(AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%50s" + AnsiUtility.ANSI_RESET, mastermindLogo,
-				mastermindCaptionEnd);
+		System.out.format(
+				AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%50s" + AnsiUtility.ANSI_RESET,
+				mastermindLogo, mastermindCaptionEnd);
 		System.exit(0);
 	}
 
@@ -67,6 +90,13 @@ public class ConsoleStartView extends StartView {
 		return new NewGameStats(settingEnd(intInput)[0], settingEnd(intInput)[1]);
 	}
 
+	/**
+	 * Metodo privato che restituisce i settaggi di fine partita all'interno del
+	 * game.
+	 * 
+	 * @param input il valore intero che indica la scelta del giocatore
+	 * @return i nuovi settaggi selezionati dal giocatore
+	 */
 	private boolean[] settingEnd(int input) {
 		boolean[] endingSettings = new boolean[2];
 		switch (input) {
@@ -166,8 +196,8 @@ public class ConsoleStartView extends StartView {
 
 	@Override
 	protected void showLogo() {
-		System.out.format(AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%43s" + AnsiUtility.ANSI_RESET + "\n\n\n", mastermindLogo,
-				mastermindCaptionStart);
+		System.out.format(AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%43s"
+				+ AnsiUtility.ANSI_RESET + "\n\n\n", mastermindLogo, mastermindCaptionStart);
 	}
 
 	@Override

@@ -1,5 +1,13 @@
 package it.unicam.cs.pa.mastermind.ui;
 
+/**
+ * La seguente classe ha il solo scopo di rendere la console di gioco più
+ * accattivante e user-friendly andando ad aggiungere una nota di colore ai vari
+ * ColorPegs che verranno inseriti.
+ * 
+ * @author Francesco Pio Stelluti, Francesco Coppola
+ *
+ */
 public class AnsiUtility {
 	/**
 	 * Di seguito i vari colori disponibili per la codifica ANSI.

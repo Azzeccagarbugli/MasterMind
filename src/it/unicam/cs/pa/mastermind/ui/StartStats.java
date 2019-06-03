@@ -7,6 +7,16 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 
+/**
+ * La classe StartStats consente di inizializzare dei settaggi per l'inizio di
+ * un nuovo game. La modularità di questa classe rende il progetto altamente
+ * flessibile, in quanto i parametri di gioco possono essere facilmente
+ * modificati mediante dei metodi setters e getters che elogiano il concetto di
+ * incapsulamento dell'intero parco software.
+ * 
+ * @author Francesco Pio Stelluti, Francesco Coppola
+ *
+ */
 public class StartStats {
 
 	private int attempts;
@@ -145,7 +155,7 @@ public class StartStats {
 	public void setCurrentBreaker(CodeBreaker currentBreaker) {
 		this.currentBreaker = currentBreaker;
 	}
-	
+
 	public void resetLengthAttempts() {
 		this.attempts = 9;
 		this.sequenceLength = 4;

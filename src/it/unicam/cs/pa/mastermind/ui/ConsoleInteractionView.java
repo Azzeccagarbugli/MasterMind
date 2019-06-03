@@ -28,7 +28,7 @@ public class ConsoleInteractionView extends InteractionView {
 	private static final ConsoleInteractionView instance = new ConsoleInteractionView();
 
 	/**
-	 * Costruisco l'elemento <code>CommandLineInteractionManager</code>, il quale
+	 * Costruisco l'elemento <code>ConsoleInteractionView</code>, il quale
 	 * permette l'interazione tra il gioco e i vari player disponibili.
 	 * 
 	 * @param newReader il BufferReader necessario alla generazione della classe
