@@ -10,7 +10,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
 
 RandomBotBreaker
 ================
@@ -39,6 +39,6 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager)
+.. java:method:: @Override public List<ColorPegs> getAttempt(InteractionView intView)
    :outertype: RandomBotBreaker
 

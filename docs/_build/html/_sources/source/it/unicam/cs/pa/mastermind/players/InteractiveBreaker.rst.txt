@@ -8,7 +8,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
 
 InteractiveBreaker
 ==================
@@ -30,15 +30,13 @@ InteractiveBreaker
 .. java:constructor:: public InteractiveBreaker()
    :outertype: InteractiveBreaker
 
-   Costruisco lo HumanBreaker utilizzando l'\ ``InteractionManager``\  per gestire le varie interazioni.
-
-   :param intManager: un \ ``InteractionManager``\  per definire le sue interazioni
+   Viene costruito effettivamente l'InteractiveBreaker.
 
 Methods
 -------
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager)
+.. java:method:: @Override public List<ColorPegs> getAttempt(InteractionView intView)
    :outertype: InteractiveBreaker
 

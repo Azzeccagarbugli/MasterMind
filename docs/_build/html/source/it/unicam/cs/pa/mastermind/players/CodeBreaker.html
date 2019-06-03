@@ -194,22 +194,17 @@ public abstract class <code class="descname">CodeBreaker</code><a class="headerl
 <div class="section" id="getattempt">
 <h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(int, InteractionManager)">
-public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, <a class="reference internal" href="../ui/InteractionManager.html#it.unicam.cs.pa.mastermind.ui.InteractionManager" title="it.unicam.cs.pa.mastermind.ui.InteractionManager">InteractionManager</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(int, InteractionManager)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(InteractionView)">
+public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><em> intManager</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt(InteractionView)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Restituisce la sequenza di pioli valida come singolo tentativo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sequenceLength</strong> – la lunghezza della sequenza</p></li>
+<li><p><strong>intManager</strong> – l’InteractionView che si occupa della gestione delle scelte del player</p></li>
 </ul>
 </dd>
-<dt class="field-even">Solleva</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../exceptions/BreakerGiveUpException.html#it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException" title="it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException"><strong>BreakerGiveUpException</strong></a> – eccezione lanciata quando il player decide di effettuare la resa</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la lista dei valori ottenuta</p>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>la lista dei valori ottenuta</p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,7 +215,7 @@ public abstract <a class="reference external" href="http://docs.oracle.com/javas
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.hasGivenUp()">
 public boolean <code class="descname">hasGivenUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.hasGivenUp()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo che restituisce la volont� del giocatore di arrendersi o meno</p>
+<dd><p>Metodo che restituisce la volontà del giocatore di arrendersi o meno</p>
 </dd></dl>
 
 </div>
@@ -229,7 +224,7 @@ public boolean <code class="descname">hasGivenUp</code><span class="sig-paren">(
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.CodeBreaker.toggleGiveUp()">
 public void <code class="descname">toggleGiveUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeBreaker.toggleGiveUp()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo invocabile dal giocatore per segnalare la volont� di arrendersi</p>
+<dd><p>Metodo invocabile dal giocatore per segnalare la volontà di arrendersi</p>
 </dd></dl>
 
 </div>

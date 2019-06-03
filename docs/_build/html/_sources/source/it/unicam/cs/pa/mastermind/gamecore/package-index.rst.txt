@@ -8,10 +8,10 @@ Il package contiene le componenti chiave relative ad una singola partita, quali 
 .. toctree::
    :maxdepth: 1
 
-   Board
-   BoardCoordinator
+   BoardController
+   BoardModel
    ColorPegs
-   GameEndingStats
+   CurrentGameStats
+   NewGameStats
    SingleGame
-   WinStats
 

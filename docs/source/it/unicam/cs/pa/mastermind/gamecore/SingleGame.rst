@@ -2,7 +2,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.players CodeMaker
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
 
 SingleGame
 ==========
@@ -21,7 +21,7 @@ Fields
 winStats
 ^^^^^^^^
 
-.. java:field::  WinStats winStats
+.. java:field::  CurrentGameStats winStats
    :outertype: SingleGame
 
    Oggetto contenente informazioni relative al vincitore della partita in corso.
@@ -31,26 +31,24 @@ Constructors
 SingleGame
 ^^^^^^^^^^
 
-.. java:constructor:: public SingleGame(int sequenceLength, int attempts, InteractionManager manager, CodeBreaker currentBreaker, CodeMaker currentMaker)
+.. java:constructor:: public SingleGame(int sequenceLength, int attempts, InteractionView view, CodeBreaker currentBreaker, CodeMaker currentMaker)
    :outertype: SingleGame
 
-   Inizializza un nuovo gioco con un giocatore che codifica e un giocatore che decodifica.
+   Inizializza un nuovo gioco con un player che codifica e un player che decodifica.
 
-   :param maker: player addetto alla creazione della sequenza da indovinare
-   :param breaker: player addetto alla risoluzione della sequenza da indovinare
+   :param currentMaker: player addetto alla creazione della sequenza da indovinare
+   :param currentBreaker: player addetto alla risoluzione della sequenza da indovinare
    :param sequenceLength: la lunghezza di tale sequenza
    :param attempts: il numero di tentativi concessi
-   :param manager: entità relativa alla gestione delle interazioni con gli utenti fisici
+   :param view: entità relativa alla gestione delle interazioni con gli utenti fisici
 
 Methods
 -------
 start
 ^^^^^
 
-.. java:method:: public boolean[] start()
+.. java:method:: public void start()
    :outertype: SingleGame
 
-   Avvio effettivo di una singola partita. Il metodo restituisce un array con due valori booleani, che indicano la volontà di iniziare o meno una nuova partita e la volontà di iniziarla con altre impostazioni.
-
-   :return: un Array di booleani che stabiliranno le condizioni di ending del gioco, come ad esempio inziare una nuova partita o ricominciare il gioco con le precendenti impostazioni.
+   Avvio effettivo di una singola partita. Il metodo di natura void esegue il setup della partita e inizializza il tutto per permettere di eseguire la partita.
 

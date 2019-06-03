@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>StartView &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="prev" title="StartStats" href="StartStats.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="../../../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AnsiUtility.html">AnsiUtility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleInteractionView.html">ConsoleInteractionView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleStartView.html">ConsoleStartView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InteractionView.html">InteractionView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartStats.html">StartStats</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">StartView</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+        
+          <li><a href="package-index.html">it.unicam.cs.pa.mastermind.ui</a> &raquo;</li>
+        
+      <li>StartView</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/source/it/unicam/cs/pa/mastermind/ui/StartView.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="startview">
+<h1>StartView<a class="headerlink" href="#startview" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView">
+public abstract class <code class="descname">StartView</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView" title="Link a questa definizione">¶</a></dt>
+<dd><p>La classe astratta StartView elenca una serie di caratteristiche fondamentali che verranno poi estese a più alto livello all’interno della classe <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code> e tale aggiunta rende il software più elegante e pulito.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="startstats">
+<h3>startStats<a class="headerlink" href="#startstats" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.startStats">
+protected <a class="reference internal" href="StartStats.html#it.unicam.cs.pa.mastermind.ui.StartStats" title="it.unicam.cs.pa.mastermind.ui.StartStats">StartStats</a> <code class="descname">startStats</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.startStats" title="Link a questa definizione">¶</a></dt>
+<dd><p>Instanza della classe <code class="docutils literal notranslate"><span class="pre">StartStats</span></code>.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="id1">
+<h3>StartView<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<dl class="constructor">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.StartView()">
+public <code class="descname">StartView</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.StartView()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore dello StartView.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="asknewattempts">
+<h3>askNewAttempts<a class="headerlink" href="#asknewattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewAttempts()">
+protected abstract int <code class="descname">askNewAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewAttempts()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Vengono richiesti quanti nuovi tentativi si vogliono inserire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>il valore intero che rappresenta tale valore</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="asknewgamesettings">
+<h3>askNewGameSettings<a class="headerlink" href="#asknewgamesettings" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewGameSettings()">
+protected abstract <a class="reference internal" href="../gamecore/NewGameStats.html#it.unicam.cs.pa.mastermind.gamecore.NewGameStats" title="it.unicam.cs.pa.mastermind.gamecore.NewGameStats">NewGameStats</a> <code class="descname">askNewGameSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewGameSettings()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che chiede le nuove impostazioni di gioco a fine partita.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>vengono restituite tali informazioni sotto forma di <code class="docutils literal notranslate"><span class="pre">NewGameStats</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="asknewlength">
+<h3>askNewLength<a class="headerlink" href="#asknewlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewLength()">
+protected abstract int <code class="descname">askNewLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewLength()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Viene richiesta la nuova lunghezza della sequenza.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>il valore intero che rappresenta tale valore</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="asknewsettings">
+<h3>askNewSettings<a class="headerlink" href="#asknewsettings" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewSettings()">
+protected abstract boolean <code class="descname">askNewSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewSettings()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che chiede le nuove impostazioni al player alla fine del game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>il valore booleano con tale informazione al suo interno</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ending">
+<h3>ending<a class="headerlink" href="#ending" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.ending()">
+protected abstract void <code class="descname">ending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.ending()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo necessario all’ending del gioco.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="getinteractionview">
+<h3>getInteractionView<a class="headerlink" href="#getinteractionview" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.getInteractionView()">
+protected abstract <a class="reference internal" href="InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a> <code class="descname">getInteractionView</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.getInteractionView()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restitusce l’InteractionView richiesta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>l’InteractionView desiderata</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getplayername">
+<h3>getPlayerName<a class="headerlink" href="#getplayername" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)">
+protected abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getPlayerName</code><span class="sig-paren">(</span><a class="reference internal" href="../players/PlayerFactoryRegistry.html#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry" title="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry">PlayerFactoryRegistry</a><em> registry</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo getter necessario al get del nome del player.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>registry</strong> – il registro sul quale si sta cercando tale informazione</p></li>
+<li><p><strong>isBreaker</strong> – valore booleano che rappresenta la veridicità del player breaker o meno</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>il nome del giocatore</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="showlogo">
+<h3>showLogo<a class="headerlink" href="#showlogo" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.showLogo()">
+protected abstract void <code class="descname">showLogo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.showLogo()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo puramente artistico che visualizza il logo del progetto.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="shownewgamestarting">
+<h3>showNewGameStarting<a class="headerlink" href="#shownewgamestarting" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.showNewGameStarting()">
+protected abstract void <code class="descname">showNewGameStarting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.showNewGameStarting()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Mostra il primo avvio del gioco.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="startup">
+<h3>startUp<a class="headerlink" href="#startup" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.startUp()">
+public void <code class="descname">startUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.startUp()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo <code class="docutils literal notranslate"><span class="pre">startUp</span></code>o che esegue il set-up di un game completo.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="StartStats.html" class="btn btn-neutral float-left" title="StartStats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

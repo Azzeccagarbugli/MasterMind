@@ -2,7 +2,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
 
 CodeBreaker
 ===========
@@ -21,13 +21,12 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: public abstract List<ColorPegs> getAttempt(int sequenceLength, InteractionManager intManager)
+.. java:method:: public abstract List<ColorPegs> getAttempt(InteractionView intManager)
    :outertype: CodeBreaker
 
    Restituisce la sequenza di pioli valida come singolo tentativo.
 
-   :param sequenceLength: la lunghezza della sequenza
-   :throws BreakerGiveUpException: eccezione lanciata quando il player decide di effettuare la resa
+   :param intManager: l'InteractionView che si occupa della gestione delle scelte del player
    :return: la lista dei valori ottenuta
 
 hasGivenUp
@@ -36,7 +35,7 @@ hasGivenUp
 .. java:method:: public boolean hasGivenUp()
    :outertype: CodeBreaker
 
-   Metodo che restituisce la volont� del giocatore di arrendersi o meno
+   Metodo che restituisce la volontà del giocatore di arrendersi o meno
 
 toggleGiveUp
 ^^^^^^^^^^^^
@@ -44,5 +43,5 @@ toggleGiveUp
 .. java:method:: public void toggleGiveUp()
    :outertype: CodeBreaker
 
-   Metodo invocabile dal giocatore per segnalare la volont� di arrendersi
+   Metodo invocabile dal giocatore per segnalare la volontà di arrendersi
 

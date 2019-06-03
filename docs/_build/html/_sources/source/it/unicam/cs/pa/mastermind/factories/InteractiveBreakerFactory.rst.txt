@@ -10,6 +10,10 @@ InteractiveBreakerFactory
 
 .. java:type:: public class InteractiveBreakerFactory extends BreakerFactory
 
+   Classe concreta, la quale estende la classe astratta \ ``BreakerFacotry``\ , e consente la creazione di una factory di player interactive.
+
+   :author: Francesco Pio Stelluti, Francesco Coppola
+
 Methods
 -------
 getBreaker

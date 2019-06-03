@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ConsoleInteractionView &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="next" title="ConsoleStartView" href="ConsoleStartView.html" />
+    <link rel="prev" title="BoardObserver" href="BoardObserver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="../../../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">MasterMind</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AnsiUtility.html">AnsiUtility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ConsoleInteractionView</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleStartView.html">ConsoleStartView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InteractionView.html">InteractionView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartStats.html">StartStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartView.html">StartView</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../../packages.html">MasterMind</a> &raquo;</li>
+        
+          <li><a href="package-index.html">it.unicam.cs.pa.mastermind.ui</a> &raquo;</li>
+        
+      <li>ConsoleInteractionView</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/source/it/unicam/cs/pa/mastermind/ui/ConsoleInteractionView.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="consoleinteractionview">
+<h1>ConsoleInteractionView<a class="headerlink" href="#consoleinteractionview" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView">
+public class <code class="descname">ConsoleInteractionView</code> extends <a class="reference internal" href="InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView" title="Link a questa definizione">¶</a></dt>
+<dd><p>Interazione con l’utente durante il gioco via linea di comando</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="beautifygeneral">
+<h3>beautifyGeneral<a class="headerlink" href="#beautifygeneral" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.beautifyGeneral(ColorPegs)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">beautifyGeneral</code><span class="sig-paren">(</span><a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a><em> color</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.beautifyGeneral(ColorPegs)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo secondo i canoni della decodifica ANSI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – il colore che si vuole codificare in una stringa colorata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>la stringa contenente i valori della stringa visualizzati in modalità colorata</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="endingscreen">
+<h3>endingScreen<a class="headerlink" href="#endingscreen" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.endingScreen(String, List)">
+public void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.endingScreen(String, List)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getindexsequence">
+<h3>getIndexSequence<a class="headerlink" href="#getindexsequence" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.getIndexSequence(boolean)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.getIndexSequence(boolean)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getinstance">
+<h3>getInstance<a class="headerlink" href="#getinstance" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.getInstance()">
+public static <a class="reference internal" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView" title="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView">ConsoleInteractionView</a> <code class="descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.getInstance()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Il metodo getInstance garantisce la singolarità della classe all’interno del parco software.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>l’instanza della classe se presente o meno</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="init">
+<h3>init<a class="headerlink" href="#init" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.init(BufferedReader)">
+public void <code class="descname">init</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html" title="java.io.BufferedReader">BufferedReader</a><em> newReader</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.init(BufferedReader)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Inietto all’interno della classe il parametro desiderato che ha nataura <code class="docutils literal notranslate"><span class="pre">BufferReader</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>newReader</strong> – il BufferReader necessario all’instanza della classe</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isbreakermessagegiveup">
+<h3>isBreakerMessageGiveUp<a class="headerlink" href="#isbreakermessagegiveup" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.isBreakerMessageGiveUp(boolean)">
+public void <code class="descname">isBreakerMessageGiveUp</code><span class="sig-paren">(</span>boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.isBreakerMessageGiveUp(boolean)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Mostra la possibilità di resa al player durante la selezione dei colori.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isBreaker</strong> – booleano che conferma se il player è un breaker</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="selectioncolor">
+<h3>selectionColor<a class="headerlink" href="#selectioncolor" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.selectionColor(int)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">selectionColor</code><span class="sig-paren">(</span>int<em> index</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.selectionColor(int)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo necessario alla corretta formattazione tabluare della modalità di inserimento dei colori.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – l’indice restituito dallo stream</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>la stringa formattata secondo dei canoni tabulari</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="showmenucolor">
+<h3>showMenuColor<a class="headerlink" href="#showmenucolor" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.showMenuColor(String, String, boolean)">
+public void <code class="descname">showMenuColor</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> labelMsg1</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> labelMsg2</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.showMenuColor(String, String, boolean)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo necessario alla stampa della scelta dei colori da parte di un player qualsiasi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labelMsg1</strong> – il primo messaggio da visualizzare</p></li>
+<li><p><strong>labelMsg2</strong> – il secondo messaggio da visualizzare</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="update">
+<h3>update<a class="headerlink" href="#update" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.update()">
+public void <code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.update()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ConsoleStartView.html" class="btn btn-neutral float-right" title="ConsoleStartView" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BoardObserver.html" class="btn btn-neutral float-left" title="BoardObserver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

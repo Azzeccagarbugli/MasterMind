@@ -4,7 +4,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionManager
+.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
 
 InteractiveMaker
 ================
@@ -23,6 +23,6 @@ Methods
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getCodeToGuess(int sequenceLength, InteractionManager intManager)
+.. java:method:: @Override public List<ColorPegs> getCodeToGuess(InteractionView intView)
    :outertype: InteractiveMaker
 

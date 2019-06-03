@@ -8,8 +8,11 @@ Il seguente package contiene le classi relative a tutto ciò che concerne l'inte
 .. toctree::
    :maxdepth: 1
 
-   ConsoleInteractionManager
-   ConsoleStartManager
-   InteractionManager
-   StartManager
+   AnsiUtility
+   BoardObserver
+   ConsoleInteractionView
+   ConsoleStartView
+   InteractionView
+   StartStats
+   StartView
 
