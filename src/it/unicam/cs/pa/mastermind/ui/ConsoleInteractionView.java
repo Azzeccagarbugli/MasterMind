@@ -206,8 +206,9 @@ public class ConsoleInteractionView extends InteractionView {
 	/**
 	 * Interazione con l'utente fisico per poter ottenere gli indici relativi ai
 	 * valori di <code>ColorPegs</code> contenuti in una sequenza. Il metodo
-	 * potrebbe aggiungere alla lista il valore <code>Integer</code> 0, rappresentante la volontà
-	 * di un giocatore <code>CodeBreaker</code> di arrendersi.
+	 * potrebbe aggiungere alla lista il valore <code>Integer</code> 0,
+	 * rappresentante la volontà di un giocatore <code>CodeBreaker</code> di
+	 * arrendersi.
 	 * 
 	 * @param list      in cui inserire gli indici
 	 * @param index     rappresentante la posizione del <code>ColorPegs</code>
@@ -218,20 +219,25 @@ public class ConsoleInteractionView extends InteractionView {
 	 */
 	private void askIndexOfSinglePeg(List<Integer> list, int index, boolean isBreaker) {
 		int temp = 0;
-		do {
+		for (;;) {
 			System.out.print("Insert value nr." + index + " > ");
 			try {
 				temp = Integer.parseInt(this.reader.readLine());
 				if (isBreaker && temp == 0) {
 					System.out.println("You decided to give up");
+					break;
+				} else if (temp < 0 || temp > ColorPegs.values().length) {
+					throw new NumberFormatException();
+				} else {
+					break;
 				}
-				;
 			} catch (NumberFormatException e) {
-				System.out.println("Please insert a numeric value");
+				System.out.println("Please insert a valid numeric value");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} while (temp < 0 || temp > ColorPegs.values().length);
+		}
+		;
 		list.add(temp);
 	}
 

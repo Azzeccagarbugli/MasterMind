@@ -68,14 +68,19 @@ public class ConsoleStartView extends StartView {
 		int intInput = 0;
 		try {
 			System.out.println("\nThe game has finished, what would you like to do now?");
-			while (!((intInput >= 1) && (intInput <= 3))) {
+			for (;;) {
 				System.out.print("• Start a new game with the same settings [1]" + "\n"
 						+ "• Start a new game with different settings [2]" + "\n" + "• Exit from the game [3]"
 						+ "\n> ");
 				try {
 					intInput = Integer.parseInt(reader.readLine());
+					if (!((intInput >= 1) && (intInput <= 3))) {
+						throw new NumberFormatException();
+					} else {
+						break;
+					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a numeric value");
+					System.out.println("Please insert a valid numeric value");
 				}
 			}
 		} catch (IOException e) {
@@ -117,35 +122,48 @@ public class ConsoleStartView extends StartView {
 	@Override
 	protected int askNewLength() {
 		int length = 0;
-		do {
+		for (;;) {
 			try {
 				System.out.print("Insert the length of pegs sequences: [between " + startStats.getLowTresholdLength()
 						+ " and " + startStats.getHighTresholdLength() + ", inclusive]" + "\n" + "> ");
 				length = Integer.parseInt(reader.readLine());
+				if (length < startStats.getLowTresholdLength() || length > startStats.getHighTresholdLength()) {
+					throw new NumberFormatException();
+				} else {
+					break;
+				}
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value between " + startStats.getLowTresholdLength()
 						+ " and " + startStats.getHighTresholdLength() + ", inclusive");
 			}
-		} while (length < startStats.getLowTresholdLength() || length > startStats.getHighTresholdLength());
+		}
+		;
+
 		return length;
 	}
 
 	@Override
 	protected int askNewAttempts() {
 		int attempts = 0;
-		do {
+		for (;;) {
 			try {
 				System.out.print("Insert the number of attempts: [equal or greater than "
 						+ startStats.getLowTresholdAttempts() + "]" + "\n" + "> ");
 				attempts = Integer.parseInt(reader.readLine());
+				if (attempts < startStats.getLowTresholdAttempts()) {
+					throw new NumberFormatException();
+				} else {
+					break;
+				}
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value greater than " + startStats.getLowTresholdAttempts());
 			}
-		} while (attempts < startStats.getLowTresholdAttempts());
+		}
+		;
 		return attempts;
 	}
 
@@ -156,16 +174,22 @@ public class ConsoleStartView extends StartView {
 		IntStream.range(0, names.size())
 				.forEach(index -> System.out.println(index + 1 + " - " + names.get(index).toUpperCase()));
 		int intInput = 0;
-		do {
+		for (;;) {
 			try {
 				System.out.print("> ");
 				intInput = Integer.parseInt(reader.readLine());
+				if (intInput < 1 || intInput > names.size()) {
+					throw new NumberFormatException();
+				} else {
+					break;
+				}
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			} catch (NumberFormatException e) {
-				System.out.println("Please insert a numeric value");
+				System.out.println("Please insert a valid numeric value");
 			}
-		} while (intInput < 1 || intInput > names.size());
+		}
+		;
 		System.out.println("You chose a " + names.get(intInput - 1) + " " + (isBreaker ? "breaker" : "maker"));
 		return names.get(intInput - 1);
 	}
@@ -173,17 +197,25 @@ public class ConsoleStartView extends StartView {
 	@Override
 	protected boolean askNewSettings() {
 		String strInput = "";
-		try {
-			while (!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n"))) {
-				System.out.print(
-						"\nWould you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]"
-								+ "\n" + "> ");
-				strInput = reader.readLine();
-			}
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
 
+		for (;;) {
+			System.out.print(
+					"\nWould you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]"
+							+ "\n" + "> ");
+			try {
+				strInput = reader.readLine();
+				if ((!(strInput.toLowerCase().equals("y") ^ strInput.toLowerCase().equals("n")))) {
+					throw new IllegalArgumentException();
+				} else {
+					break;
+				}
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			} catch (IllegalArgumentException e) {
+				System.out.println("Please write Y or N");
+			}
+		}
+		;
 		return strInput.toLowerCase().equals("n") ? true : false;
 	}
 
