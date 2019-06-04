@@ -8,7 +8,7 @@ MakerFactory
 
 .. java:type:: public abstract class MakerFactory implements PlayerFactory
 
-   Classe astratta, la quale implementa l'interfaccia \ ``PlayerFacotry``\ , e consente la creazione di una factory di player maker.
+   Classe factory astratta estensione di \ ``PlayerFactory``\  da estendere con classi factory concrete finalizzate all'ottenimento di istanze di \ ``CodeMaker``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

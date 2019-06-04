@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="SingleGame" href="SingleGame.html" />
+    <link rel="next" title="SingleMatch" href="SingleMatch.html" />
     <link rel="prev" title="CurrentGameStats" href="CurrentGameStats.html" /> 
 </head>
 
@@ -99,7 +99,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="SingleGame.html">SingleGame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
@@ -179,7 +179,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.NewGameStats">
 public class <code class="descname">NewGameStats</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.NewGameStats" title="Link a questa definizione">¶</a></dt>
-<dd><p>Classe relativa alle impostazioni legate alla fine di una partita e all’inizio di quella successiva.</p>
+<dd><p><strong>Responsabilità</strong>: tenere traccia delle informazioni necessarie per poter iniziare una nuova partita dopo che ne è stata conclusa una.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -194,12 +194,12 @@ public class <code class="descname">NewGameStats</code><a class="headerlink" hre
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.NewGameStats.NewGameStats(boolean, boolean)">
 public <code class="descname">NewGameStats</code><span class="sig-paren">(</span>boolean<em> toContinue</em>, boolean<em> keepSettings</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.NewGameStats.NewGameStats(boolean, boolean)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Costruttore che instazia la seguente classe.</p>
+<dd><p>Costruttore</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>toContinue</strong> – booleano che determina se continuare a giocare o meno</p></li>
-<li><p><strong>keepSettings</strong> – booleano che determina se continuare a giocare o meno con le stesse impostazioni</p></li>
+<li><p><strong>toContinue</strong> – volontà dell’utente umano di continuare a giocare o meno.</p></li>
+<li><p><strong>keepSettings</strong> – volontà dell’utente umano di continuare a giocare con le medesime impostazioni o meno.</p></li>
 </ul>
 </dd>
 </dl>
@@ -214,10 +214,9 @@ public <code class="descname">NewGameStats</code><span class="sig-paren">(</span
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.NewGameStats.getContinue()">
 public boolean <code class="descname">getContinue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.NewGameStats.getContinue()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Getter della variabile <code class="docutils literal notranslate"><span class="pre">toContinue</span></code>.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la variabile <code class="docutils literal notranslate"><span class="pre">toContinue</span></code></p>
+<dd class="field-odd"><p>boolean volontà dell’utente umano di continuare a giocare o meno.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -228,10 +227,9 @@ public boolean <code class="descname">getContinue</code><span class="sig-paren">
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.NewGameStats.getKeepSettings()">
 public boolean <code class="descname">getKeepSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.NewGameStats.getKeepSettings()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Getter della variabile <code class="docutils literal notranslate"><span class="pre">keepSettings</span></code>.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la variabile <code class="docutils literal notranslate"><span class="pre">keepSettings</span></code></p>
+<dd class="field-odd"><p>boolean volontà dell’utente umano di continuare a giocare con le medesime impostazioni o meno.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,7 +246,7 @@ public boolean <code class="descname">getKeepSettings</code><span class="sig-par
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="SingleGame.html" class="btn btn-neutral float-right" title="SingleGame" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SingleMatch.html" class="btn btn-neutral float-right" title="SingleMatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="CurrentGameStats.html" class="btn btn-neutral float-left" title="CurrentGameStats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

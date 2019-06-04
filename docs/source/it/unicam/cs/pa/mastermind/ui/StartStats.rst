@@ -1,4 +1,6 @@
-.. java:import:: it.unicam.cs.pa.mastermind.gamecore SingleGame
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore SingleMatch
+
+.. java:import:: it.unicam.cs.pa.mastermind.players BadRegistryException
 
 .. java:import:: it.unicam.cs.pa.mastermind.players BreakerFactoryRegistry
 
@@ -18,7 +20,7 @@ StartStats
 
 .. java:type:: public class StartStats
 
-   La classe StartStats consente di inizializzare dei settaggi per l'inizio di un nuovo game. La modularità di questa classe rende il progetto altamente flessibile, in quanto i parametri di gioco possono essere facilmente modificati mediante dei metodi setters e getters che elogiano il concetto di incapsulamento dell'intero parco software.
+   \ **Responsabilità**\ : tenere traccia delle informazioni necessarie per poter iniziare una nuova partita.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -47,7 +49,7 @@ Constructors
 StartStats
 ^^^^^^^^^^
 
-.. java:constructor:: public StartStats()
+.. java:constructor:: public StartStats() throws BadRegistryException
    :outertype: StartStats
 
 Methods
@@ -73,7 +75,7 @@ getCurrentBreaker
 getCurrentGame
 ^^^^^^^^^^^^^^
 
-.. java:method:: public SingleGame getCurrentGame()
+.. java:method:: public SingleMatch getCurrentGame()
    :outertype: StartStats
 
 getCurrentMaker
@@ -142,6 +144,8 @@ resetLengthAttempts
 .. java:method:: public void resetLengthAttempts()
    :outertype: StartStats
 
+   Vengono impostati i valori standard del numero di tentativi e della lunghezza delle sequenze
+
 setAttempts
 ^^^^^^^^^^^
 
@@ -163,7 +167,7 @@ setCurrentBreaker
 setCurrentGame
 ^^^^^^^^^^^^^^
 
-.. java:method:: public void setCurrentGame(SingleGame currentGame)
+.. java:method:: public void setCurrentGame(SingleMatch currentGame)
    :outertype: StartStats
 
 setCurrentMaker

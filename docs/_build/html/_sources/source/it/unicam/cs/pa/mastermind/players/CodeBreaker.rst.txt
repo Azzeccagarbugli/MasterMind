@@ -12,7 +12,7 @@ CodeBreaker
 
 .. java:type:: public abstract class CodeBreaker
 
-   Classe astratta relativa ai giocatori che cercano di indovinare la sequenza.
+   \ **Responsabilità**\ : gestire le interazioni del giocatore Breaker
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -21,13 +21,13 @@ Methods
 getAttempt
 ^^^^^^^^^^
 
-.. java:method:: public abstract List<ColorPegs> getAttempt(InteractionView intManager)
+.. java:method:: public abstract List<ColorPegs> getAttempt(InteractionView intView)
    :outertype: CodeBreaker
 
-   Restituisce la sequenza di pioli valida come singolo tentativo.
+   Restituisce la sequenza di \ ``ColorPegs``\  valida come singolo tentativo.
 
-   :param intManager: l'InteractionView che si occupa della gestione delle scelte del player
-   :return: la lista dei valori ottenuta
+   :param intView: necessario per ottenere informazioni riguardo il gioco
+   :return: List di \ ``ColorPegs``\  valida come singolo tentativo
 
 hasGivenUp
 ^^^^^^^^^^
@@ -35,7 +35,7 @@ hasGivenUp
 .. java:method:: public boolean hasGivenUp()
    :outertype: CodeBreaker
 
-   Metodo che restituisce la volontà del giocatore di arrendersi o meno
+   :return: la volontà del giocatore \ ``CodeBreaker``\  di arrendersi
 
 toggleGiveUp
 ^^^^^^^^^^^^
@@ -43,5 +43,5 @@ toggleGiveUp
 .. java:method:: public void toggleGiveUp()
    :outertype: CodeBreaker
 
-   Metodo invocabile dal giocatore per segnalare la volontà di arrendersi
+   Imposta la volontà del giocatore \ ``CodeBreaker``\  di arrendersi.
 

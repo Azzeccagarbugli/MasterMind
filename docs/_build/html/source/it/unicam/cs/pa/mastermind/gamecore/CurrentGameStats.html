@@ -99,7 +99,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="NewGameStats.html">NewGameStats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SingleGame.html">SingleGame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
@@ -179,7 +179,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats">
 public class <code class="descname">CurrentGameStats</code> extends <a class="reference internal" href="../ui/BoardObserver.html#it.unicam.cs.pa.mastermind.ui.BoardObserver" title="it.unicam.cs.pa.mastermind.ui.BoardObserver">BoardObserver</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats" title="Link a questa definizione">¶</a></dt>
-<dd><p>Classe che tiene conto del vincitore di una singola partita e del numero di tentativi relativi ad un’eventuale vittoria del breaker.</p>
+<dd><p><strong>Responsabilità</strong>: tenere traccia delle informazioni necessarie per poter decretare se una partita è terminata o meno.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -209,7 +209,7 @@ public int <code class="descname">getAttempts</code><span class="sig-paren">(</s
 <dd><p>Metodo attraverso il quale vengono restituiti i tentativi rimanenti al player per vincere il game corrente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>il numero di tentativi che sono stati necessari al Breaker per vincere.</p>
+<dd class="field-odd"><p>int numero di tentativi che sono stati necessari al Breaker per vincere.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,7 +220,7 @@ public int <code class="descname">getAttempts</code><span class="sig-paren">(</s
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.getHasBreakerWon()">
 public boolean <code class="descname">getHasBreakerWon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.getHasBreakerWon()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo che stabilisce la vittoria del player breaker o meno.</p>
+<dd><p>Metodo che stabilisce la vittoria del giocatore Breaker o meno.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>boolean che indica se il Breaker ha vinto o meno.</p>
@@ -234,7 +234,7 @@ public boolean <code class="descname">getHasBreakerWon</code><span class="sig-pa
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.getHasMakerWon()">
 public boolean <code class="descname">getHasMakerWon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.getHasMakerWon()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo che stabilisce la vittoria del player maker o meno.</p>
+<dd><p>Metodo che stabilisce la vittoria del giocatore Maker o meno.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>boolean che indica se il Maker ha vinto o meno.</p>
@@ -251,7 +251,7 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dd><p>Metodo che comunica l’esito finale della partita corrente.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>String che comunica il vincitore attuale della partita. In caso non ci siano vincitori non viene comunicato nulla.</p>
+<dd class="field-odd"><p>String che comunica il vincitore attuale della partita</p>
 </dd>
 </dl>
 </dd></dl>
@@ -262,11 +262,11 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.toggleBreakerWin(int)">
 public void <code class="descname">toggleBreakerWin</code><span class="sig-paren">(</span>int<em> attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.toggleBreakerWin(int)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Operazione di toggle sulle variabili private per indicare la vittoria del Breaker.</p>
+<dd><p>Toggle sulle variabili private per indicare la vittoria del Breaker.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>attempts</strong> – il numero di tentativi</p></li>
+<li><p><strong>attempts</strong> – il numero di tentativi impiegati dal Breaker per vincere</p></li>
 </ul>
 </dd>
 </dl>
@@ -278,7 +278,7 @@ public void <code class="descname">toggleBreakerWin</code><span class="sig-paren
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.toggleMakerWin()">
 public void <code class="descname">toggleMakerWin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats.toggleMakerWin()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Operazione di toggle sulle variabili private per indicare la vittoria del Maker.</p>
+<dd><p>Toggle sulle variabili private per indicare la vittoria del Maker.</p>
 </dd></dl>
 
 </div>

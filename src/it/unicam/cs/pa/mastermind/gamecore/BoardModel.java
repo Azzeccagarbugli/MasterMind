@@ -145,7 +145,7 @@ public class BoardModel {
 	 * @param toGuess la lista che contiene la sequenza da indovinare.
 	 * @return List di indizi generata a partire dalla lista di tentativi.
 	 */
-	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt) {
+	public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
 				toGuessCopy = new ArrayList<ColorPegs>(this.sequenceToGuess), clue = new ArrayList<ColorPegs>();
 		IntStream.range(0, attemptCopy.size()).forEach(i -> {

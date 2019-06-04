@@ -20,27 +20,16 @@ ConsoleInteractionView
 
 .. java:type:: public class ConsoleInteractionView extends InteractionView
 
-   Interazione con l'utente durante il gioco via linea di comando
+   Implementazione con interazione via console della classe \ ``InteractionView``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
 Methods
 -------
-beautifyGeneral
-^^^^^^^^^^^^^^^
-
-.. java:method:: public String beautifyGeneral(ColorPegs color)
-   :outertype: ConsoleInteractionView
-
-   Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo secondo i canoni della decodifica ANSI.
-
-   :param color: il colore che si vuole codificare in una stringa colorata
-   :return: la stringa contenente i valori della stringa visualizzati in modalità colorata
-
 endingScreen
 ^^^^^^^^^^^^
 
-.. java:method:: @Override public void endingScreen(String gameEndingMessage, List<ColorPegs> toGuess)
+.. java:method:: @Override public void endingScreen(String gameEndingMessage)
    :outertype: ConsoleInteractionView
 
 getIndexSequence
@@ -55,9 +44,7 @@ getInstance
 .. java:method:: public static ConsoleInteractionView getInstance()
    :outertype: ConsoleInteractionView
 
-   Il metodo getInstance garantisce la singolarità della classe all'interno del parco software.
-
-   :return: l'instanza della classe se presente o meno
+   :return: ConsoleStartView istanza singleton di \ ``ConsoleInteractionView``\ .
 
 init
 ^^^^
@@ -65,41 +52,9 @@ init
 .. java:method:: public void init(BufferedReader newReader)
    :outertype: ConsoleInteractionView
 
-   Inietto all'interno della classe il parametro desiderato che ha nataura \ ``BufferReader``\ .
+   Inizializzazione del reader associato all'istanza di \ ``ConsoleInteractionView``\ .
 
-   :param newReader: il BufferReader necessario all'instanza della classe
-
-isBreakerMessageGiveUp
-^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public void isBreakerMessageGiveUp(boolean isBreaker)
-   :outertype: ConsoleInteractionView
-
-   Mostra la possibilità di resa al player durante la selezione dei colori.
-
-   :param isBreaker: booleano che conferma se il player è un breaker
-
-selectionColor
-^^^^^^^^^^^^^^
-
-.. java:method:: public String selectionColor(int index)
-   :outertype: ConsoleInteractionView
-
-   Metodo necessario alla corretta formattazione tabluare della modalità di inserimento dei colori.
-
-   :param index: l'indice restituito dallo stream
-   :return: la stringa formattata secondo dei canoni tabulari
-
-showMenuColor
-^^^^^^^^^^^^^
-
-.. java:method:: public void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker)
-   :outertype: ConsoleInteractionView
-
-   Metodo necessario alla stampa della scelta dei colori da parte di un player qualsiasi.
-
-   :param labelMsg1: il primo messaggio da visualizzare
-   :param labelMsg2: il secondo messaggio da visualizzare
+   :param newReader: reader da associare all'istanza.
 
 update
 ^^^^^^

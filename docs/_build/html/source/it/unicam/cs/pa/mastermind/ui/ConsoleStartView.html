@@ -179,7 +179,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartView">
 public class <code class="descname">ConsoleStartView</code> extends <a class="reference internal" href="StartView.html#it.unicam.cs.pa.mastermind.ui.StartView" title="it.unicam.cs.pa.mastermind.ui.StartView">StartView</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartView" title="Link a questa definizione">¶</a></dt>
-<dd><p>La seguente classe è il cuore pulsante dell’intero parco software, essa racchiude al suo interno tutti le componenti descritte fino adesso e ha la responsabilità più elevata di tutte, far usufruire all’utente del gioco Master Mind mediante il lancio del <code class="docutils literal notranslate"><span class="pre">main</span></code> che si cela al suo interno.</p>
+<dd><p>Implementazione con interazione via console della classe <code class="docutils literal notranslate"><span class="pre">StartView</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -221,6 +221,14 @@ protected boolean <code class="descname">askNewSettings</code><span class="sig-p
 <dd></dd></dl>
 
 </div>
+<div class="section" id="badending">
+<h3>badEnding<a class="headerlink" href="#badending" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartView.badEnding(String)">
+protected void <code class="descname">badEnding</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> reason</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartView.badEnding(String)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="ending">
 <h3>ending<a class="headerlink" href="#ending" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
@@ -234,10 +242,9 @@ protected void <code class="descname">ending</code><span class="sig-paren">(</sp
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleStartView.getInstance()">
 public static <a class="reference internal" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartView" title="it.unicam.cs.pa.mastermind.ui.ConsoleStartView">ConsoleStartView</a> <code class="descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleStartView.getInstance()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Il metodo getInstance garantisce la singolarità della classe all’interno del parco software.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>l’instanza della classe se presente o meno</p>
+<dd class="field-odd"><p>ConsoleStartView istanza singleton di <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>

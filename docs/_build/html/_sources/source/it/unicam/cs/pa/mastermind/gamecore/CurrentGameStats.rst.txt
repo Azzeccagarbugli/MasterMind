@@ -8,7 +8,7 @@ CurrentGameStats
 
 .. java:type:: public class CurrentGameStats extends BoardObserver
 
-   Classe che tiene conto del vincitore di una singola partita e del numero di tentativi relativi ad un'eventuale vittoria del breaker.
+   \ **Responsabilità**\ : tenere traccia delle informazioni necessarie per poter decretare se una partita è terminata o meno.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -32,7 +32,7 @@ getAttempts
 
    Metodo attraverso il quale vengono restituiti i tentativi rimanenti al player per vincere il game corrente.
 
-   :return: il numero di tentativi che sono stati necessari al Breaker per vincere.
+   :return: int numero di tentativi che sono stati necessari al Breaker per vincere.
 
 getHasBreakerWon
 ^^^^^^^^^^^^^^^^
@@ -40,7 +40,7 @@ getHasBreakerWon
 .. java:method:: public boolean getHasBreakerWon()
    :outertype: CurrentGameStats
 
-   Metodo che stabilisce la vittoria del player breaker o meno.
+   Metodo che stabilisce la vittoria del giocatore Breaker o meno.
 
    :return: boolean che indica se il Breaker ha vinto o meno.
 
@@ -50,7 +50,7 @@ getHasMakerWon
 .. java:method:: public boolean getHasMakerWon()
    :outertype: CurrentGameStats
 
-   Metodo che stabilisce la vittoria del player maker o meno.
+   Metodo che stabilisce la vittoria del giocatore Maker o meno.
 
    :return: boolean che indica se il Maker ha vinto o meno.
 
@@ -62,7 +62,7 @@ getMessage
 
    Metodo che comunica l'esito finale della partita corrente.
 
-   :return: String che comunica il vincitore attuale della partita. In caso non ci siano vincitori non viene comunicato nulla.
+   :return: String che comunica il vincitore attuale della partita
 
 toggleBreakerWin
 ^^^^^^^^^^^^^^^^
@@ -70,9 +70,9 @@ toggleBreakerWin
 .. java:method:: public void toggleBreakerWin(int attempts)
    :outertype: CurrentGameStats
 
-   Operazione di toggle sulle variabili private per indicare la vittoria del Breaker.
+   Toggle sulle variabili private per indicare la vittoria del Breaker.
 
-   :param attempts: il numero di tentativi
+   :param attempts: il numero di tentativi impiegati dal Breaker per vincere
 
 toggleMakerWin
 ^^^^^^^^^^^^^^
@@ -80,7 +80,7 @@ toggleMakerWin
 .. java:method:: public void toggleMakerWin()
    :outertype: CurrentGameStats
 
-   Operazione di toggle sulle variabili private per indicare la vittoria del Maker.
+   Toggle sulle variabili private per indicare la vittoria del Maker.
 
 update
 ^^^^^^

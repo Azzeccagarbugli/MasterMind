@@ -20,7 +20,7 @@ RandomBotBreaker
 
 .. java:type:: public class RandomBotBreaker extends CodeBreaker
 
-   La classe di seguito permette la creazione di un player avente sembianze da Bot. Ciò implica che le sue scelte e azioni siano semplicemente dettate da meri e puri algoritmi che andranno ad influenzare l'esito della partita.
+   Estensione di \ ``CodeBreaker``\  mirata ad una gestione del comportamento del giocatore parzialmente random.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -31,8 +31,6 @@ RandomBotBreaker
 
 .. java:constructor:: public RandomBotBreaker()
    :outertype: RandomBotBreaker
-
-   Costruisco un BotBreaker e lo rendo disponibile per una partita qualsisi.
 
 Methods
 -------

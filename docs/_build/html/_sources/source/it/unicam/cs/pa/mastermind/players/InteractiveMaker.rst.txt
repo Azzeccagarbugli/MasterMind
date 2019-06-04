@@ -14,7 +14,7 @@ InteractiveMaker
 
 .. java:type:: public class InteractiveMaker extends CodeMaker
 
-   La classe definita di seguito consente al giocatore umano, di andare a creare una sequenza che poi un altro player all'interno della piattaforma doverà decodificare per ottenere la vittoria.
+   Estensione di \ ``CodeMaker``\  mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

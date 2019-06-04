@@ -1,3 +1,7 @@
+.. java:import:: it.unicam.cs.pa.mastermind.factories BreakerFactory
+
+.. java:import:: it.unicam.cs.pa.mastermind.factories MakerFactory
+
 MakerFactoryRegistry
 ====================
 
@@ -6,7 +10,7 @@ MakerFactoryRegistry
 
 .. java:type:: public class MakerFactoryRegistry extends PlayerFactoryRegistry
 
-   La seguente classe \ ``MakerFactoryRegistry``\  permette di leggere un file testuale, nella quale sono definite le specifiche da attuare, per poi renderle concrete e instanziare quindi i player di natura maker. Quest'ultimi potranno essere sia bot sia interactive.
+   Estensione di \ ``PlayerFactoryRegistry``\  per poter contenere informazioni circa le implementazioni di \ ``MakerFactory``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -15,6 +19,6 @@ Constructors
 MakerFactoryRegistry
 ^^^^^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public MakerFactoryRegistry()
+.. java:constructor:: public MakerFactoryRegistry(String path) throws BadRegistryException
    :outertype: MakerFactoryRegistry
 

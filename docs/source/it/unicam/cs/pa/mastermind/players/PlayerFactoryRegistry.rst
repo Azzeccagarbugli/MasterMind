@@ -32,7 +32,7 @@ PlayerFactoryRegistry
 
 .. java:type:: public abstract class PlayerFactoryRegistry
 
-   La classe astratta mostrata qui di seguito dispone il codice per l'utilizzo di un \ *factory registry*\  pubblico nel quale andare a iscrivere i player che si vogliono registrare ad un match.
+   \ **Responsabilità**\ : gestione dinamica delle implementazioni delle classi factory di \ ``CodeMaker``\  e \ ``CodeBreaker``\ . Classe astratta estendibile da classi rappresentanti registri contenenti informazioni sulle classi factory impiegate per istanziare le implementazioni dei giocatori.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -41,12 +41,13 @@ Constructors
 PlayerFactoryRegistry
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public PlayerFactoryRegistry(String pathLettura)
+.. java:constructor:: public PlayerFactoryRegistry(String pathLettura) throws BadRegistryException
    :outertype: PlayerFactoryRegistry
 
-   Il costruttore decide il ciò da farsi basandosi sul parametro locale \ ``pathLettura``\  che andà a determinare il nome del file dal quale attingere le informazioni fondamentali per la disputa del game.
+   Costruttore di \ ``PlayerFactoryRegistry``\ .
 
-   :param pathLettura: il nome del file in questione
+   :param pathLettura: associato al file da cui leggere informazioni da inserire all'interno di \ ``registryFactoryPlayers``\ .
+   :throws BadRegistryException: in caso ci siano stati errori nell'inizializzazione del registro
 
 Methods
 -------
@@ -56,10 +57,18 @@ getFactoryByName
 .. java:method:: public PlayerFactory getFactoryByName(String name)
    :outertype: PlayerFactoryRegistry
 
-   Metodo getter che restituisce il PlayerFactory in base alla stringa che gli viene passata come parametro locale del metodo stesso.
+   Ottenimento di istanze di \ ``PlayerFactory``\ .
 
-   :param name: il nome della factory che si vuole ottenere
-   :return: il PlayerFactory corrispondente
+   :param name: nome associato all'istanza di \ ``PlayerFactory``\
+   :return: PlayerFactory associato al nome
+
+getPlayerFactoriesInstances
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<PlayerFactory> getPlayerFactoriesInstances()
+   :outertype: PlayerFactoryRegistry
+
+   :return: List contenente le istanze di \ ``PlayerFactory``\  presenti in \ ``registryFactoryPlayers``\
 
 getPlayersNames
 ^^^^^^^^^^^^^^^
@@ -67,18 +76,5 @@ getPlayersNames
 .. java:method:: public List<String> getPlayersNames()
    :outertype: PlayerFactoryRegistry
 
-   Metodo provato che restituisce tutti i nomi dei players all'interno della factory.
-
-   :return: la lista contenente i nomi dei players
-
-registerClass
-^^^^^^^^^^^^^
-
-.. java:method:: public void registerClass(String nomeFactory, String classeFactory)
-   :outertype: PlayerFactoryRegistry
-
-   Metodo necessario alla registrazione della classe all'interno del registro di gioco.
-
-   :param nomeFactory: il nome della factory che si vuole adottare
-   :param classeFactory: il nome della classe che si vuole adottare
+   :return: List contenente i nomi associati alle istanze di \ ``PlayerFactory``\  presenti in \ ``registryFactoryPlayers``\
 

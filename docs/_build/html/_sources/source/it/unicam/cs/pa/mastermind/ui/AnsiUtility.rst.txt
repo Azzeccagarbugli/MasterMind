@@ -66,8 +66,6 @@ ANSI_RESET
 .. java:field:: public static final String ANSI_RESET
    :outertype: AnsiUtility
 
-   Di seguito i vari colori disponibili per la codifica ANSI.
-
 ANSI_WHITE_BACKGROUND
 ^^^^^^^^^^^^^^^^^^^^^
 

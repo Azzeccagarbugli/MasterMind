@@ -18,7 +18,7 @@ InteractiveBreaker
 
 .. java:type:: public class InteractiveBreaker extends CodeBreaker
 
-   La classe qui definita permette al giocatore umano di andare a creare una sequenza da decodificare.
+   Estensione di \ ``CodeBreaker``\  mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -29,8 +29,6 @@ InteractiveBreaker
 
 .. java:constructor:: public InteractiveBreaker()
    :outertype: InteractiveBreaker
-
-   Viene costruito effettivamente l'InteractiveBreaker.
 
 Methods
 -------

@@ -179,7 +179,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView">
 public class <code class="descname">ConsoleInteractionView</code> extends <a class="reference internal" href="InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interazione con l’utente durante il gioco via linea di comando</p>
+<dd><p>Implementazione con interazione via console della classe <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -189,30 +189,11 @@ public class <code class="descname">ConsoleInteractionView</code> extends <a cla
 
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="beautifygeneral">
-<h3>beautifyGeneral<a class="headerlink" href="#beautifygeneral" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.beautifyGeneral(ColorPegs)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">beautifyGeneral</code><span class="sig-paren">(</span><a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a><em> color</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.beautifyGeneral(ColorPegs)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo secondo i canoni della decodifica ANSI.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>color</strong> – il colore che si vuole codificare in una stringa colorata</p></li>
-</ul>
-</dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>la stringa contenente i valori della stringa visualizzati in modalità colorata</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
 <div class="section" id="endingscreen">
 <h3>endingScreen<a class="headerlink" href="#endingscreen" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.endingScreen(String, List)">
-public void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.endingScreen(String, List)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.endingScreen(String)">
+public void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.endingScreen(String)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -229,10 +210,9 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.getInstance()">
 public static <a class="reference internal" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView" title="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView">ConsoleInteractionView</a> <code class="descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.getInstance()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Il metodo getInstance garantisce la singolarità della classe all’interno del parco software.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>l’instanza della classe se presente o meno</p>
+<dd class="field-odd"><p>ConsoleStartView istanza singleton di <code class="docutils literal notranslate"><span class="pre">ConsoleInteractionView</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -243,63 +223,11 @@ public static <a class="reference internal" href="#it.unicam.cs.pa.mastermind.ui
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.init(BufferedReader)">
 public void <code class="descname">init</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html" title="java.io.BufferedReader">BufferedReader</a><em> newReader</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.init(BufferedReader)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Inietto all’interno della classe il parametro desiderato che ha nataura <code class="docutils literal notranslate"><span class="pre">BufferReader</span></code>.</p>
+<dd><p>Inizializzazione del reader associato all’istanza di <code class="docutils literal notranslate"><span class="pre">ConsoleInteractionView</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>newReader</strong> – il BufferReader necessario all’instanza della classe</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="isbreakermessagegiveup">
-<h3>isBreakerMessageGiveUp<a class="headerlink" href="#isbreakermessagegiveup" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.isBreakerMessageGiveUp(boolean)">
-public void <code class="descname">isBreakerMessageGiveUp</code><span class="sig-paren">(</span>boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.isBreakerMessageGiveUp(boolean)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Mostra la possibilità di resa al player durante la selezione dei colori.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>isBreaker</strong> – booleano che conferma se il player è un breaker</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="selectioncolor">
-<h3>selectionColor<a class="headerlink" href="#selectioncolor" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.selectionColor(int)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">selectionColor</code><span class="sig-paren">(</span>int<em> index</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.selectionColor(int)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo necessario alla corretta formattazione tabluare della modalità di inserimento dei colori.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – l’indice restituito dallo stream</p></li>
-</ul>
-</dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>la stringa formattata secondo dei canoni tabulari</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="showmenucolor">
-<h3>showMenuColor<a class="headerlink" href="#showmenucolor" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.showMenuColor(String, String, boolean)">
-public void <code class="descname">showMenuColor</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> labelMsg1</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> labelMsg2</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.ConsoleInteractionView.showMenuColor(String, String, boolean)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo necessario alla stampa della scelta dei colori da parte di un player qualsiasi.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>labelMsg1</strong> – il primo messaggio da visualizzare</p></li>
-<li><p><strong>labelMsg2</strong> – il secondo messaggio da visualizzare</p></li>
+<li><p><strong>newReader</strong> – reader da associare all’istanza.</p></li>
 </ul>
 </dd>
 </dl>

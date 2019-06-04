@@ -22,7 +22,7 @@ BoardModel
 
 .. java:type:: public class BoardModel
 
-   Immagazzina i dati relativi alla plancia di gioco, quali posizione e natura dei pioli codice e dei pioli chiave. Fornisce informazioni sullo stato di gioco alle classi che lo gestiscono ed è l'elemento fondamentale sulla quale si base il nostro modello MVC. Questo determinato pattern di sviluppo infatti ci consente un intergrazione ottimale tra le classi del progetto stesso e un efficenza davvero molto elevata.
+   \ **Responsabilità**\ : gestire le informazioni relative ad una plancia di gioco.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -34,10 +34,10 @@ BoardModel
 .. java:constructor:: public BoardModel(int sequenceLength, int maxAttempts)
    :outertype: BoardModel
 
-   Costruttore che riceve come parametri la lunghezza delle sequenze di pioli e il numero massimo di tentativi disponibili.
+   Costruttore di una plancia
 
-   :param sequenceLength: lunghezza della sequenza inserita
-   :param maxAttempts: numero di tentativi possibii per indovindare la sequenza
+   :param sequenceLength: massima delle sequenze presenti in questa plancia
+   :param maxAttempts: numero massimo di tentativi possibili per indovinare la \ ``sequenceToGuess``\
 
 Methods
 -------
@@ -51,7 +51,7 @@ addAttempt
 
    :param attempt: la sequenza da inserire
    :throws IllegalArgumentException: in caso di inserimento illegale
-   :return: booleano relativo alla riuscita dell'inserimento
+   :return: boolean relativo alla riuscita dell'inserimento
 
 addObserver
 ^^^^^^^^^^^
@@ -59,9 +59,9 @@ addObserver
 .. java:method:: public void addObserver(BoardObserver observer)
    :outertype: BoardModel
 
-   Metodo il quale registra un nuovo observer. All’interno di tale metodo invochiamo il metodo update per far ricevere all'observer le informazioni a lui necessarie.
+   Metodo il quale registra un nuovo \ ``BoardObserver``\  e notifica tutti i \ ``BoardObserver``\  attualmente associati all'istanza di \ ``BoardModel``\ .
 
-   :param observer: l'observer attuale
+   :param observer: nuova istanza di \ ``BoardObserver``\  da aggiungere
 
 attemptsInserted
 ^^^^^^^^^^^^^^^^
@@ -69,9 +69,7 @@ attemptsInserted
 .. java:method:: public int attemptsInserted()
    :outertype: BoardModel
 
-   Restituisce il numero di tentativi inseriti fino ad ora.
-
-   :return: il numero di tentativi inseriti fino ad ora
+   :return: int numero di tentativi inseriti fino ad ora
 
 getAttemptAndClueList
 ^^^^^^^^^^^^^^^^^^^^^
@@ -79,21 +77,19 @@ getAttemptAndClueList
 .. java:method:: public List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueList()
    :outertype: BoardModel
 
-   Metodo che restituisce le entry di tentativi e relativi indizi all'interno di un'unica lista.
-
-   :return: la lista contenente le sequenze relative a tentativi e indizi.
+   :return: List contenenti Map.Entry con le sequenze di \ ``ColorPegs``\  inserite come tentativo e le relative sequenze indizio
 
 getClueFromAttempt
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess)
+.. java:method:: public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt)
    :outertype: BoardModel
 
-   Metodo privato a cui passare una sequenza quale nuovo tentativo per ottenere la relativa sequenza indizio.
+   Calcolo della sequenza di \ ``ColorPegs``\  indizio a fronte di una sequenza di \ ``ColorPegs``\  assicurata valida come tentativo.
 
    :param attempt: la lista che si inserisce come tentativo di risoluzione.
    :param toGuess: la lista che contiene la sequenza da indovinare.
-   :return: List di indizi generata automaticamente a partire dalla lista di tentativi.
+   :return: List di indizi generata a partire dalla lista di tentativi.
 
 getSequenceLength
 ^^^^^^^^^^^^^^^^^
@@ -101,9 +97,7 @@ getSequenceLength
 .. java:method:: public int getSequenceLength()
    :outertype: BoardModel
 
-   Restituisce la lunghezza della sequenza da inserire.
-
-   :return: la lunghezza della sequenza
+   :return: int lunghezza massima delle sequenze presenti in questa plancia
 
 getSequenceToGuess
 ^^^^^^^^^^^^^^^^^^
@@ -111,9 +105,7 @@ getSequenceToGuess
 .. java:method:: public List<ColorPegs> getSequenceToGuess()
    :outertype: BoardModel
 
-   Restituisce la sequenza di pioli da indovinare.
-
-   :return: la lista composta da ColorPegs contente la sequenza da indovinare
+   :return: List di \ ``ColorPegs``\  da indovinare.
 
 hasBreakerGuessed
 ^^^^^^^^^^^^^^^^^
@@ -121,9 +113,7 @@ hasBreakerGuessed
 .. java:method:: public boolean hasBreakerGuessed()
    :outertype: BoardModel
 
-   Indica la vittoria o meno del breaker.
-
-   :return: un booleano che indica se il giocatore Breaker ha indovinato o meno la sequenza del maker
+   :return: boolean che indica se il giocatore Breaker ha indovinato o meno la sequenza del Maker in base alle informazioni contenute nella plancia
 
 isBoardEmpty
 ^^^^^^^^^^^^
@@ -131,9 +121,7 @@ isBoardEmpty
 .. java:method:: public boolean isBoardEmpty()
    :outertype: BoardModel
 
-   Metodo che stabilisce se la plancia di gioco è completamente vuota o meno.
-
-   :return: un booleano a seconda dello stato vuoto o meno della plancia
+   :return: boolean che indica se sono stati inseriti o meno tentativi nella plancia
 
 lastAttemptAndClue
 ^^^^^^^^^^^^^^^^^^
@@ -141,9 +129,7 @@ lastAttemptAndClue
 .. java:method:: public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue()
    :outertype: BoardModel
 
-   Restituisce l'ultima sequenza di pioli tentativo inseriti e la relativa sequenza di pioli indizio.
-
-   :return: l'utlima sequenza di pioli tentativo inseriti e la lista di indizi relativi a quest'ultima
+   :return: Map.Entry contenente l'ultima sequenza di \ ``ColorPegs``\  inserita come tentativo e la relativa sequenza indizio.
 
 leftAttempts
 ^^^^^^^^^^^^
@@ -151,9 +137,7 @@ leftAttempts
 .. java:method:: public int leftAttempts()
    :outertype: BoardModel
 
-   Restituisce il numero di tentativi rimanenti.
-
-   :return: il numero di tentativi rimasti
+   :return: int numero di tentativi rimasti
 
 setSequenceToGuess
 ^^^^^^^^^^^^^^^^^^
@@ -163,7 +147,7 @@ setSequenceToGuess
 
    Imposta la sequenza di pioli da indovinare.
 
-   :param toGuess: lista di ColorPegs della sequenza da indovinare
+   :param toGuess: lista di \ ``ColorPegs``\  della sequenza da indovinare
    :throws IllegalArgumentException: se la lunghezza della sequenza inserita non è valida
    :return: un booleano a seconda della riuscita o meno dell'inserimento nella plancia di gioco
 

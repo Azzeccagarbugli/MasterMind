@@ -180,7 +180,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.InteractionView">
 public abstract class <code class="descname">InteractionView</code> extends <a class="reference internal" href="BoardObserver.html#it.unicam.cs.pa.mastermind.ui.BoardObserver" title="it.unicam.cs.pa.mastermind.ui.BoardObserver">BoardObserver</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.InteractionView" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interfaccia relativa alla gestione dell’interazione con l’utente.</p>
+<dd><p><strong>Responsabilità</strong>: fornire ai giocatori coinvolti in una singola partita interazioni con quest’ultima.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -213,7 +213,7 @@ protected <a class="reference external" href="http://docs.oracle.com/javase/8/do
 <dl class="field">
 <dt id="it.unicam.cs.pa.mastermind.ui.InteractionView.lastAttemptAndClue">
 protected <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>.Entry&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;&gt; <code class="descname">lastAttemptAndClue</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.InteractionView.lastAttemptAndClue" title="Link a questa definizione">¶</a></dt>
-<dd><p>La mappa composta da due liste di ColorPegs la quale contiene l’utlimo tentativo inserito dall’utente e la relativa sequenza indizio che è stata generata basandosi du quest’ultima.</p>
+<dd><p>Singola entry di una mappa, contenente l’ultima lista di ColorPegs inseriti e la relativa sequenza indizio.</p>
 </dd></dl>
 
 </div>
@@ -223,18 +223,14 @@ protected <a class="reference external" href="http://docs.oracle.com/javase/8/do
 <div class="section" id="endingscreen">
 <h3>endingScreen<a class="headerlink" href="#endingscreen" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.InteractionView.endingScreen(String, List)">
-public abstract void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.InteractionView.endingScreen(String, List)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestisce la fine di una singola partita. Metodo da richiamare dopo che è stato garantinto che la partita in atto è da definirsi conclusa.</p>
+<dt id="it.unicam.cs.pa.mastermind.ui.InteractionView.endingScreen(String)">
+public abstract void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.InteractionView.endingScreen(String)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Interazione finale con il giocatore relativa al termine di una partita</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>exe</strong> – eccezione personalizzata</p></li>
-<li><p><strong>toGuess</strong> – i valori della sequenza da indovinare</p></li>
+<li><p><strong>gameEndingMessage</strong> – stringa con il messaggio finale da mostrare al giocatore</p></li>
 </ul>
-</dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>un array di boolean contenente i settaggi di ending della partita</p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,7 +244,7 @@ public int <code class="descname">getCurrentSequenceLength</code><span class="si
 <dd><p>Metodo getter che restituisce la lunghezza della sequenza da indovinare.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>il valore intero di tale lunghezza</p>
+<dd class="field-odd"><p>int il valore intero di tale lunghezza</p>
 </dd>
 </dl>
 </dd></dl>
@@ -262,7 +258,7 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dd><p>Metodo getter che restituisce la sequenza da indovinare.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la lista di ColorPegs da indovinare</p>
+<dd class="field-odd"><p>List la lista di ColorPegs da indovinare</p>
 </dd>
 </dl>
 </dd></dl>
@@ -273,21 +269,15 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.InteractionView.getIndexSequence(boolean)">
 public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>boolean<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.InteractionView.getIndexSequence(boolean)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Richiede all’utente umano la sequenza tentativo.</p>
+<dd><p>Interazione con l’utente fisico o altra entità per poter ottenere gli indici associati ai diversi valori di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code>. Se il valore restituito contiene l”<code class="docutils literal notranslate"><span class="pre">Integer</span></code> 0 è stata rappresentata la volontà di un giocatore <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> di arrendersi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sequenceLength</strong> – la lunghezza della sequenza inserita</p></li>
-<li><p><strong>toGuess</strong> – se la sequenza da inserire è la sequenza da indovinare o meno</p></li>
+<li><p><strong>toGuess</strong> – flag che indica se la sequenza di interi da ottenere si riferisce alla sequenza da indovinare o meno</p></li>
 </ul>
 </dd>
-<dt class="field-even">Solleva</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../exceptions/BreakerGiveUpException.html#it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException" title="it.unicam.cs.pa.mastermind.exceptions.BreakerGiveUpException"><strong>BreakerGiveUpException</strong></a> – la resa condizionata del player</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la lista di interi che andranno a definire la sequenza. Posti n colori, gli elementi all’interno della lista avranno valore compreso tra 1 e n</p>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>List contenente gli indici da 1 a currentSequenceLength, associati all’enum ColorPegs</p>
 </dd>
 </dl>
 </dd></dl>
@@ -298,10 +288,10 @@ public abstract <a class="reference external" href="http://docs.oracle.com/javas
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.InteractionView.getLastAttemptAndClue()">
 public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>.Entry&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;&gt; <code class="descname">getLastAttemptAndClue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.InteractionView.getLastAttemptAndClue()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo getter che restituisce la mappa composta da due liste di ColorPegs la quale contiene l’utlimo tentativo inserito dall’utente e la relativa sequenza indizio che è stata generata basandosi du quest’ultima.</p>
+<dd><p>Metodo getter che restituisce la entry di mappa contenente l’ultima lista di ColorPegs inseriti e la relativa sequenza indizio.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la mappa con l’ultima sequenza inserita dall’utente e l’ultima sequenza di indizi generata automaticamente</p>
+<dd class="field-odd"><p>Map.Entry contenente l’ultima lista di ColorPegs inseriti e la relativa sequenza indizio.</p>
 </dd>
 </dl>
 </dd></dl>

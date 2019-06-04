@@ -20,7 +20,7 @@ ConsoleStartView
 
 .. java:type:: public class ConsoleStartView extends StartView
 
-   La seguente classe è il cuore pulsante dell'intero parco software, essa racchiude al suo interno tutti le componenti descritte fino adesso e ha la responsabilità più elevata di tutte, far usufruire all'utente del gioco Master Mind mediante il lancio del \ ``main``\  che si cela al suo interno.
+   Implementazione con interazione via console della classe \ ``StartView``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -50,6 +50,12 @@ askNewSettings
 .. java:method:: @Override protected boolean askNewSettings()
    :outertype: ConsoleStartView
 
+badEnding
+^^^^^^^^^
+
+.. java:method:: @Override protected void badEnding(String reason)
+   :outertype: ConsoleStartView
+
 ending
 ^^^^^^
 
@@ -62,9 +68,7 @@ getInstance
 .. java:method:: public static ConsoleStartView getInstance()
    :outertype: ConsoleStartView
 
-   Il metodo getInstance garantisce la singolarità della classe all'interno del parco software.
-
-   :return: l'instanza della classe se presente o meno
+   :return: ConsoleStartView istanza singleton di \ ``ConsoleStartView``\ .
 
 getInteractionView
 ^^^^^^^^^^^^^^^^^^

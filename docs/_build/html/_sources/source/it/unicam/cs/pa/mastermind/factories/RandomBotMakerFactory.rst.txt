@@ -10,7 +10,7 @@ RandomBotMakerFactory
 
 .. java:type:: public class RandomBotMakerFactory extends MakerFactory
 
-   Classe concreta, la quale estende la classe astratta \ ``MakerFacotry``\ , e consente la creazione di una factory di player random bot maker.
+   Classe factory estensione di \ ``MakerFactory``\  impiegata per ottenere istanze di \ ``RandomBotMaker``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

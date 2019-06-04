@@ -8,7 +8,7 @@ BoardObserver
 
 .. java:type:: public abstract class BoardObserver
 
-   Il pattern Observer permette di definire una dipendenza uno a molti fra oggetti, in modo tale che se un oggetto cambia il suo stato interno, ciascuno degli oggetti dipendenti da esso viene notificato e aggiornato automaticamente. L’Observer nasce dall’esigenza di mantenere un alto livello di consistenza fra classi correlate, senza produrre situazioni di forte dipendenza e di accoppiamento elevato.
+   Classe astratta estendibile da tutte quelle classi coinvolte nel design pattern \ **Observer**\ , aventi quindi necessità di osservare e adattarsi in tempo reale ai cambiamenti di stato di oggetti di tipo BoardModel.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

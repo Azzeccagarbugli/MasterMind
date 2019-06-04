@@ -4,7 +4,9 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore NewGameStats
 
-.. java:import:: it.unicam.cs.pa.mastermind.gamecore SingleGame
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore SingleMatch
+
+.. java:import:: it.unicam.cs.pa.mastermind.players BadRegistryException
 
 .. java:import:: it.unicam.cs.pa.mastermind.players PlayerFactoryRegistry
 
@@ -16,7 +18,7 @@ StartView
 
 .. java:type:: public abstract class StartView
 
-   La classe astratta StartView elenca una serie di caratteristiche fondamentali che verranno poi estese a più alto livello all'interno della classe \ ``ConsoleStartView``\  e tale aggiunta rende il software più elegante e pulito.
+   \ **Responsabilità**\ : fornire agli utenti fisici coinvolti nel gioco l'interazione per poter iniziare nuove partite.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -28,7 +30,7 @@ startStats
 .. java:field:: protected StartStats startStats
    :outertype: StartView
 
-   Instanza della classe \ ``StartStats``\ .
+   Istanza della classe \ ``StartStats``\ .
 
 Constructors
 ------------
@@ -38,8 +40,6 @@ StartView
 .. java:constructor:: public StartView()
    :outertype: StartView
 
-   Costruttore dello StartView.
-
 Methods
 -------
 askNewAttempts
@@ -48,9 +48,9 @@ askNewAttempts
 .. java:method:: protected abstract int askNewAttempts()
    :outertype: StartView
 
-   Vengono richiesti quanti nuovi tentativi si vogliono inserire.
+   Gestione dell'interazione con l'utente fisico per l'impostazione di un nuovo valore di numero di tentativi massimi richiesti al \ ``CodeBreaker``\  all'interno della nuova partita.
 
-   :return: il valore intero che rappresenta tale valore
+   :return: int numero di tentativi massimi richiesti al \ ``CodeBreaker``\  all'interno della nuova partita.
 
 askNewGameSettings
 ^^^^^^^^^^^^^^^^^^
@@ -58,9 +58,9 @@ askNewGameSettings
 .. java:method:: protected abstract NewGameStats askNewGameSettings()
    :outertype: StartView
 
-   Metodo che chiede le nuove impostazioni di gioco a fine partita.
+   Interazione con l'utente fisico a fronte della conclusione di una singola partita.
 
-   :return: vengono restituite tali informazioni sotto forma di \ ``NewGameStats``\
+   :return: NewGameStats contenente informazioni relative all'inizio di una nuova partita e alle impostazioni correlate.
 
 askNewLength
 ^^^^^^^^^^^^
@@ -68,9 +68,9 @@ askNewLength
 .. java:method:: protected abstract int askNewLength()
    :outertype: StartView
 
-   Viene richiesta la nuova lunghezza della sequenza.
+   Gestione dell'interazione con l'utente fisico per l'impostazione di un nuovo valore della lunghezza delle sequenze di elementi presenti nella nuova partita.
 
-   :return: il valore intero che rappresenta tale valore
+   :return: int valore della lunghezza delle sequenze di elementi presenti nella nuova partita.
 
 askNewSettings
 ^^^^^^^^^^^^^^
@@ -78,9 +78,19 @@ askNewSettings
 .. java:method:: protected abstract boolean askNewSettings()
    :outertype: StartView
 
-   Metodo che chiede le nuove impostazioni al player alla fine del game.
+   Gestione dell'interazione con l'utente fisico per l'impostazione o meno di nuove impostazioni relative alla nuova partita.
 
-   :return: il valore booleano con tale informazione al suo interno
+   :return: boolean volontà dell'utente fisico di decidere nuove impostazioni per la nuova partita.
+
+badEnding
+^^^^^^^^^
+
+.. java:method:: protected abstract void badEnding(String reason)
+   :outertype: StartView
+
+   Gestione anticipata della conclusione dell'intero gioco, richiamata ad esempio per il sollevamento di errori importanti.
+
+   :param reason:
 
 ending
 ^^^^^^
@@ -88,7 +98,7 @@ ending
 .. java:method:: protected abstract void ending()
    :outertype: StartView
 
-   Metodo necessario all'ending del gioco.
+   Gestione della conclusione dell'intero gioco dopo la fine di ogni singola partita.
 
 getInteractionView
 ^^^^^^^^^^^^^^^^^^
@@ -96,9 +106,9 @@ getInteractionView
 .. java:method:: protected abstract InteractionView getInteractionView()
    :outertype: StartView
 
-   Metodo che restitusce l'InteractionView richiesta.
+   Ottenimento dell'oggetto \ ``InteractionView``\  associato alla particolare implementazione di \ ``StartView``\ .
 
-   :return: l'InteractionView desiderata
+   :return: InteractionView associata all'oggetto \ ``StartView``\ .
 
 getPlayerName
 ^^^^^^^^^^^^^
@@ -106,11 +116,11 @@ getPlayerName
 .. java:method:: protected abstract String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker)
    :outertype: StartView
 
-   Metodo getter necessario al get del nome del player.
+   Gestione dell'interazione dell'utente fisico per la scelta della particolare implementazione dei giocatori che verranno coinvolti nella nuova partita.
 
-   :param registry: il registro sul quale si sta cercando tale informazione
-   :param isBreaker: valore booleano che rappresenta la veridicità del player breaker o meno
-   :return: il nome del giocatore
+   :param registry: registro contenente le informazioni sulle classi \ ``PlayerFactory``\  relative alle implementazioni dei giocatori.
+   :param isBreaker: flag che indica se la scelta è relativa ad un giocatore \ ``CodeBreaker``\  o meno.
+   :return: String rappresentante l'implementazione del giocatore scelta per la nuova partita.
 
 showLogo
 ^^^^^^^^
@@ -118,7 +128,7 @@ showLogo
 .. java:method:: protected abstract void showLogo()
    :outertype: StartView
 
-   Metodo puramente artistico che visualizza il logo del progetto.
+   Gestione del logo di avvio del gioco.
 
 showNewGameStarting
 ^^^^^^^^^^^^^^^^^^^
@@ -126,7 +136,7 @@ showNewGameStarting
 .. java:method:: protected abstract void showNewGameStarting()
    :outertype: StartView
 
-   Mostra il primo avvio del gioco.
+   Gestione del messaggio di avvio di una singola partita.
 
 startUp
 ^^^^^^^
@@ -134,5 +144,5 @@ startUp
 .. java:method:: public void startUp()
    :outertype: StartView
 
-   Metodo \ ``startUp``\ o che esegue il set-up di un game completo.
+   Gestione completa dell'interazione con l'utente fisico per poter iniziare una nuova partita.
 

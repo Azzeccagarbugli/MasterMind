@@ -181,7 +181,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartStats">
 public class <code class="descname">StartStats</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartStats" title="Link a questa definizione">¶</a></dt>
-<dd><p>La classe StartStats consente di inizializzare dei settaggi per l’inizio di un nuovo game. La modularità di questa classe rende il progetto altamente flessibile, in quanto i parametri di gioco possono essere facilmente modificati mediante dei metodi setters e getters che elogiano il concetto di incapsulamento dell’intero parco software.</p>
+<dd><p><strong>Responsabilità</strong>: tenere traccia delle informazioni necessarie per poter iniziare una nuova partita.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -257,7 +257,7 @@ public <a class="reference internal" href="../players/CodeBreaker.html#it.unicam
 <h3>getCurrentGame<a class="headerlink" href="#getcurrentgame" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartStats.getCurrentGame()">
-public <a class="reference internal" href="../gamecore/SingleGame.html#it.unicam.cs.pa.mastermind.gamecore.SingleGame" title="it.unicam.cs.pa.mastermind.gamecore.SingleGame">SingleGame</a> <code class="descname">getCurrentGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartStats.getCurrentGame()" title="Link a questa definizione">¶</a></dt>
+public <a class="reference internal" href="../gamecore/SingleMatch.html#it.unicam.cs.pa.mastermind.gamecore.SingleMatch" title="it.unicam.cs.pa.mastermind.gamecore.SingleMatch">SingleMatch</a> <code class="descname">getCurrentGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartStats.getCurrentGame()" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -346,7 +346,8 @@ public boolean <code class="descname">isToContinue</code><span class="sig-paren"
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartStats.resetLengthAttempts()">
 public void <code class="descname">resetLengthAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartStats.resetLengthAttempts()" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Vengono impostati i valori standard del numero di tentativi e della lunghezza delle sequenze</p>
+</dd></dl>
 
 </div>
 <div class="section" id="setattempts">
@@ -376,8 +377,8 @@ public void <code class="descname">setCurrentBreaker</code><span class="sig-pare
 <div class="section" id="setcurrentgame">
 <h3>setCurrentGame<a class="headerlink" href="#setcurrentgame" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartStats.setCurrentGame(SingleGame)">
-public void <code class="descname">setCurrentGame</code><span class="sig-paren">(</span><a class="reference internal" href="../gamecore/SingleGame.html#it.unicam.cs.pa.mastermind.gamecore.SingleGame" title="it.unicam.cs.pa.mastermind.gamecore.SingleGame">SingleGame</a><em> currentGame</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartStats.setCurrentGame(SingleGame)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.ui.StartStats.setCurrentGame(SingleMatch)">
+public void <code class="descname">setCurrentGame</code><span class="sig-paren">(</span><a class="reference internal" href="../gamecore/SingleMatch.html#it.unicam.cs.pa.mastermind.gamecore.SingleMatch" title="it.unicam.cs.pa.mastermind.gamecore.SingleMatch">SingleMatch</a><em> currentGame</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartStats.setCurrentGame(SingleMatch)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>

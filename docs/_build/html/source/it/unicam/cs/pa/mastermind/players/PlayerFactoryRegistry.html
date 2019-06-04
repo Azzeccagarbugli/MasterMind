@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BadRegistryException.html">BadRegistryException</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeMaker.html">CodeMaker</a></li>
@@ -182,7 +183,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry">
 public abstract class <code class="descname">PlayerFactoryRegistry</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry" title="Link a questa definizione">¶</a></dt>
-<dd><p>La classe astratta mostrata qui di seguito dispone il codice per l’utilizzo di un <em>factory registry</em> pubblico nel quale andare a iscrivere i player che si vogliono registrare ad un match.</p>
+<dd><p><strong>Responsabilità</strong>: gestione dinamica delle implementazioni delle classi factory di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>. Classe astratta estendibile da classi rappresentanti registri contenenti informazioni sulle classi factory impiegate per istanziare le implementazioni dei giocatori.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -197,11 +198,16 @@ public abstract class <code class="descname">PlayerFactoryRegistry</code><a clas
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.PlayerFactoryRegistry(String)">
 public <code class="descname">PlayerFactoryRegistry</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> pathLettura</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.PlayerFactoryRegistry(String)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Il costruttore decide il ciò da farsi basandosi sul parametro locale <code class="docutils literal notranslate"><span class="pre">pathLettura</span></code> che andà a determinare il nome del file dal quale attingere le informazioni fondamentali per la disputa del game.</p>
+<dd><p>Costruttore di <code class="docutils literal notranslate"><span class="pre">PlayerFactoryRegistry</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pathLettura</strong> – il nome del file in questione</p></li>
+<li><p><strong>pathLettura</strong> – associato al file da cui leggere informazioni da inserire all’interno di <code class="docutils literal notranslate"><span class="pre">registryFactoryPlayers</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>BadRegistryException</strong> – in caso ci siano stati errori nell’inizializzazione del registro</p></li>
 </ul>
 </dd>
 </dl>
@@ -216,15 +222,28 @@ public <code class="descname">PlayerFactoryRegistry</code><span class="sig-paren
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getFactoryByName(String)">
 public <a class="reference internal" href="../factories/PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a> <code class="descname">getFactoryByName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getFactoryByName(String)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo getter che restituisce il PlayerFactory in base alla stringa che gli viene passata come parametro locale del metodo stesso.</p>
+<dd><p>Ottenimento di istanze di <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – il nome della factory che si vuole ottenere</p></li>
+<li><p><strong>name</strong> – nome associato all’istanza di <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>il PlayerFactory corrispondente</p>
+<dd class="field-even"><p>PlayerFactory associato al nome</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getplayerfactoriesinstances">
+<h3>getPlayerFactoriesInstances<a class="headerlink" href="#getplayerfactoriesinstances" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getPlayerFactoriesInstances()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../factories/PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a>&gt; <code class="descname">getPlayerFactoriesInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getPlayerFactoriesInstances()" title="Link a questa definizione">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>List contenente le istanze di <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> presenti in <code class="docutils literal notranslate"><span class="pre">registryFactoryPlayers</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -235,27 +254,9 @@ public <a class="reference internal" href="../factories/PlayerFactory.html#it.un
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getPlayersNames()">
 public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>&gt; <code class="descname">getPlayersNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getPlayersNames()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo provato che restituisce tutti i nomi dei players all’interno della factory.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>la lista contenente i nomi dei players</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="registerclass">
-<h3>registerClass<a class="headerlink" href="#registerclass" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.registerClass(String, String)">
-public void <code class="descname">registerClass</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> nomeFactory</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> classeFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.registerClass(String, String)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo necessario alla registrazione della classe all’interno del registro di gioco.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>nomeFactory</strong> – il nome della factory che si vuole adottare</p></li>
-<li><p><strong>classeFactory</strong> – il nome della classe che si vuole adottare</p></li>
-</ul>
+<dd class="field-odd"><p>List contenente i nomi associati alle istanze di <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> presenti in <code class="docutils literal notranslate"><span class="pre">registryFactoryPlayers</span></code></p>
 </dd>
 </dl>
 </dd></dl>

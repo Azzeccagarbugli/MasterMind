@@ -8,7 +8,7 @@ BreakerFactory
 
 .. java:type:: public abstract class BreakerFactory implements PlayerFactory
 
-   Classe astratta, la quale implementa l'interfaccia \ ``PlayerFacotry``\ , e consente la creazione di una factory di player breaker.
+   Classe factory astratta estensione di \ ``PlayerFactory``\  da estendere con classi factory concrete finalizzate all'ottenimento di istanze di \ ``CodeBreaker``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

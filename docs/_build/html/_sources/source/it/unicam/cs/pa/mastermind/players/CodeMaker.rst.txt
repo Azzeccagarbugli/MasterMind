@@ -12,7 +12,7 @@ CodeMaker
 
 .. java:type:: public abstract class CodeMaker
 
-   Classe astratta relativa ai giocatori che forniscono la sequenza da codificare
+   \ **Responsabilità**\ : gestire le interazioni del giocatore Maker
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -21,11 +21,11 @@ Methods
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: public abstract List<ColorPegs> getCodeToGuess(InteractionView intManager)
+.. java:method:: public abstract List<ColorPegs> getCodeToGuess(InteractionView intView)
    :outertype: CodeMaker
 
-   Restituisce la sequenza di pioli da indovinare.
+   Restituisce la sequenza di \ ``ColorPegs``\  valida come sequenza da indovinare.
 
-   :param intManager: l'InteractionView che si occupa della gestione delle scelte del player
-   :return: la lista contenente la sequenza corretta di colori da indovinare
+   :param intView: necessario per ottenere informazioni riguardo il gioco
+   :return: List di \ ``ColorPegs``\  valida come sequenza da indovinare
 

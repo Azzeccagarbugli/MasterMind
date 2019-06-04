@@ -10,7 +10,7 @@ RandomBotBreakerFactory
 
 .. java:type:: public class RandomBotBreakerFactory extends BreakerFactory
 
-   Classe concreta, la quale estende la classe astratta \ ``PlayerFacotry``\ , e consente la creazione di una factory di player random bot breaker.
+   Classe factory estensione di \ ``BreakerFactory``\  impiegata per ottenere istanze di \ ``RandomBotBreaker``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

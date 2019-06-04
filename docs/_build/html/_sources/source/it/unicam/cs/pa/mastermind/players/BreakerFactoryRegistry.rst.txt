@@ -1,3 +1,5 @@
+.. java:import:: it.unicam.cs.pa.mastermind.factories BreakerFactory
+
 BreakerFactoryRegistry
 ======================
 
@@ -6,7 +8,7 @@ BreakerFactoryRegistry
 
 .. java:type:: public class BreakerFactoryRegistry extends PlayerFactoryRegistry
 
-   La seguente classe \ ``BreakerFactoryRegistry``\  permette di leggere un file testuale, nella quale sono definite le specifiche da attuare, per poi renderle concrete e instanziare quindi i player di natura breaker. Quest'ultimi potranno essere sia bot sia interactive.
+   Estensione di \ ``PlayerFactoryRegistry``\  per poter contenere informazioni circa le implementazioni di \ ``BreakerFactory``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -15,6 +17,6 @@ Constructors
 BreakerFactoryRegistry
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public BreakerFactoryRegistry()
+.. java:constructor:: public BreakerFactoryRegistry(String path) throws BadRegistryException
    :outertype: BreakerFactoryRegistry
 

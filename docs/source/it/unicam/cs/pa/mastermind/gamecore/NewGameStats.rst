@@ -6,7 +6,7 @@ NewGameStats
 
 .. java:type:: public class NewGameStats
 
-   Classe relativa alle impostazioni legate alla fine di una partita e all'inizio di quella successiva.
+   \ **Responsabilità**\ : tenere traccia delle informazioni necessarie per poter iniziare una nuova partita dopo che ne è stata conclusa una.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -18,10 +18,10 @@ NewGameStats
 .. java:constructor:: public NewGameStats(boolean toContinue, boolean keepSettings)
    :outertype: NewGameStats
 
-   Costruttore che instazia la seguente classe.
+   Costruttore
 
-   :param toContinue: booleano che determina se continuare a giocare o meno
-   :param keepSettings: booleano che determina se continuare a giocare o meno con le stesse impostazioni
+   :param toContinue: volontà dell'utente umano di continuare a giocare o meno.
+   :param keepSettings: volontà dell'utente umano di continuare a giocare con le medesime impostazioni o meno.
 
 Methods
 -------
@@ -31,9 +31,7 @@ getContinue
 .. java:method:: public boolean getContinue()
    :outertype: NewGameStats
 
-   Getter della variabile \ ``toContinue``\ .
-
-   :return: la variabile \ ``toContinue``\
+   :return: boolean volontà dell'utente umano di continuare a giocare o meno.
 
 getKeepSettings
 ^^^^^^^^^^^^^^^
@@ -41,7 +39,5 @@ getKeepSettings
 .. java:method:: public boolean getKeepSettings()
    :outertype: NewGameStats
 
-   Getter della variabile \ ``keepSettings``\ .
-
-   :return: la variabile \ ``keepSettings``\
+   :return: boolean volontà dell'utente umano di continuare a giocare con le medesime impostazioni o meno.
 
