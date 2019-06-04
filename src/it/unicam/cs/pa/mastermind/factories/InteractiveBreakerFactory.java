@@ -4,9 +4,7 @@ import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.InteractiveBreaker;
 
 /**
- * Classe concreta, la quale estende la classe astratta
- * <code>BreakerFacotry</code>, e consente la creazione di una factory di player
- * interactive.
+ * Classe factory estensione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>InteractiveBreaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

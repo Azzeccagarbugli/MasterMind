@@ -6,7 +6,8 @@ import java.util.Map;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
- * Interfaccia relativa alla gestione dell'interazione con l'utente.
+ * <b>Responsabilità</b>: fornire ai giocatori coinvolti in una singola partita
+ * interazioni con quest'ultima.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -24,16 +25,15 @@ public abstract class InteractionView extends BoardObserver {
 	protected int currentSequenceLength;
 
 	/**
-	 * La mappa composta da due liste di ColorPegs la quale contiene l'utlimo
-	 * tentativo inserito dall'utente e la relativa sequenza indizio che è stata
-	 * generata basandosi du quest'ultima.
+	 * Singola entry di una mappa, contenente l'ultima lista di ColorPegs inseriti e
+	 * la relativa sequenza indizio.
 	 */
 	protected Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue;
 
 	/**
 	 * Metodo getter che restituisce la sequenza da indovinare.
 	 * 
-	 * @return la lista di ColorPegs da indovinare
+	 * @return List la lista di ColorPegs da indovinare
 	 */
 	public List<ColorPegs> getCurrentSequenceToGuess() {
 		return currentSequenceToGuess;
@@ -42,55 +42,41 @@ public abstract class InteractionView extends BoardObserver {
 	/**
 	 * Metodo getter che restituisce la lunghezza della sequenza da indovinare.
 	 *
-	 * @return il valore intero di tale lunghezza
+	 * @return int il valore intero di tale lunghezza
 	 */
 	public int getCurrentSequenceLength() {
 		return currentSequenceLength;
 	}
 
 	/**
-	 * Metodo getter che restituisce la mappa composta da due liste di ColorPegs la
-	 * quale contiene l'utlimo tentativo inserito dall'utente e la relativa sequenza
-	 * indizio che è stata generata basandosi du quest'ultima.
+	 * Metodo getter che restituisce la entry di mappa contenente l'ultima lista di
+	 * ColorPegs inseriti e la relativa sequenza indizio.
 	 * 
-	 * @return la mappa con l'ultima sequenza inserita dall'utente e l'ultima
-	 *         sequenza di indizi generata automaticamente
+	 * @return Map.Entry contenente l'ultima lista di ColorPegs inseriti e la
+	 *         relativa sequenza indizio.
 	 */
 	public Map.Entry<List<ColorPegs>, List<ColorPegs>> getLastAttemptAndClue() {
 		return lastAttemptAndClue;
 	}
 
 	/**
-	 * Richiede all'utente umano la sequenza tentativo.
+	 * Interazione con l'utente fisico o altra entità per poter ottenere gli indici
+	 * associati ai diversi valori di <code>ColorPegs</code>. Se il valore
+	 * restituito contiene l'<code>Integer</code> 0 è stata rappresentata la volontà
+	 * di un giocatore <code>CodeBreaker</code> di arrendersi.
 	 * 
-	 * @param sequenceLength la lunghezza della sequenza inserita
-	 * @param toGuess        se la sequenza da inserire è la sequenza da indovinare
-	 *                       o meno
-	 * @throws BreakerGiveUpException la resa condizionata del player
-	 * @return la lista di interi che andranno a definire la sequenza. Posti n
-	 *         colori, gli elementi all'interno della lista avranno valore compreso
-	 *         tra 1 e n
+	 * @param toGuess flag che indica se la sequenza di interi da ottenere si
+	 *                riferisce alla sequenza da indovinare o meno
+	 * @return List contenente gli indici da 1 a currentSequenceLength, associati
+	 *         all'enum ColorPegs
 	 */
 	public abstract List<Integer> getIndexSequence(boolean toGuess);
 
 	/**
-	 * Mostra all'utente la situazione corrente del gioco e inoltre visualizza la
-	 * sequenza da indovinare. Fondamentalmente il seguente metodo può essere
-	 * utilizzato durante la fase di debugging.
+	 * Interazione finale con il giocatore relativa al termine di una partita
 	 * 
-	 * @param toGuess          la lista da indovinare
-	 * @param attemptsAndClues la lista di indizi e tentativi da visualizzare
+	 * @param gameEndingMessage stringa con il messaggio finale da mostrare al
+	 *                          giocatore
 	 */
-	// public abstract void showGameDebug(List<ColorPegs> toGuess,
-	// List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues);
-
-	/**
-	 * Gestisce la fine di una singola partita. Metodo da richiamare dopo che è
-	 * stato garantinto che la partita in atto è da definirsi conclusa.
-	 * 
-	 * @param exe     eccezione personalizzata
-	 * @param toGuess i valori della sequenza da indovinare
-	 * @return un array di boolean contenente i settaggi di ending della partita
-	 */
-	public abstract void endingScreen(String gameEndingMessage, List<ColorPegs> toGuess);
+	public abstract void endingScreen(String gameEndingMessage);
 }

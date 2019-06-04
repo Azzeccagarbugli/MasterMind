@@ -10,7 +10,8 @@ import java.util.stream.IntStream;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
- * Interazione con l'utente durante il gioco via linea di comando
+ * Implementazione con interazione via console della classe
+ * <code>InteractionView</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -18,40 +19,28 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 public class ConsoleInteractionView extends InteractionView {
 
 	/**
-	 * Inizializzazione di un nuovo BufferReader.
+	 * Reader associato all'istanza di <code>ConsoleInteractionView</code>.
 	 */
 	private BufferedReader reader;
 
 	/**
-	 * Riferimento all'instanza Singleton.
+	 * Riferimento all'istanza Singleton di <code>ConsoleInteractionView</code>.
 	 */
 	private static final ConsoleInteractionView instance = new ConsoleInteractionView();
 
 	/**
-	 * Costruisco l'elemento <code>ConsoleInteractionView</code>, il quale
-	 * permette l'interazione tra il gioco e i vari player disponibili.
-	 * 
-	 * @param newReader il BufferReader necessario alla generazione della classe
-	 */
-	private ConsoleInteractionView() {
-		// Applicazione del pattern relativo al Singleton.
-	}
-
-	/**
-	 * Il metodo getInstance garantisce la singolarità della classe all'interno del
-	 * parco software.
-	 * 
-	 * @return l'instanza della classe se presente o meno
+	 * @return ConsoleStartView istanza singleton di
+	 *         <code>ConsoleInteractionView</code>.
 	 */
 	public static ConsoleInteractionView getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Inietto all'interno della classe il parametro desiderato che ha nataura
-	 * <code>BufferReader</code>.
+	 * Inizializzazione del reader associato all'istanza di
+	 * <code>ConsoleInteractionView</code>.
 	 * 
-	 * @param newReader il BufferReader necessario all'instanza della classe
+	 * @param newReader reader da associare all'istanza.
 	 */
 	public void init(BufferedReader newReader) {
 		this.reader = newReader;
@@ -62,18 +51,15 @@ public class ConsoleInteractionView extends InteractionView {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		String isBreakerMsg = isBreaker ? "Defining a new attempt" : "Defining the sequence to guess";
 		String isBreakerAttempts = "Please define the color of each of the pegs knowing that";
-		try {
-			showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
-			for (int i = 1; i <= this.getCurrentSequenceLength(); i++) {
-				this.askIndexOfSinglePeg(indexPegs, i, isBreaker);
-				if (indexPegs.contains(0)) {
-					break;
-				}
+
+		showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
+		for (int i = 1; i <= this.getCurrentSequenceLength(); i++) {
+			this.askIndexOfSinglePeg(indexPegs, i, isBreaker);
+			if (indexPegs.contains(0)) {
+				break;
 			}
-			clearScreen();
-		} catch (IOException e) {
-			System.out.print(e.getMessage());
 		}
+		clearScreen();
 		return indexPegs;
 	}
 
@@ -103,18 +89,20 @@ public class ConsoleInteractionView extends InteractionView {
 	}
 
 	/**
-	 * Metodo necessario alla stampa della scelta dei colori da parte di un player
-	 * qualsiasi.
+	 * Metodo necessario alla stampa della scelta dei colori da parte di un
+	 * giocatore qualsiasi.
 	 * 
-	 * @param labelMsg1 il primo messaggio da visualizzare
-	 * @param labelMsg2 il secondo messaggio da visualizzare
+	 * @param labelMsg1 il primo messaggio da visualizzare.
+	 * @param labelMsg2 il secondo messaggio da visualizzare.
+	 * @param isBreaker flag che indica se il giocatore è un
+	 *                  <code>CodeBreaker</code>.
 	 */
-	public void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker) {
+	private void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker) {
 		System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
 		System.out.format("%s %58s %21s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg1 + AnsiUtility.ANSI_RESET, "┃");
 		System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
 		System.out.format("%s %74s %5s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg2 + AnsiUtility.ANSI_RESET, "┃");
-		isBreakerMessageGiveUp(isBreaker);
+		giveUpMessageForBreakers(isBreaker);
 		System.out.format(String.format("┣%16s┳%16s┳%16s┳%18s┫\n", " ", " ", " ", " ").replace(" ", "━"));
 		IntStream.range(0, ColorPegs.values().length).mapToObj(index -> selectionColor(index))
 				.forEach(System.out::print);
@@ -122,11 +110,13 @@ public class ConsoleInteractionView extends InteractionView {
 	}
 
 	/**
-	 * Mostra la possibilità di resa al player durante la selezione dei colori.
+	 * Mostra la possibilità di resa al giocatore <code>CodeBreaker</code> durante
+	 * la selezione dei colori.
 	 * 
-	 * @param isBreaker booleano che conferma se il player è un breaker
+	 * @param isBreaker flag che indica se il giocatore è un
+	 *                  <code>CodeBreaker</code>.
 	 */
-	public void isBreakerMessageGiveUp(boolean isBreaker) {
+	private void giveUpMessageForBreakers(boolean isBreaker) {
 		if (isBreaker) {
 			String giveUpFormat = "Insert the number 0 to give up";
 			System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
@@ -140,9 +130,9 @@ public class ConsoleInteractionView extends InteractionView {
 	 * inserimento dei colori.
 	 * 
 	 * @param index l'indice restituito dallo stream
-	 * @return la stringa formattata secondo dei canoni tabulari
+	 * @return String formattata secondo dei canoni tabulari
 	 */
-	public String selectionColor(int index) {
+	private String selectionColor(int index) {
 
 		String tabulationColor = "┃";
 
@@ -166,14 +156,15 @@ public class ConsoleInteractionView extends InteractionView {
 	}
 
 	/**
-	 * Dato un colore sottoforma di ColorPegs viene restituito il suo corrispetivo
-	 * secondo i canoni della decodifica ANSI.
+	 * Dato un colore sottoforma di <code>ColorPegs</code> viene restituito il suo
+	 * corrispetivo secondo i canoni della decodifica ANSI.
 	 * 
-	 * @param color il colore che si vuole codificare in una stringa colorata
-	 * @return la stringa contenente i valori della stringa visualizzati in modalità
+	 * @param color <code>ColorPegs</code> che si vuole codificare in una stringa
+	 *              colorata
+	 * @return String contenente i valori della stringa visualizzati in modalità
 	 *         colorata
 	 */
-	public String beautifyGeneral(ColorPegs color) {
+	private String beautifyGeneral(ColorPegs color) {
 		String colorfulPeg = new String();
 		switch (color) {
 		case RED:
@@ -207,12 +198,25 @@ public class ConsoleInteractionView extends InteractionView {
 	}
 
 	@Override
-	public void endingScreen(String gameEndingMessage, List<ColorPegs> toGuess) {
+	public void endingScreen(String gameEndingMessage) {
 		System.out.println(gameEndingMessage);
-		System.out.println("\nThe correct sequence was: " + beautifyClues(toGuess, false));
+		System.out.println("\nThe correct sequence was: " + beautifyClues(this.currentSequenceToGuess, false));
 	}
 
-	private void askIndexOfSinglePeg(List<Integer> list, int index, boolean isBreaker) throws IOException {
+	/**
+	 * Interazione con l'utente fisico per poter ottenere gli indici relativi ai
+	 * valori di <code>ColorPegs</code> contenuti in una sequenza. Il metodo
+	 * potrebbe aggiungere alla lista il valore <code>Integer</code> 0, rappresentante la volontà
+	 * di un giocatore <code>CodeBreaker</code> di arrendersi.
+	 * 
+	 * @param list      in cui inserire gli indici
+	 * @param index     rappresentante la posizione del <code>ColorPegs</code>
+	 *                  all'interno di una sequenza
+	 * @param isBreaker flag che indica se il giocatore è un
+	 *                  <code>CodeBreaker</code>
+	 * @throws IOException
+	 */
+	private void askIndexOfSinglePeg(List<Integer> list, int index, boolean isBreaker) {
 		int temp = 0;
 		do {
 			System.out.print("Insert value nr." + index + " > ");
@@ -224,6 +228,8 @@ public class ConsoleInteractionView extends InteractionView {
 				;
 			} catch (NumberFormatException e) {
 				System.out.println("Please insert a numeric value");
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		} while (temp < 0 || temp > ColorPegs.values().length);
 		list.add(temp);
@@ -234,7 +240,7 @@ public class ConsoleInteractionView extends InteractionView {
 	 * tabella in base alla lunghezza della sequenza delle pedine indizio.
 	 * 
 	 * @param size la dimensione dell'array passato come paramentro locale
-	 * @return la distanza dall'ultimo carattere in maniera dinamica per permettere
+	 * @return int distanza dall'ultimo carattere in maniera dinamica per permettere
 	 *         una migliore visualizzazione
 	 */
 	private int dynamicTableLenght(int size) {
@@ -261,7 +267,7 @@ public class ConsoleInteractionView extends InteractionView {
 	 * 
 	 * @param cluesList la lista di pedine indizio
 	 * @param flag      imposta la stampa anche della tabella
-	 * @return la stringa contenente la corriespetiva sequenza colorata
+	 * @return String contenente la corrispettiva sequenza colorata
 	 */
 	private String beautifyClues(List<ColorPegs> cluesList, boolean flag) {
 		String clueCombination = "[ ";
@@ -288,7 +294,7 @@ public class ConsoleInteractionView extends InteractionView {
 	 * 
 	 * @param attemptsList la lista di pedine tentativo inserite
 	 * @param flag         imposta la stampa anche della tabella
-	 * @return la stringa contenente la corriespetiva sequenza colorata
+	 * @return String contenente la corriespetiva sequenza colorata
 	 */
 	private String beautifyAttempts(List<ColorPegs> attemptsList, boolean flag) {
 		String attemptCombination;
@@ -310,8 +316,8 @@ public class ConsoleInteractionView extends InteractionView {
 	}
 
 	/**
-	 * Viene effettuata una sorta di operazione clean per la console stampando 100
-	 * linee di testo vuote.
+	 * Si effettua una sorta di pulizia della console di interazione con l'utente
+	 * fisico.
 	 */
 	private void clearScreen() {
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));

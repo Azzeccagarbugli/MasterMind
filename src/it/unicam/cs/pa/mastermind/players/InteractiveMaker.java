@@ -7,9 +7,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * La classe definita di seguito consente al giocatore umano, di andare a creare
- * una sequenza che poi un altro player all'interno della piattaforma doverà
- * decodificare per ottenere la vittoria.
+ * Estensione di <code>CodeMaker</code> mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

@@ -9,8 +9,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * La classe qui definita permette al giocatore umano di andare a creare una
- * sequenza da decodificare.
+ * Estensione di <code>CodeBreaker</code> mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -19,13 +18,10 @@ public class InteractiveBreaker extends CodeBreaker {
 
 	/**
 	 * Un <code>Set</code> in cui si andrà a fare lo storage dei tentativi
-	 * effettuati.
+	 * effettuati per fare in modo che non vengano ripetuti.
 	 */
 	private Set<List<ColorPegs>> combinationAttempts;
 
-	/**
-	 * Viene costruito effettivamente l'InteractiveBreaker. 
-	 */
 	public InteractiveBreaker() {
 		combinationAttempts = new HashSet<>();
 	}

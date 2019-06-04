@@ -8,10 +8,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * La seguente classe definisce lo standard per cui un Bot possa essere colui
- * che effettua la scelta della sequenza da indovinare. Questa sequenza poi
- * potrà essere decoficata da altri Bot aventi la sua stessa natura o da player
- * di natura Human.
+ * Estensione di <code>CodeMaker</code> mirata ad una gestione del comportamento del giocatore totalmente random.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

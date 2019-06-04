@@ -11,12 +11,8 @@ import java.util.stream.IntStream;
 import it.unicam.cs.pa.mastermind.ui.BoardObserver;
 
 /**
- * Immagazzina i dati relativi alla plancia di gioco, quali posizione e natura
- * dei pioli codice e dei pioli chiave. Fornisce informazioni sullo stato di
- * gioco alle classi che lo gestiscono ed è l'elemento fondamentale sulla quale
- * si base il nostro modello MVC. Questo determinato pattern di sviluppo infatti
- * ci consente un intergrazione ottimale tra le classi del progetto stesso e un
- * efficenza davvero molto elevata.
+ * <b>Responsabilità</b>: gestire le informazioni relative ad una plancia di
+ * gioco.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -24,39 +20,39 @@ import it.unicam.cs.pa.mastermind.ui.BoardObserver;
 public class BoardModel {
 
 	/**
-	 * Una lista di BoardObserver in cui verranno immagazinati gli observer della
-	 * seguente board.
+	 * Una lista di <code>BoardObserver</code> in cui verranno immagazinati gli
+	 * observer dell'istanza attiva.
 	 */
 	private List<BoardObserver> observers;
 
 	/**
-	 * Lista di ColorPegs contenente la sequenza da indovinare.
+	 * Sequenza di <code>ColorPegs</code> da indovinare.
 	 */
 	private List<ColorPegs> sequenceToGuess;
 
 	/**
-	 * Mappa composta da entry aventi due liste di ColorPegs e rappresentante la
-	 * board di gioco.
+	 * Map contenente le sequenze di <code>ColorPegs</code> tentativo e le relative
+	 * sequenze di <code>ColorPegs</code> indizio.
 	 */
 	private Map<List<ColorPegs>, List<ColorPegs>> board;
 
 	/**
-	 * Numero massimo di tentativi possibili per indovinare la sequenza.
+	 * Numero massimo di tentativi possibili per indovinare la
+	 * <code>sequenceToGuess</code>.
 	 */
 	private final int maxAttempts;
 
 	/**
-	 * Lunghezza massima della sequenza da inserire.
+	 * Lunghezza massima delle sequenze presenti in questa plancia.
 	 */
 	private final int sequenceLength;
 
 	/**
-	 * Costruttore che riceve come parametri la lunghezza delle sequenze di pioli e
-	 * il numero massimo di tentativi disponibili.
+	 * Costruttore di una plancia
 	 * 
-	 * @param sequenceLength lunghezza della sequenza inserita
-	 * @param maxAttempts    numero di tentativi possibii per indovindare la
-	 *                       sequenza
+	 * @param sequenceLength massima delle sequenze presenti in questa plancia
+	 * @param maxAttempts    numero massimo di tentativi possibili per indovinare la
+	 *                       <code>sequenceToGuess</code>
 	 */
 	public BoardModel(int sequenceLength, int maxAttempts) {
 		this.board = new LinkedHashMap<List<ColorPegs>, List<ColorPegs>>();
@@ -67,18 +63,15 @@ public class BoardModel {
 	}
 
 	/**
-	 * Restituisce la lunghezza della sequenza da inserire.
-	 * 
-	 * @return la lunghezza della sequenza
+	 * @return int lunghezza massima delle sequenze presenti in questa plancia
 	 */
 	public int getSequenceLength() {
 		return this.sequenceLength;
 	}
 
 	/**
-	 * Restituisce la sequenza di pioli da indovinare.
 	 * 
-	 * @return la lista composta da ColorPegs contente la sequenza da indovinare
+	 * @return List di <code>ColorPegs</code> da indovinare.
 	 */
 	public List<ColorPegs> getSequenceToGuess() {
 		return new ArrayList<ColorPegs>(this.sequenceToGuess);
@@ -87,7 +80,7 @@ public class BoardModel {
 	/**
 	 * Imposta la sequenza di pioli da indovinare.
 	 * 
-	 * @param toGuess lista di ColorPegs della sequenza da indovinare
+	 * @param toGuess lista di <code>ColorPegs</code> della sequenza da indovinare
 	 * @throws IllegalArgumentException se la lunghezza della sequenza inserita non
 	 *                                  è valida
 	 * @return un booleano a seconda della riuscita o meno dell'inserimento nella
@@ -104,27 +97,23 @@ public class BoardModel {
 	}
 
 	/**
-	 * Restituisce il numero di tentativi rimanenti.
-	 * 
-	 * @return il numero di tentativi rimasti
+	 * @return int numero di tentativi rimasti
 	 */
 	public int leftAttempts() {
 		return maxAttempts - board.size();
 	}
 
 	/**
-	 * Restituisce il numero di tentativi inseriti fino ad ora.
-	 * 
-	 * @return il numero di tentativi inseriti fino ad ora
+	 * @return int numero di tentativi inseriti fino ad ora
 	 */
 	public int attemptsInserted() {
 		return board.size();
 	}
 
 	/**
-	 * Metodo che stabilisce se la plancia di gioco è completamente vuota o meno.
 	 * 
-	 * @return un booleano a seconda dello stato vuoto o meno della plancia
+	 * @return boolean che indica se sono stati inseriti o meno tentativi nella
+	 *         plancia
 	 */
 	public boolean isBoardEmpty() {
 		return board.isEmpty();
@@ -135,31 +124,30 @@ public class BoardModel {
 	 * sequenza di pioli indizio, calcolata all'interno del metodo
 	 * 
 	 * @param attempt la sequenza da inserire
-	 * @return booleano relativo alla riuscita dell'inserimento
+	 * @return boolean relativo alla riuscita dell'inserimento
 	 * @throws IllegalArgumentException in caso di inserimento illegale
 	 */
 	public boolean addAttempt(List<ColorPegs> attempt) throws IllegalArgumentException {
 		if (attempt.size() != this.sequenceLength) {
 			throw new IllegalArgumentException("The insertion attempt is not valid");
 		} else {
-			board.put(attempt, getClueFromAttempt(attempt, this.sequenceToGuess));
+			board.put(attempt, getClueFromAttempt(attempt));
 			this.notifyObservers();
 			return true;
 		}
 	}
 
 	/**
-	 * Metodo privato a cui passare una sequenza quale nuovo tentativo per ottenere
-	 * la relativa sequenza indizio.
+	 * Calcolo della sequenza di <code>ColorPegs</code> indizio a fronte di una
+	 * sequenza di <code>ColorPegs</code> assicurata valida come tentativo.
 	 * 
 	 * @param attempt la lista che si inserisce come tentativo di risoluzione.
 	 * @param toGuess la lista che contiene la sequenza da indovinare.
-	 * @return List<ColorPegs> di indizi generata automaticamente a partire dalla
-	 *         lista di tentativi.
+	 * @return List di indizi generata a partire dalla lista di tentativi.
 	 */
-	public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt, List<ColorPegs> toGuess) {
+	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
-				toGuessCopy = new ArrayList<ColorPegs>(toGuess), clue = new ArrayList<ColorPegs>();
+				toGuessCopy = new ArrayList<ColorPegs>(this.sequenceToGuess), clue = new ArrayList<ColorPegs>();
 		IntStream.range(0, attemptCopy.size()).forEach(i -> {
 			if (toGuessCopy.get(i) == attemptCopy.get(i)) {
 				clue.add(ColorPegs.BLACK);
@@ -179,11 +167,9 @@ public class BoardModel {
 	}
 
 	/**
-	 * Restituisce l'ultima sequenza di pioli tentativo inseriti e la relativa
-	 * sequenza di pioli indizio.
 	 * 
-	 * @return l'utlima sequenza di pioli tentativo inseriti e la lista di indizi
-	 *         relativi a quest'ultima
+	 * @return Map.Entry contenente l'ultima sequenza di <code>ColorPegs</code>
+	 *         inserita come tentativo e la relativa sequenza indizio.
 	 */
 	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue() {
 		Map.Entry<List<ColorPegs>, List<ColorPegs>> temp = null;
@@ -195,10 +181,8 @@ public class BoardModel {
 	}
 
 	/**
-	 * Metodo che restituisce le entry di tentativi e relativi indizi all'interno di
-	 * un'unica lista.
-	 * 
-	 * @return la lista contenente le sequenze relative a tentativi e indizi.
+	 * @return List contenenti Map.Entry con le sequenze di <code>ColorPegs</code>
+	 *         inserite come tentativo e le relative sequenze indizio
 	 */
 	public List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueList() {
 		ArrayList<Map.Entry<List<ColorPegs>, List<ColorPegs>>> newList = new ArrayList<>();
@@ -207,10 +191,8 @@ public class BoardModel {
 	}
 
 	/**
-	 * Indica la vittoria o meno del breaker.
-	 * 
-	 * @return un booleano che indica se il giocatore Breaker ha indovinato o meno
-	 *         la sequenza del maker
+	 * @return boolean che indica se il giocatore Breaker ha indovinato o meno la
+	 *         sequenza del Maker in base alle informazioni contenute nella plancia
 	 */
 	public boolean hasBreakerGuessed() {
 		if (!isBoardEmpty() && lastAttemptAndClue().getValue().size() == sequenceLength
@@ -221,11 +203,11 @@ public class BoardModel {
 	}
 
 	/**
-	 * Metodo il quale registra un nuovo observer. All’interno di tale metodo
-	 * invochiamo il metodo update per far ricevere all'observer le informazioni a
-	 * lui necessarie.
+	 * Metodo il quale registra un nuovo <code>BoardObserver</code> e notifica tutti
+	 * i <code>BoardObserver</code> attualmente associati all'istanza di
+	 * <code>BoardModel</code>.
 	 * 
-	 * @param observer l'observer attuale
+	 * @param observer nuova istanza di <code>BoardObserver</code> da aggiungere
 	 */
 	public void addObserver(BoardObserver observer) {
 		observers.add(observer);
@@ -233,7 +215,7 @@ public class BoardModel {
 	}
 
 	/**
-	 * Metodo che notifica ogni observer iscritto al registro del cambio di stato.
+	 * Metodo che notifica ogni observer iscritto al registro <code>observers</code> del cambio di stato dell'istanza di <code>BoardModel</code> su cui è chiamato.
 	 */
 	private void notifyObservers() {
 		for (BoardObserver obs : observers) {

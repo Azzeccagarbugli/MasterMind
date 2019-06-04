@@ -16,9 +16,10 @@ import java.util.Map;
 import it.unicam.cs.pa.mastermind.factories.PlayerFactory;
 
 /**
- * La classe astratta mostrata qui di seguito dispone il codice per l'utilizzo
- * di un <i>factory registry</i> pubblico nel quale andare a iscrivere i player
- * che si vogliono registrare ad un match.
+ * <b>Responsabilità</b>: gestione dinamica delle implementazioni delle classi factory di <code>CodeMaker</code> e <code>CodeBreaker</code>.
+ * Classe astratta estendibile da classi rappresentanti registri contenenti
+ * informazioni sulle classi factory impiegate per istanziare le implementazioni
+ * dei giocatori.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -26,25 +27,26 @@ import it.unicam.cs.pa.mastermind.factories.PlayerFactory;
 public abstract class PlayerFactoryRegistry {
 
 	/**
-	 * Mappa privata composta da <code>stringhe</code> e <code>PlayerFactory</code>
-	 * utilizzata come registro pubblico di player.
+	 * Il registro che contiene le associazioni tra stringhe e istanze di
+	 * implementazioni di <code>PlayerFactory</code>
 	 */
 	private Map<String, PlayerFactory> registryFactoryPlayers;
 
 	/**
-	 * Il costruttore decide il ciò da farsi basandosi sul parametro locale
-	 * <code>pathLettura</code> che andà a determinare il nome del file dal quale
-	 * attingere le informazioni fondamentali per la disputa del game.
+	 * Costruttore di <code>PlayerFactoryRegistry</code>.
 	 * 
-	 * @param pathLettura il nome del file in questione
+	 * @param pathLettura associato al file da cui leggere informazioni da inserire
+	 *                    all'interno di <code>registryFactoryPlayers</code>.
+	 * @throws BadRegistryException in caso ci siano stati errori nell'inizializzazione del registro
 	 */
-	public PlayerFactoryRegistry(String pathLettura) {
+	public PlayerFactoryRegistry(String pathLettura) throws BadRegistryException {
 		registryFactoryPlayers = new LinkedHashMap<String, PlayerFactory>();
 		try {
 			load(pathLettura);
 		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-			System.exit(-1);
+			throw new BadRegistryException(e.getMessage());
+		} catch (BadRegistryException e) {
+			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,16 +55,20 @@ public abstract class PlayerFactoryRegistry {
 	/**
 	 * Metodo privato che esegue la lettura delle righe del file di input.
 	 * 
-	 * @param pathLettura il nome del file in questione
+	 * @param pathLettura associato al file da cui leggere le informazioni
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 * @throws InstantiationException
+	 * @throws BadRegistryException in caso ci siano stati errori nell'inizializzazione del registro
 	 */
-	private void load(String pathLettura) throws IOException, ClassNotFoundException, InstantiationException {
+	private void load(String pathLettura)
+			throws IOException, ClassNotFoundException, InstantiationException, BadRegistryException {
 		File f = new File(pathLettura);
 		if (f.exists() && !f.isDirectory()) {
 			List<String> data = Files.readAllLines(f.toPath(), Charset.defaultCharset());
-			data.stream().forEach(l -> register(l));
+			for(String line : data) {
+				register(line);
+			}
 		} else {
 			List<String> newLines = Arrays.asList(
 					"Please insert here the name of the new player you want to insert in the game followed by a / character and the name of the package that contains the factory class for that player implementation.",
@@ -71,50 +77,48 @@ public abstract class PlayerFactoryRegistry {
 
 			Path fileBreaker = Paths.get(pathLettura);
 			Files.write(fileBreaker, newLines, Charset.forName("UTF-8"));
-			throw new FileNotFoundException("The file at path " + pathLettura
+			throw new BadRegistryException("The file at path " + pathLettura
 					+ ", used to load the players, wasn't present and it was created.\nPlease check it out to start the game correctly.");
 		}
 	}
 
 	/**
-	 * Il seguente metodo consente l'iscrizione al registro ai player.
+	 * Aggiunta di informazioni relative ad una implementazione di
+	 * <code>PlayerFactory</code>.
 	 * 
-	 * @param lineaFile la stringa di testo che verrà utilizzata come riferimento al
-	 *                  player
+	 * @param line stringa contenente il nome di una implementazione di
+	 *             <code>PlayerFactory</code> e il relativo nome qualificato
+	 * @throws BadRegistryException in caso ci siano stati errori nell'inizializzazione del registro
 	 */
-	private void register(String lineaFile) {
-		try {
-			String[] elementi = lineaFile.split("/");
-			if (elementi.length == 2) {
-				registerClass(elementi[0], elementi[1]);
-			} else {
-				throw new IllegalArgumentException();
-			}
-		} catch (IllegalArgumentException e) {
-			System.out.println(
+	private void register(String line) throws BadRegistryException {
+
+		String[] elementi = line.split("/");
+		if (elementi.length == 2) {
+			registerClass(elementi[0], elementi[1]);
+		} else {
+			throw new BadRegistryException(
 					"There have been problems loading the players from one of the source files.\nPlease check them out.\n");
-			System.exit(-1);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(-1);
 		}
 	}
 
 	/**
-	 * Metodo necessario alla registrazione della classe all'interno del registro di
-	 * gioco.
+	 * Registrazione del nome di una implementazione di <code>PlayerFactory</code> e
+	 * del relativo nome qualificato all'interno di
+	 * <code>registryFactoryPlayers</code>.
 	 * 
-	 * @param nomeFactory   il nome della factory che si vuole adottare
-	 * @param classeFactory il nome della classe che si vuole adottare
+	 * @param nomeFactory   nome associato alla implementazione di
+	 *                      <code>PlayerFactory</code>
+	 * @param classeFactory nome qualificato della implementazione di
+	 *                      <code>PlayerFactory</code>
+	 * @throws BadRegistryException in caso ci siano stati errori nell'inizializzazione del registro
 	 */
-	public void registerClass(String nomeFactory, String classeFactory) {
+	private void registerClass(String nomeFactory, String classeFactory) throws BadRegistryException {
 		try {
 			Class<? extends PlayerFactory> factory = Class.forName(classeFactory).asSubclass(PlayerFactory.class);
 			this.registryFactoryPlayers.put(nomeFactory.toLowerCase(), factory.getConstructor().newInstance());
 		} catch (ClassNotFoundException e) {
-			System.out.println("The factory class \"" + e.getMessage()
+			throw new BadRegistryException("The factory class \"" + e.getMessage()
 					+ "\" defined in one of the player source files is not present into the project.\nPlease modify the source files or add that class.");
-			System.exit(-1);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
@@ -122,26 +126,36 @@ public abstract class PlayerFactoryRegistry {
 	}
 
 	/**
-	 * Metodo getter che restituisce il PlayerFactory in base alla stringa che gli
-	 * viene passata come parametro locale del metodo stesso.
+	 * Ottenimento di istanze di <code>PlayerFactory</code>.
 	 * 
-	 * @param name il nome della factory che si vuole ottenere
-	 * @return il PlayerFactory corrispondente
+	 * @param name nome associato all'istanza di <code>PlayerFactory</code>
+	 * @return PlayerFactory associato al nome
 	 */
 	public PlayerFactory getFactoryByName(String name) {
 		return registryFactoryPlayers.get(name.toLowerCase());
 	}
 
 	/**
-	 * Metodo provato che restituisce tutti i nomi dei players all'interno della
-	 * factory.
 	 * 
-	 * @return la lista contenente i nomi dei players
+	 * @return List contenente i nomi associati alle istanze di
+	 *         <code>PlayerFactory</code> presenti in
+	 *         <code>registryFactoryPlayers</code>
 	 */
 	public List<String> getPlayersNames() {
 		List<String> namesPlayers = new ArrayList<String>();
 		registryFactoryPlayers.keySet().stream().forEach(namesPlayers::add);
 		return namesPlayers;
+	}
+
+	/**
+	 * 
+	 * @return List contenente le istanze di <code>PlayerFactory</code> presenti in
+	 *         <code>registryFactoryPlayers</code>
+	 */
+	public List<PlayerFactory> getPlayerFactoriesInstances() {
+		List<PlayerFactory> factories = new ArrayList<PlayerFactory>();
+		registryFactoryPlayers.keySet().stream().map(name -> registryFactoryPlayers.get(name)).forEach(factories::add);
+		return factories;
 	}
 
 }

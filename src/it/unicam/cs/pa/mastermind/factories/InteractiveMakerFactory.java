@@ -4,9 +4,7 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.players.InteractiveMaker;
 
 /**
- * Classe concreta, la quale estende la classe astratta
- * <code>MakerFacotry</code>, e consente la creazione di una factory di player
- * interactive.
+ * Classe factory estensione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>InteractiveMaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

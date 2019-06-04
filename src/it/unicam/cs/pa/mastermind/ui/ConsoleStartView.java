@@ -10,17 +10,17 @@ import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
 
 /**
- * La seguente classe è il cuore pulsante dell'intero parco software, essa
- * racchiude al suo interno tutti le componenti descritte fino adesso e ha la
- * responsabilità più elevata di tutte, far usufruire all'utente del gioco
- * Master Mind mediante il lancio del <code>main</code> che si cela al suo
- * interno.
+ * Implementazione con interazione via console della classe
+ * <code>StartView</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class ConsoleStartView extends StartView {
 
+	/**
+	 * Reader associato all'istanza di <code>ConsoleStartView</code>.
+	 */
 	private BufferedReader reader;
 
 	private String mastermindLogo = "\r\n" + "                  _                      _           _ \r\n"
@@ -33,23 +33,17 @@ public class ConsoleStartView extends StartView {
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
 	/**
-	 * Riferimento all'instanza Singleton.
+	 * Riferimento all'istanza Singleton di <code>ConsoleStartView</code>.
 	 */
 	private final static ConsoleStartView instance = new ConsoleStartView();
 
-	/**
-	 * Costruisco l'elemento <code>ConsoleStartView</code>.
-	 */
 	private ConsoleStartView() {
 		super();
 		this.reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
 	/**
-	 * Il metodo getInstance garantisce la singolarità della classe all'interno del
-	 * parco software.
-	 * 
-	 * @return l'instanza della classe se presente o meno
+	 * @return ConsoleStartView istanza singleton di <code>ConsoleStartView</code>.
 	 */
 	public static ConsoleStartView getInstance() {
 		return instance;
@@ -91,11 +85,10 @@ public class ConsoleStartView extends StartView {
 	}
 
 	/**
-	 * Metodo privato che restituisce i settaggi di fine partita all'interno del
-	 * game.
 	 * 
-	 * @param input il valore intero che indica la scelta del giocatore
-	 * @return i nuovi settaggi selezionati dal giocatore
+	 * @param input
+	 * @return boolean[] contenente informazioni per la creazione di un oggetto
+	 *         <code>NewGameStats</code>.
 	 */
 	private boolean[] settingEnd(int input) {
 		boolean[] endingSettings = new boolean[2];
@@ -207,6 +200,10 @@ public class ConsoleStartView extends StartView {
 		return temp;
 	}
 
+	/**
+	 * Si effettua una sorta di pulizia della console di interazione con l'utente
+	 * fisico.
+	 */
 	private void clearScreen() {
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
 	}
@@ -214,5 +211,12 @@ public class ConsoleStartView extends StartView {
 	public static void main(String[] args) {
 		StartView startView = ConsoleStartView.getInstance();
 		startView.startUp();
+	}
+
+	@Override
+	protected void badEnding(String reason) {
+		System.out.println("There was an error during the game:");
+		System.out.println(reason);
+		System.exit(-1);
 	}
 }

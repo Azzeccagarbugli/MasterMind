@@ -3,9 +3,9 @@ package it.unicam.cs.pa.mastermind.factories;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 
 /**
- * Classe astratta, la quale implementa l'interfaccia
- * <code>PlayerFacotry</code>, e consente la creazione di una factory di player
- * breaker.
+ * Classe factory astratta estensione di <code>PlayerFactory</code> da estendere
+ * con classi factory concrete finalizzate all'ottenimento di istanze di
+ * <code>CodeBreaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

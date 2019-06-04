@@ -3,14 +3,13 @@ package it.unicam.cs.pa.mastermind.ui;
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
-import it.unicam.cs.pa.mastermind.gamecore.SingleGame;
+import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
+import it.unicam.cs.pa.mastermind.players.BadRegistryException;
 import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
 
 /**
- * La classe astratta StartView elenca una serie di caratteristiche fondamentali
- * che verranno poi estese a più alto livello all'interno della classe
- * <code>ConsoleStartView</code> e tale aggiunta rende il software più elegante
- * e pulito.
+ * <b>Responsabilità</b>: fornire agli utenti fisici coinvolti nel gioco
+ * l'interazione per poter iniziare nuove partite.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -18,19 +17,21 @@ import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
 public abstract class StartView {
 
 	/**
-	 * Instanza della classe <code>StartStats</code>.
+	 * Istanza della classe <code>StartStats</code>.
 	 */
 	protected StartStats startStats;
 
-	/**
-	 * Costruttore dello StartView.
-	 */
 	public StartView() {
+		try {
 		startStats = new StartStats();
+		} catch (BadRegistryException e) {
+			this.badEnding(e.getMessage());
+		}
 	}
 
 	/**
-	 * Metodo <code>startUp</code>o che esegue il set-up di un game completo.
+	 * Gestione completa dell'interazione con l'utente fisico per poter iniziare una
+	 * nuova partita.
 	 */
 	public void startUp() {
 		while (startStats.isToContinue()) {
@@ -45,7 +46,7 @@ public abstract class StartView {
 				}
 			}
 			this.showNewGameStarting();
-			startStats.setCurrentGame(new SingleGame(startStats.getSequenceLength(), startStats.getAttempts(),
+			startStats.setCurrentGame(new SingleMatch(startStats.getSequenceLength(), startStats.getAttempts(),
 					startStats.getIntView(), startStats.getCurrentBreaker(), startStats.getCurrentMaker()));
 			startStats.getCurrentGame().start();
 			startStats.setNewGame(this.askNewGameSettings());
@@ -56,9 +57,7 @@ public abstract class StartView {
 	}
 
 	/**
-	 * Equivalentemente al metodo <i>startUp</i> il metodo
-	 * <code>setupNewPlayers</code> esegue il set-up dei player all'interno della
-	 * piattaforma di gioco.
+	 * Creazione delle istanze relative ai giocatori della nuova partita.
 	 */
 	private void setupNewPlayers() {
 		MakerFactory mFactory = (MakerFactory) startStats.getMakers()
@@ -70,63 +69,84 @@ public abstract class StartView {
 	}
 
 	/**
-	 * Metodo necessario all'ending del gioco.
+	 * Gestione della conclusione dell'intero gioco dopo la fine di ogni singola
+	 * partita.
 	 */
 	protected abstract void ending();
 
 	/**
-	 * Metodo che chiede le nuove impostazioni di gioco a fine partita.
+	 * Gestione anticipata della conclusione dell'intero gioco, richiamata ad esempio per il sollevamento di errori importanti. 
+	 * @param reason 
+	 */
+	protected abstract void badEnding(String reason);
+	
+	/**
+	 * Interazione con l'utente fisico a fronte della conclusione di una singola
+	 * partita.
 	 * 
-	 * @return vengono restituite tali informazioni sotto forma di
-	 *         <code>NewGameStats</code>
+	 * @return NewGameStats contenente informazioni relative all'inizio di una nuova
+	 *         partita e alle impostazioni correlate.
 	 */
 	protected abstract NewGameStats askNewGameSettings();
 
 	/**
-	 * Mostra il primo avvio del gioco.
+	 * Gestione del messaggio di avvio di una singola partita.
 	 */
 	protected abstract void showNewGameStarting();
 
 	/**
-	 * Viene richiesta la nuova lunghezza della sequenza.
+	 * Gestione dell'interazione con l'utente fisico per l'impostazione di un nuovo
+	 * valore della lunghezza delle sequenze di elementi presenti nella nuova
+	 * partita.
 	 * 
-	 * @return il valore intero che rappresenta tale valore
+	 * @return int valore della lunghezza delle sequenze di elementi presenti nella
+	 *         nuova partita.
 	 */
 	protected abstract int askNewLength();
 
 	/**
-	 * Vengono richiesti quanti nuovi tentativi si vogliono inserire.
+	 * Gestione dell'interazione con l'utente fisico per l'impostazione di un nuovo
+	 * valore di numero di tentativi massimi richiesti al <code>CodeBreaker</code>
+	 * all'interno della nuova partita.
 	 * 
-	 * @return il valore intero che rappresenta tale valore
+	 * @return int numero di tentativi massimi richiesti al <code>CodeBreaker</code>
+	 *         all'interno della nuova partita.
 	 */
 	protected abstract int askNewAttempts();
 
 	/**
-	 * Metodo getter necessario al get del nome del player.
+	 * Gestione dell'interazione dell'utente fisico per la scelta della particolare
+	 * implementazione dei giocatori che verranno coinvolti nella nuova partita.
 	 * 
-	 * @param registry  il registro sul quale si sta cercando tale informazione
-	 * @param isBreaker valore booleano che rappresenta la veridicità del player
-	 *                  breaker o meno
-	 * @return il nome del giocatore
+	 * @param registry  registro contenente le informazioni sulle classi
+	 *                  <code>PlayerFactory</code> relative alle implementazioni dei
+	 *                  giocatori.
+	 * @param isBreaker flag che indica se la scelta è relativa ad un giocatore
+	 *                  <code>CodeBreaker</code> o meno.
+	 * @return String rappresentante l'implementazione del giocatore scelta per la
+	 *         nuova partita.
 	 */
 	protected abstract String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker);
 
 	/**
-	 * Metodo che chiede le nuove impostazioni al player alla fine del game.
+	 * Gestione dell'interazione con l'utente fisico per l'impostazione o meno di
+	 * nuove impostazioni relative alla nuova partita.
 	 * 
-	 * @return il valore booleano con tale informazione al suo interno
+	 * @return boolean volontà dell'utente fisico di decidere nuove impostazioni per
+	 *         la nuova partita.
 	 */
 	protected abstract boolean askNewSettings();
 
 	/**
-	 * Metodo puramente artistico che visualizza il logo del progetto.
+	 * Gestione del logo di avvio del gioco.
 	 */
 	protected abstract void showLogo();
 
 	/**
-	 * Metodo che restitusce l'InteractionView richiesta.
+	 * Ottenimento dell'oggetto <code>InteractionView</code> associato alla
+	 * particolare implementazione di <code>StartView</code>.
 	 * 
-	 * @return l'InteractionView desiderata
+	 * @return InteractionView associata all'oggetto <code>StartView</code>.
 	 */
 	protected abstract InteractionView getInteractionView();
 }

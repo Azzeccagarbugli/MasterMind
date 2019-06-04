@@ -45,7 +45,7 @@ class PlayersRandomBotMakerTest {
 			}
 			
 			@Override
-			public void endingScreen(String gameEndingMessage, List<ColorPegs> toGuess) {
+			public void endingScreen(String gameEndingMessage) {
 				// TODO Auto-generated method stub
 				
 			}

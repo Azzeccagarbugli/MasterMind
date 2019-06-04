@@ -3,8 +3,8 @@ package it.unicam.cs.pa.mastermind.gamecore;
 import it.unicam.cs.pa.mastermind.ui.BoardObserver;
 
 /**
- * Classe che tiene conto del vincitore di una singola partita e del numero di
- * tentativi relativi ad un'eventuale vittoria del breaker.
+ * <b>Responsabilità</b>: tenere traccia delle informazioni necessarie per poter
+ * decretare se una partita è terminata o meno.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -40,7 +40,7 @@ public class CurrentGameStats extends BoardObserver {
 	 * Metodo attraverso il quale vengono restituiti i tentativi rimanenti al player
 	 * per vincere il game corrente.
 	 * 
-	 * @return il numero di tentativi che sono stati necessari al Breaker per
+	 * @return int numero di tentativi che sono stati necessari al Breaker per
 	 *         vincere.
 	 */
 	public int getAttempts() {
@@ -48,7 +48,7 @@ public class CurrentGameStats extends BoardObserver {
 	}
 
 	/**
-	 * Operazione di toggle sulle variabili private per indicare la vittoria del
+	 * Toggle sulle variabili private per indicare la vittoria del
 	 * Maker.
 	 */
 	public void toggleMakerWin() {
@@ -57,10 +57,10 @@ public class CurrentGameStats extends BoardObserver {
 	}
 
 	/**
-	 * Operazione di toggle sulle variabili private per indicare la vittoria del
+	 * Toggle sulle variabili private per indicare la vittoria del
 	 * Breaker.
 	 * 
-	 * @param attempts il numero di tentativi
+	 * @param attempts il numero di tentativi impiegati dal Breaker per vincere
 	 */
 	public void toggleBreakerWin(int attempts) {
 		hasMakerWon = false;
@@ -69,7 +69,7 @@ public class CurrentGameStats extends BoardObserver {
 	}
 
 	/**
-	 * Metodo che stabilisce la vittoria del player maker o meno.
+	 * Metodo che stabilisce la vittoria del giocatore Maker o meno.
 	 * 
 	 * @return boolean che indica se il Maker ha vinto o meno.
 	 */
@@ -78,7 +78,7 @@ public class CurrentGameStats extends BoardObserver {
 	}
 
 	/**
-	 * Metodo che stabilisce la vittoria del player breaker o meno.
+	 * Metodo che stabilisce la vittoria del giocatore Breaker o meno.
 	 * 
 	 * @return boolean che indica se il Breaker ha vinto o meno.
 	 */
@@ -89,8 +89,7 @@ public class CurrentGameStats extends BoardObserver {
 	/**
 	 * Metodo che comunica l'esito finale della partita corrente.
 	 * 
-	 * @return String che comunica il vincitore attuale della partita. In caso non
-	 *         ci siano vincitori non viene comunicato nulla.
+	 * @return String che comunica il vincitore attuale della partita
 	 */
 	public String getMessage() {
 		if (this.getHasBreakerWon()) {
@@ -98,7 +97,7 @@ public class CurrentGameStats extends BoardObserver {
 		} else if (this.hasMakerWon) {
 			return "The breaker didn't guess the combination. The maker wins";
 		} else
-			return "";
+			return "There are no losers and no winners";
 	}
 
 	@Override

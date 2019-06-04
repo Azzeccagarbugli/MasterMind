@@ -1,2 +1,2 @@
-Interactive Player/it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory
-Random Bot/it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory
+Interactive Player Maker/it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory
+Random Bot Maker/it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory

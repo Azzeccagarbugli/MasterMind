@@ -3,9 +3,8 @@ package it.unicam.cs.pa.mastermind.gamecore;
 import java.util.List;
 
 /**
- * La seguente classe <code>BoardController</code> fa parte del modello MVC
- * realizzato ed ha la responsabilità di gestire le interazioni che si
- * svlippuano all'interno della plancia di gioco.
+ * <b>Responsabilità</b>: gestire le interazioni dall'esterno e dirette alla
+ * modifica di un'istanza <code>BoardModel</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -13,14 +12,15 @@ import java.util.List;
 public class BoardController {
 
 	/**
-	 * Board di gioco.
+	 * L'istanza <code>BoardModel</code> che l'istanza di
+	 * <code>BoardCoordinator</code> corrente gestisce.
 	 */
 	private BoardModel board;
 
 	/**
-	 * Il costruttore permette di instanziare un nuovo BoardController.
+	 * Costruttore
 	 * 
-	 * @param newBoard la BoardModel che si desidera gestire
+	 * @param newBoard la <code>BoardModel</code> che si desidera gestire
 	 */
 	public BoardController(BoardModel newBoard) {
 		this.board = newBoard;
@@ -28,11 +28,12 @@ public class BoardController {
 
 	/**
 	 * Metodo che consente l'inserimento di un nuovo tentativo all'interno della
-	 * plancia di gioco.
+	 * <code>BoardModel</code>.
 	 * 
 	 * @param attempt la <code>List</code> di <code>ColorPegs</code> contenente i
-	 *                valori che si vogliono inserire all'interno della plancia
-	 * @return un booleano che determina l'esito dell'inserimento
+	 *                valori che si vogliono inserire all'interno della
+	 *                <code>BoardModel</code>
+	 * @return boolean a rappresentazione dell'esito dell'inserimento
 	 */
 	public boolean insertNewAttempt(List<ColorPegs> attempt) {
 		try {
@@ -45,11 +46,11 @@ public class BoardController {
 
 	/**
 	 * Metodo che consente l'inserimento di una sequenza da indovinare all'interno
-	 * della plancia di gioco.
+	 * della <code>BoardModel</code>.
 	 * 
 	 * @param toGuess la <code>List</code> di <code>ColorPegs</code> contenente i
 	 *                valori che si vogliono inserire come sequenza da indovinare.
-	 * @return un booleano che determina l'esito dell'inserimento
+	 * @return boolean a rappresentazione dell'esito dell'inserimento
 	 */
 	public boolean insertCodeToGuess(List<ColorPegs> toGuess) {
 		try {
@@ -61,10 +62,9 @@ public class BoardController {
 	}
 
 	/**
-	 * Metodo che restituisce la reference della board sulla quale è stato
-	 * instaziato il coordinator.
 	 * 
-	 * @return la <code>BoardModel</code> utilizzata
+	 * @return BoardModel su cui agisce l'istanza di <code>BoardCoordinator</code>
+	 *         corrente.
 	 */
 	public BoardModel getBoardReference() {
 		return this.board;

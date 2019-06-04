@@ -4,9 +4,7 @@ import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.RandomBotBreaker;
 
 /**
- * Classe concreta, la quale estende la classe astratta
- * <code>PlayerFacotry</code>, e consente la creazione di una factory di player
- * random bot breaker.
+ * Classe factory estensione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>RandomBotBreaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

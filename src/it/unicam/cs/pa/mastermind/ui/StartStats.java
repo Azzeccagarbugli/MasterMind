@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.mastermind.ui;
 
-import it.unicam.cs.pa.mastermind.gamecore.SingleGame;
+import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
+import it.unicam.cs.pa.mastermind.players.BadRegistryException;
 import it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
@@ -8,11 +9,8 @@ import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 
 /**
- * La classe StartStats consente di inizializzare dei settaggi per l'inizio di
- * un nuovo game. La modularità di questa classe rende il progetto altamente
- * flessibile, in quanto i parametri di gioco possono essere facilmente
- * modificati mediante dei metodi setters e getters che elogiano il concetto di
- * incapsulamento dell'intero parco software.
+ * <b>Responsabilità</b>: tenere traccia delle informazioni necessarie per poter
+ * iniziare una nuova partita.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -27,21 +25,23 @@ public class StartStats {
 	int lowTresholdLength;
 	int highTresholdLength;
 	int lowTresholdAttempts;
-	private SingleGame currentGame;
+	private SingleMatch currentGame;
 	private MakerFactoryRegistry makers;
+	private final String makersPath = "./Maker Factories.txt";
 	private BreakerFactoryRegistry breakers;
+	private final String breakersPath = "./Breaker Factories.txt";
 	private CodeMaker currentMaker;
 	private CodeBreaker currentBreaker;
 	private NewGameStats newGame;
 
-	public StartStats() {
+	public StartStats() throws BadRegistryException {
 		toContinue = true;
 		keepSettings = false;
 		lowTresholdLength = 1;
 		highTresholdLength = 10;
 		lowTresholdAttempts = 1;
-		makers = new MakerFactoryRegistry();
-		breakers = new BreakerFactoryRegistry();
+		makers = new MakerFactoryRegistry(makersPath);
+		breakers = new BreakerFactoryRegistry(breakersPath);
 	}
 
 	public NewGameStats getNewGame() {
@@ -116,11 +116,11 @@ public class StartStats {
 		this.lowTresholdAttempts = lowTresholdAttempts;
 	}
 
-	public SingleGame getCurrentGame() {
+	public SingleMatch getCurrentGame() {
 		return currentGame;
 	}
 
-	public void setCurrentGame(SingleGame currentGame) {
+	public void setCurrentGame(SingleMatch currentGame) {
 		this.currentGame = currentGame;
 	}
 
@@ -156,6 +156,9 @@ public class StartStats {
 		this.currentBreaker = currentBreaker;
 	}
 
+	/**
+	 * Vengono impostati i valori standard del numero di tentativi e della lunghezza delle sequenze
+	 */
 	public void resetLengthAttempts() {
 		this.attempts = 9;
 		this.sequenceLength = 4;

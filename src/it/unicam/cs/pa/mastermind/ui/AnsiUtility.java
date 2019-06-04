@@ -9,9 +9,6 @@ package it.unicam.cs.pa.mastermind.ui;
  *
  */
 public class AnsiUtility {
-	/**
-	 * Di seguito i vari colori disponibili per la codifica ANSI.
-	 */
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_WHITE_BOLD = "\033[1;37m";
 	public static final String ANSI_RED_BOLD = "\033[1;91m";

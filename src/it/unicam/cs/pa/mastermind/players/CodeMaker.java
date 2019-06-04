@@ -6,7 +6,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * Classe astratta relativa ai giocatori che forniscono la sequenza da codificare
+ * <b>Responsabilità</b>: gestire le interazioni del giocatore Maker
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -14,12 +14,11 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
 public abstract class CodeMaker {
 
 	/**
-	 * Restituisce la sequenza di pioli da indovinare.
+	 * Restituisce la sequenza di <code>ColorPegs</code> valida come sequenza da indovinare.
 	 * 
-	 * @param intManager l'InteractionView che si occupa della gestione delle scelte
-	 *                   del player
-	 * @return la lista contenente la sequenza corretta di colori da indovinare
+	 * @param intView necessario per ottenere informazioni riguardo il gioco
+	 * @return List di <code>ColorPegs</code> valida come sequenza da indovinare
 	 */
-	public abstract List<ColorPegs> getCodeToGuess(InteractionView intManager);
+	public abstract List<ColorPegs> getCodeToGuess(InteractionView intView);
 	
 }

@@ -6,33 +6,36 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * Classe astratta relativa ai giocatori che cercano di indovinare la sequenza.
+ * <b>Responsabilità</b>: gestire le interazioni del giocatore Breaker
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public abstract class CodeBreaker {
 
+	/**
+	 * Rappresenta la volontà del giocatore <code>CodeBreaker</code> di arrendersi o meno.
+	 */
 	private boolean giveUp = false;
 
 	/**
-	 * Restituisce la sequenza di pioli valida come singolo tentativo.
+	 * Restituisce la sequenza di <code>ColorPegs</code> valida come singolo tentativo.
 	 * 
-	 * @param intManager l'InteractionView che si occupa della gestione delle scelte
-	 *                   del player
-	 * @return la lista dei valori ottenuta
+	 * @param intView necessario per ottenere informazioni riguardo il gioco
+	 * @return List di <code>ColorPegs</code> valida come singolo tentativo
 	 */
-	public abstract List<ColorPegs> getAttempt(InteractionView intManager);
+	public abstract List<ColorPegs> getAttempt(InteractionView intView);
 
 	/**
-	 * Metodo invocabile dal giocatore per segnalare la volontà di arrendersi
+	 * Imposta la volontà del giocatore <code>CodeBreaker</code> di arrendersi.
 	 */
 	public void toggleGiveUp() {
 		giveUp = true;
 	}
 
 	/**
-	 * Metodo che restituisce la volontà del giocatore di arrendersi o meno
+	 * 
+	 * @return la volontà del giocatore <code>CodeBreaker</code> di arrendersi
 	 */
 	public boolean hasGivenUp() {
 		return giveUp;
