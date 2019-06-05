@@ -39,3 +39,5 @@ hs_err_pid*
 build
 /bin/
 
+# Gradle settings
+.settings/
