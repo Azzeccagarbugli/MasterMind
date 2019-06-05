@@ -1,7 +1,7 @@
 Introduzione
 =====================================
 Il progetto è stato indirizzato ad all'implementazione tramite linguaggio **Java** 
-del gioco da tavolo "Mastermind" [*]_. Nell'ideare la struttura del progetto si è puntato
+del gioco da tavolo **Mastermind** [*]_. Nell'ideare la struttura del progetto si è puntato
 alla **massima modularità possibile**, per quanto non totale, ottenuta tramite l'applicazione
 di determinati design pattern.
 
@@ -32,7 +32,8 @@ da ``MakerFactoryRegistry`` e ``BreakerFactoryRegistry``, classi che permettono 
 riguardo le factory puntate a generare istannze di classi estensione di ``CodeMaker`` e ``CodeBreaker``.
 Analogamente è possibile aggiungere classi estensione di ``StartView`` per fornire particolari *viste* indirizzate **all'interazione**
 con l'utente fisico durante l'impostazione e l'avvio di nuove partite. Ad ogni ``StartView`` si richiede di associare anche una classe
-che estenda ``InteractionView`` che sia **coerente** con la particolare estensione di StartView trattata.
+che estenda ``InteractionView`` che sia **coerente** con la particolare estensione di StartView trattata e di includere il metodo **main** per permettere
+l'avvio effettivo del programma. 
 
 Di default sono fornite delle implementazioni di quelle che sono le classi rappresentanti i giocatori e l'interazione con l'utente umano:
 

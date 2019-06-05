@@ -164,7 +164,7 @@
   <div class="section" id="introduzione">
 <h1>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h1>
 <p>Il progetto è stato indirizzato ad all’implementazione tramite linguaggio <strong>Java</strong>
-del gioco da tavolo «Mastermind» <a class="footnote-reference brackets" href="#id8" id="id1">*</a>. Nell’ideare la struttura del progetto si è puntato
+del gioco da tavolo <strong>Mastermind</strong> <a class="footnote-reference brackets" href="#id8" id="id1">*</a>. Nell’ideare la struttura del progetto si è puntato
 alla <strong>massima modularità possibile</strong>, per quanto non totale, ottenuta tramite l’applicazione
 di determinati design pattern.</p>
 <div class="section" id="struttura-fondamentale-del-progetto">
@@ -193,7 +193,8 @@ da <code class="docutils literal notranslate"><span class="pre">MakerFactoryRegi
 riguardo le factory puntate a generare istannze di classi estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.
 Analogamente è possibile aggiungere classi estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> per fornire particolari <em>viste</em> indirizzate <strong>all’interazione</strong>
 con l’utente fisico durante l’impostazione e l’avvio di nuove partite. Ad ogni <code class="docutils literal notranslate"><span class="pre">StartView</span></code> si richiede di associare anche una classe
-che estenda <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> che sia <strong>coerente</strong> con la particolare estensione di StartView trattata.</p>
+che estenda <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> che sia <strong>coerente</strong> con la particolare estensione di StartView trattata e di includere il metodo <strong>main</strong> per permettere
+l’avvio effettivo del programma.</p>
 <p>Di default sono fornite delle implementazioni di quelle che sono le classi rappresentanti i giocatori e l’interazione con l’utente umano:</p>
 <ul class="simple">
 <li><p><strong>ConsoleStartView</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code>, fornisce un’interazione con l’utente fisico per l’impostazione e l’avvio di nuove partite tramite console.</p></li>
