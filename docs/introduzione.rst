@@ -1,59 +1,96 @@
 Introduzione
 =====================================
-Il seguente parco software è stato realizzato secondo i principi **S.O.L.I.D**, che rendono 
-quest'utlimo *estremamente* modulabile, flessibile ed efficente. Il pattern di sviluppo
-adottato è stato l'**MVC**.
+Il progetto è stato indirizzato ad all'implementazione tramite linguaggio **Java** 
+del gioco da tavolo "Mastermind" [*]_. Nell'ideare la struttura del progetto si è puntato
+alla **massima modularità possibile**, per quanto non totale, ottenuta tramite l'applicazione
+di determinati design pattern.
 
-S.O.L.I.D
----------------------------
-
-Essi descrivono dei canoni fondamentali per andare ad organizzare l'intera struttura
-del codice in maniera **elegante** e **formale**:
-
-- Afferma che ogni classe dovrebbe avere una ed una sola responsabilità, interamente incapsulata al suo interno
-- Un'entità software dovrebbe essere aperta alle estensioni, ma chiusa alle modifiche
-- Gli oggetti dovrebbero poter essere sostituiti con dei loro sottotipi, senza alterare il comportamento del programma che li utilizza
-- Sarebbero preferibili più interfacce specifiche, che una singola generica
-- Una classe dovrebbe dipendere dalle astrazioni, non da classi concrete
-
-Model View Controller
---------------------------
-
-Qua ci scriviamo cose belline
-
-Scelta del progetto
-======================================
-**Mastermind** [1]_ o *Master Mind* è un gioco da tavolo astratto di *crittoanalisi* [2]_ per due giocatori, in cui un giocatore, il **"decodificatore"**, 
-deve indovinare il codice segreto composto dal suo avversario, detto **"codificatore"**.
-
-Interfaccia di gioco
+Struttura fondamentale del progetto
 --------------------------------------
-La realizzazione dell'*interfaccia grafica*, con la quale ci si confronta 
-all'interno del gioco, è stata realizzata all'interno della ``console`` stessa e presenta
-un aspetto di questo genere:
+L'idea alla base della struttura del gioco riguarda le *interazioni* tra l'utente umano ed un'istanza 
+di una classe che estende ``StartView``. Tramite questa interazione è possibile decidere quali impostazioni 
+e quali implementazioni dei giocatori, rispettivamente un ``CodeBreaker`` ed un ``CodeMaker``,
+impiegare all'interno di singole partite. I giocatori potranno poi interagire all'interno della partita
+comunicando con una istanza di una classe che estende ``InteractionView``, dalla quale ottengono informazioni 
+sulla partita in corso e grazie alla quale hanno una possibile interazione con l'utente umano, e con
+una istanza di ``BoardController``, alla quale **comunicano** decisioni di gioco quali la sequenza da indovinare o le sequenze 
+valide come tentativo per poter indovinare tale sequenza.
 
-.. image:: _static/table.png
+Alla base della sequenza, a rappresentazione dei pioli impiegati nel gioco originale, sono presenti valori della
+classe enum ``ColorPegs``, contenente otto colori.
 
-Come è possibile notare sono stati scelti i medesimi colori che venogno
-utilizzati all'interno delle regole ufficiali del gioco:
+Estendibilità ed implementazioni fornite di default
+-------------------------------------------------------
+Si è deciso di adottare una struttura molto rigida per quanto riguarda la rappresentazione dei pioli e della plancia
+di gioco, non offrendo possibilità di aggiungere ulteriori implementazioni o diversificazioni di quelle che sono le classi
+**ColorPegs**, **BoardModel** e **BoardCoordinator**.
+Diverso il discorso sul piano delle implementazioni di giocatori o delle interfacce di comunicazione con l'utente umano.
+È infatti possibile aggiungere classi che estendono ``CodeMaker`` e ``CodeBreaker``, fornendo anche le relative classi *factory* che estendono
+rispettivamente ``MakerFactory`` e ``BreakerFactory``, senza che il codice venga ricompilato. 
+Per fare ciò si è deciso di implementare una classe astratta ``PlayerFactoryRegistry``, estesa nel progetto in questione 
+da ``MakerFactoryRegistry`` e ``BreakerFactoryRegistry``, classi che permettono di **collezionare a runtime** informazioni 
+riguardo le factory puntate a generare istannze di classi estensione di ``CodeMaker`` e ``CodeBreaker``.
+Analogamente è possibile aggiungere classi estensione di ``StartView`` per fornire particolari *viste* indirizzate **all'interazione**
+con l'utente fisico durante l'impostazione e l'avvio di nuove partite. Ad ogni ``StartView`` si richiede di associare anche una classe
+che estenda ``InteractionView`` che sia **coerente** con la particolare estensione di StartView trattata.
 
-- Otto colori *(inclusi il bianco e nero)* descrivono quella che è la possibile sequenza da indovinare
-- Due colori, il **bianco** e il **nero**, descrivono invece la conferma di aver indovinato rispettivamente solo la presenza del colore o sia la presenza del colore che l'indice nella sequenza
+Di default sono fornite delle implementazioni di quelle che sono le classi rappresentanti i giocatori e l'interazione con l'utente umano:
 
-Menù di gioco
-----------------------------------------
-Attraverso il *menù di gioco* l'utente potrà selezionare la modalità di gioco con la quale desidera giocare:
+* **ConsoleStartView**: estensione di ``StartView``, fornisce un'interazione con l'utente fisico per l'impostazione e l'avvio di nuove partite tramite console.
 
-.. image:: _static/menu.png
+* **ConsoleInteractionView**: estensione di ``InteractionView``, è strettamente associata con la classe ``ConsoleStartView`` fornisce un'interazione con l'utente fisico in caso siano necessarie per *impartire* nuove decisioni durante lo svolgimento di una partita.
 
-1. **Human Breaker VS Human Maker**
-    - La seguente modalità consentirà a due player *umani* di effettuare un match. Uno dei due sarà colui che selezionerà la sequenza da decodificatore e l'altro invece avrà il ruolo di codificatore
-2. **Human Breaker VS Bot Maker**
-    - Mediante tale modalità l'utente *umano* cercherà di decodificare una sequenza prodotta in maniera del tutto casuale da un player *bot*
-3. **Bot Breaker VS Human Maker**
-    - Viene effettuato semplicemente il cambio dei ruoli rispetto a quello che era la modalità di gioco illustrata in precedenza
-4. **Bot Breaker VS Bot Maker**
-    - Verranno fatti scontrare semplicemente due *bot*, mediante dei meri e puri algoritmi  
+* **InteractiveMaker**: estensione di ``CodeMaker``, fornisce l'implementazione di un giocatore comandato dall'utente umano attraverso l'interazione fornita da una classe estensione di ``InteractionView``. È possibile ottenere istanze di questa estensione tramite la classe ``InteractiveMakerFactory``.
 
-.. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
-.. [2] `Crittoanalisi <https://it.wikipedia.org/wiki/Crittoanalisi>`_
+* **InteractiveBreaker**: estensione di ``CodeBreaker``, fornisce l'implementazione di un giocatore comandato dall'utente umano attraverso l'interazione fornita da una classe estensione di ``InteractionView``. È possibile ottenere istanze di questa estensione tramite la classe ``InteractiveBreakerFactory``.
+
+* **RandomBotMaker**: estensione di ``CodeMaker``, fornisce l'implementazione di un giocatore comandato da un **IA** che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe ``RandomBotMakerFactory``.
+
+* **RandomBotBreaker**: estensione di ``CodeBreaker``, fornisce l'implementazione di un giocatore comandato da un **IA** che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe ``RandomBotBreakerFactory``.
+
+Per ulteriori informazioni circa le classi elencate si rimanda alle relative `sezioni <source/packages>`. 
+
+
+Informazioni fondamentali circa il primo avvio
+--------------------------------------------------
+Il caricamento a **runtime** delle informazioni relative alle classi factory grazie alle quali ottenere istanze di classi che estendono
+``CodeBreaker`` e ``CodeMaker`` è stato reso possibile grazie alla lettura di specifici file testuali. In loro assenza il software creerà 
+dei file standard, comunicando all'utente questa decisione, da modificare **obbligatoriamente** con le giuste informazioni per avere un
+corretto avvio ed una corretta esecuzione del programma.
+
+Responsabilità delle classi
+--------------------------------------
+Si rimanda alle `sezioni <source/packages>` riguardanti le implementazioni delle singole classi per ulteriori informazioni.
+
+Design pattern impiegati 
+--------------------------------------
+1. **Model View Controller** [*]_
+Rappresenta la struttura alla base dell'intero gioco. È stata implementata tramite le classi ``StartView``, ``InteractionView``, ``BoardModel`` e ``BoardCoordinator``.
+
+2. **Observer** [*]_
+Implementato fornendo come classe da osservare ``BoardModel`` e come classi che osservano ``InteractionView`` e ``CurrentGameStats``. Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. La sua implementazione è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
+
+3. **Singleton** [*]_
+Presente all'interno delle classi ``ConsoleStartView`` e ``ConsoleInteractionView``, esso garantisce che siano presenti **singole** istanze di tali classi all'interno del progetto.
+
+4. **Factory** [*]_
+Implementato tramite l'interfaccia ``PlayerFactory``, implementata da ``BreakerFactory`` e ``MakerFactory``, **classi astratte** da estendere tramite classi factory che forniscano istanze di classi estensione rispettivamente di ``CodeBreaker`` e ``CodeMaker``.  
+
+Testing
+--------------------------------------
+Sono stati ideati dei test, scritti sotto ambiente **JUnit 5** [*]_, per poter testare in modo mirato le singole *funzionalità* del progetto.
+Per ulteriori informazioni si rimanda alle `sezioni <test/packages>` riguardanti le implementazioni di tali test.
+
+Gradle
+--------------------------------------
+Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [*]_, in versione 5.4.1, 
+per facilitare il deploy e la distribuzione di tale software all'interno di altri sistemi.
+
+
+.. [*] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
+.. [*] `MVC <https://it.wikipedia.org/wiki/Model-view-controller>`_
+.. [*] `Observer <https://italiancoders.it/observer-pattern/>`_
+.. [*] `Singleton <https://it.wikipedia.org/wiki/Singleton>`_
+.. [*] `Factory <https://italiancoders.it/factory-method-design-pattern/>`_
+.. [*] `JUnit <https://junit.org/junit5>`_
+.. [*] `Gradle <https://gradle.org/>`_

@@ -86,13 +86,13 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduzione</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#s-o-l-i-d">S.O.L.I.D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-view-controller">Model View Controller</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#scelta-del-progetto">Scelta del progetto</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#interfaccia-di-gioco">Interfaccia di gioco</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#menu-di-gioco">Menù di gioco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#struttura-fondamentale-del-progetto">Struttura fondamentale del progetto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#estendibilita-ed-implementazioni-fornite-di-default">Estendibilità ed implementazioni fornite di default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#informazioni-fondamentali-circa-il-primo-avvio">Informazioni fondamentali circa il primo avvio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#responsabilita-delle-classi">Responsabilità delle classi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-pattern-impiegati">Design pattern impiegati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gradle">Gradle</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/packages.html">Documentazione del codice</a></li>
@@ -163,83 +163,100 @@
             
   <div class="section" id="introduzione">
 <h1>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h1>
-<p>Il seguente parco software è stato realizzato secondo i principi <strong>S.O.L.I.D</strong>, che rendono
-quest’utlimo <em>estremamente</em> modulabile, flessibile ed efficente. Il pattern di sviluppo
-adottato è stato l”<strong>MVC</strong>.</p>
-<div class="section" id="s-o-l-i-d">
-<h2>S.O.L.I.D<a class="headerlink" href="#s-o-l-i-d" title="Link a questa intestazione">¶</a></h2>
-<p>Essi descrivono dei canoni fondamentali per andare ad organizzare l’intera struttura
-del codice in maniera <strong>elegante</strong> e <strong>formale</strong>:</p>
+<p>Il progetto è stato indirizzato ad all’implementazione tramite linguaggio <strong>Java</strong>
+del gioco da tavolo «Mastermind» <a class="footnote-reference brackets" href="#id8" id="id1">*</a>. Nell’ideare la struttura del progetto si è puntato
+alla <strong>massima modularità possibile</strong>, per quanto non totale, ottenuta tramite l’applicazione
+di determinati design pattern.</p>
+<div class="section" id="struttura-fondamentale-del-progetto">
+<h2>Struttura fondamentale del progetto<a class="headerlink" href="#struttura-fondamentale-del-progetto" title="Link a questa intestazione">¶</a></h2>
+<p>L’idea alla base della struttura del gioco riguarda le <em>interazioni</em> tra l’utente umano ed un’istanza
+di una classe che estende <code class="docutils literal notranslate"><span class="pre">StartView</span></code>. Tramite questa interazione è possibile decidere quali impostazioni
+e quali implementazioni dei giocatori, rispettivamente un <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> ed un <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>,
+impiegare all’interno di singole partite. I giocatori potranno poi interagire all’interno della partita
+comunicando con una istanza di una classe che estende <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, dalla quale ottengono informazioni
+sulla partita in corso e grazie alla quale hanno una possibile interazione con l’utente umano, e con
+una istanza di <code class="docutils literal notranslate"><span class="pre">BoardController</span></code>, alla quale <strong>comunicano</strong> decisioni di gioco quali la sequenza da indovinare o le sequenze
+valide come tentativo per poter indovinare tale sequenza.</p>
+<p>Alla base della sequenza, a rappresentazione dei pioli impiegati nel gioco originale, sono presenti valori della
+classe enum <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code>, contenente otto colori.</p>
+</div>
+<div class="section" id="estendibilita-ed-implementazioni-fornite-di-default">
+<h2>Estendibilità ed implementazioni fornite di default<a class="headerlink" href="#estendibilita-ed-implementazioni-fornite-di-default" title="Link a questa intestazione">¶</a></h2>
+<p>Si è deciso di adottare una struttura molto rigida per quanto riguarda la rappresentazione dei pioli e della plancia
+di gioco, non offrendo possibilità di aggiungere ulteriori implementazioni o diversificazioni di quelle che sono le classi
+<strong>ColorPegs</strong>, <strong>BoardModel</strong> e <strong>BoardCoordinator</strong>.
+Diverso il discorso sul piano delle implementazioni di giocatori o delle interfacce di comunicazione con l’utente umano.
+È infatti possibile aggiungere classi che estendono <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, fornendo anche le relative classi <em>factory</em> che estendono
+rispettivamente <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code>, senza che il codice venga ricompilato.
+Per fare ciò si è deciso di implementare una classe astratta <code class="docutils literal notranslate"><span class="pre">PlayerFactoryRegistry</span></code>, estesa nel progetto in questione
+da <code class="docutils literal notranslate"><span class="pre">MakerFactoryRegistry</span></code> e <code class="docutils literal notranslate"><span class="pre">BreakerFactoryRegistry</span></code>, classi che permettono di <strong>collezionare a runtime</strong> informazioni
+riguardo le factory puntate a generare istannze di classi estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.
+Analogamente è possibile aggiungere classi estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> per fornire particolari <em>viste</em> indirizzate <strong>all’interazione</strong>
+con l’utente fisico durante l’impostazione e l’avvio di nuove partite. Ad ogni <code class="docutils literal notranslate"><span class="pre">StartView</span></code> si richiede di associare anche una classe
+che estenda <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> che sia <strong>coerente</strong> con la particolare estensione di StartView trattata.</p>
+<p>Di default sono fornite delle implementazioni di quelle che sono le classi rappresentanti i giocatori e l’interazione con l’utente umano:</p>
 <ul class="simple">
-<li><p>Afferma che ogni classe dovrebbe avere una ed una sola responsabilità, interamente incapsulata al suo interno</p></li>
-<li><p>Un’entità software dovrebbe essere aperta alle estensioni, ma chiusa alle modifiche</p></li>
-<li><p>Gli oggetti dovrebbero poter essere sostituiti con dei loro sottotipi, senza alterare il comportamento del programma che li utilizza</p></li>
-<li><p>Sarebbero preferibili più interfacce specifiche, che una singola generica</p></li>
-<li><p>Una classe dovrebbe dipendere dalle astrazioni, non da classi concrete</p></li>
+<li><p><strong>ConsoleStartView</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code>, fornisce un’interazione con l’utente fisico per l’impostazione e l’avvio di nuove partite tramite console.</p></li>
+<li><p><strong>ConsoleInteractionView</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, è strettamente associata con la classe <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code> fornisce un’interazione con l’utente fisico in caso siano necessarie per <em>impartire</em> nuove decisioni durante lo svolgimento di una partita.</p></li>
+<li><p><strong>InteractiveMaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>, fornisce l’implementazione di un giocatore comandato dall’utente umano attraverso l’interazione fornita da una classe estensione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">InteractiveMakerFactory</span></code>.</p></li>
+<li><p><strong>InteractiveBreaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, fornisce l’implementazione di un giocatore comandato dall’utente umano attraverso l’interazione fornita da una classe estensione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">InteractiveBreakerFactory</span></code>.</p></li>
+<li><p><strong>RandomBotMaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>, fornisce l’implementazione di un giocatore comandato da un <strong>IA</strong> che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">RandomBotMakerFactory</span></code>.</p></li>
+<li><p><strong>RandomBotBreaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, fornisce l’implementazione di un giocatore comandato da un <strong>IA</strong> che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">RandomBotBreakerFactory</span></code>.</p></li>
 </ul>
+<p>Per ulteriori informazioni circa le classi elencate si rimanda alle relative <cite>sezioni &lt;source/packages&gt;</cite>.</p>
 </div>
-<div class="section" id="model-view-controller">
-<h2>Model View Controller<a class="headerlink" href="#model-view-controller" title="Link a questa intestazione">¶</a></h2>
-<p>Qua ci scriviamo cose belline</p>
+<div class="section" id="informazioni-fondamentali-circa-il-primo-avvio">
+<h2>Informazioni fondamentali circa il primo avvio<a class="headerlink" href="#informazioni-fondamentali-circa-il-primo-avvio" title="Link a questa intestazione">¶</a></h2>
+<p>Il caricamento a <strong>runtime</strong> delle informazioni relative alle classi factory grazie alle quali ottenere istanze di classi che estendono
+<code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> è stato reso possibile grazie alla lettura di specifici file testuali. In loro assenza il software creerà
+dei file standard, comunicando all’utente questa decisione, da modificare <strong>obbligatoriamente</strong> con le giuste informazioni per avere un
+corretto avvio ed una corretta esecuzione del programma.</p>
 </div>
+<div class="section" id="responsabilita-delle-classi">
+<h2>Responsabilità delle classi<a class="headerlink" href="#responsabilita-delle-classi" title="Link a questa intestazione">¶</a></h2>
+<p>Si rimanda alle <cite>sezioni &lt;source/packages&gt;</cite> riguardanti le implementazioni delle singole classi per ulteriori informazioni.</p>
 </div>
-<div class="section" id="scelta-del-progetto">
-<h1>Scelta del progetto<a class="headerlink" href="#scelta-del-progetto" title="Link a questa intestazione">¶</a></h1>
-<p><strong>Mastermind</strong> <a class="footnote-reference brackets" href="#id3" id="id1">1</a> o <em>Master Mind</em> è un gioco da tavolo astratto di <em>crittoanalisi</em> <a class="footnote-reference brackets" href="#id4" id="id2">2</a> per due giocatori, in cui un giocatore, il <strong>«decodificatore»</strong>,
-deve indovinare il codice segreto composto dal suo avversario, detto <strong>«codificatore»</strong>.</p>
-<div class="section" id="interfaccia-di-gioco">
-<h2>Interfaccia di gioco<a class="headerlink" href="#interfaccia-di-gioco" title="Link a questa intestazione">¶</a></h2>
-<p>La realizzazione dell”<em>interfaccia grafica</em>, con la quale ci si confronta
-all’interno del gioco, è stata realizzata all’interno della <code class="docutils literal notranslate"><span class="pre">console</span></code> stessa e presenta
-un aspetto di questo genere:</p>
-<img alt="_images/table.png" src="_images/table.png" />
-<p>Come è possibile notare sono stati scelti i medesimi colori che venogno
-utilizzati all’interno delle regole ufficiali del gioco:</p>
-<ul class="simple">
-<li><p>Otto colori <em>(inclusi il bianco e nero)</em> descrivono quella che è la possibile sequenza da indovinare</p></li>
-<li><p>Due colori, il <strong>bianco</strong> e il <strong>nero</strong>, descrivono invece la conferma di aver indovinato rispettivamente solo la presenza del colore o sia la presenza del colore che l’indice nella sequenza</p></li>
-</ul>
+<div class="section" id="design-pattern-impiegati">
+<h2>Design pattern impiegati<a class="headerlink" href="#design-pattern-impiegati" title="Link a questa intestazione">¶</a></h2>
+<p>1. <strong>Model View Controller</strong> <a class="footnote-reference brackets" href="#id9" id="id2">†</a>
+Rappresenta la struttura alla base dell’intero gioco. È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">StartView</span></code>, <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>.</p>
+<p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id10" id="id3">‡</a>
+Implementato fornendo come classe da osservare <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e come classi che osservano <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> e <code class="docutils literal notranslate"><span class="pre">CurrentGameStats</span></code>. Dalla versione 9 di Java l’interfaccia Observer, pensata nell’ottica di questo design pattern, risulta deprecata. La sua implementazione è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.</p>
+<p>3. <strong>Singleton</strong> <a class="footnote-reference brackets" href="#id11" id="id4">§</a>
+Presente all’interno delle classi <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code> e <code class="docutils literal notranslate"><span class="pre">ConsoleInteractionView</span></code>, esso garantisce che siano presenti <strong>singole</strong> istanze di tali classi all’interno del progetto.</p>
+<p>4. <strong>Factory</strong> <a class="footnote-reference brackets" href="#id12" id="id5">¶</a>
+Implementato tramite l’interfaccia <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code>, implementata da <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>, <strong>classi astratte</strong> da estendere tramite classi factory che forniscano istanze di classi estensione rispettivamente di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p>
 </div>
-<div class="section" id="menu-di-gioco">
-<h2>Menù di gioco<a class="headerlink" href="#menu-di-gioco" title="Link a questa intestazione">¶</a></h2>
-<p>Attraverso il <em>menù di gioco</em> l’utente potrà selezionare la modalità di gioco con la quale desidera giocare:</p>
-<img alt="_images/menu.png" src="_images/menu.png" />
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt><strong>Human Breaker VS Human Maker</strong></dt><dd><ul class="simple">
-<li><p>La seguente modalità consentirà a due player <em>umani</em> di effettuare un match. Uno dei due sarà colui che selezionerà la sequenza da decodificatore e l’altro invece avrà il ruolo di codificatore</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Human Breaker VS Bot Maker</strong></dt><dd><ul class="simple">
-<li><p>Mediante tale modalità l’utente <em>umano</em> cercherà di decodificare una sequenza prodotta in maniera del tutto casuale da un player <em>bot</em></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Bot Breaker VS Human Maker</strong></dt><dd><ul class="simple">
-<li><p>Viene effettuato semplicemente il cambio dei ruoli rispetto a quello che era la modalità di gioco illustrata in precedenza</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Bot Breaker VS Bot Maker</strong></dt><dd><ul class="simple">
-<li><p>Verranno fatti scontrare semplicemente due <em>bot</em>, mediante dei meri e puri algoritmi</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ol>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link a questa intestazione">¶</a></h2>
+<p>Sono stati ideati dei test, scritti sotto ambiente <strong>JUnit 5</strong> <a class="footnote-reference brackets" href="#id13" id="id6">#</a>, per poter testare in modo mirato le singole <em>funzionalità</em> del progetto.
+Per ulteriori informazioni si rimanda alle <cite>sezioni &lt;test/packages&gt;</cite> riguardanti le implementazioni di tali test.</p>
+</div>
+<div class="section" id="gradle">
+<h2>Gradle<a class="headerlink" href="#gradle" title="Link a questa intestazione">¶</a></h2>
+<p>Nell’ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building <strong>Gradle</strong> <a class="footnote-reference brackets" href="#id14" id="id7">♠</a>, in versione 5.4.1,
+per facilitare il deploy e la distribuzione di tale software all’interno di altri sistemi.</p>
 <dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">*</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Mastermind">Mastermind</a></p>
 </dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Crittoanalisi">Crittoanalisi</a></p>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">†</a></span></dt>
+<dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Model-view-controller">MVC</a></p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">‡</a></span></dt>
+<dd><p><a class="reference external" href="https://italiancoders.it/observer-pattern/">Observer</a></p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">§</a></span></dt>
+<dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Singleton">Singleton</a></p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">¶</a></span></dt>
+<dd><p><a class="reference external" href="https://italiancoders.it/factory-method-design-pattern/">Factory</a></p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">#</a></span></dt>
+<dd><p><a class="reference external" href="https://junit.org/junit5">JUnit</a></p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">♠</a></span></dt>
+<dd><p><a class="reference external" href="https://gradle.org/">Gradle</a></p>
 </dd>
 </dl>
 </div>
