@@ -5,7 +5,7 @@ package it.unicam.cs.pa.mastermind.players;
  * problema nell'inizializzazione di istanze di
  * <code>PlayerFactoryRegistry</code>
  * 
- * @author Francesco
+ * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public class BadRegistryException extends Exception {
