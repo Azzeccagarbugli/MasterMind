@@ -5,4 +5,4 @@ jdk:
   - oraclejdk11
 
 script:
-  - gradle build --scan -s
+  - ./gradlew build --scan -s

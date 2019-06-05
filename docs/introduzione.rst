@@ -84,7 +84,7 @@ Per ulteriori informazioni si rimanda alle `sezioni <test/packages>` riguardanti
 
 Gradle
 --------------------------------------
-Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [*]_, in versione 5.4.1, 
+Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [*]_, in versione 5.1.1, 
 per facilitare il deploy e la distribuzione di tale software all'interno di altri sistemi.
 
 
