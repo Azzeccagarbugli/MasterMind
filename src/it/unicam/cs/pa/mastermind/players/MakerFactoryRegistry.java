@@ -1,6 +1,5 @@
 package it.unicam.cs.pa.mastermind.players;
 
-import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 
 /**
