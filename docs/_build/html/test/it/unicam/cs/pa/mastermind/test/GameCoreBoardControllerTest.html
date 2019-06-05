@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GameCoreBoardControllerTest &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="next" title="GameCoreBoardModelTest" href="GameCoreBoardModelTest.html" />
+    <link rel="prev" title="it.unicam.cs.pa.mastermind.test" href="package-index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="../../../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../source/packages.html">Documentazione del codice</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Test realizzati in JUnit</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.test</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GameCoreBoardControllerTest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="GameCoreBoardModelTest.html">GameCoreBoardModelTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayersFactoryRegistry.html">PlayersFactoryRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayersInteractiveBreakerTest.html">PlayersInteractiveBreakerTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayersInteractiveMakerTest.html">PlayersInteractiveMakerTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayersRandomBotBreakerTest.html">PlayersRandomBotBreakerTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayersRandomBotMakerTest.html">PlayersRandomBotMakerTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SimulationGame.html">SimulationGame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UIConsoleInteractionViewTest.html">UIConsoleInteractionViewTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UIConsoleStartViewTest.html">UIConsoleStartViewTest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../../packages.html">Test realizzati in JUnit</a> &raquo;</li>
+        
+          <li><a href="package-index.html">it.unicam.cs.pa.mastermind.test</a> &raquo;</li>
+        
+      <li>GameCoreBoardControllerTest</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gamecoreboardcontrollertest">
+<h1>GameCoreBoardControllerTest<a class="headerlink" href="#gamecoreboardcontrollertest" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest">
+ class <code class="descname">GameCoreBoardControllerTest</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test di controllo utili alle meccaniche del coordinatore di gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="attempt">
+<h3>attempt<a class="headerlink" href="#attempt" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.attempt">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">attempt</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.attempt" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="toguess">
+<h3>toGuess<a class="headerlink" href="#toguess" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.toGuess">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">toGuess</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.toGuess" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="setup">
+<h3>setUp<a class="headerlink" href="#setup" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.setUp()">
+ void <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.setUp()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Setup of the board runned before each other test.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="testboardcontroller">
+<h3>testBoardController<a class="headerlink" href="#testboardcontroller" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testBoardController()">
+ void <code class="descname">testBoardController</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testBoardController()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test method for <a class="reference external" href="https://docs.oracle.com/en/java/javase/12/docs/api/index.html/it/unicam/cs/pa/mastermind/gamecore/BoardController.html#BoardController(it.unicam.cs.pa.mastermind.gamecore.BoardModel)" title="it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(it.unicam.cs.pa.mastermind.gamecore.BoardModel)"><code class="xref java java-ref docutils literal notranslate"><span class="pre">it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(it.unicam.cs.pa.mastermind.gamecore.BoardModel)</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="testgetboardreference">
+<h3>testGetBoardReference<a class="headerlink" href="#testgetboardreference" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testGetBoardReference()">
+ void <code class="descname">testGetBoardReference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testGetBoardReference()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test method for <a class="reference internal" href="../../../../../../../source/it/unicam/cs/pa/mastermind/gamecore/BoardController.html#it.unicam.cs.pa.mastermind.gamecore.BoardController.getBoardReference()" title="it.unicam.cs.pa.mastermind.gamecore.BoardController.getBoardReference()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">it.unicam.cs.pa.mastermind.gamecore.BoardController.getBoardReference()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="testgetsequencelength">
+<h3>testGetSequenceLength<a class="headerlink" href="#testgetsequencelength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testGetSequenceLength()">
+ void <code class="descname">testGetSequenceLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testGetSequenceLength()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test method for <a class="reference external" href="https://docs.oracle.com/en/java/javase/12/docs/api/index.html/it/unicam/cs/pa/mastermind/gamecore/BoardController.html#getSequenceLength()" title="it.unicam.cs.pa.mastermind.gamecore.BoardController.getSequenceLength()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">it.unicam.cs.pa.mastermind.gamecore.BoardController.getSequenceLength()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="testgetsequencetoguess">
+<h3>testGetSequenceToGuess<a class="headerlink" href="#testgetsequencetoguess" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testGetSequenceToGuess()">
+ void <code class="descname">testGetSequenceToGuess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testGetSequenceToGuess()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test method for <a class="reference external" href="https://docs.oracle.com/en/java/javase/12/docs/api/index.html/it/unicam/cs/pa/mastermind/gamecore/BoardController.html#getSequenceToGuess()" title="it.unicam.cs.pa.mastermind.gamecore.BoardController.getSequenceToGuess()"><code class="xref java java-ref docutils literal notranslate"><span class="pre">it.unicam.cs.pa.mastermind.gamecore.BoardController.getSequenceToGuess()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="testinsertcodetoguess">
+<h3>testInsertCodeToGuess<a class="headerlink" href="#testinsertcodetoguess" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testInsertCodeToGuess()">
+ void <code class="descname">testInsertCodeToGuess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testInsertCodeToGuess()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test method for <a class="reference external" href="https://docs.oracle.com/en/java/javase/12/docs/api/index.html/it/unicam/cs/pa/mastermind/gamecore/BoardController.html#insertCodeToGuess(java.util.List)" title="it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(java.util.List)"><code class="xref java java-ref docutils literal notranslate"><span class="pre">it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(java.util.List)</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="testinsertnewattempt">
+<h3>testInsertNewAttempt<a class="headerlink" href="#testinsertnewattempt" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testInsertNewAttempt()">
+ void <code class="descname">testInsertNewAttempt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.testInsertNewAttempt()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Test method for <a class="reference external" href="https://docs.oracle.com/en/java/javase/12/docs/api/index.html/it/unicam/cs/pa/mastermind/gamecore/BoardController.html#insertNewAttempt(java.util.List)" title="it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(java.util.List)"><code class="xref java java-ref docutils literal notranslate"><span class="pre">it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(java.util.List)</span></code></a>.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="GameCoreBoardModelTest.html" class="btn btn-neutral float-right" title="GameCoreBoardModelTest" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="package-index.html" class="btn btn-neutral float-left" title="it.unicam.cs.pa.mastermind.test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

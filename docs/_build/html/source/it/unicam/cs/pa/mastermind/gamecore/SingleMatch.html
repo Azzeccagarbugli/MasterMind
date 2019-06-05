@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SingleMatch &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="next" title="it.unicam.cs.pa.mastermind.players" href="../players/package-index.html" />
+    <link rel="prev" title="NewGameStats" href="NewGameStats.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="../../../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html#scelta-del-progetto">Scelta del progetto</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BoardController.html">BoardController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CurrentGameStats.html">CurrentGameStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NewGameStats.html">NewGameStats</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SingleMatch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../test/packages.html">Test realizzati in JUnit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../../packages.html">Documentazione del codice</a> &raquo;</li>
+        
+          <li><a href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a> &raquo;</li>
+        
+      <li>SingleMatch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="singlematch">
+<h1>SingleMatch<a class="headerlink" href="#singlematch" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch">
+public class <code class="descname">SingleMatch</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch" title="Link a questa definizione">¶</a></dt>
+<dd><p><strong>Responsabilità</strong>: gestione dello svolgimento di una singola partita di gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="gamestats">
+<h3>gameStats<a class="headerlink" href="#gamestats" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameStats">
+ <a class="reference internal" href="CurrentGameStats.html#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats" title="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats">CurrentGameStats</a> <code class="descname">gameStats</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameStats" title="Link a questa definizione">¶</a></dt>
+<dd><p>Oggetto contenente informazioni relative al vincitore della partita in corso.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="id1">
+<h3>SingleMatch<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<dl class="constructor">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, InteractionView, CodeBreaker, CodeMaker)">
+public <code class="descname">SingleMatch</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../ui/InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><em> view</em>, <a class="reference internal" href="../players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><em> currentBreaker</em>, <a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a><em> currentMaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, InteractionView, CodeBreaker, CodeMaker)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore di una singola partita</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequenceLength</strong> – relativa alle sequenze di <code class="docutils literal notranslate"><span class="pre">CodePegs</span></code> impiegate nella partita.</p></li>
+<li><p><strong>attempts</strong> – massimi per il giocatore Breaker per indovinare.</p></li>
+<li><p><strong>view</strong> – Istanza della particolare implementazione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> scelta per l’istanza di partita in corso.</p></li>
+<li><p><strong>currentBreaker</strong> – istanza del giocatore che decodifica.</p></li>
+<li><p><strong>currentMaker</strong> – istanza del giocatore che codifica.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="start">
+<h3>start<a class="headerlink" href="#start" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.start()">
+public void <code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.start()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Avvio e gestione completa di una singola partita di gioco.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../players/package-index.html" class="btn btn-neutral float-right" title="it.unicam.cs.pa.mastermind.players" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="NewGameStats.html" class="btn btn-neutral float-left" title="NewGameStats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
