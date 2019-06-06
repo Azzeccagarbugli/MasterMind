@@ -27,6 +27,8 @@ l’applicazione di determinati design pattern.
 
 # Struttura fondamentale del progetto
 
+<img src="./docs/_static/viewmodel.svg">
+
 L’idea alla base della struttura del gioco riguarda le *interazioni* tra
 l’utente umano ed un’istanza di una classe che estende `StartView`.
 Tramite questa interazione è possibile decidere quali impostazioni e

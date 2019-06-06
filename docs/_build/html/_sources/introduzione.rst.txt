@@ -7,6 +7,9 @@ di determinati design pattern.
 
 Struttura fondamentale del progetto
 --------------------------------------
+
+.. image:: _static/viewmodel.svg
+
 L'idea alla base della struttura del gioco riguarda le *interazioni* tra l'utente umano ed un'istanza 
 di una classe che estende ``StartView``. Tramite questa interazione è possibile decidere quali impostazioni 
 e quali implementazioni dei giocatori, rispettivamente un ``CodeBreaker`` ed un ``CodeMaker``,
@@ -49,7 +52,7 @@ Di default sono fornite delle implementazioni di quelle che sono le classi rappr
 
 * **RandomBotBreaker**: estensione di ``CodeBreaker``, fornisce l'implementazione di un giocatore comandato da un **IA** che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe ``RandomBotBreakerFactory``.
 
-Per ulteriori informazioni circa le classi elencate si rimanda alle relative `sezioni <source/packages>`. 
+Per ulteriori informazioni circa le classi elencate si rimanda alle relative :doc:`sezioni <source/packages>`. 
 
 
 Informazioni fondamentali circa il primo avvio
@@ -61,7 +64,7 @@ corretto avvio ed una corretta esecuzione del programma.
 
 Responsabilità delle classi
 --------------------------------------
-Si rimanda alle `sezioni <source/packages>` riguardanti le implementazioni delle singole classi per ulteriori informazioni.
+Si rimanda alle :doc:`sezioni <source/packages>` riguardanti le implementazioni delle singole classi per ulteriori informazioni.
 
 Design pattern impiegati 
 --------------------------------------
@@ -80,7 +83,7 @@ Implementato tramite l'interfaccia ``PlayerFactory``, implementata da ``BreakerF
 Testing
 --------------------------------------
 Sono stati ideati dei test, scritti sotto ambiente **JUnit 5** [*]_, per poter testare in modo mirato le singole *funzionalità* del progetto.
-Per ulteriori informazioni si rimanda alle `sezioni <test/packages>` riguardanti le implementazioni di tali test.
+Per ulteriori informazioni si rimanda alle :doc:`sezioni <test/packages>`  riguardanti le implementazioni di tali test.
 
 Gradle
 --------------------------------------
