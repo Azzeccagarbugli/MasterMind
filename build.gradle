@@ -38,5 +38,10 @@ test {
     useJUnitPlatform()
 }
 
+buildScan {
+    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+    termsOfServiceAgree = 'yes'
+}
+
 // Define the main class for the application
 mainClassName = 'it.unicam.cs.pa.mastermind.ui.ConsoleStartView'
