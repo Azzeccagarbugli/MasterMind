@@ -15,6 +15,7 @@
 <a href="https://www.github.io/azzeccagarbugli/MasterMind">• Documentazione</a>
 <a href="https://it.wikipedia.org/wiki/Licenza_MIT">• Licenza</a>
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">• Contribuisci</a>
+<a href="https://travis-ci.com/Azzeccagarbugli/MasterMind">• <img src="https://travis-ci.com/Azzeccagarbugli/MasterMind.svg?token=AExPBgyhQEbq8cihCQQs&branch=master"></img></a>
 </b></p>
 
 # Introduzione

@@ -9,7 +9,8 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * Estensione di <code>CodeBreaker</code> mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
+ * Estensione di <code>CodeBreaker</code> mirata ad una gestione del
+ * comportamento del giocatore tramite interazioni con l'utente umano.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
