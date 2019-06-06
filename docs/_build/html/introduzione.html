@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="genindex.html" />
     <link rel="search" title="Cerca" href="search.html" />
-    <link rel="next" title="Documentazione del codice" href="source/packages.html" />
+    <link rel="next" title="Sphinx e le sue potenzialità" href="sphinx.html" />
     <link rel="prev" title="Benvenuto alla documentazione di MasterMind!" href="index.html" /> 
 </head>
 
@@ -95,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#gradle">Gradle</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/packages.html">Documentazione del codice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test/packages.html">Test realizzati in JUnit</a></li>
 </ul>
@@ -164,12 +165,13 @@
   <div class="section" id="introduzione">
 <h1>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h1>
 <p>Il progetto è stato indirizzato ad all’implementazione tramite linguaggio <strong>Java</strong>
-del gioco da tavolo <strong>Mastermind</strong> <a class="footnote-reference brackets" href="#id8" id="id1">*</a>. Nell’ideare la struttura del progetto si è puntato
+del gioco da tavolo <strong>Mastermind</strong> <a class="footnote-reference brackets" href="#id8" id="id1">1</a>. Nell’ideare la struttura del progetto si è puntato
 alla <strong>massima modularità possibile</strong>, per quanto non totale, ottenuta tramite l’applicazione
 di determinati design pattern.</p>
 <div class="section" id="struttura-fondamentale-del-progetto">
 <h2>Struttura fondamentale del progetto<a class="headerlink" href="#struttura-fondamentale-del-progetto" title="Link a questa intestazione">¶</a></h2>
-<img alt="_images/viewmodel.svg" src="_images/viewmodel.svg" /><p>L’idea alla base della struttura del gioco riguarda le <em>interazioni</em> tra l’utente umano ed un’istanza
+<img alt="_images/MasterMind.png" src="_images/MasterMind.png" />
+<p>L’idea alla base della struttura del gioco riguarda le <em>interazioni</em> tra l’utente umano ed un’istanza
 di una classe che estende <code class="docutils literal notranslate"><span class="pre">StartView</span></code>. Tramite questa interazione è possibile decidere quali impostazioni
 e quali implementazioni dei giocatori, rispettivamente un <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> ed un <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>,
 impiegare all’interno di singole partite. I giocatori potranno poi interagire all’interno della partita
@@ -219,44 +221,44 @@ corretto avvio ed una corretta esecuzione del programma.</p>
 </div>
 <div class="section" id="design-pattern-impiegati">
 <h2>Design pattern impiegati<a class="headerlink" href="#design-pattern-impiegati" title="Link a questa intestazione">¶</a></h2>
-<p>1. <strong>Model View Controller</strong> <a class="footnote-reference brackets" href="#id9" id="id2">†</a>
+<p>1. <strong>Model View Controller</strong> <a class="footnote-reference brackets" href="#id9" id="id2">2</a>
 Rappresenta la struttura alla base dell’intero gioco. È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">StartView</span></code>, <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>.</p>
-<p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id10" id="id3">‡</a>
+<p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id10" id="id3">3</a>
 Implementato fornendo come classe da osservare <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e come classi che osservano <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> e <code class="docutils literal notranslate"><span class="pre">CurrentGameStats</span></code>. Dalla versione 9 di Java l’interfaccia Observer, pensata nell’ottica di questo design pattern, risulta deprecata. La sua implementazione è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.</p>
-<p>3. <strong>Singleton</strong> <a class="footnote-reference brackets" href="#id11" id="id4">§</a>
+<p>3. <strong>Singleton</strong> <a class="footnote-reference brackets" href="#id11" id="id4">4</a>
 Presente all’interno delle classi <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code> e <code class="docutils literal notranslate"><span class="pre">ConsoleInteractionView</span></code>, esso garantisce che siano presenti <strong>singole</strong> istanze di tali classi all’interno del progetto.</p>
-<p>4. <strong>Factory</strong> <a class="footnote-reference brackets" href="#id12" id="id5">¶</a>
+<p>4. <strong>Factory</strong> <a class="footnote-reference brackets" href="#id12" id="id5">5</a>
 Implementato tramite l’interfaccia <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code>, implementata da <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>, <strong>classi astratte</strong> da estendere tramite classi factory che forniscano istanze di classi estensione rispettivamente di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p>
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Link a questa intestazione">¶</a></h2>
-<p>Sono stati ideati dei test, scritti sotto ambiente <strong>JUnit 5</strong> <a class="footnote-reference brackets" href="#id13" id="id6">#</a>, per poter testare in modo mirato le singole <em>funzionalità</em> del progetto.
+<p>Sono stati ideati dei test, scritti sotto ambiente <strong>JUnit 5</strong> <a class="footnote-reference brackets" href="#id13" id="id6">6</a>, per poter testare in modo mirato le singole <em>funzionalità</em> del progetto.
 Per ulteriori informazioni si rimanda alle <a class="reference internal" href="test/packages.html"><span class="doc">sezioni</span></a>  riguardanti le implementazioni di tali test.</p>
 </div>
 <div class="section" id="gradle">
 <h2>Gradle<a class="headerlink" href="#gradle" title="Link a questa intestazione">¶</a></h2>
-<p>Nell’ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building <strong>Gradle</strong> <a class="footnote-reference brackets" href="#id14" id="id7">♠</a>, in versione 5.1.1,
+<p>Nell’ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building <strong>Gradle</strong> <a class="footnote-reference brackets" href="#id14" id="id7">7</a>, in versione 5.1.1,
 per facilitare il deploy e la distribuzione di tale software all’interno di altri sistemi.</p>
 <dl class="footnote brackets">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">*</a></span></dt>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Mastermind">Mastermind</a></p>
 </dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">†</a></span></dt>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Model-view-controller">MVC</a></p>
 </dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">‡</a></span></dt>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p><a class="reference external" href="https://italiancoders.it/observer-pattern/">Observer</a></p>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">§</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Singleton">Singleton</a></p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">¶</a></span></dt>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p><a class="reference external" href="https://italiancoders.it/factory-method-design-pattern/">Factory</a></p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">#</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
 <dd><p><a class="reference external" href="https://junit.org/junit5">JUnit</a></p>
 </dd>
-<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">♠</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
 <dd><p><a class="reference external" href="https://gradle.org/">Gradle</a></p>
 </dd>
 </dl>
@@ -271,7 +273,7 @@ per facilitare il deploy e la distribuzione di tale software all’interno di al
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="source/packages.html" class="btn btn-neutral float-right" title="Documentazione del codice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sphinx.html" class="btn btn-neutral float-right" title="Sphinx e le sue potenzialità" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Benvenuto alla documentazione di MasterMind!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

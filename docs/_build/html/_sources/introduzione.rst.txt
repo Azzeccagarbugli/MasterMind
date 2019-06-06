@@ -1,14 +1,14 @@
 Introduzione
 =====================================
 Il progetto è stato indirizzato ad all'implementazione tramite linguaggio **Java** 
-del gioco da tavolo **Mastermind** [*]_. Nell'ideare la struttura del progetto si è puntato
+del gioco da tavolo **Mastermind** [1]_. Nell'ideare la struttura del progetto si è puntato
 alla **massima modularità possibile**, per quanto non totale, ottenuta tramite l'applicazione
 di determinati design pattern.
 
 Struttura fondamentale del progetto
 --------------------------------------
 
-.. image:: _static/viewmodel.svg
+.. image:: _static/MasterMind.png
 
 L'idea alla base della struttura del gioco riguarda le *interazioni* tra l'utente umano ed un'istanza 
 di una classe che estende ``StartView``. Tramite questa interazione è possibile decidere quali impostazioni 
@@ -68,33 +68,33 @@ Si rimanda alle :doc:`sezioni <source/packages>` riguardanti le implementazioni 
 
 Design pattern impiegati 
 --------------------------------------
-1. **Model View Controller** [*]_
+1. **Model View Controller** [2]_
 Rappresenta la struttura alla base dell'intero gioco. È stata implementata tramite le classi ``StartView``, ``InteractionView``, ``BoardModel`` e ``BoardCoordinator``.
 
-2. **Observer** [*]_
+2. **Observer** [3]_
 Implementato fornendo come classe da osservare ``BoardModel`` e come classi che osservano ``InteractionView`` e ``CurrentGameStats``. Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. La sua implementazione è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
 
-3. **Singleton** [*]_
+3. **Singleton** [4]_
 Presente all'interno delle classi ``ConsoleStartView`` e ``ConsoleInteractionView``, esso garantisce che siano presenti **singole** istanze di tali classi all'interno del progetto.
 
-4. **Factory** [*]_
+4. **Factory** [5]_
 Implementato tramite l'interfaccia ``PlayerFactory``, implementata da ``BreakerFactory`` e ``MakerFactory``, **classi astratte** da estendere tramite classi factory che forniscano istanze di classi estensione rispettivamente di ``CodeBreaker`` e ``CodeMaker``.  
 
 Testing
 --------------------------------------
-Sono stati ideati dei test, scritti sotto ambiente **JUnit 5** [*]_, per poter testare in modo mirato le singole *funzionalità* del progetto.
+Sono stati ideati dei test, scritti sotto ambiente **JUnit 5** [6]_, per poter testare in modo mirato le singole *funzionalità* del progetto.
 Per ulteriori informazioni si rimanda alle :doc:`sezioni <test/packages>`  riguardanti le implementazioni di tali test.
 
 Gradle
 --------------------------------------
-Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [*]_, in versione 5.1.1, 
+Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [7]_, in versione 5.1.1, 
 per facilitare il deploy e la distribuzione di tale software all'interno di altri sistemi.
 
 
-.. [*] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
-.. [*] `MVC <https://it.wikipedia.org/wiki/Model-view-controller>`_
-.. [*] `Observer <https://italiancoders.it/observer-pattern/>`_
-.. [*] `Singleton <https://it.wikipedia.org/wiki/Singleton>`_
-.. [*] `Factory <https://italiancoders.it/factory-method-design-pattern/>`_
-.. [*] `JUnit <https://junit.org/junit5>`_
-.. [*] `Gradle <https://gradle.org/>`_
+.. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
+.. [2] `MVC <https://it.wikipedia.org/wiki/Model-view-controller>`_
+.. [3] `Observer <https://italiancoders.it/observer-pattern/>`_
+.. [4] `Singleton <https://it.wikipedia.org/wiki/Singleton>`_
+.. [5] `Factory <https://italiancoders.it/factory-method-design-pattern/>`_
+.. [6] `JUnit <https://junit.org/junit5>`_
+.. [7] `Gradle <https://gradle.org/>`_
