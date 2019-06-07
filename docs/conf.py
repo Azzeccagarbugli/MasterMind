@@ -83,3 +83,6 @@ html_static_path = ['_static']
 # -- Options for LaTeX output ---------------------------------------------
 
 # STUFF
+latex_elements = {
+    'extraclassoptions': 'openany,oneside'
+}
