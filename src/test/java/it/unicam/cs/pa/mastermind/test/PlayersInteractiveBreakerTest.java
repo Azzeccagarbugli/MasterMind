@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.players.InteractiveBreaker;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
@@ -23,7 +25,9 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
  */
 class PlayersInteractiveBreakerTest {
 
-	private List<Integer> listAttempt;
+	private List<ColorPegs> listAttempt;
+
+	private CodeBreaker breaker;
 
 	/**
 	 * Test method for
@@ -43,7 +47,20 @@ class PlayersInteractiveBreakerTest {
 
 			@Override
 			public List<Integer> getIndexSequence(boolean toGuess) {
-				listAttempt = new ArrayList<Integer>(Arrays.asList(2, 2, 2, 4));
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public List<ColorPegs> getCodeToGuess(CodeMaker maker) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public List<ColorPegs> getAttempt(CodeBreaker breaker) {
+				listAttempt = new ArrayList<ColorPegs>(
+						Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 				return listAttempt;
 			}
 
@@ -56,11 +73,10 @@ class PlayersInteractiveBreakerTest {
 		boardController.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 		assertEquals(tempBoard.getSequenceToGuess(),
 				Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
-		InteractiveBreaker interactiveBreaker = new InteractiveBreaker();
-		boardController.insertNewAttempt(interactiveBreaker.getAttempt(intManager));
+		boardController.insertNewAttempt(intManager.getAttempt(breaker));
 		assertEquals(tempBoard.attemptsInserted(), 1);
-		boardController.insertNewAttempt(interactiveBreaker.getAttempt(intManager));
-		assertFalse(tempBoard.hasBreakerGuessed());
+		boardController.insertNewAttempt(intManager.getAttempt(breaker));
+		assertTrue(tempBoard.hasBreakerGuessed());
 	}
 
 	/**

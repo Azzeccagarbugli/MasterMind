@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.players.InteractiveMaker;
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
@@ -23,7 +24,9 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
  */
 class PlayersInteractiveMakerTest {
 
-	private List<Integer> listToGuess;
+	private List<ColorPegs> listToGuess;
+
+	private CodeMaker maker;
 
 	/**
 	 * Test method for
@@ -34,31 +37,43 @@ class PlayersInteractiveMakerTest {
 		BoardModel tempBoard = new BoardModel(4, 9);
 		BoardController boardController = new BoardController(tempBoard);
 		InteractionView intManager = new InteractionView() {
+
+			@Override
+			public void update() {
+				// TODO Auto-generated method stub
+
+			}
+
 			@Override
 			public List<Integer> getIndexSequence(boolean toGuess) {
-				listToGuess = new ArrayList<Integer>(Arrays.asList(2, 2, 2, 3));
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public List<ColorPegs> getCodeToGuess(CodeMaker maker) {
+				listToGuess = new ArrayList<ColorPegs>(
+						Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 				return listToGuess;
+			}
+
+			@Override
+			public List<ColorPegs> getAttempt(CodeBreaker breaker) {
+				// TODO Auto-generated method stub
+				return null;
 			}
 
 			@Override
 			public void endingScreen(String gameEndingMessage) {
 				// TODO Auto-generated method stub
-				
-			}
 
-			@Override
-			public void update() {
-				// TODO Auto-generated method stub
-				
 			}
-
 		};
 		boardController.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 		assertEquals(tempBoard.getSequenceToGuess(),
 				Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
-		InteractiveMaker interactivePlayer = new InteractiveMaker();
-		boardController.insertNewAttempt(interactivePlayer.getCodeToGuess(intManager));
+		boardController.insertNewAttempt(intManager.getCodeToGuess(maker));
 		assertTrue(tempBoard.hasBreakerGuessed());
-	}	
-	
+	}
+
 }
