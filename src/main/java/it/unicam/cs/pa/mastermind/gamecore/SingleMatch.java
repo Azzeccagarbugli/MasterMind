@@ -65,9 +65,9 @@ public class SingleMatch {
 	 * Avvio e gestione completa di una singola partita di gioco.
 	 */
 	public void start() {
-		controller.insertCodeToGuess(maker.getCodeToGuess(this.interactionView));
+		controller.insertCodeToGuess(interactionView.getCodeToGuess(this.maker));
 		do {
-			controller.insertNewAttempt(breaker.getAttempt(this.interactionView));
+			controller.insertNewAttempt(interactionView.getAttempt(this.breaker));
 			if (this.breaker.hasGivenUp()) {
 				gameStats.toggleMakerWin();
 			}

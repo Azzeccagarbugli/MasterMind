@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
 
 /**
  * <b>Responsabilità</b>: fornire ai giocatori coinvolti in una singola partita
@@ -79,4 +81,23 @@ public abstract class InteractionView extends BoardObserver {
 	 *                          giocatore
 	 */
 	public abstract void endingScreen(String gameEndingMessage);
+
+	/**
+	 * Restituisce la sequenza di <code>ColorPegs</code> valida come sequenza da
+	 * indovinare chiedendola al giocatore <code>CodeMaker</code>.
+	 * 
+	 * @param maker riferimento al giocatore <code>CodeMaker</code> codificatore
+	 * @return List di <code>ColorPegs</code> valida come sequenza da indovinare
+	 */
+	public abstract List<ColorPegs> getCodeToGuess(CodeMaker maker);
+
+	/**
+	 * Restituisce la sequenza di <code>ColorPegs</code> valida come singolo
+	 * tentativo chiedendola al giocatore <code>CodeBreaker</code>.
+	 * 
+	 * @param breaker riferimento al giocatore <code>CodeBreaker</code>
+	 *                decodificatore
+	 * @return List di <code>ColorPegs</code> valida come singolo tentativo
+	 */
+	public abstract List<ColorPegs> getAttempt(CodeBreaker breaker);
 }

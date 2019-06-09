@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.players.CodeMaker;
 
 /**
  * Implementazione con interazione via console della classe
@@ -349,5 +351,15 @@ public class ConsoleInteractionView extends InteractionView {
 				}
 			}
 		}
+	}
+
+	@Override
+	public List<ColorPegs> getCodeToGuess(CodeMaker maker) {
+		return maker.getCodeToGuess(this);
+	}
+
+	@Override
+	public List<ColorPegs> getAttempt(CodeBreaker breaker) {
+		return breaker.getAttempt(this);
 	}
 }
