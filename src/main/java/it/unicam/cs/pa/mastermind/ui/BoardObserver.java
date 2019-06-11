@@ -15,7 +15,7 @@ public abstract class BoardObserver {
 	/**
 	 * L'oggetto che viene osservato.
 	 */
-	protected BoardModel subject;
+	private BoardModel subject;
 
 	/**
 	 * Aggiornamento dello stato interno dell'oggetto.
@@ -31,6 +31,14 @@ public abstract class BoardObserver {
 	public void addSubject(BoardModel subject) {
 		this.subject = subject;
 		subject.addObserver(this);
+	}
+	
+	/**
+	 * Restituito il riferimento alla <code>BoardModel</code> osservata
+	 * @return BoardModel il riferimento richiesto
+	 */
+	protected BoardModel getSubject() {
+		return subject;
 	}
 
 }

@@ -202,7 +202,7 @@ public class ConsoleInteractionView extends InteractionView {
 	@Override
 	public void endingScreen(String gameEndingMessage) {
 		System.out.println(gameEndingMessage);
-		System.out.println("\nThe correct sequence was: " + beautifyClues(this.currentSequenceToGuess, false));
+		System.out.println("\nThe correct sequence was: " + beautifyClues(this.getCurrentSequenceToGuess(), false));
 	}
 
 	/**
@@ -333,11 +333,11 @@ public class ConsoleInteractionView extends InteractionView {
 
 	@Override
 	public void update() {
-		this.currentSequenceLength = subject.getSequenceLength();
-		this.currentSequenceToGuess = subject.getSequenceToGuess();
-		if (!subject.isBoardEmpty()) {
-			this.lastAttemptAndClue = subject.lastAttemptAndClue();
-			List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = subject.getAttemptAndClueList();
+		this.setCurrentSequenceLength(getSubject().getSequenceLength());
+		this.setCurrentSequenceToGuess(getSubject().getSequenceToGuess());
+		if (!getSubject().isBoardEmpty()) {
+			this.setLastAttemptAndClue(getSubject().lastAttemptAndClue());
+			List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = getSubject().getAttemptAndClueList();
 			if (!attemptsAndClues.isEmpty()) {
 				int dynamicTable = attemptsAndClues.get(0).getKey().size();
 				showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,

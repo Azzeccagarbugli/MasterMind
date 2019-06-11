@@ -19,7 +19,7 @@ public abstract class StartView {
 	/**
 	 * Istanza della classe <code>StartStats</code>.
 	 */
-	protected StartStats startStats;
+	private StartStats startStats;
 
 	public StartView() {
 		try {
@@ -149,4 +149,12 @@ public abstract class StartView {
 	 * @return InteractionView associata all'oggetto <code>StartView</code>.
 	 */
 	protected abstract InteractionView getInteractionView();
+	
+	/**
+	 * Restituito il riferimento all'oggetto <code>StartStats</code> presente nella classe
+	 * @return StartStats il riferimento richiesto
+	 */
+	protected StartStats getStartStats() {
+		return this.startStats;
+	}
 }

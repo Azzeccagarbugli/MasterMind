@@ -124,10 +124,10 @@ public class ConsoleStartView extends StartView {
 		int length = 0;
 		for (;;) {
 			try {
-				System.out.print("Insert the length of pegs sequences: [between " + startStats.getLowTresholdLength()
-						+ " and " + startStats.getHighTresholdLength() + ", inclusive]" + "\n" + "> ");
+				System.out.print("Insert the length of pegs sequences: [between " + getStartStats().getLowTresholdLength()
+						+ " and " + getStartStats().getHighTresholdLength() + ", inclusive]" + "\n" + "> ");
 				length = Integer.parseInt(reader.readLine());
-				if (length < startStats.getLowTresholdLength() || length > startStats.getHighTresholdLength()) {
+				if (length < getStartStats().getLowTresholdLength() || length > getStartStats().getHighTresholdLength()) {
 					throw new NumberFormatException();
 				} else {
 					break;
@@ -135,8 +135,8 @@ public class ConsoleStartView extends StartView {
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			} catch (NumberFormatException e) {
-				System.out.println("Please insert a numeric value between " + startStats.getLowTresholdLength()
-						+ " and " + startStats.getHighTresholdLength() + ", inclusive");
+				System.out.println("Please insert a numeric value between " + getStartStats().getLowTresholdLength()
+						+ " and " + getStartStats().getHighTresholdLength() + ", inclusive");
 			}
 		}
 		;
@@ -150,9 +150,9 @@ public class ConsoleStartView extends StartView {
 		for (;;) {
 			try {
 				System.out.print("Insert the number of attempts: [equal or greater than "
-						+ startStats.getLowTresholdAttempts() + "]" + "\n" + "> ");
+						+ getStartStats().getLowTresholdAttempts() + "]" + "\n" + "> ");
 				attempts = Integer.parseInt(reader.readLine());
-				if (attempts < startStats.getLowTresholdAttempts()) {
+				if (attempts < getStartStats().getLowTresholdAttempts()) {
 					throw new NumberFormatException();
 				} else {
 					break;
@@ -160,7 +160,7 @@ public class ConsoleStartView extends StartView {
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			} catch (NumberFormatException e) {
-				System.out.println("Please insert a numeric value greater than " + startStats.getLowTresholdAttempts());
+				System.out.println("Please insert a numeric value greater than " + getStartStats().getLowTresholdAttempts());
 			}
 		}
 		;

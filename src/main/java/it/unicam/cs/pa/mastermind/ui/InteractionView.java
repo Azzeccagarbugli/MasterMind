@@ -19,18 +19,40 @@ public abstract class InteractionView extends BoardObserver {
 	/**
 	 * La sequenza da indovinare.
 	 */
-	protected List<ColorPegs> currentSequenceToGuess;
+	private List<ColorPegs> currentSequenceToGuess;
 
 	/**
 	 * La lunghezza della sequenza da indovinare.
 	 */
-	protected int currentSequenceLength;
+	private int currentSequenceLength;
 
 	/**
 	 * Singola entry di una mappa, contenente l'ultima lista di ColorPegs inseriti e
 	 * la relativa sequenza indizio.
 	 */
-	protected Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue;
+	private Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue;
+
+	/**
+	 * Metodo setter che imposta la sequenza da indovinare.
+	 */
+	protected void setCurrentSequenceToGuess(List<ColorPegs> currentSequenceToGuess) {
+		this.currentSequenceToGuess = currentSequenceToGuess;
+	}
+
+	/**
+	 * Metodo setter che imposta la lunghezza della sequenza da indovinare.
+	 */
+	protected void setCurrentSequenceLength(int currentSequenceLength) {
+		this.currentSequenceLength = currentSequenceLength;
+	}
+
+	/**
+	 * Metodo setter che imposta la entry di mappa contenente l'ultima lista di
+	 * ColorPegs inseriti e la relativa sequenza indizio.
+	 */
+	protected void setLastAttemptAndClue(Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue) {
+		this.lastAttemptAndClue = lastAttemptAndClue;
+	}
 
 	/**
 	 * Metodo getter che restituisce la sequenza da indovinare.

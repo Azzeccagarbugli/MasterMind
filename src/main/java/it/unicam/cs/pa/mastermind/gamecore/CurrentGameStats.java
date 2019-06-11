@@ -102,10 +102,10 @@ public class CurrentGameStats extends BoardObserver {
 
 	@Override
 	public void update() {
-		if (subject.hasBreakerGuessed()) {
-			toggleBreakerWin(subject.attemptsInserted());
+		if (getSubject().hasBreakerGuessed()) {
+			toggleBreakerWin(getSubject().attemptsInserted());
 			return;
-		} else if (subject.leftAttempts() <= 0) {
+		} else if (getSubject().leftAttempts() <= 0) {
 			toggleMakerWin();
 			return;
 		}
