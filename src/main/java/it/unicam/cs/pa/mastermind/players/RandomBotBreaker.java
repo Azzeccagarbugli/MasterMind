@@ -10,7 +10,8 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
- * Estensione di <code>CodeBreaker</code> mirata ad una gestione del comportamento del giocatore parzialmente random.
+ * Estensione di <code>CodeBreaker</code> mirata ad una gestione del
+ * comportamento del giocatore parzialmente random.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -23,7 +24,6 @@ public class RandomBotBreaker extends CodeBreaker {
 	 */
 	private Set<List<ColorPegs>> combinationAttempts;
 
-	
 	public RandomBotBreaker() {
 		combinationAttempts = new HashSet<>();
 	}
