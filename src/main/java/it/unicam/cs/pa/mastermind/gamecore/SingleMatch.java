@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
+import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
+import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.ui.InteractionView;
@@ -48,13 +50,13 @@ public class SingleMatch {
 	 * @param view           Istanza della particolare implementazione di
 	 *                       <code>InteractionView</code> scelta per l'istanza di
 	 *                       partita in corso.
-	 * @param currentBreaker istanza del giocatore che decodifica.
-	 * @param currentMaker   istanza del giocatore che codifica.
+	 * @param bFactory istanza della <code>BreakerFavctory</code> relativa al giocatore <code>CodeBreaker</code> selezionato per la partita.
+	 * @param mFactory istanza della <code>MakerFactory</code> relativa al giocatore <code>CodeMaker</code> selezionato per la partita.
 	 */
-	public SingleMatch(int sequenceLength, int attempts, InteractionView view, CodeBreaker currentBreaker,
-			CodeMaker currentMaker) {
-		this.maker = currentMaker;
-		this.breaker = currentBreaker;
+	public SingleMatch(int sequenceLength, int attempts, InteractionView view, BreakerFactory bFactory,
+			MakerFactory mFactory) {
+		this.maker = mFactory.getMaker();
+		this.breaker = bFactory.getBreaker();
 		this.controller = new BoardController(new BoardModel(sequenceLength, attempts));
 		this.gameStats = new CurrentGameStats(this.controller.getBoardReference());
 		this.interactionView = view;

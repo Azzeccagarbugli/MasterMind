@@ -23,7 +23,7 @@ public abstract class StartView {
 
 	public StartView() {
 		try {
-		startStats = new StartStats();
+			startStats = new StartStats();
 		} catch (BadRegistryException e) {
 			this.badEnding(e.getMessage());
 		}
@@ -47,7 +47,7 @@ public abstract class StartView {
 			}
 			this.showNewGameStarting();
 			startStats.setCurrentGame(new SingleMatch(startStats.getSequenceLength(), startStats.getAttempts(),
-					startStats.getIntView(), startStats.getCurrentBreaker(), startStats.getCurrentMaker()));
+					startStats.getIntView(), startStats.getCurBreakerFactory(), startStats.getCurMakerFactory()));
 			startStats.getCurrentGame().start();
 			startStats.setNewGame(this.askNewGameSettings());
 			startStats.setToContinue(startStats.getNewGame().getContinue());
@@ -57,15 +57,14 @@ public abstract class StartView {
 	}
 
 	/**
-	 * Creazione delle istanze relative ai giocatori della nuova partita.
+	 * Creazione delle istanze relative alle factory di giocatori necessarie per la nuova partita.
 	 */
 	private void setupNewPlayers() {
-		MakerFactory mFactory = (MakerFactory) startStats.getMakers()
-				.getFactoryByName(getPlayerName(startStats.getMakers(), false));
-		BreakerFactory bFactory = (BreakerFactory) startStats.getBreakers()
-				.getFactoryByName(getPlayerName(startStats.getBreakers(), true));
-		startStats.setCurrentMaker(mFactory.getMaker());
-		startStats.setCurrentBreaker(bFactory.getBreaker());
+		startStats.setCurMakerFactory(
+				(MakerFactory) startStats.getMakers().getFactoryByName(getPlayerName(startStats.getMakers(), false)));
+		startStats.setCurBreakerFactory(
+				(BreakerFactory) startStats.getBreakers()
+				.getFactoryByName(getPlayerName(startStats.getBreakers(), true)));
 	}
 
 	/**
@@ -75,11 +74,13 @@ public abstract class StartView {
 	protected abstract void ending();
 
 	/**
-	 * Gestione anticipata della conclusione dell'intero gioco, richiamata ad esempio per il sollevamento di errori importanti. 
-	 * @param reason 
+	 * Gestione anticipata della conclusione dell'intero gioco, richiamata ad
+	 * esempio per il sollevamento di errori importanti.
+	 * 
+	 * @param reason
 	 */
 	protected abstract void badEnding(String reason);
-	
+
 	/**
 	 * Interazione con l'utente fisico a fronte della conclusione di una singola
 	 * partita.
@@ -149,9 +150,11 @@ public abstract class StartView {
 	 * @return InteractionView associata all'oggetto <code>StartView</code>.
 	 */
 	protected abstract InteractionView getInteractionView();
-	
+
 	/**
-	 * Restituito il riferimento all'oggetto <code>StartStats</code> presente nella classe
+	 * Restituito il riferimento all'oggetto <code>StartStats</code> presente nella
+	 * classe
+	 * 
 	 * @return StartStats il riferimento richiesto
 	 */
 	protected StartStats getStartStats() {

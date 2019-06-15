@@ -3,9 +3,9 @@ package it.unicam.cs.pa.mastermind.ui;
 import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
 import it.unicam.cs.pa.mastermind.players.BadRegistryException;
 import it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry;
-import it.unicam.cs.pa.mastermind.players.CodeBreaker;
-import it.unicam.cs.pa.mastermind.players.CodeMaker;
 import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
+import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 
 /**
@@ -30,10 +30,11 @@ public class StartStats {
 	private final String makersPath = "./Maker Factories.txt";
 	private BreakerFactoryRegistry breakers;
 	private final String breakersPath = "./Breaker Factories.txt";
-	private CodeMaker currentMaker;
-	private CodeBreaker currentBreaker;
+	private MakerFactory curMakerFactory;
+	private BreakerFactory curBreakerFactory;
 	private NewGameStats newGame;
 
+	
 	public StartStats() throws BadRegistryException {
 		toContinue = true;
 		keepSettings = false;
@@ -140,22 +141,22 @@ public class StartStats {
 		this.breakers = breakers;
 	}
 
-	public CodeMaker getCurrentMaker() {
-		return currentMaker;
+	public MakerFactory getCurMakerFactory() {
+		return curMakerFactory;
 	}
 
-	public void setCurrentMaker(CodeMaker currentMaker) {
-		this.currentMaker = currentMaker;
+	public void setCurMakerFactory(MakerFactory curMakerFactory) {
+		this.curMakerFactory = curMakerFactory;
 	}
 
-	public CodeBreaker getCurrentBreaker() {
-		return currentBreaker;
+	public BreakerFactory getCurBreakerFactory() {
+		return curBreakerFactory;
 	}
 
-	public void setCurrentBreaker(CodeBreaker currentBreaker) {
-		this.currentBreaker = currentBreaker;
+	public void setCurBreakerFactory(BreakerFactory curBreakerFactory) {
+		this.curBreakerFactory = curBreakerFactory;
 	}
-
+	
 	/**
 	 * Vengono impostati i valori standard del numero di tentativi e della lunghezza delle sequenze
 	 */

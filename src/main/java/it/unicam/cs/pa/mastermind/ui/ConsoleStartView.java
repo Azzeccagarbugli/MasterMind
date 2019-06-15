@@ -190,7 +190,7 @@ public class ConsoleStartView extends StartView {
 			}
 		}
 		;
-		System.out.println("You chose a " + names.get(intInput - 1) + " " + (isBreaker ? "breaker" : "maker"));
+		System.out.println("You chose a " + names.get(intInput - 1));
 		return names.get(intInput - 1);
 	}
 
