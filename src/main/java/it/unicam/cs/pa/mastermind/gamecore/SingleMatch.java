@@ -70,10 +70,13 @@ public class SingleMatch {
 		controller.insertCodeToGuess(interactionView.getCodeToGuess(this.maker));
 		do {
 			controller.insertNewAttempt(interactionView.getAttempt(this.breaker));
+			// Result result = controller.insertNewAttempt(this.breaker.getNextAttempt());//interactionView.getAttempt(this.breaker));
+			// this.breaker.setResultOfLastAttempt(result);
 			if (this.breaker.hasGivenUp()) {
 				gameStats.toggleMakerWin();
 			}
 		} while (!(gameStats.getHasMakerWon() || gameStats.getHasBreakerWon()));
+		//notifica ai player!
 		interactionView.endingScreen(gameStats.getMessage());
 	}
 
