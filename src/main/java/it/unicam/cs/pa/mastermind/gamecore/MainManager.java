@@ -66,11 +66,12 @@ public abstract class MainManager {
 		this.ending();
 	}
 	
-	public void ending() {
+	private void ending() {
 		startView.ending();
 		System.exit(-1);
 	}
-	public abstract StartView getStartViewInstance();
+	
+	protected abstract StartView getStartViewInstance();
 
-	public abstract GameViewFactory getGameViewFactory();
+	protected abstract GameViewFactory getGameViewFactory();
 }

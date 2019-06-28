@@ -8,12 +8,12 @@ import it.unicam.cs.pa.mastermind.ui.StartView;
 public class ConsoleMainManager extends MainManager {
 
 	@Override
-	public StartView getStartViewInstance() {
+	protected StartView getStartViewInstance() {
 		return ConsoleStartView.getInstance();
 	}
 
 	@Override
-	public GameViewFactory getGameViewFactory() {
+	protected GameViewFactory getGameViewFactory() {
 		return new ConsoleGameViewFactory();
 	}
 
