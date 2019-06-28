@@ -3,7 +3,6 @@ package it.unicam.cs.pa.mastermind.players;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * <b>Responsabilità</b>: gestire le interazioni del giocatore Breaker
@@ -18,13 +17,8 @@ public abstract class CodeBreaker {
 	 */
 	private boolean giveUp = false;
 
-	/**
-	 * Restituisce la sequenza di <code>ColorPegs</code> valida come singolo tentativo.
-	 * 
-	 * @param intView necessario per ottenere informazioni riguardo il gioco
-	 * @return List di <code>ColorPegs</code> valida come singolo tentativo
-	 */
-	public abstract List<ColorPegs> getAttempt(InteractionView intView);
+	//TODO JavaDoc
+	public abstract List<ColorPegs> getAttempt();
 
 	/**
 	 * Imposta la volontà del giocatore <code>CodeBreaker</code> di arrendersi.

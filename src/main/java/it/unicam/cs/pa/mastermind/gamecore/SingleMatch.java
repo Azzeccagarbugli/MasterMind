@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
+import it.unicam.cs.pa.mastermind.factories.InteractionViewFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
@@ -53,24 +54,26 @@ public class SingleMatch {
 	 * @param bFactory istanza della <code>BreakerFavctory</code> relativa al giocatore <code>CodeBreaker</code> selezionato per la partita.
 	 * @param mFactory istanza della <code>MakerFactory</code> relativa al giocatore <code>CodeMaker</code> selezionato per la partita.
 	 */
-	public SingleMatch(int sequenceLength, int attempts, InteractionView view, BreakerFactory bFactory,
+	public SingleMatch(int sequenceLength, int attempts, InteractionViewFactory viewFactory, BreakerFactory bFactory,
 			MakerFactory mFactory) {
-		this.maker = mFactory.getMaker();
-		this.breaker = bFactory.getBreaker();
-		this.controller = new BoardController(new BoardModel(sequenceLength, attempts));
-		this.gameStats = new CurrentGameStats(this.controller.getBoardReference());
-		this.interactionView = view;
-		this.interactionView.addSubject(this.controller.getBoardReference());
+		BoardModel newModel = new BoardModel(sequenceLength, attempts);
+		this.controller = new BoardController(newModel);
+		this.interactionView = viewFactory.getIntView(newModel);
+				
+		this.maker = mFactory.getMaker(interactionView, sequenceLength, attempts);
+		this.breaker = bFactory.getBreaker(interactionView, sequenceLength, attempts);
+		
+		this.gameStats = new CurrentGameStats(newModel);
 	}
 
 	/**
 	 * Avvio e gestione completa di una singola partita di gioco.
 	 */
 	public void start() {
-		controller.insertCodeToGuess(interactionView.getCodeToGuess(this.maker));
+		controller.insertCodeToGuess(this.maker.getCodeToGuess());
 		do {
-			controller.insertNewAttempt(interactionView.getAttempt(this.breaker));
-			// Result result = controller.insertNewAttempt(this.breaker.getNextAttempt());//interactionView.getAttempt(this.breaker));
+			controller.insertNewAttempt(this.breaker.getAttempt());
+			// Result result = controller.insertNewAttempt(this.breaker.getNextAttempt());
 			// this.breaker.setResultOfLastAttempt(result);
 			if (this.breaker.hasGivenUp()) {
 				gameStats.toggleMakerWin();

@@ -7,7 +7,6 @@ import java.util.Random;
 import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * Estensione di <code>CodeBreaker</code> mirata ad una gestione del
@@ -23,17 +22,20 @@ public class RandomBotBreaker extends CodeBreaker {
 	 * effettuati per fare in modo che non vengano ripetuti.
 	 */
 	private Set<List<ColorPegs>> combinationAttempts;
+	
+	private int seqLength;
 
-	public RandomBotBreaker() {
+	public RandomBotBreaker(int seqLength, int attempts) {
+		this.seqLength = seqLength;
 		combinationAttempts = new HashSet<>();
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(InteractionView intView) {
+	public List<ColorPegs> getAttempt() {
 		List<ColorPegs> listAttempt;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			new Random().ints(intView.getCurrentSequenceLength(), 0, ColorPegs.values().length)
+			new Random().ints(seqLength, 0, ColorPegs.values().length)
 					.mapToObj(index -> ColorPegs.values()[index]).forEach(listAttempt::add);
 		} while (combinationAttempts.contains(listAttempt));
 		combinationAttempts.add(listAttempt);

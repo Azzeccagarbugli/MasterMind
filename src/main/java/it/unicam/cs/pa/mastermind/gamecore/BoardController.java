@@ -61,13 +61,5 @@ public class BoardController {
 		return true;
 	}
 
-	/**
-	 * 
-	 * @return BoardModel su cui agisce l'istanza di <code>BoardCoordinator</code>
-	 *         corrente.
-	 */
-	public BoardModel getBoardReference() {
-		return this.board;
-	}
 
 }

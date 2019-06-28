@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * Estensione di <code>CodeMaker</code> mirata ad una gestione del comportamento
@@ -16,11 +15,17 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
  */
 public class RandomBotMaker extends CodeMaker {
 
+	private int seqLength;
+
+	public RandomBotMaker(int seqLength, int attempts) {
+		this.seqLength = seqLength;
+	}
+
 	@Override
-	public List<ColorPegs> getCodeToGuess(InteractionView intView) {
+	public List<ColorPegs> getCodeToGuess() {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-		new Random().ints(intView.getCurrentSequenceLength(), 0, ColorPegs.values().length)
-				.mapToObj(index -> ColorPegs.values()[index]).forEach(listToGuess::add);
+		new Random().ints(this.seqLength, 0, ColorPegs.values().length).mapToObj(index -> ColorPegs.values()[index])
+				.forEach(listToGuess::add);
 		return listToGuess;
 	}
 

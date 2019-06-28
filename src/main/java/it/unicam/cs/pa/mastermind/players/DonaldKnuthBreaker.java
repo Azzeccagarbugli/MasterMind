@@ -3,7 +3,6 @@ package it.unicam.cs.pa.mastermind.players;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
 /**
  * Estensione di <code>CodeBreaker</code> mirata ad una gestione del
@@ -45,12 +44,16 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	 * https://en.wikipedia.org/wiki/Mastermind_(board_game)
 	 */
 
-	public DonaldKnuthBreaker() {
-		// TODO Auto-generated method stub
+	private int seqLength;
+	private int attempts;
+
+	public DonaldKnuthBreaker(int seqLength, int attempts) {
+		this.seqLength = seqLength;
+		this.attempts = attempts;
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(InteractionView intView) {
+	public List<ColorPegs> getAttempt() {
 		// TODO Auto-generated method stub
 		return null;
 	}

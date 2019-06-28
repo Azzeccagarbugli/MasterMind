@@ -1,15 +1,15 @@
 package it.unicam.cs.pa.mastermind.ui;
 
 import java.io.BufferedReader;
+import java.io.FilterInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.players.CodeBreaker;
-import it.unicam.cs.pa.mastermind.players.CodeMaker;
 
 /**
  * Implementazione con interazione via console della classe
@@ -20,32 +20,15 @@ import it.unicam.cs.pa.mastermind.players.CodeMaker;
  */
 public class ConsoleInteractionView extends InteractionView {
 
-	/**
-	 * Reader associato all'istanza di <code>ConsoleInteractionView</code>.
-	 */
-	private BufferedReader reader;
+	private FilterInputStream fis;
 
-	/**
-	 * Riferimento all'istanza Singleton di <code>ConsoleInteractionView</code>.
-	 */
-	private static final ConsoleInteractionView instance = new ConsoleInteractionView();
-
-	/**
-	 * @return ConsoleStartView istanza singleton di
-	 *         <code>ConsoleInteractionView</code>.
-	 */
-	public static ConsoleInteractionView getInstance() {
-		return instance;
-	}
-
-	/**
-	 * Inizializzazione del reader associato all'istanza di
-	 * <code>ConsoleInteractionView</code>.
-	 * 
-	 * @param newReader reader da associare all'istanza.
-	 */
-	public void init(BufferedReader newReader) {
-		this.reader = newReader;
+	// TODO JavaDoc
+	public ConsoleInteractionView() {
+		fis = new FilterInputStream(System.in) {
+			@Override
+			public void close() throws IOException {
+			}
+		};
 	}
 
 	@Override
@@ -55,8 +38,8 @@ public class ConsoleInteractionView extends InteractionView {
 		String isBreakerAttempts = "Please define the color of each of the pegs knowing that";
 
 		showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
-		for (int i = 1; i <= this.getCurrentSequenceLength(); i++) {
-			this.askIndexOfSinglePeg(indexPegs, i, isBreaker);
+		for (int i = 1; i <= getSubject().getSequenceLength(); i++) {
+			this.addIndexOfSinglePeg(indexPegs, i, isBreaker);
 			if (indexPegs.contains(0)) {
 				break;
 			}
@@ -79,8 +62,8 @@ public class ConsoleInteractionView extends InteractionView {
 	private void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
 		if (size < 5) {
 			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-			System.out.format("%s %57s %22s \n", "┃",
-					AnsiUtility.ANSI_CYAN_BOLD + "Your current combination" + AnsiUtility.ANSI_RESET, "┃");
+			System.out.format("%s %57s %22s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + +getSubject().leftAttempts()
+					+ " attempts left" + AnsiUtility.ANSI_RESET, "┃");
 			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
 			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
 			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
@@ -202,7 +185,7 @@ public class ConsoleInteractionView extends InteractionView {
 	@Override
 	public void endingScreen(String gameEndingMessage) {
 		System.out.println(gameEndingMessage);
-		System.out.println("\nThe correct sequence was: " + beautifyClues(this.getCurrentSequenceToGuess(), false));
+		System.out.println("\nThe correct sequence was: " + beautifyClues(getSubject().getSequenceToGuess(), false));
 	}
 
 	/**
@@ -219,25 +202,28 @@ public class ConsoleInteractionView extends InteractionView {
 	 *                  <code>CodeBreaker</code>
 	 * @throws IOException
 	 */
-	private void askIndexOfSinglePeg(List<Integer> list, int index, boolean isBreaker) {
+	private void addIndexOfSinglePeg(List<Integer> list, int index, boolean isBreaker) {
 		int temp = 0;
-		for (;;) {
-			System.out.print("Insert value nr." + index + " > ");
-			try {
-				temp = Integer.parseInt(this.reader.readLine());
-				if (isBreaker && temp == 0) {
-					System.out.println("You decided to give up");
-					break;
-				} else if (temp < 0 || temp > ColorPegs.values().length) {
-					throw new NumberFormatException();
-				} else {
-					break;
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
+			for (;;) {
+				System.out.print("Insert value nr." + index + " > ");
+				try {
+					temp = Integer.parseInt(in.readLine());
+					if (isBreaker && temp == 0) {
+						System.out.println("You decided to give up");
+						break;
+					} else if (temp < 0 || temp > ColorPegs.values().length) {
+						throw new NumberFormatException();
+					} else {
+						break;
+					}
+				} catch (NumberFormatException e) {
+					System.out.println("Please insert a valid numeric value");
 				}
-			} catch (NumberFormatException e) {
-				System.out.println("Please insert a valid numeric value");
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			System.exit(-1);
 		}
 		;
 		list.add(temp);
@@ -333,33 +319,26 @@ public class ConsoleInteractionView extends InteractionView {
 
 	@Override
 	public void update() {
-		this.setCurrentSequenceLength(getSubject().getSequenceLength());
-		this.setCurrentSequenceToGuess(getSubject().getSequenceToGuess());
 		if (!getSubject().isBoardEmpty()) {
-			this.setLastAttemptAndClue(getSubject().lastAttemptAndClue());
-			List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = getSubject().getAttemptAndClueList();
-			if (!attemptsAndClues.isEmpty()) {
-				int dynamicTable = attemptsAndClues.get(0).getKey().size();
-				showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,
-						AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET);
-				if (dynamicTable < 5) {
-					attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
-							beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
-				} else {
-					attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s ┃ %-80s\n",
-							beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
-				}
-			}
+			this.showGame();
 		}
 	}
 
 	@Override
-	public List<ColorPegs> getCodeToGuess(CodeMaker maker) {
-		return maker.getCodeToGuess(this);
+	public void showGame() {
+		List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = getSubject().getAttemptAndClueList();
+		if (!attemptsAndClues.isEmpty()) {
+			int dynamicTable = attemptsAndClues.get(0).getKey().size();
+			showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,
+					AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET);
+			if (dynamicTable < 5) {
+				attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
+						beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
+			} else {
+				attemptsAndClues.stream().forEach(entry -> System.out.format("\n%-34s ┃ %-80s\n",
+						beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
+			}
+		}
 	}
 
-	@Override
-	public List<ColorPegs> getAttempt(CodeBreaker breaker) {
-		return breaker.getAttempt(this);
-	}
 }

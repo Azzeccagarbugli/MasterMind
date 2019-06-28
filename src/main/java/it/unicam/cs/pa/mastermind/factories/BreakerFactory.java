@@ -1,15 +1,9 @@
 package it.unicam.cs.pa.mastermind.factories;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
+import it.unicam.cs.pa.mastermind.ui.InteractionView;
 
-/**
- * Classe factory astratta estensione di <code>PlayerFactory</code> da estendere
- * con classi factory concrete finalizzate all'ottenimento di istanze di
- * <code>CodeBreaker</code>.
- * 
- * @author Francesco Pio Stelluti, Francesco Coppola
- *
- */
-public abstract class BreakerFactory implements PlayerFactory {
-	public abstract CodeBreaker getBreaker();
+//TODO Introduzione
+public interface BreakerFactory extends PlayerFactory {
+	public CodeBreaker getBreaker(InteractionView view, int seqLength, int attempts);
 }

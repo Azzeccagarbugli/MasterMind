@@ -29,8 +29,8 @@ public class CurrentGameStats extends BoardObserver {
 	/**
 	 * Costruttore.
 	 */
-	public CurrentGameStats(BoardModel board) {
-		this.addSubject(board);
+	public CurrentGameStats(BoardModel subject) {
+		this.addSubject(subject);
 		hasMakerWon = false;
 		hasBreakerWon = false;
 		attempts = 0;

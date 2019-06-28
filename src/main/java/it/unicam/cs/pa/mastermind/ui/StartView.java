@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.mastermind.ui;
 
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
+import it.unicam.cs.pa.mastermind.factories.InteractionViewFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
@@ -34,8 +35,9 @@ public abstract class StartView {
 	 * nuova partita.
 	 */
 	public void startUp() {
+		
 		while (startStats.isToContinue()) {
-			startStats.setIntView(this.getInteractionView());
+			startStats.setIntView(this.getInteractionViewFactory());
 			this.showLogo();
 			if (!startStats.isKeepSettings()) {
 				startStats.resetLengthAttempts();
@@ -47,24 +49,30 @@ public abstract class StartView {
 			}
 			this.showNewGameStarting();
 			startStats.setCurrentGame(new SingleMatch(startStats.getSequenceLength(), startStats.getAttempts(),
-					startStats.getIntView(), startStats.getCurBreakerFactory(), startStats.getCurMakerFactory()));
+					startStats.getIntViewFactory(), startStats.getCurBreakerFactory(), startStats.getCurMakerFactory()));
 			startStats.getCurrentGame().start();
 			startStats.setNewGame(this.askNewGameSettings());
 			startStats.setToContinue(startStats.getNewGame().getContinue());
 			startStats.setKeepSettings(startStats.getNewGame().getKeepSettings());
 		}
+		
 		this.ending();
 	}
+
 
 	/**
 	 * Creazione delle istanze relative alle factory di giocatori necessarie per la nuova partita.
 	 */
 	private void setupNewPlayers() {
+		try {
 		startStats.setCurMakerFactory(
 				(MakerFactory) startStats.getMakers().getFactoryByName(getPlayerName(startStats.getMakers(), false)));
 		startStats.setCurBreakerFactory(
 				(BreakerFactory) startStats.getBreakers()
 				.getFactoryByName(getPlayerName(startStats.getBreakers(), true)));
+		} catch (BadRegistryException e) {
+			this.badEnding(e.getMessage());
+		}
 	}
 
 	/**
@@ -143,13 +151,8 @@ public abstract class StartView {
 	 */
 	protected abstract void showLogo();
 
-	/**
-	 * Ottenimento dell'oggetto <code>InteractionView</code> associato alla
-	 * particolare implementazione di <code>StartView</code>.
-	 * 
-	 * @return InteractionView associata all'oggetto <code>StartView</code>.
-	 */
-	protected abstract InteractionView getInteractionView();
+//TODO Javadoc
+	protected abstract InteractionViewFactory getInteractionViewFactory();
 
 	/**
 	 * Restituito il riferimento all'oggetto <code>StartStats</code> presente nella

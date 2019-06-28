@@ -4,7 +4,11 @@ import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
 import it.unicam.cs.pa.mastermind.players.BadRegistryException;
 import it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
+
+import java.io.File;
+
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
+import it.unicam.cs.pa.mastermind.factories.InteractionViewFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
 
@@ -21,15 +25,15 @@ public class StartStats {
 	private int sequenceLength;
 	private boolean toContinue = true;
 	private boolean keepSettings = false;
-	private InteractionView intView;
+	private InteractionViewFactory intViewFactory;
 	int lowTresholdLength;
 	int highTresholdLength;
 	int lowTresholdAttempts;
 	private SingleMatch currentGame;
 	private MakerFactoryRegistry makers;
-	private final String makersPath = "./Maker Factories.txt";
+	private final String makersPath = "MasterMindSrc//MakerFactories.txt";
 	private BreakerFactoryRegistry breakers;
-	private final String breakersPath = "./Breaker Factories.txt";
+	private final String breakersPath = "MasterMindSrc//BreakerFactories.txt";
 	private MakerFactory curMakerFactory;
 	private BreakerFactory curBreakerFactory;
 	private NewGameStats newGame;
@@ -41,10 +45,17 @@ public class StartStats {
 		lowTresholdLength = 1;
 		highTresholdLength = 10;
 		lowTresholdAttempts = 1;
+		this.setupDefaultSrcFolder();
 		makers = new MakerFactoryRegistry(makersPath);
 		breakers = new BreakerFactoryRegistry(breakersPath);
 	}
 
+	private void setupDefaultSrcFolder() {
+		File dir = new File("./MasterMindSrc");
+		if(!dir.exists()) {
+			dir.mkdir();
+		}
+	}
 	public NewGameStats getNewGame() {
 		return newGame;
 	}
@@ -85,12 +96,12 @@ public class StartStats {
 		this.keepSettings = keepSettings;
 	}
 
-	public InteractionView getIntView() {
-		return intView;
+	public InteractionViewFactory getIntViewFactory() {
+		return intViewFactory;
 	}
 
-	public void setIntView(InteractionView intView) {
-		this.intView = intView;
+	public void setIntView(InteractionViewFactory intViewFactory) {
+		this.intViewFactory = intViewFactory;
 	}
 
 	public int getLowTresholdLength() {

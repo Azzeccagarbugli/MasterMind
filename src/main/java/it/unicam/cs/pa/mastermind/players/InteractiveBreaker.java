@@ -22,18 +22,21 @@ public class InteractiveBreaker extends CodeBreaker {
 	 * effettuati per fare in modo che non vengano ripetuti.
 	 */
 	private Set<List<ColorPegs>> combinationAttempts;
+	
+	private InteractionView view;
 
-	public InteractiveBreaker() {
+	public InteractiveBreaker(InteractionView newView) {
 		combinationAttempts = new HashSet<>();
+		view = newView;
 	}
 
 	@Override
-	public List<ColorPegs> getAttempt(InteractionView intView) {
+	public List<ColorPegs> getAttempt() {
 		List<ColorPegs> listAttempt;
 		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			listIndex = intView.getIndexSequence(true);
+			listIndex = this.view.getIndexSequence(true);
 			if (listIndex.contains(0)) {
 				this.toggleGiveUp();
 				break;
