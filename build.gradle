@@ -12,6 +12,9 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+    
+    // Specify the version of build scan to use
+    id 'com.gradle.build-scan' version '2.0.2'
 }
 
 repositories {
@@ -37,7 +40,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
+ 
 buildScan {
     termsOfServiceUrl = 'https://gradle.com/terms-of-service'
     termsOfServiceAgree = 'yes'
