@@ -53,7 +53,7 @@ public class ConsoleStartView implements StartView {
 
 	@Override
 	public void ending() {
-		//this.clearScreen();
+		// this.clearScreen();
 		System.out.format(
 				AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%50s" + AnsiUtility.ANSI_RESET,
 				mastermindLogo, mastermindCaptionEnd);
@@ -62,9 +62,7 @@ public class ConsoleStartView implements StartView {
 	@Override
 	public StartupSettings askNewStartupSettings() {
 		int intInput = 0;
-		System.out.println("\nThe game has finished, what would you like to do now?");
-		System.out.println("• Start a new game with the same settings [1]" + "\n"
-				+ "• Start a new game with different settings [2]" + "\n" + "• Exit from the game [3]");
+		this.showGameFinalMenu();
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
 				System.out.print("> ");
@@ -83,7 +81,27 @@ public class ConsoleStartView implements StartView {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
+
 		return new StartupSettings(settingEnd(intInput)[0], settingEnd(intInput)[1]);
+	}
+
+	/**
+	 * 
+	 */
+	void showGameFinalMenu() {
+		System.out.format(String.format("\n┏%60s┓\n", " ").replace(' ', '━'));
+		System.out.format("%s %55s %6s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD
+				+ "The game has finished, what would you like to do now?" + AnsiUtility.ANSI_RESET, "┃");
+		System.out.format(String.format("┣%3s┳%56s┫\n", " ", " ").replace(' ', '━'));
+		System.out.format("%14s ┃ %10s \n", AnsiUtility.ANSI_CYAN_BOLD + "1" + AnsiUtility.ANSI_RESET,
+				AnsiUtility.ANSI_CYAN_BOLD + "Start a new game with the same settings" + AnsiUtility.ANSI_RESET);
+		System.out.format(String.format("┣%3s╋%56s┫\n", " ", " ").replace(' ', '━'));
+		System.out.format("%14s ┃ %10s \n", AnsiUtility.ANSI_CYAN_BOLD + "2" + AnsiUtility.ANSI_RESET,
+				AnsiUtility.ANSI_CYAN_BOLD + "Start a new game with different settings" + AnsiUtility.ANSI_RESET);
+		System.out.format(String.format("┣%3s╋%56s┫\n", " ", " ").replace(' ', '━'));
+		System.out.format("%14s ┃ %10s \n", AnsiUtility.ANSI_CYAN_BOLD + "3" + AnsiUtility.ANSI_RESET,
+				AnsiUtility.ANSI_CYAN_BOLD + "Exit from the game" + AnsiUtility.ANSI_RESET);
+		System.out.format(String.format("┗%3s┻%56s┛\n", " ", " ").replace(' ', '━'));
 	}
 
 	/**
@@ -108,40 +126,46 @@ public class ConsoleStartView implements StartView {
 			endingSettings[1] = false;
 			break;
 		}
+
 		return endingSettings;
 	}
 
 	@Override
 	public void showNewMatchStarting() {
-		System.out.println("\nNow starting the game");
+		// System.out.println("\nNow starting the game");
+		this.clearScreen();
 	}
 
 	@Override
 	public int askNewLength(int lowTreshold, int highTreshhold) {
 		int length = 0;
-		System.out.println("Insert the length of pegs sequences: [between " + lowTreshold
-				+ " and " + highTreshhold + ", inclusive]");
+
+		String askNewLenght = "Insert the length of pegs sequences: [between " + lowTreshold + " and " + highTreshhold
+				+ ", inclusive]";
+
+		System.out.format(String.format("┏%70s┓\n", " ").replace(' ', '━'));
+		System.out.format("┃ %59s %3s \n", AnsiUtility.ANSI_CYAN_BOLD + askNewLenght + AnsiUtility.ANSI_RESET, "┃");
+		System.out.format(String.format("┗%70s┛\n", " ", " ").replace(' ', '━'));
+
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
 				System.out.print("> ");
 				try {
 					length = Integer.parseInt(in.readLine());
-					if (length < lowTreshold
-							|| length > highTreshhold) {
+					if (length < lowTreshold || length > highTreshhold) {
 						throw new NumberFormatException();
 					} else {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a numeric value between " + lowTreshold
-							+ " and " + highTreshhold + ", inclusive");
+					System.out.println("Please insert a numeric value between " + lowTreshold + " and " + highTreshhold
+							+ ", inclusive");
 				}
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
-		;
 
 		return length;
 	}
@@ -149,8 +173,13 @@ public class ConsoleStartView implements StartView {
 	@Override
 	public int askNewAttempts(int lowTreshold) {
 		int attempts = 0;
-		System.out.println("Insert the number of attempts: [equal or greater than "
-				+ lowTreshold + "]");
+
+		String askNewAttempts = "Insert the number of attempts: [equal or greater than " + lowTreshold + "]";
+
+		System.out.format(String.format("┏%60s┓\n", " ").replace(' ', '━'));
+		System.out.format("┃ %59s %3s \n", AnsiUtility.ANSI_CYAN_BOLD + askNewAttempts + AnsiUtility.ANSI_RESET, "┃");
+		System.out.format(String.format("┗%60s┛\n", " ", " ").replace(' ', '━'));
+
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
 				System.out.print("> ");
@@ -162,25 +191,23 @@ public class ConsoleStartView implements StartView {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println(
-							"Please insert a numeric value greater than " + lowTreshold);
+					System.out.println("Please insert a numeric value greater than " + lowTreshold);
 				}
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
-		;
+
 		return attempts;
 	}
 
 	@Override
 	public String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker) {
-		System.out.println("Select the " + (isBreaker ? "breaker" : "maker") + " from this list");
 		List<String> names = registry.getPlayersNames();
 		List<String> desc = registry.getPlayersDescription();
-		IntStream.range(0, names.size())
-				.forEach(index -> System.out.println(index + 1 + " - " + names.get(index) + " - " + desc.get(index)));
+		this.showMenuSelectMode(isBreaker);
+		IntStream.range(0, names.size()).forEach(index -> showMenuChooseMode(names, desc, index));
 		int intInput = 0;
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
@@ -200,16 +227,47 @@ public class ConsoleStartView implements StartView {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
-		;
-		System.out.println("You chose a " + names.get(intInput - 1));
+
+		this.showLogo();
 		return names.get(intInput - 1);
+	}
+
+	/**
+	 * 
+	 * @param isBreaker
+	 */
+	public void showMenuSelectMode(boolean isBreaker) {
+		String selectionStuff = "Select the " + (isBreaker ? "breaker" : "maker") + " from this list";
+		System.out.format(String.format("┏%60s┓\n", " ").replace(' ', '━'));
+		System.out.format("%s %59s %11s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + selectionStuff + AnsiUtility.ANSI_RESET,
+				"┃");
+		System.out.format(String.format("┣%3s┳%56s┫\n", " ", " ").replace(' ', '━'));
+	}
+
+	/**
+	 * 
+	 * @param names
+	 * @param desc
+	 * @param index
+	 */
+	public void showMenuChooseMode(List<String> names, List<String> desc, int index) {
+		System.out.format("%14s ┃ %10s • %10s \n", AnsiUtility.ANSI_CYAN_BOLD + (index + 1) + AnsiUtility.ANSI_RESET,
+				AnsiUtility.ANSI_CYAN_BOLD + names.get(index) + AnsiUtility.ANSI_RESET,
+				AnsiUtility.ANSI_CYAN_BOLD + desc.get(index) + AnsiUtility.ANSI_RESET);
+		System.out.format(String.format("%s%4s%56s%s\n", (index == 1 ? "┗" : "┣"), (index == 1 ? "┻" : "╋"), " ",
+				(index == 1 ? "┛" : "┫")).replace(' ', '━'));
 	}
 
 	@Override
 	public boolean askNewLengthsAndAttempts() {
 		String strInput = "";
-		System.out.println(
-				"\nWould you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]");
+		String askNewLenghtAndAttempts = "Would you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]";
+
+		System.out.format(String.format("┏%110s┓\n", " ").replace(' ', '━'));
+		System.out.format("┃ %59s %s \n", AnsiUtility.ANSI_CYAN_BOLD + askNewLenghtAndAttempts + AnsiUtility.ANSI_RESET,
+				"┃");
+		System.out.format(String.format("┗%110s┛\n", " ", " ").replace(' ', '━'));
+
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
 				System.out.print("> ");
@@ -228,16 +286,16 @@ public class ConsoleStartView implements StartView {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
-		;
+
 		return strInput.toLowerCase().equals("n") ? true : false;
 	}
 
 	@Override
 	public void showLogo() {
+		this.clearScreen();
 		System.out.format(AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%43s"
 				+ AnsiUtility.ANSI_RESET + "\n\n\n", mastermindLogo, mastermindCaptionStart);
 	}
-
 
 	/**
 	 * Si effettua una sorta di pulizia della console di interazione con l'utente
@@ -252,6 +310,5 @@ public class ConsoleStartView implements StartView {
 		System.out.println("There was an error during the game:");
 		System.out.println(reason);
 	}
-
 
 }

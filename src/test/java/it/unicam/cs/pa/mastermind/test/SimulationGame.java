@@ -28,13 +28,12 @@ class SimulationGame {
 
 	@Test
 	void testSimulationGame() {
-		assertTrue(true);
 		assertTimeout(ofMillis(5000), () -> {
 			board = new BoardModel(sequenceLenght, maxAttempts);
 			boardController = new BoardController(board);
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 			boardController
-					.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.CYAN));
+					.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.RED));
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.WHITE, ColorPegs.BLUE));
 			assertEquals(maxAttempts - board.attemptsInserted(), board.leftAttempts());
@@ -46,17 +45,17 @@ class SimulationGame {
 					board.getClueFromAttempt(
 							Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.YELLOW)));
 			boardController
-					.insertNewAttempt(Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.CYAN, ColorPegs.WHITE));
+					.insertNewAttempt(Arrays.asList(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.WHITE));
 			assertEquals(Arrays.asList(ColorPegs.WHITE, ColorPegs.WHITE),
 					board.getClueFromAttempt(
-							Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.CYAN, ColorPegs.WHITE)));
+							Arrays.asList(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.WHITE)));
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 			assertFalse(board.hasBreakerGuessed());
 			boardController
-					.insertNewAttempt(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.CYAN));
+					.insertNewAttempt(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.RED));
 			assertEquals(Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK),
 					board.getClueFromAttempt(
-							Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.CYAN)));
+							Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.RED)));
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 			assertTrue(board.hasBreakerGuessed());
 		});

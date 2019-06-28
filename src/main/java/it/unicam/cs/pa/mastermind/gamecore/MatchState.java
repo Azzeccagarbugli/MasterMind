@@ -89,11 +89,11 @@ public class MatchState extends BoardObserver {
 	 */
 	public String getMessage() {
 		if (this.getHasBreakerWon()) {
-			return "The breaker guessed the combination after " + usedAttempts + " attempts. The breaker wins";
+			return "\nThe breaker guessed the combination after " + usedAttempts + " attempts. The breaker wins";
 		} else if (this.hasMakerWon) {
-			return "The breaker didn't guess the combination. The maker wins";
+			return "\nThe breaker didn't guess the combination. The maker wins";
 		} else
-			return "There are no losers and no winners";
+			return "\nThere are no losers and no winners";
 	}
 
 	@Override

@@ -29,7 +29,7 @@ class PlayersRandomBotBreakerTest {
 		BoardController boardController = new BoardController(boardTemp);
 		boardController
 				.insertCodeToGuess(Arrays.asList(ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.GREEN));
-		boardController.insertNewAttempt(Arrays.asList(ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.CYAN));
+		boardController.insertNewAttempt(Arrays.asList(ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.BLUE));
 		assertEquals(9 - boardTemp.leftAttempts(), boardTemp.attemptsInserted());
 	}
 }

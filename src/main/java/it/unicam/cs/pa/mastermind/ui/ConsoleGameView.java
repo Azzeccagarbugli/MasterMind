@@ -35,7 +35,7 @@ public class ConsoleGameView extends GameView {
 	public List<Integer> getIndexSequence(boolean isBreaker) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		String isBreakerMsg = isBreaker ? "Defining a new attempt" : "Defining the sequence to guess";
-		String isBreakerAttempts = "Please define the color of each of the pegs knowing that";
+		String isBreakerAttempts = "Define the color of each of the pegs knowing that";
 
 		showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
 		for (int i = 1; i <= getSubject().getSequenceLength(); i++) {
@@ -62,9 +62,9 @@ public class ConsoleGameView extends GameView {
 	private void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
 		if (size < 5) {
 			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-			System.out.format("%s %57s %22s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + +getSubject().leftAttempts()
+			System.out.format("%s %53s %26s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + getSubject().leftAttempts()
 					+ " attempts left" + AnsiUtility.ANSI_RESET, "┃");
-			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
+			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));	
 			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
 			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
 		} else {
@@ -83,15 +83,15 @@ public class ConsoleGameView extends GameView {
 	 *                  <code>CodeBreaker</code>.
 	 */
 	private void showMenuColor(String labelMsg1, String labelMsg2, boolean isBreaker) {
-		System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-		System.out.format("%s %58s %21s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg1 + AnsiUtility.ANSI_RESET, "┃");
-		System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
-		System.out.format("%s %74s %5s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg2 + AnsiUtility.ANSI_RESET, "┃");
+		System.out.format(String.format("\n┏%51s┓\n", " ").replace(' ', '━'));
+		System.out.format("%s %51s %10s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg1 + AnsiUtility.ANSI_RESET, "┃");
+		System.out.format(String.format("┣%51s┫\n", " ").replace(' ', '━'));
+		System.out.format("%s %s %s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + labelMsg2 + AnsiUtility.ANSI_RESET, "┃");
 		giveUpMessageForBreakers(isBreaker);
-		System.out.format(String.format("┣%16s┳%16s┳%16s┳%18s┫\n", " ", " ", " ", " ").replace(" ", "━"));
+		System.out.format(String.format("┣%16s┳%16s┳%17s┫\n", " ", " ", " ", " ").replace(" ", "━"));
 		IntStream.range(0, ColorPegs.values().length).mapToObj(index -> selectionColor(index))
 				.forEach(System.out::print);
-		System.out.format(String.format("\n┗%16s┻%16s┻%16s┻%18s┛\n\n", " ", " ", " ", " ").replace(' ', '━'));
+		System.out.format(String.format("\n┗%16s┻%16s┻%17s┛\n\n", " ", " ", " ", " ").replace(' ', '━'));
 	}
 
 	/**
@@ -104,8 +104,8 @@ public class ConsoleGameView extends GameView {
 	private void giveUpMessageForBreakers(boolean isBreaker) {
 		if (isBreaker) {
 			String giveUpFormat = "Insert the number 0 to give up";
-			System.out.format(String.format("┣%69s┫\n", " ").replace(' ', '━'));
-			System.out.format("%s %61s %18s \n", "┃", AnsiUtility.ANSI_RED_BOLD + giveUpFormat + AnsiUtility.ANSI_RESET,
+			System.out.format(String.format("┣%51s┫\n", " ").replace(' ', '━'));
+			System.out.format("%s %52s %9s \n", "┃", AnsiUtility.ANSI_RED_BOLD + giveUpFormat + AnsiUtility.ANSI_RESET,
 					"┃");
 		}
 	}
@@ -123,14 +123,14 @@ public class ConsoleGameView extends GameView {
 
 		if (index == 0) {
 			tabulationColor += String.format("  [%s - %d] ┃", beautifyGeneral(ColorPegs.values()[index]), index + 1);
-		} else if (index == 3) {
-			tabulationColor = String.format("  [%s - %d] %3s", beautifyGeneral(ColorPegs.values()[index]), index + 1,
+		} else if (index == 2) {
+			tabulationColor = String.format("  [%s - %d] %2s", beautifyGeneral(ColorPegs.values()[index]), index + 1,
 					"┃");
 			tabulationColor += "\n┃";
-			tabulationColor += String.format("%17s%17s%17s%19s", "┃", "┃", "┃", "┃");
+			tabulationColor += String.format("%17s%17s%18s", "┃", "┃", "┃");
 			tabulationColor += "\n┃";
-		} else if (index == 7) {
-			tabulationColor = String.format("  [%s - %d] %3s", beautifyGeneral(ColorPegs.values()[index]), index + 1,
+		} else if (index == 5) {
+			tabulationColor = String.format("  [%s - %d] %2s", beautifyGeneral(ColorPegs.values()[index]), index + 1,
 					"┃");
 		} else {
 			tabulationColor = " ";
