@@ -24,6 +24,6 @@ public class InteractiveMakerFactory implements MakerFactory {
 
 	@Override
 	public String getDescription() {
-		return "Gestione del comportamento del giocatore tramite interazioni con l'utente umano";
+		return "Human interactions for a maker";
 	}
 }

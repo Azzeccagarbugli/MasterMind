@@ -31,9 +31,9 @@ public class StartStats {
 	int lowTresholdAttempts;
 	private SingleMatch currentGame;
 	private MakerFactoryRegistry makers;
-	private final String makersPath = "MasterMindSrc//MakerFactories.txt";
+	private final String makersPath = "GameResources//MakerFactories.txt";
 	private BreakerFactoryRegistry breakers;
-	private final String breakersPath = "MasterMindSrc//BreakerFactories.txt";
+	private final String breakersPath = "GameResources//BreakerFactories.txt";
 	private MakerFactory curMakerFactory;
 	private BreakerFactory curBreakerFactory;
 	private NewGameStats newGame;
@@ -51,7 +51,7 @@ public class StartStats {
 	}
 
 	private void setupDefaultSrcFolder() {
-		File dir = new File("./MasterMindSrc");
+		File dir = new File("./GameResources");
 		if(!dir.exists()) {
 			dir.mkdir();
 		}

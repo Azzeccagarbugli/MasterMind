@@ -24,7 +24,7 @@ public class InteractiveBreakerFactory implements BreakerFactory {
 
 	@Override
 	public String getDescription() {
-		return "Gestione del comportamento del giocatore tramite interazioni con l'utente umano";
+		return "Human interactions for a breaker";
 	}
 
 }

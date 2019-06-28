@@ -24,6 +24,6 @@ public class RandomBotBreakerFactory implements BreakerFactory {
 
 	@Override
 	public String getDescription() {
-		return "Gestione del comportamento del giocatore in modo randomico";
+		return "A breaker defined by a random A.I.";
 	}
 }

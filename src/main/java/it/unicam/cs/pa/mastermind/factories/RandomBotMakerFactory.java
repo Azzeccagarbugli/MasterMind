@@ -24,6 +24,6 @@ public class RandomBotMakerFactory implements MakerFactory {
 
 	@Override
 	public String getDescription() {
-		return "Gestione del comportamento del giocatore in modo randomico";
+		return "A maker defined by a random A.I.";
 	}
 }

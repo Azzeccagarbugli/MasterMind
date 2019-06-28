@@ -63,7 +63,8 @@ public abstract class PlayerFactoryRegistry {
 		} else {
 			if (f.createNewFile()) {
 				FileWriter writer = new FileWriter(f);
-				writer.write("Prova di scrittura");
+				writer.write("Please insert here the qualified names of all of the factories of the player implementations you added to the game."
+						+ "Please insert only one factory's qualified name per line.");
 				writer.close();
 			}
 			throw new BadRegistryException("The file at path " + pathLettura
