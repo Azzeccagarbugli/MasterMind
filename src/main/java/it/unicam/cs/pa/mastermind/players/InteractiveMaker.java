@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
+import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
  * Estensione di <code>CodeMaker</code> mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
@@ -14,9 +14,9 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
  */
 public class InteractiveMaker extends CodeMaker {
 
-	private InteractionView view;
+	private GameView view;
 	
-	public InteractiveMaker(InteractionView newView) {
+	public InteractiveMaker(GameView newView) {
 		view = newView;
 	}
 	

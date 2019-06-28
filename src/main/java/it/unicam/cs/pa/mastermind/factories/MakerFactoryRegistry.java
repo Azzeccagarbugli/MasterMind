@@ -1,6 +1,4 @@
-package it.unicam.cs.pa.mastermind.players;
-
-import it.unicam.cs.pa.mastermind.factories.MakerFactory;
+package it.unicam.cs.pa.mastermind.factories;
 
 /**
  * Estensione di <code>PlayerFactoryRegistry</code> per poter contenere

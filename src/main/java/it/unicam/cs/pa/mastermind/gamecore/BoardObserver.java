@@ -1,6 +1,4 @@
-package it.unicam.cs.pa.mastermind.ui;
-
-import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
+package it.unicam.cs.pa.mastermind.gamecore;
 
 /**
  * Classe astratta estendibile da tutte quelle classi coinvolte nel design

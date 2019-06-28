@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.players;
+package it.unicam.cs.pa.mastermind.factories;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import it.unicam.cs.pa.mastermind.factories.PlayerFactory;
 
 /**
  * <b>Responsabilità</b>: gestione dinamica delle implementazioni delle classi

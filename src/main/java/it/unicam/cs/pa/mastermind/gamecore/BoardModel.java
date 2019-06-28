@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.ui.BoardObserver;
-
 /**
  * <b>Responsabilità</b>: gestire le informazioni relative ad una plancia di
  * gioco.

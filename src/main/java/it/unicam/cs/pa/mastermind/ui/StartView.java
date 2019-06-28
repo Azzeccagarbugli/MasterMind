@@ -1,12 +1,12 @@
 package it.unicam.cs.pa.mastermind.ui;
 
+import it.unicam.cs.pa.mastermind.factories.BadRegistryException;
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
-import it.unicam.cs.pa.mastermind.factories.InteractionViewFactory;
+import it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
-import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
-import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
-import it.unicam.cs.pa.mastermind.players.BadRegistryException;
-import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
 
 /**
  * <b>Responsabilità</b>: fornire agli utenti fisici coinvolti nel gioco
@@ -15,63 +15,25 @@ import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public abstract class StartView {
+public interface StartView {
 
-	/**
-	 * Istanza della classe <code>StartStats</code>.
-	 */
-	private StartStats startStats;
-
-	public StartView() {
+	// TODO Javadoc
+	public default MakerFactory setupMaker(MakerFactoryRegistry registry) {
 		try {
-			startStats = new StartStats();
+			return (MakerFactory) registry.getFactoryByName(getPlayerName(registry, false));
 		} catch (BadRegistryException e) {
 			this.badEnding(e.getMessage());
+			return null;
 		}
 	}
 
-	/**
-	 * Gestione completa dell'interazione con l'utente fisico per poter iniziare una
-	 * nuova partita.
-	 */
-	public void startUp() {
-		
-		while (startStats.isToContinue()) {
-			startStats.setIntView(this.getInteractionViewFactory());
-			this.showLogo();
-			if (!startStats.isKeepSettings()) {
-				startStats.resetLengthAttempts();
-				setupNewPlayers();
-				if (this.askNewSettings()) {
-					startStats.setAttempts(askNewAttempts());
-					startStats.setSequenceLength(askNewLength());
-				}
-			}
-			this.showNewGameStarting();
-			startStats.setCurrentGame(new SingleMatch(startStats.getSequenceLength(), startStats.getAttempts(),
-					startStats.getIntViewFactory(), startStats.getCurBreakerFactory(), startStats.getCurMakerFactory()));
-			startStats.getCurrentGame().start();
-			startStats.setNewGame(this.askNewGameSettings());
-			startStats.setToContinue(startStats.getNewGame().getContinue());
-			startStats.setKeepSettings(startStats.getNewGame().getKeepSettings());
-		}
-		
-		this.ending();
-	}
-
-
-	/**
-	 * Creazione delle istanze relative alle factory di giocatori necessarie per la nuova partita.
-	 */
-	private void setupNewPlayers() {
+	// TODO Javadoc
+	public default BreakerFactory setupBreaker(BreakerFactoryRegistry registry) {
 		try {
-		startStats.setCurMakerFactory(
-				(MakerFactory) startStats.getMakers().getFactoryByName(getPlayerName(startStats.getMakers(), false)));
-		startStats.setCurBreakerFactory(
-				(BreakerFactory) startStats.getBreakers()
-				.getFactoryByName(getPlayerName(startStats.getBreakers(), true)));
+			return (BreakerFactory) registry.getFactoryByName(getPlayerName(registry, true));
 		} catch (BadRegistryException e) {
 			this.badEnding(e.getMessage());
+			return null;
 		}
 	}
 
@@ -79,7 +41,7 @@ public abstract class StartView {
 	 * Gestione della conclusione dell'intero gioco dopo la fine di ogni singola
 	 * partita.
 	 */
-	protected abstract void ending();
+	public void ending();
 
 	/**
 	 * Gestione anticipata della conclusione dell'intero gioco, richiamata ad
@@ -87,41 +49,21 @@ public abstract class StartView {
 	 * 
 	 * @param reason
 	 */
-	protected abstract void badEnding(String reason);
+	public void badEnding(String reason);
 
-	/**
-	 * Interazione con l'utente fisico a fronte della conclusione di una singola
-	 * partita.
-	 * 
-	 * @return NewGameStats contenente informazioni relative all'inizio di una nuova
-	 *         partita e alle impostazioni correlate.
-	 */
-	protected abstract NewGameStats askNewGameSettings();
+	// TODO Javadoc
+	public StartupSettings askNewStartupSettings();
 
 	/**
 	 * Gestione del messaggio di avvio di una singola partita.
 	 */
-	protected abstract void showNewGameStarting();
+	public void showNewMatchStarting();
 
-	/**
-	 * Gestione dell'interazione con l'utente fisico per l'impostazione di un nuovo
-	 * valore della lunghezza delle sequenze di elementi presenti nella nuova
-	 * partita.
-	 * 
-	 * @return int valore della lunghezza delle sequenze di elementi presenti nella
-	 *         nuova partita.
-	 */
-	protected abstract int askNewLength();
+	// TODO Javadoc
+	public int askNewLength(int lowTres, int highTres);
 
-	/**
-	 * Gestione dell'interazione con l'utente fisico per l'impostazione di un nuovo
-	 * valore di numero di tentativi massimi richiesti al <code>CodeBreaker</code>
-	 * all'interno della nuova partita.
-	 * 
-	 * @return int numero di tentativi massimi richiesti al <code>CodeBreaker</code>
-	 *         all'interno della nuova partita.
-	 */
-	protected abstract int askNewAttempts();
+	// TODO Javadoc
+	public int askNewAttempts(int lowTres);
 
 	/**
 	 * Gestione dell'interazione dell'utente fisico per la scelta della particolare
@@ -135,7 +77,7 @@ public abstract class StartView {
 	 * @return String rappresentante l'implementazione del giocatore scelta per la
 	 *         nuova partita.
 	 */
-	protected abstract String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker);
+	public String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker);
 
 	/**
 	 * Gestione dell'interazione con l'utente fisico per l'impostazione o meno di
@@ -144,23 +86,11 @@ public abstract class StartView {
 	 * @return boolean volontà dell'utente fisico di decidere nuove impostazioni per
 	 *         la nuova partita.
 	 */
-	protected abstract boolean askNewSettings();
+	public boolean askNewLengthsAndAttempts();
 
 	/**
 	 * Gestione del logo di avvio del gioco.
 	 */
-	protected abstract void showLogo();
+	public void showLogo();
 
-//TODO Javadoc
-	protected abstract InteractionViewFactory getInteractionViewFactory();
-
-	/**
-	 * Restituito il riferimento all'oggetto <code>StartStats</code> presente nella
-	 * classe
-	 * 
-	 * @return StartStats il riferimento richiesto
-	 */
-	protected StartStats getStartStats() {
-		return this.startStats;
-	}
 }

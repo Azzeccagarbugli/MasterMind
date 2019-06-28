@@ -1,15 +1,13 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
-import it.unicam.cs.pa.mastermind.ui.BoardObserver;
-
 /**
  * <b>Responsabilità</b>: tenere traccia delle informazioni necessarie per poter
- * decretare se una partita è terminata o meno.
+ * decretare se una partita è ancora in corso o meno.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class CurrentGameStats extends BoardObserver {
+public class MatchState extends BoardObserver {
 
 	/**
 	 * Booleano relativo alla condizione di vittoria del Maker.
@@ -24,32 +22,31 @@ public class CurrentGameStats extends BoardObserver {
 	/**
 	 * Numero di tentativi relativi alla condizione di vittoria del Breaker.
 	 */
-	private int attempts;
+	private int usedAttempts;
 
 	/**
 	 * Costruttore.
 	 */
-	public CurrentGameStats(BoardModel subject) {
+	public MatchState(BoardModel subject) {
 		this.addSubject(subject);
 		hasMakerWon = false;
 		hasBreakerWon = false;
-		attempts = 0;
+		usedAttempts = 0;
 	}
 
 	/**
-	 * Metodo attraverso il quale vengono restituiti i tentativi rimanenti al player
-	 * per vincere il game corrente.
+	 * Metodo attraverso il quale vengono restituiti i tentativi usati fino ad ora
+	 * dal <code>CodeBreaker</code>
 	 * 
 	 * @return int numero di tentativi che sono stati necessari al Breaker per
 	 *         vincere.
 	 */
 	public int getAttempts() {
-		return (hasBreakerWon) ? attempts : 0;
+		return (hasBreakerWon) ? usedAttempts : 0;
 	}
 
 	/**
-	 * Toggle sulle variabili private per indicare la vittoria del
-	 * Maker.
+	 * Toggle sulle variabili private per indicare la vittoria del Maker.
 	 */
 	public void toggleMakerWin() {
 		hasMakerWon = true;
@@ -57,15 +54,14 @@ public class CurrentGameStats extends BoardObserver {
 	}
 
 	/**
-	 * Toggle sulle variabili private per indicare la vittoria del
-	 * Breaker.
+	 * Toggle sulle variabili private per indicare la vittoria del Breaker.
 	 * 
 	 * @param attempts il numero di tentativi impiegati dal Breaker per vincere
 	 */
 	public void toggleBreakerWin(int attempts) {
 		hasMakerWon = false;
 		hasBreakerWon = true;
-		this.attempts = attempts;
+		this.usedAttempts = attempts;
 	}
 
 	/**
@@ -93,7 +89,7 @@ public class CurrentGameStats extends BoardObserver {
 	 */
 	public String getMessage() {
 		if (this.getHasBreakerWon()) {
-			return "The breaker guessed the combination after " + attempts + " attempts. The breaker wins";
+			return "The breaker guessed the combination after " + usedAttempts + " attempts. The breaker wins";
 		} else if (this.hasMakerWon) {
 			return "The breaker didn't guess the combination. The maker wins";
 		} else

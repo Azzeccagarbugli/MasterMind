@@ -11,13 +11,13 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import it.unicam.cs.pa.mastermind.factories.BadRegistryException;
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
+import it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
-import it.unicam.cs.pa.mastermind.players.BadRegistryException;
-import it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
-import it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry;
 
 /**
  * Test di controllo utili alla generazione delle factory relativi ai player.
@@ -54,7 +54,7 @@ class PlayersFactoryRegistry {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry#BreakerFactoryRegistry()}.
+	 * {@link it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry#BreakerFactoryRegistry()}.
 	 * 
 	 * @throws BadRegistryException
 	 */
@@ -71,7 +71,7 @@ class PlayersFactoryRegistry {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry#MakerFactoryRegistry()}.
+	 * {@link it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry#MakerFactoryRegistry()}.
 	 * 
 	 * @throws BadRegistryException
 	 */
@@ -90,7 +90,7 @@ class PlayersFactoryRegistry {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry#getFactoryByName(java.lang.String)}.
+	 * {@link it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry#getFactoryByName(java.lang.String)}.
 	 * 
 	 * @throws BadRegistryException
 	 */
@@ -110,7 +110,7 @@ class PlayersFactoryRegistry {
 
 	/**
 	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry#getPlayersNames()}.
+	 * {@link it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry#getPlayersNames()}.
 	 * 
 	 * @throws BadRegistryException
 	 */

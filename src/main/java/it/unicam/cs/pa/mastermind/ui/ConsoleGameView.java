@@ -18,12 +18,12 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class ConsoleInteractionView extends InteractionView {
+public class ConsoleGameView extends GameView {
 
 	private FilterInputStream fis;
 
 	// TODO JavaDoc
-	public ConsoleInteractionView() {
+	public ConsoleGameView() {
 		fis = new FilterInputStream(System.in) {
 			@Override
 			public void close() throws IOException {
@@ -163,12 +163,6 @@ public class ConsoleInteractionView extends InteractionView {
 			break;
 		case GREEN:
 			colorfulPeg += AnsiUtility.ANSI_GREEN_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
-			break;
-		case PURPLE:
-			colorfulPeg += AnsiUtility.ANSI_PURPLE_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
-			break;
-		case CYAN:
-			colorfulPeg += AnsiUtility.ANSI_CYAN_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";
 			break;
 		case WHITE:
 			colorfulPeg += AnsiUtility.ANSI_WHITE_BACKGROUND + "      " + AnsiUtility.ANSI_RESET + " ";

@@ -2,7 +2,7 @@ package it.unicam.cs.pa.mastermind.factories;
 
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.RandomBotBreaker;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
+import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
  * Classe factory estensione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>RandomBotBreaker</code>.
@@ -13,7 +13,7 @@ import it.unicam.cs.pa.mastermind.ui.InteractionView;
 public class RandomBotBreakerFactory implements BreakerFactory {
 
 	@Override
-	public CodeBreaker getBreaker(InteractionView view, int seqLength, int attempts) {
+	public CodeBreaker getBreaker(GameView view, int seqLength, int attempts) {
 		return new RandomBotBreaker(seqLength, attempts);
 	}
 

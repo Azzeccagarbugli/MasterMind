@@ -7,10 +7,8 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import it.unicam.cs.pa.mastermind.factories.ConsoleInteractionViewFactory;
-import it.unicam.cs.pa.mastermind.factories.InteractionViewFactory;
-import it.unicam.cs.pa.mastermind.gamecore.NewGameStats;
-import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry;
+import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
 
 /**
  * Implementazione con interazione via console della classe
@@ -19,7 +17,7 @@ import it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class ConsoleStartView extends StartView {
+public class ConsoleStartView implements StartView {
 
 	private FilterInputStream fis;
 
@@ -54,16 +52,15 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected void ending() {
-		this.clearScreen();
+	public void ending() {
+		//this.clearScreen();
 		System.out.format(
 				AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%50s" + AnsiUtility.ANSI_RESET,
 				mastermindLogo, mastermindCaptionEnd);
-		System.exit(0);
 	}
 
 	@Override
-	protected NewGameStats askNewGameSettings() {
+	public StartupSettings askNewStartupSettings() {
 		int intInput = 0;
 		System.out.println("\nThe game has finished, what would you like to do now?");
 		System.out.println("• Start a new game with the same settings [1]" + "\n"
@@ -86,7 +83,7 @@ public class ConsoleStartView extends StartView {
 			e1.printStackTrace();
 			System.exit(-1);
 		}
-		return new NewGameStats(settingEnd(intInput)[0], settingEnd(intInput)[1]);
+		return new StartupSettings(settingEnd(intInput)[0], settingEnd(intInput)[1]);
 	}
 
 	/**
@@ -115,29 +112,29 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected void showNewGameStarting() {
+	public void showNewMatchStarting() {
 		System.out.println("\nNow starting the game");
 	}
 
 	@Override
-	protected int askNewLength() {
+	public int askNewLength(int lowTreshold, int highTreshhold) {
 		int length = 0;
-		System.out.println("Insert the length of pegs sequences: [between " + getStartStats().getLowTresholdLength()
-				+ " and " + getStartStats().getHighTresholdLength() + ", inclusive]");
+		System.out.println("Insert the length of pegs sequences: [between " + lowTreshold
+				+ " and " + highTreshhold + ", inclusive]");
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
 				System.out.print("> ");
 				try {
 					length = Integer.parseInt(in.readLine());
-					if (length < getStartStats().getLowTresholdLength()
-							|| length > getStartStats().getHighTresholdLength()) {
+					if (length < lowTreshold
+							|| length > highTreshhold) {
 						throw new NumberFormatException();
 					} else {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a numeric value between " + getStartStats().getLowTresholdLength()
-							+ " and " + getStartStats().getHighTresholdLength() + ", inclusive");
+					System.out.println("Please insert a numeric value between " + lowTreshold
+							+ " and " + highTreshhold + ", inclusive");
 				}
 			}
 		} catch (IOException e1) {
@@ -150,23 +147,23 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected int askNewAttempts() {
+	public int askNewAttempts(int lowTreshold) {
 		int attempts = 0;
 		System.out.println("Insert the number of attempts: [equal or greater than "
-				+ getStartStats().getLowTresholdAttempts() + "]");
+				+ lowTreshold + "]");
 		try (BufferedReader in = new BufferedReader(new InputStreamReader(fis))) {
 			for (;;) {
 				System.out.print("> ");
 				try {
 					attempts = Integer.parseInt(in.readLine());
-					if (attempts < getStartStats().getLowTresholdAttempts()) {
+					if (attempts < lowTreshold) {
 						throw new NumberFormatException();
 					} else {
 						break;
 					}
 				} catch (NumberFormatException e) {
 					System.out.println(
-							"Please insert a numeric value greater than " + getStartStats().getLowTresholdAttempts());
+							"Please insert a numeric value greater than " + lowTreshold);
 				}
 			}
 		} catch (IOException e1) {
@@ -178,7 +175,7 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker) {
+	public String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker) {
 		System.out.println("Select the " + (isBreaker ? "breaker" : "maker") + " from this list");
 		List<String> names = registry.getPlayersNames();
 		List<String> desc = registry.getPlayersDescription();
@@ -209,7 +206,7 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected boolean askNewSettings() {
+	public boolean askNewLengthsAndAttempts() {
 		String strInput = "";
 		System.out.println(
 				"\nWould you like to start a new match using the default settings (9 attempts and 4 pegs long sequences)? [Y/N]");
@@ -236,15 +233,11 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected void showLogo() {
+	public void showLogo() {
 		System.out.format(AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%43s"
 				+ AnsiUtility.ANSI_RESET + "\n\n\n", mastermindLogo, mastermindCaptionStart);
 	}
 
-	@Override
-	protected InteractionViewFactory getInteractionViewFactory() {
-		return new ConsoleInteractionViewFactory();
-	}
 
 	/**
 	 * Si effettua una sorta di pulizia della console di interazione con l'utente
@@ -255,15 +248,10 @@ public class ConsoleStartView extends StartView {
 	}
 
 	@Override
-	protected void badEnding(String reason) {
+	public void badEnding(String reason) {
 		System.out.println("There was an error during the game:");
 		System.out.println(reason);
-		System.exit(-1);
 	}
 
-	public static void main(String[] args) {
-		StartView startView = ConsoleStartView.getInstance();
-		startView.startUp();
-	}
 
 }

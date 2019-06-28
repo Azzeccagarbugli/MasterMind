@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.mastermind.players;
+package it.unicam.cs.pa.mastermind.factories;
 
 /**
  * Eccezione personalizzata impiegata in tutti quei casi in cui ci sia stato un

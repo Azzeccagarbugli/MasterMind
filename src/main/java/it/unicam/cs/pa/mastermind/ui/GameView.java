@@ -2,6 +2,8 @@ package it.unicam.cs.pa.mastermind.ui;
 
 import java.util.List;
 
+import it.unicam.cs.pa.mastermind.gamecore.BoardObserver;
+
 /**
  * <b>Responsabilità</b>: fornire ai giocatori coinvolti in una singola partita
  * operazioni di Input/Output.
@@ -9,7 +11,7 @@ import java.util.List;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public abstract class InteractionView extends BoardObserver {
+public abstract class GameView extends BoardObserver {
 
 	/**
 	 * Interazione con l'utente fisico o altra entità per poter ottenere gli indici

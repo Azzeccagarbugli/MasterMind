@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.ui.InteractionView;
+import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
  * Estensione di <code>CodeBreaker</code> mirata ad una gestione del
@@ -23,9 +23,9 @@ public class InteractiveBreaker extends CodeBreaker {
 	 */
 	private Set<List<ColorPegs>> combinationAttempts;
 	
-	private InteractionView view;
+	private GameView view;
 
-	public InteractiveBreaker(InteractionView newView) {
+	public InteractiveBreaker(GameView newView) {
 		combinationAttempts = new HashSet<>();
 		view = newView;
 	}

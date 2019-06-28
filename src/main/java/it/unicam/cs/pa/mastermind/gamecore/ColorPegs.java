@@ -7,5 +7,5 @@ package it.unicam.cs.pa.mastermind.gamecore;
  *
  */
 public enum ColorPegs {
-	BLUE, RED, YELLOW, GREEN, WHITE, BLACK, CYAN, PURPLE;
+	BLUE, RED, YELLOW, GREEN, WHITE, BLACK;
 }
