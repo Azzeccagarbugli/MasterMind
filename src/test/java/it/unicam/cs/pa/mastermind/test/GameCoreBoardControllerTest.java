@@ -89,13 +89,4 @@ class GameCoreBoardControllerTest {
 		assertEquals(sequenceLenght, board.getSequenceLength());
 	}
 
-	/**
-	 * Test method for
-	 * {@link it.unicam.cs.pa.mastermind.gamecore.BoardController#getBoardReference()}.
-	 */
-	@Test
-	void testGetBoardReference() {
-		assertEquals(board, boardCord.getBoardReference());
-	}
-
 }
