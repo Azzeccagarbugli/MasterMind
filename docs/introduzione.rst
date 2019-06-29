@@ -66,8 +66,8 @@ Informazioni fondamentali circa il primo avvio
 Il caricamento a **runtime** delle informazioni relative alle classi factory, grazie alle quali ottenere istanze di classi che estendono
 ``CodeBreaker`` e ``CodeMaker``, è stato reso possibile grazie alla definizione di classi implementazione ``PlayerFactoryRegistry``, classi le cui istanze sono indirizzate
 alla lettura a runtime di file di input e al caricamento di istanze di ``BreakerFactory`` e ``MakerFactory``. 
-Il formato delle informazioni di tali file di input è molto importante ed in loro assenza ne vengono generati automaticamente altri contenenti
-le istruzioni necessarie per un corretto avvio del programma. 
+Il formato delle informazioni di tali file di input è molto importante ed in loro assenza ne vengono generati automaticamente altri 
+*(all'interno della cartella GameResources)* contenenti le istruzioni necessarie per un corretto avvio del programma. 
 Il caricamento a runtime di tali informazioni permette l'aggiunta di nuove funzionalità del programma, nei limiti di estendibilità già trattati, senza avere la
 necessità di ricompilare tutte le classi del progetto.
 Si rimanda alle :doc:`sezioni <source/packages>` per ulteriori informazioni circa le implementazioni di ``PlayerFactoryRegistry`` fornite.
