@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="RandomBotBreakerFactory" href="RandomBotBreakerFactory.html" />
-    <link rel="prev" title="MakerFactory" href="MakerFactory.html" /> 
+    <link rel="next" title="PlayerFactoryRegistry" href="PlayerFactoryRegistry.html" />
+    <link rel="prev" title="MakerFactoryRegistry" href="MakerFactoryRegistry.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,14 +86,25 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.factories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BadRegistryException.html">BadRegistryException</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleGameViewFactory.html">ConsoleGameViewFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DonaldKnuthBreakerFactory.html">DonaldKnuthBreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameViewFactory.html">GameViewFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreakerFactory.html">InteractiveBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveMakerFactory.html">InteractiveMakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MakerFactory.html">MakerFactory</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">PlayerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PlayerFactory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreakerFactory.html">RandomBotBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMakerFactory.html">RandomBotMakerFactory</a></li>
 </ul>
@@ -177,7 +188,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.factories.PlayerFactory">
 public interface <code class="descname">PlayerFactory</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interfaccia <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> che consente l’implementazione da parte delle altri classi ed usata quale label da applicare alle classi che la implementano.</p>
+<dd><p><strong>Responsabilità</strong>: fornire istanze di implementazioni dei giocatori. Interfaccia finalizzata all’implementazione di classi factory per le particolari implementazioni dei giocatori.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -185,6 +196,35 @@ public interface <code class="descname">PlayerFactory</code><a class="headerlink
 </dl>
 </dd></dl>
 
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="getdescription">
+<h3>getDescription<a class="headerlink" href="#getdescription" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.factories.PlayerFactory.getDescription()">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactory.getDescription()" title="Link a questa definizione">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>String descrizione della particolare implementazione di un giocatore</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.factories.PlayerFactory.getName()">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactory.getName()" title="Link a questa definizione">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>String nome della particolare implementazione di un giocatore</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
 </div>
 
 
@@ -195,10 +235,10 @@ public interface <code class="descname">PlayerFactory</code><a class="headerlink
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="RandomBotBreakerFactory.html" class="btn btn-neutral float-right" title="RandomBotBreakerFactory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PlayerFactoryRegistry.html" class="btn btn-neutral float-right" title="PlayerFactoryRegistry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="MakerFactory.html" class="btn btn-neutral float-left" title="MakerFactory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="MakerFactoryRegistry.html" class="btn btn-neutral float-left" title="MakerFactoryRegistry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

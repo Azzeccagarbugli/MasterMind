@@ -16,6 +16,5 @@ Il seguente package contiene i vari test che andaranno effettuati all'interno de
    PlayersRandomBotBreakerTest
    PlayersRandomBotMakerTest
    SimulationGame
-   UIConsoleInteractionViewTest
    UIConsoleStartViewTest
 

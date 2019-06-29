@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="CurrentGameStats" href="CurrentGameStats.html" />
-    <link rel="prev" title="BoardModel" href="BoardModel.html" /> 
+    <link rel="next" title="ConsoleMainManager" href="ConsoleMainManager.html" />
+    <link rel="prev" title="BoardObserver" href="BoardObserver.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,19 +86,25 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BoardController.html">BoardController</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ColorPegs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#enum-constants">Enum Constants</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="CurrentGameStats.html">CurrentGameStats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="NewGameStats.html">NewGameStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainManager.html">MainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchStartSettings.html">MatchStartSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
@@ -205,27 +211,11 @@ public static final <a class="reference internal" href="#it.unicam.cs.pa.masterm
 <dd></dd></dl>
 
 </div>
-<div class="section" id="cyan">
-<h3>CYAN<a class="headerlink" href="#cyan" title="Link a questa intestazione">¶</a></h3>
-<dl class="field">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.ColorPegs.CYAN">
-public static final <a class="reference internal" href="#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a> <code class="descname">CYAN</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.ColorPegs.CYAN" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
-
-</div>
 <div class="section" id="green">
 <h3>GREEN<a class="headerlink" href="#green" title="Link a questa intestazione">¶</a></h3>
 <dl class="field">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.ColorPegs.GREEN">
 public static final <a class="reference internal" href="#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a> <code class="descname">GREEN</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.ColorPegs.GREEN" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="purple">
-<h3>PURPLE<a class="headerlink" href="#purple" title="Link a questa intestazione">¶</a></h3>
-<dl class="field">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.ColorPegs.PURPLE">
-public static final <a class="reference internal" href="#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a> <code class="descname">PURPLE</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.ColorPegs.PURPLE" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -264,10 +254,10 @@ public static final <a class="reference internal" href="#it.unicam.cs.pa.masterm
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="CurrentGameStats.html" class="btn btn-neutral float-right" title="CurrentGameStats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ConsoleMainManager.html" class="btn btn-neutral float-right" title="ConsoleMainManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="BoardModel.html" class="btn btn-neutral float-left" title="BoardModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="BoardObserver.html" class="btn btn-neutral float-left" title="BoardObserver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -89,6 +89,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guida al gioco</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#regolamento">Regolamento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#singola-partita">Singola partita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#struttura-dell-interfaccia">Struttura dell’interfaccia</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx e le sue potenzialità</a></li>
@@ -160,7 +161,7 @@
             
   <div class="section" id="guida-al-gioco">
 <h1>Guida al gioco<a class="headerlink" href="#guida-al-gioco" title="Link a questa intestazione">¶</a></h1>
-<p>Mastermind o <em>Master Mind</em> è un gioco da tavolo astratto di crittoanalisi <a class="footnote-reference brackets" href="#id3" id="id1">1</a> per due giocatori, in cui un giocatore, il <strong>«decodificatore»</strong>,
+<p>Mastermind o <em>Master Mind</em> è un gioco da tavolo astratto di crittoanalisi <a class="footnote-reference brackets" href="#id5" id="id1">1</a> per due giocatori, in cui un giocatore, il <strong>«decodificatore»</strong>,
 deve indovinare il codice segreto composto dal suo avversario, detto <strong>«codificatore»</strong>.</p>
 <div class="section" id="regolamento">
 <h2>Regolamento<a class="headerlink" href="#regolamento" title="Link a questa intestazione">¶</a></h2>
@@ -183,14 +184,39 @@ Una volta inserito il valore desiderato sarà possibile selezionare il giocatore
 <img alt="_images/decod.png" src="_images/decod.png" />
 <p>Come è possibile osservare nelle immagini precedenti il progetto ammette anche l’utilizzo di un <strong>codificatore</strong> e di un <strong>decodificatore</strong> aventi sembianze artificiali, ovvero controllati da <em>puri</em> e <em>meri</em> algoritmi matematici.</p>
 <p>Ovviamente è possibile anche effettuare partite mediante il solo utilizzo di giocatori di natura <strong>interactive</strong>, cioè controllati da classici <em>player</em> umani.</p>
-<p>È interessante inoltre notare come il parco software prodotto metta anche a disposizione un algoritmo di risoluzione del <strong>Mastermind</strong> più avanzato. Quest’ultimo prende il nome da un noto informatico statunitense <strong>Donald Knuth</strong> <a class="footnote-reference brackets" href="#id4" id="id2">2</a>.</p>
-<p>Esso afferma infatti di risolvere una classica partita con un numero di mosse <em>minori o pari</em> a 5, grazie ad un rubusto algoritmo che basa la sua potenza computazionale sugli indizi forniti e su un ampio numero di combinazioni possibili che genera a priori.</p>
+<p>È interessante inoltre notare come il parco software prodotto metta anche a disposizione un algoritmo di risoluzione del <strong>Mastermind</strong> più avanzato. Quest’ultimo prende il nome da un noto informatico statunitense <strong>Donald Knuth</strong> <a class="footnote-reference brackets" href="#id6" id="id2">2</a>.</p>
+<p>Esso afferma infatti di risolvere una classica partita con un numero di mosse <em>minori o pari</em> a 5, grazie ad un rubusto algoritmo che basa la sua <strong>potenza computazionale</strong> sugli indizi forniti e su un ampio numero di combinazioni possibili che genera a priori.</p>
+<p>Una volta selezionati i <em>players</em> con i quali si vuole disputare la partita sarà possibile accedere alle impostazioni di gioco con le quali si desidera giocare, ovvero la lunghezza della sequenza segreto e il numero di tentativi messi a disposizione.</p>
+<p><em>Esempio: seguendo la figura qui di seguito si avranno a disposizione 9 tentativi e la lunghezza segreta da indovinare avrà una lunghezza pari a 4 caselle colorate</em></p>
+<img alt="_images/selectstuff.png" src="_images/selectstuff.png" />
+<p>La tabella di gioco avrà un aspetto di questa natura e sarà possibile andare a inserire il colore desiderato mediante dei numeri i quali rappresentano proprio quest’utlimi, <em>come è possibile infatti evincere dalla legenda riportata</em>:</p>
+<img alt="_images/gameplay.png" src="_images/gameplay.png" />
+<p>La conclusione di una singola partita invece avrà un aspetto di questo tipo:</p>
+<img alt="_images/endgame.png" src="_images/endgame.png" />
+<p>Come è possibile osservare una volta terminato un match l’utente avrà di fronte a se tre opzioni fondamentali:</p>
+<ol class="arabic simple">
+<li><p>Iniziare un nuovo match con le medesime impostazioni del precedente</p></li>
+<li><p>Iniziare un nuovo match con un set di impostazioni differente dal precedente e quindi <em>settabile</em> nuovamente</p></li>
+<li><p>Uscire dal gioco definitivamente</p></li>
+</ol>
+</div>
+<div class="section" id="struttura-dell-interfaccia">
+<h2>Struttura dell’interfaccia<a class="headerlink" href="#struttura-dell-interfaccia" title="Link a questa intestazione">¶</a></h2>
+<p>L’interfaccia grafica usufrubile da console è stata realizzata utilizzando unicamente caratteri di tipo <strong>UNICODE</strong> <a class="footnote-reference brackets" href="#id7" id="id3">3</a> e decodifica <strong>ANSI</strong> <a class="footnote-reference brackets" href="#id8" id="id4">4</a>.</p>
+<p>Il primo è stato fondamentale per la creazione dei vari <strong>box</strong> contenenti le varie informazioni riportate nel gioco e soprattutto per la creazione delle <strong>tabelle dinamiche</strong>, le quali contengono i valori inseriti e gli indizi autogenerati.</p>
+<p>Il secondo invece è stato necessario <strong>per utilizzare i colori con i quali l’utente può interagire</strong> e per rendere meno monotona l’interfaccia di gioco, <strong>colorando</strong> diversi contenuti all’interno dei vari menù presenti all’interno del gioco.</p>
 <dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><em>Per crittoanalisi (dal greco kryptós, «nascosto», e analýein, «scomporre»), o crittanalisi, si intende lo studio dei metodi per ottenere il significato di informazioni cifrate senza avere accesso all’informazione segreta che è di solito richiesta per effettuare l’operazione.</em></p>
 </dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p><em>Knuth è appunto considerato il padre del campo di studio che studia in maniera rigorosa la parte algoritmica della teoria della complessità e ha dato fondamentali contributi in svariati rami dell’informatica teorica. Ha contribuito infatti con la sua analisi comparativa dei due algoritmi usati («first fit» e «best fit») per la frammentazione esterna della memoria segmentata dei calcolatori, dimostrando che l’algoritmo «first fit» risulta essere migliore in termini di prestazioni complessive rispetto al «best fit».</em></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><em>Unicode è un sistema di codifica che assegna un numero univoco ad ogni carattere usato per la scrittura di testi, in maniera indipendente dalla lingua, dalla piattaforma informatica e dal programma utilizzato.</em></p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p><em>Creato nel 1918 con sede a New York (1430 Broadway) questo istituto privato senza fini di lucro raccoglie oltre 1300 aziende (tra cui tutti i principali fornitori di personal computer) che cooperano alla definizione e alla pubblicazione di standard facoltativi per il mondo dellinformatica e delle comunicazioni.</em></p>
 </dd>
 </dl>
 </div>

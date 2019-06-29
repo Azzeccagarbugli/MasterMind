@@ -86,14 +86,22 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.factories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BadRegistryException.html">BadRegistryException</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleGameViewFactory.html">ConsoleGameViewFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DonaldKnuthBreakerFactory.html">DonaldKnuthBreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameViewFactory.html">GameViewFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreakerFactory.html">InteractiveBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveMakerFactory.html">InteractiveMakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MakerFactory.html">MakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PlayerFactory.html">PlayerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreakerFactory.html">RandomBotBreakerFactory</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">RandomBotMakerFactory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
@@ -179,8 +187,8 @@
 <h1>RandomBotMakerFactory<a class="headerlink" href="#randombotmakerfactory" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory">
-public class <code class="descname">RandomBotMakerFactory</code> extends <a class="reference internal" href="MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory" title="Link a questa definizione">¶</a></dt>
-<dd><p>Classe factory estensione di <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code> impiegata per ottenere istanze di <code class="docutils literal notranslate"><span class="pre">RandomBotMaker</span></code>.</p>
+public class <code class="descname">RandomBotMakerFactory</code> implements <a class="reference internal" href="MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory" title="Link a questa definizione">¶</a></dt>
+<dd><p>Classe factory implementazione di <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code> impiegata per ottenere istanze di <code class="docutils literal notranslate"><span class="pre">RandomBotMaker</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -190,11 +198,27 @@ public class <code class="descname">RandomBotMakerFactory</code> extends <a clas
 
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="getdescription">
+<h3>getDescription<a class="headerlink" href="#getdescription" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getDescription()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getDescription()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="getmaker">
 <h3>getMaker<a class="headerlink" href="#getmaker" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getMaker()">
-public <a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a> <code class="descname">getMaker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getMaker()" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getMaker(GameView, int, int)">
+public <a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a> <code class="descname">getMaker</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/GameView.html#it.unicam.cs.pa.mastermind.ui.GameView" title="it.unicam.cs.pa.mastermind.ui.GameView">GameView</a><em> view</em>, int<em> seqLength</em>, int<em> attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getMaker(GameView, int, int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getName()" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>

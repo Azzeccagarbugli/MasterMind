@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="it.unicam.cs.pa.mastermind.players" href="../players/package-index.html" />
-    <link rel="prev" title="NewGameStats" href="NewGameStats.html" /> 
+    <link rel="next" title="StartupSettings" href="StartupSettings.html" />
+    <link rel="prev" title="MatchState" href="MatchState.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,21 +86,27 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BoardController.html">BoardController</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="CurrentGameStats.html">CurrentGameStats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="NewGameStats.html">NewGameStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainManager.html">MainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchStartSettings.html">MatchStartSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">SingleMatch</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
@@ -191,11 +197,11 @@ public class <code class="descname">SingleMatch</code><a class="headerlink" href
 
 <div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="gamestats">
-<h3>gameStats<a class="headerlink" href="#gamestats" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="gamestate">
+<h3>gameState<a class="headerlink" href="#gamestate" title="Link a questa intestazione">¶</a></h3>
 <dl class="field">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameStats">
- <a class="reference internal" href="CurrentGameStats.html#it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats" title="it.unicam.cs.pa.mastermind.gamecore.CurrentGameStats">CurrentGameStats</a> <code class="descname">gameStats</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameStats" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState">
+ <a class="reference internal" href="MatchState.html#it.unicam.cs.pa.mastermind.gamecore.MatchState" title="it.unicam.cs.pa.mastermind.gamecore.MatchState">MatchState</a> <code class="descname">gameState</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState" title="Link a questa definizione">¶</a></dt>
 <dd><p>Oggetto contenente informazioni relative al vincitore della partita in corso.</p>
 </dd></dl>
 
@@ -206,8 +212,8 @@ public class <code class="descname">SingleMatch</code><a class="headerlink" href
 <div class="section" id="id1">
 <h3>SingleMatch<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, InteractionView, CodeBreaker, CodeMaker)">
-public <code class="descname">SingleMatch</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../ui/InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><em> view</em>, <a class="reference internal" href="../players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><em> currentBreaker</em>, <a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a><em> currentMaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, InteractionView, CodeBreaker, CodeMaker)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)">
+public <code class="descname">SingleMatch</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a><em> viewFactory</em>, <a class="reference internal" href="../factories/BreakerFactory.html#it.unicam.cs.pa.mastermind.factories.BreakerFactory" title="it.unicam.cs.pa.mastermind.factories.BreakerFactory">BreakerFactory</a><em> bFactory</em>, <a class="reference internal" href="../factories/MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a><em> mFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore di una singola partita</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -215,8 +221,8 @@ public <code class="descname">SingleMatch</code><span class="sig-paren">(</span>
 <li><p><strong>sequenceLength</strong> – relativa alle sequenze di <code class="docutils literal notranslate"><span class="pre">CodePegs</span></code> impiegate nella partita.</p></li>
 <li><p><strong>attempts</strong> – massimi per il giocatore Breaker per indovinare.</p></li>
 <li><p><strong>view</strong> – Istanza della particolare implementazione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> scelta per l’istanza di partita in corso.</p></li>
-<li><p><strong>currentBreaker</strong> – istanza del giocatore che decodifica.</p></li>
-<li><p><strong>currentMaker</strong> – istanza del giocatore che codifica.</p></li>
+<li><p><strong>bFactory</strong> – istanza della <code class="docutils literal notranslate"><span class="pre">BreakerFavctory</span></code> relativa al giocatore <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> selezionato per la partita.</p></li>
+<li><p><strong>mFactory</strong> – istanza della <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code> relativa al giocatore <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> selezionato per la partita.</p></li>
 </ul>
 </dd>
 </dl>
@@ -246,10 +252,10 @@ public void <code class="descname">start</code><span class="sig-paren">(</span><
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../players/package-index.html" class="btn btn-neutral float-right" title="it.unicam.cs.pa.mastermind.players" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="StartupSettings.html" class="btn btn-neutral float-right" title="StartupSettings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="NewGameStats.html" class="btn btn-neutral float-left" title="NewGameStats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="MatchState.html" class="btn btn-neutral float-left" title="MatchState" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

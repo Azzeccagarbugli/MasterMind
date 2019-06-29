@@ -86,6 +86,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
@@ -96,10 +97,15 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="CurrentGameStats.html">CurrentGameStats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="NewGameStats.html">NewGameStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainManager.html">MainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchStartSettings.html">MatchStartSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
@@ -180,7 +186,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardController">
 public class <code class="descname">BoardController</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController" title="Link a questa definizione">¶</a></dt>
-<dd><p><strong>Responsabilità</strong>: gestire le interazioni dall’esterno e dirette alla modifica di un’istanza <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code>.</p>
+<dd><p><strong>Responsabilità</strong>: gestire le interazioni dall’esterno e dirette alla modifica di un’istanza <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code>. Rientra nel pattern <strong>MVC</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -209,19 +215,6 @@ public <code class="descname">BoardController</code><span class="sig-paren">(</s
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="getboardreference">
-<h3>getBoardReference<a class="headerlink" href="#getboardreference" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.BoardController.getBoardReference()">
-public <a class="reference internal" href="BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a> <code class="descname">getBoardReference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.getBoardReference()" title="Link a questa definizione">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>BoardModel su cui agisce l’istanza di <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code> corrente.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
 <div class="section" id="insertcodetoguess">
 <h3>insertCodeToGuess<a class="headerlink" href="#insertcodetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">

@@ -104,13 +104,13 @@ public class MatchState extends BoardObserver {
 	 */
 	public String getMessage() {
 		if (this.breakerVictory) {
-			return "\nThe breaker guessed the combination after " + usedAttempts + " attempts. The breaker wins";
+			return "The breaker guessed the combination after " + usedAttempts + " attempts. The breaker wins";
 		} else if (this.breakerSurrender) {
-			return "\nThe breaker gave up. The maker wins";
+			return "The breaker gave up. The maker wins";
 		} else if (this.makerVictory) {
-			return "\nThe breaker didn't guess the combination. The maker wins";
+			return "The breaker didn't guess the combination. The maker wins";
 		} else
-			return "\nThere are no losers and no winners";
+			return "There are no losers and no winners";
 	}
 
 	@Override

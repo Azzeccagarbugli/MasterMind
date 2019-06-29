@@ -4,7 +4,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
+.. java:import:: it.unicam.cs.pa.mastermind.ui GameView
 
 InteractiveMaker
 ================
@@ -14,15 +14,23 @@ InteractiveMaker
 
 .. java:type:: public class InteractiveMaker extends CodeMaker
 
-   Estensione di \ ``CodeMaker``\  mirata ad una gestione del comportamento del giocatore tramite interazioni con l'utente umano.
+   Particolare estensione di \ ``CodeMaker``\ , rappresentante un giocatore umano. Nello specifico l'utente umano può effettuare decisioni ed impartire comandi passando da un'istanza di \ ``GameView``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
+
+Constructors
+------------
+InteractiveMaker
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public InteractiveMaker(GameView newView)
+   :outertype: InteractiveMaker
 
 Methods
 -------
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<ColorPegs> getCodeToGuess(InteractionView intView)
+.. java:method:: @Override public List<ColorPegs> getCodeToGuess()
    :outertype: InteractiveMaker
 

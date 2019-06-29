@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="InteractiveBreaker" href="InteractiveBreaker.html" />
+    <link rel="next" title="DonaldKnuthBreaker" href="DonaldKnuthBreaker.html" />
     <link rel="prev" title="CodeBreaker" href="CodeBreaker.html" /> 
 </head>
 
@@ -86,22 +86,20 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="BadRegistryException.html">BadRegistryException</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CodeMaker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="DonaldKnuthBreaker.html">DonaldKnuthBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreaker.html">InteractiveBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveMaker.html">InteractiveMaker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreaker.html">RandomBotBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMaker.html">RandomBotMaker</a></li>
 </ul>
@@ -183,7 +181,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.CodeMaker">
 public abstract class <code class="descname">CodeMaker</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeMaker" title="Link a questa definizione">¶</a></dt>
-<dd><p><strong>Responsabilità</strong>: gestire le interazioni del giocatore Maker</p>
+<dd><p><strong>Responsabilità</strong>: rappresentazione di un giocatore <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>, il cui compito è quello di decretare una sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> che il giocatore <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> deve indovinare.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -196,17 +194,11 @@ public abstract class <code class="descname">CodeMaker</code><a class="headerlin
 <div class="section" id="getcodetoguess">
 <h3>getCodeToGuess<a class="headerlink" href="#getcodetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess(InteractionView)">
-public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><em> intView</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess(InteractionView)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Restituisce la sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> valida come sequenza da indovinare.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>intView</strong> – necessario per ottenere informazioni riguardo il gioco</p></li>
-</ul>
-</dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>List di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> valida come sequenza da indovinare</p>
+<dt id="it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess()">
+public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getCodeToGuess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess()" title="Link a questa definizione">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>List contenente i <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> validi come sequenza da indovinare</p>
 </dd>
 </dl>
 </dd></dl>
@@ -223,7 +215,7 @@ public abstract <a class="reference external" href="http://docs.oracle.com/javas
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="InteractiveBreaker.html" class="btn btn-neutral float-right" title="InteractiveBreaker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DonaldKnuthBreaker.html" class="btn btn-neutral float-right" title="DonaldKnuthBreaker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="CodeBreaker.html" class="btn btn-neutral float-left" title="CodeBreaker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -8,7 +8,7 @@ BoardController
 
 .. java:type:: public class BoardController
 
-   \ **Responsabilità**\ : gestire le interazioni dall'esterno e dirette alla modifica di un'istanza \ ``BoardModel``\ .
+   \ **Responsabilità**\ : gestire le interazioni dall'esterno e dirette alla modifica di un'istanza \ ``BoardModel``\ . Rientra nel pattern \ **MVC**\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -26,14 +26,6 @@ BoardController
 
 Methods
 -------
-getBoardReference
-^^^^^^^^^^^^^^^^^
-
-.. java:method:: public BoardModel getBoardReference()
-   :outertype: BoardController
-
-   :return: BoardModel su cui agisce l'istanza di \ ``BoardCoordinator``\  corrente.
-
 insertCodeToGuess
 ^^^^^^^^^^^^^^^^^
 

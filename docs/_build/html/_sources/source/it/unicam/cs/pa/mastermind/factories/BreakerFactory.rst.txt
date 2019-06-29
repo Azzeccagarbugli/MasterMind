@@ -1,14 +1,16 @@
 .. java:import:: it.unicam.cs.pa.mastermind.players CodeBreaker
 
+.. java:import:: it.unicam.cs.pa.mastermind.ui GameView
+
 BreakerFactory
 ==============
 
 .. java:package:: it.unicam.cs.pa.mastermind.factories
    :noindex:
 
-.. java:type:: public abstract class BreakerFactory implements PlayerFactory
+.. java:type:: public interface BreakerFactory extends PlayerFactory
 
-   Classe factory astratta estensione di \ ``PlayerFactory``\  da estendere con classi factory concrete finalizzate all'ottenimento di istanze di \ ``CodeBreaker``\ .
+   \ **Responsabilità**\ : fornire istanze di implementazioni di \ ``CodeBreaker``\ . Interfaccia finalizzata all'implementazione di classi factory per le particolari implementazioni dei giocatori \ ``CodeBreaker``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -17,6 +19,13 @@ Methods
 getBreaker
 ^^^^^^^^^^
 
-.. java:method:: public abstract CodeBreaker getBreaker()
+.. java:method:: public CodeBreaker getBreaker(GameView view, int seqLength, int attempts)
    :outertype: BreakerFactory
+
+   Ottenimento di un'istanza di un giocatore \ ``CodeBreaker``\ .
+
+   :param view: vista per l'interazione con l'utente fisico
+   :param seqLength: lunghezza della sequenza di \ ``ColorPegs``\  da trattare
+   :param attempts: numero di tentativi per vincere il gioco
+   :return: CodeBreaker istanza di un giocatore \ ``CodeBreaker``\
 

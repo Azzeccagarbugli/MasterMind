@@ -2,8 +2,6 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
-
 CodeMaker
 =========
 
@@ -12,7 +10,7 @@ CodeMaker
 
 .. java:type:: public abstract class CodeMaker
 
-   \ **Responsabilità**\ : gestire le interazioni del giocatore Maker
+   \ **Responsabilità**\ : rappresentazione di un giocatore \ ``CodeMaker``\ , il cui compito è quello di decretare una sequenza di \ ``ColorPegs``\  che il giocatore \ ``CodeBreaker``\  deve indovinare.
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -21,11 +19,8 @@ Methods
 getCodeToGuess
 ^^^^^^^^^^^^^^
 
-.. java:method:: public abstract List<ColorPegs> getCodeToGuess(InteractionView intView)
+.. java:method:: public abstract List<ColorPegs> getCodeToGuess()
    :outertype: CodeMaker
 
-   Restituisce la sequenza di \ ``ColorPegs``\  valida come sequenza da indovinare.
-
-   :param intView: necessario per ottenere informazioni riguardo il gioco
-   :return: List di \ ``ColorPegs``\  valida come sequenza da indovinare
+   :return: List contenente i \ ``ColorPegs``\  validi come sequenza da indovinare
 

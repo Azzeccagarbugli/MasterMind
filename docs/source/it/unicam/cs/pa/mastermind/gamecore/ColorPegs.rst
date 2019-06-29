@@ -24,22 +24,10 @@ BLUE
 .. java:field:: public static final ColorPegs BLUE
    :outertype: ColorPegs
 
-CYAN
-^^^^
-
-.. java:field:: public static final ColorPegs CYAN
-   :outertype: ColorPegs
-
 GREEN
 ^^^^^
 
 .. java:field:: public static final ColorPegs GREEN
-   :outertype: ColorPegs
-
-PURPLE
-^^^^^^
-
-.. java:field:: public static final ColorPegs PURPLE
    :outertype: ColorPegs
 
 RED

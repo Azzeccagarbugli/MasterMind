@@ -197,7 +197,15 @@ public class ConsoleGameView extends GameView {
 	@Override
 	public void endingScreen(String gameEndingMessage) {
 		System.out.println(gameEndingMessage);
-		System.out.println("\nThe correct sequence was: " + beautifyClues(getSubject().getSequenceToGuess(), false));
+		String endingScreen = "The correct sequence was: " + beautifyClues(getSubject().getSequenceToGuess(), false);
+		System.out.println(beautifyEndMessage(endingScreen));
+	}
+	
+	private String beautifyEndMessage(String msg) {
+		String result = String.format("┏%60s┓\n", " ").replace(' ', '━');
+		result += String.format("   %s \n", msg);
+		result += String.format("┗%60s┛", " ", " ").replace(' ', '━');
+		return result;
 	}
 
 	/**

@@ -1,5 +1,7 @@
 .. java:import:: java.io BufferedReader
 
+.. java:import:: java.io FilterInputStream
+
 .. java:import:: java.io IOException
 
 .. java:import:: java.io InputStreamReader
@@ -8,9 +10,9 @@
 
 .. java:import:: java.util.stream IntStream
 
-.. java:import:: it.unicam.cs.pa.mastermind.gamecore NewGameStats
+.. java:import:: it.unicam.cs.pa.mastermind.factories PlayerFactoryRegistry
 
-.. java:import:: it.unicam.cs.pa.mastermind.players PlayerFactoryRegistry
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore StartupSettings
 
 ConsoleStartView
 ================
@@ -18,9 +20,9 @@ ConsoleStartView
 .. java:package:: it.unicam.cs.pa.mastermind.ui
    :noindex:
 
-.. java:type:: public class ConsoleStartView extends StartView
+.. java:type:: public class ConsoleStartView implements StartView
 
-   Implementazione con interazione via console della classe \ ``StartView``\ .
+   Implementazione con interazione via console della classe \ ``StartView``\ . Integra il pattern \ **Singleton**\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -29,37 +31,37 @@ Methods
 askNewAttempts
 ^^^^^^^^^^^^^^
 
-.. java:method:: @Override protected int askNewAttempts()
-   :outertype: ConsoleStartView
-
-askNewGameSettings
-^^^^^^^^^^^^^^^^^^
-
-.. java:method:: @Override protected NewGameStats askNewGameSettings()
+.. java:method:: @Override public int askNewAttempts(int lowTreshold)
    :outertype: ConsoleStartView
 
 askNewLength
 ^^^^^^^^^^^^
 
-.. java:method:: @Override protected int askNewLength()
+.. java:method:: @Override public int askNewLength(int lowTreshold, int highTreshhold)
    :outertype: ConsoleStartView
 
-askNewSettings
-^^^^^^^^^^^^^^
+askNewLengthsAndAttempts
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override protected boolean askNewSettings()
+.. java:method:: @Override public boolean askNewLengthsAndAttempts()
+   :outertype: ConsoleStartView
+
+askNewStartupSettings
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public StartupSettings askNewStartupSettings()
    :outertype: ConsoleStartView
 
 badEnding
 ^^^^^^^^^
 
-.. java:method:: @Override protected void badEnding(String reason)
+.. java:method:: @Override public void badEnding(String reason)
    :outertype: ConsoleStartView
 
 ending
 ^^^^^^
 
-.. java:method:: @Override protected void ending()
+.. java:method:: @Override public void ending()
    :outertype: ConsoleStartView
 
 getInstance
@@ -68,35 +70,23 @@ getInstance
 .. java:method:: public static ConsoleStartView getInstance()
    :outertype: ConsoleStartView
 
-   :return: ConsoleStartView istanza singleton di \ ``ConsoleStartView``\ .
-
-getInteractionView
-^^^^^^^^^^^^^^^^^^
-
-.. java:method:: @Override protected InteractionView getInteractionView()
-   :outertype: ConsoleStartView
+   :return: ConsoleStartView istanza \ **Singleton**\  di \ ``ConsoleStartView``\ .
 
 getPlayerName
 ^^^^^^^^^^^^^
 
-.. java:method:: @Override protected String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker)
-   :outertype: ConsoleStartView
-
-main
-^^^^
-
-.. java:method:: public static void main(String[] args)
+.. java:method:: @Override public String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker)
    :outertype: ConsoleStartView
 
 showLogo
 ^^^^^^^^
 
-.. java:method:: @Override protected void showLogo()
+.. java:method:: @Override public void showLogo()
    :outertype: ConsoleStartView
 
-showNewGameStarting
-^^^^^^^^^^^^^^^^^^^
+showNewMatchStarting
+^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override protected void showNewGameStarting()
+.. java:method:: @Override public void showNewMatchStarting()
    :outertype: ConsoleStartView
 

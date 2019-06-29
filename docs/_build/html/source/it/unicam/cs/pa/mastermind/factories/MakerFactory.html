@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="PlayerFactory" href="PlayerFactory.html" />
+    <link rel="next" title="MakerFactoryRegistry" href="MakerFactoryRegistry.html" />
     <link rel="prev" title="InteractiveMakerFactory" href="InteractiveMakerFactory.html" /> 
 </head>
 
@@ -86,17 +86,25 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.factories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BadRegistryException.html">BadRegistryException</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleGameViewFactory.html">ConsoleGameViewFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DonaldKnuthBreakerFactory.html">DonaldKnuthBreakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameViewFactory.html">GameViewFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreakerFactory.html">InteractiveBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveMakerFactory.html">InteractiveMakerFactory</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">MakerFactory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PlayerFactory.html">PlayerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreakerFactory.html">RandomBotBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMakerFactory.html">RandomBotMakerFactory</a></li>
 </ul>
@@ -179,8 +187,8 @@
 <h1>MakerFactory<a class="headerlink" href="#makerfactory" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.factories.MakerFactory">
-public abstract class <code class="descname">MakerFactory</code> implements <a class="reference internal" href="PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="Link a questa definizione">¶</a></dt>
-<dd><p>Classe factory astratta estensione di <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> da estendere con classi factory concrete finalizzate all’ottenimento di istanze di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p>
+public interface <code class="descname">MakerFactory</code> extends <a class="reference internal" href="PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="Link a questa definizione">¶</a></dt>
+<dd><p><strong>Responsabilità</strong>: fornire istanze di implementazioni di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>. Interfaccia finalizzata all’implementazione di classi factory per le particolari implementazioni dei giocatori <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -193,9 +201,22 @@ public abstract class <code class="descname">MakerFactory</code> implements <a c
 <div class="section" id="getmaker">
 <h3>getMaker<a class="headerlink" href="#getmaker" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.factories.MakerFactory.getMaker()">
-public abstract <a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a> <code class="descname">getMaker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.MakerFactory.getMaker()" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dt id="it.unicam.cs.pa.mastermind.factories.MakerFactory.getMaker(GameView, int, int)">
+public <a class="reference internal" href="../players/CodeMaker.html#it.unicam.cs.pa.mastermind.players.CodeMaker" title="it.unicam.cs.pa.mastermind.players.CodeMaker">CodeMaker</a> <code class="descname">getMaker</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/GameView.html#it.unicam.cs.pa.mastermind.ui.GameView" title="it.unicam.cs.pa.mastermind.ui.GameView">GameView</a><em> view</em>, int<em> seqLength</em>, int<em> attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.MakerFactory.getMaker(GameView, int, int)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Ottenimento di un’istanza di un giocatore <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>view</strong> – vista per l’interazione con l’utente fisico</p></li>
+<li><p><strong>seqLength</strong> – lunghezza della sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> da trattare</p></li>
+<li><p><strong>attempts</strong> – numero di tentativi per vincere il gioco</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>CodeMaker istanza di un giocatore <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
@@ -209,7 +230,7 @@ public abstract <a class="reference internal" href="../players/CodeMaker.html#it
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="PlayerFactory.html" class="btn btn-neutral float-right" title="PlayerFactory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MakerFactoryRegistry.html" class="btn btn-neutral float-right" title="MakerFactoryRegistry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="InteractiveMakerFactory.html" class="btn btn-neutral float-left" title="InteractiveMakerFactory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

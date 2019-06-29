@@ -5,6 +5,7 @@ import it.unicam.cs.pa.mastermind.factories.GameViewFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
+import it.unicam.cs.pa.mastermind.ui.AnsiUtility;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
@@ -32,8 +33,8 @@ public class SingleMatch {
 	private CodeBreaker breaker;
 
 	/**
-	 * Istanza della particolare implementazione di <code>GameView</code>
-	 * scelta per l'istanza di partita in corso.
+	 * Istanza della particolare implementazione di <code>GameView</code> scelta per
+	 * l'istanza di partita in corso.
 	 */
 	private GameView view;
 
@@ -51,19 +52,23 @@ public class SingleMatch {
 	 * @param view           Istanza della particolare implementazione di
 	 *                       <code>InteractionView</code> scelta per l'istanza di
 	 *                       partita in corso.
-	 * @param bFactory istanza della <code>BreakerFavctory</code> relativa al giocatore <code>CodeBreaker</code> selezionato per la partita.
-	 * @param mFactory istanza della <code>MakerFactory</code> relativa al giocatore <code>CodeMaker</code> selezionato per la partita.
+	 * @param bFactory       istanza della <code>BreakerFavctory</code> relativa al
+	 *                       giocatore <code>CodeBreaker</code> selezionato per la
+	 *                       partita.
+	 * @param mFactory       istanza della <code>MakerFactory</code> relativa al
+	 *                       giocatore <code>CodeMaker</code> selezionato per la
+	 *                       partita.
 	 */
 	public SingleMatch(int sequenceLength, int attempts, GameViewFactory viewFactory, BreakerFactory bFactory,
 			MakerFactory mFactory) {
-		
+
 		BoardModel newModel = new BoardModel(sequenceLength, attempts);
 		this.controller = new BoardController(newModel);
 		this.view = viewFactory.getGameView(newModel);
-				
+
 		this.maker = mFactory.getMaker(view, sequenceLength, attempts);
 		this.breaker = bFactory.getBreaker(view, sequenceLength, attempts);
-		
+
 		this.gameState = new MatchState(newModel);
 	}
 
@@ -75,7 +80,7 @@ public class SingleMatch {
 		do {
 			this.singleTurn();
 		} while (!(gameState.getHasMakerWon() || gameState.getHasBreakerWon()));
-		view.endingScreen(gameState.getMessage());
+		view.endingScreen(beautifyEndMessage(gameState.getMessage()));
 	}
 
 	private void singleTurn() {
@@ -84,5 +89,12 @@ public class SingleMatch {
 			gameState.toggleBreakerGiveUp();
 			gameState.toggleMakerWin();
 		}
+	}
+
+	private String beautifyEndMessage(String msg) {
+		String result = String.format("\n┏%64s┓\n", " ").replace(' ', '━');
+		result += String.format("   %s \n", AnsiUtility.ANSI_CYAN_BOLD + msg + AnsiUtility.ANSI_RESET);
+		result += String.format("┗%64s┛\n", " ", " ").replace(' ', '━');
+		return result;
 	}
 }

@@ -1,7 +1,5 @@
 .. java:import:: java.util Arrays
 
-.. java:import:: java.util List
-
 .. java:import:: org.junit.jupiter.api Test
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardModel
@@ -9,10 +7,6 @@
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardController
-
-.. java:import:: it.unicam.cs.pa.mastermind.players RandomBotBreaker
-
-.. java:import:: it.unicam.cs.pa.mastermind.ui InteractionView
 
 PlayersRandomBotBreakerTest
 ===========================

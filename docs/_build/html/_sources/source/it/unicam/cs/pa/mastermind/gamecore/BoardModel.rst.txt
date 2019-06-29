@@ -12,8 +12,6 @@
 
 .. java:import:: java.util.stream IntStream
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui BoardObserver
-
 BoardModel
 ==========
 
@@ -22,7 +20,7 @@ BoardModel
 
 .. java:type:: public class BoardModel
 
-   \ **Responsabilità**\ : gestire le informazioni relative ad una plancia di gioco.
+   \ **Responsabilità**\ : gestire le informazioni relative ad una plancia di gioco. Rientra nei pattern \ **MVC**\  e \ **Observer**\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
@@ -34,7 +32,7 @@ BoardModel
 .. java:constructor:: public BoardModel(int sequenceLength, int maxAttempts)
    :outertype: BoardModel
 
-   Costruttore di una plancia
+   Costruttore di una plancia. L'impiego di una LinkedHashMap quale particolare struttura dati per tenere traccia delle sequenze inserite permette di tenere conto anche dell'ordine di inserimento.
 
    :param sequenceLength: massima delle sequenze presenti in questa plancia
    :param maxAttempts: numero massimo di tentativi possibili per indovinare la \ ``sequenceToGuess``\
@@ -77,19 +75,9 @@ getAttemptAndClueList
 .. java:method:: public List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> getAttemptAndClueList()
    :outertype: BoardModel
 
+   Ottenimento di una \ ``List``\  contenente tutta le coppie sequenza tentativo - sequenza indizio inserite nella plancia.
+
    :return: List contenenti Map.Entry con le sequenze di \ ``ColorPegs``\  inserite come tentativo e le relative sequenze indizio
-
-getClueFromAttempt
-^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt)
-   :outertype: BoardModel
-
-   Calcolo della sequenza di \ ``ColorPegs``\  indizio a fronte di una sequenza di \ ``ColorPegs``\  assicurata valida come tentativo.
-
-   :param attempt: la lista che si inserisce come tentativo di risoluzione.
-   :param toGuess: la lista che contiene la sequenza da indovinare.
-   :return: List di indizi generata a partire dalla lista di tentativi.
 
 getSequenceLength
 ^^^^^^^^^^^^^^^^^
@@ -129,6 +117,8 @@ lastAttemptAndClue
 .. java:method:: public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue()
    :outertype: BoardModel
 
+   Ottenimento dell'ultima coppia sequenza tentativo - sequenza indizio inserita nella plancia.
+
    :return: Map.Entry contenente l'ultima sequenza di \ ``ColorPegs``\  inserita come tentativo e la relativa sequenza indizio.
 
 leftAttempts
@@ -138,6 +128,16 @@ leftAttempts
    :outertype: BoardModel
 
    :return: int numero di tentativi rimasti
+
+removeLastAttemptAndClue
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean removeLastAttemptAndClue()
+   :outertype: BoardModel
+
+   Rimozione dell'ultima coppia sequenza tentativo - sequenza indizio inserita nella plancia.
+
+   :return: boolean relativo alla riuscita della rimozione.
 
 setSequenceToGuess
 ^^^^^^^^^^^^^^^^^^

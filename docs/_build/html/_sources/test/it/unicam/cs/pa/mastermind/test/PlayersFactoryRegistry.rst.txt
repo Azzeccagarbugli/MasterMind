@@ -12,19 +12,19 @@
 
 .. java:import:: org.junit.jupiter.api Test
 
+.. java:import:: it.unicam.cs.pa.mastermind.factories BadRegistryException
+
 .. java:import:: it.unicam.cs.pa.mastermind.factories BreakerFactory
+
+.. java:import:: it.unicam.cs.pa.mastermind.factories BreakerFactoryRegistry
 
 .. java:import:: it.unicam.cs.pa.mastermind.factories MakerFactory
 
-.. java:import:: it.unicam.cs.pa.mastermind.players BadRegistryException
-
-.. java:import:: it.unicam.cs.pa.mastermind.players BreakerFactoryRegistry
+.. java:import:: it.unicam.cs.pa.mastermind.factories MakerFactoryRegistry
 
 .. java:import:: it.unicam.cs.pa.mastermind.players CodeBreaker
 
 .. java:import:: it.unicam.cs.pa.mastermind.players CodeMaker
-
-.. java:import:: it.unicam.cs.pa.mastermind.players MakerFactoryRegistry
 
 PlayersFactoryRegistry
 ======================
@@ -54,7 +54,7 @@ testBreakerFactoryRegistry
 .. java:method:: @Test  void testBreakerFactoryRegistry() throws BadRegistryException
    :outertype: PlayersFactoryRegistry
 
-   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.players.BreakerFactoryRegistry.BreakerFactoryRegistry()`\ .
+   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry.BreakerFactoryRegistry()`\ .
 
    :throws BadRegistryException:
 
@@ -75,7 +75,7 @@ testGetFactoryByName
 .. java:method:: @Test  void testGetFactoryByName() throws BadRegistryException
    :outertype: PlayersFactoryRegistry
 
-   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getFactoryByName(java.lang.String)`\ .
+   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getFactoryByName(java.lang.String)`\ .
 
    :throws BadRegistryException:
 
@@ -85,7 +85,7 @@ testGetPlayersNames
 .. java:method:: @Test  void testGetPlayersNames() throws BadRegistryException
    :outertype: PlayersFactoryRegistry
 
-   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry.getPlayersNames()`\ .
+   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayersNames()`\ .
 
    :throws BadRegistryException:
 
@@ -95,7 +95,7 @@ testMakerFactoryRegistry
 .. java:method:: @Test  void testMakerFactoryRegistry() throws BadRegistryException
    :outertype: PlayersFactoryRegistry
 
-   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.players.MakerFactoryRegistry.MakerFactoryRegistry()`\ .
+   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry.MakerFactoryRegistry()`\ .
 
    :throws BadRegistryException:
 

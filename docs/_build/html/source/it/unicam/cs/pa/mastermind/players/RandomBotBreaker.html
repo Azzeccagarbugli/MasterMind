@@ -37,7 +37,7 @@
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
     <link rel="next" title="RandomBotMaker" href="RandomBotMaker.html" />
-    <link rel="prev" title="PlayerFactoryRegistry" href="PlayerFactoryRegistry.html" /> 
+    <link rel="prev" title="InteractiveMaker" href="InteractiveMaker.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,19 +86,17 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.players</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="BadRegistryException.html">BadRegistryException</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeBreaker.html">CodeBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="CodeMaker.html">CodeMaker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DonaldKnuthBreaker.html">DonaldKnuthBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreaker.html">InteractiveBreaker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveMaker.html">InteractiveMaker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">RandomBotBreaker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
@@ -184,7 +182,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.RandomBotBreaker">
 public class <code class="descname">RandomBotBreaker</code> extends <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotBreaker" title="Link a questa definizione">¶</a></dt>
-<dd><p>Estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> mirata ad una gestione del comportamento del giocatore parzialmente random.</p>
+<dd><p>Estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> mirata ad una gestione del comportamento del giocatore in maniera casuale.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -197,8 +195,8 @@ public class <code class="descname">RandomBotBreaker</code> extends <a class="re
 <div class="section" id="id1">
 <h3>RandomBotBreaker<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.players.RandomBotBreaker.RandomBotBreaker()">
-public <code class="descname">RandomBotBreaker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotBreaker.RandomBotBreaker()" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.players.RandomBotBreaker.RandomBotBreaker(int)">
+public <code class="descname">RandomBotBreaker</code><span class="sig-paren">(</span>int<em> seqLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotBreaker.RandomBotBreaker(int)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -208,9 +206,10 @@ public <code class="descname">RandomBotBreaker</code><span class="sig-paren">(</
 <div class="section" id="getattempt">
 <h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.players.RandomBotBreaker.getAttempt(InteractionView)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a><em> intView</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotBreaker.getAttempt(InteractionView)" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dt id="it.unicam.cs.pa.mastermind.players.RandomBotBreaker.getAttempt()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.RandomBotBreaker.getAttempt()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Potrebbe capitare che la generazione casuale delle sequenze porti ad una sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> già inserita precedentemente. In tal caso verrà ripetuta l’azione di definizione di una nuova sequenza.</p>
+</dd></dl>
 
 </div>
 </div>
@@ -227,7 +226,7 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
         <a href="RandomBotMaker.html" class="btn btn-neutral float-right" title="RandomBotMaker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="PlayerFactoryRegistry.html" class="btn btn-neutral float-left" title="PlayerFactoryRegistry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="InteractiveMaker.html" class="btn btn-neutral float-left" title="InteractiveMaker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

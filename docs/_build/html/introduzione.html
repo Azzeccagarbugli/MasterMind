@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="genindex.html" />
     <link rel="search" title="Cerca" href="search.html" />
-    <link rel="next" title="Sphinx e le sue potenzialità" href="sphinx.html" />
+    <link rel="next" title="Guida al gioco" href="gameguide.html" />
     <link rel="prev" title="Benvenuto alla documentazione di MasterMind!" href="index.html" /> 
 </head>
 
@@ -86,15 +86,17 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduzione</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#struttura-fondamentale-del-progetto">Struttura fondamentale del progetto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architettura-fondamentale-del-progetto">Architettura fondamentale del progetto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#estendibilita-ed-implementazioni-fornite-di-default">Estendibilità ed implementazioni fornite di default</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#informazioni-fondamentali-circa-il-primo-avvio">Informazioni fondamentali circa il primo avvio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#responsabilita-delle-classi">Responsabilità delle classi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#design-pattern-impiegati">Design pattern impiegati</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gradle">Gradle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/packages.html">Documentazione del codice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test/packages.html">Test realizzati in JUnit</a></li>
@@ -165,55 +167,61 @@
   <div class="section" id="introduzione">
 <h1>Introduzione<a class="headerlink" href="#introduzione" title="Link a questa intestazione">¶</a></h1>
 <p>Il progetto è stato indirizzato ad all’implementazione tramite linguaggio <strong>Java</strong>
-del gioco da tavolo <strong>Mastermind</strong> <a class="footnote-reference brackets" href="#id8" id="id1">1</a>. Nell’ideare la struttura del progetto si è puntato
+del gioco da tavolo <strong>Mastermind</strong> <a class="footnote-reference brackets" href="#id9" id="id1">1</a>.</p>
+<p>Nell’ideare la struttura del progetto si è puntato
 alla <strong>massima modularità possibile</strong>, per quanto non totale, ottenuta tramite l’applicazione
 di determinati design pattern.</p>
-<div class="section" id="struttura-fondamentale-del-progetto">
-<h2>Struttura fondamentale del progetto<a class="headerlink" href="#struttura-fondamentale-del-progetto" title="Link a questa intestazione">¶</a></h2>
-<img alt="_images/MasterMind.png" src="_images/MasterMind.png" />
-<p>L’idea alla base della struttura del gioco riguarda le <em>interazioni</em> tra l’utente umano ed un’istanza
-di una classe che estende <code class="docutils literal notranslate"><span class="pre">StartView</span></code>. Tramite questa interazione è possibile decidere quali impostazioni
-e quali implementazioni dei giocatori, rispettivamente un <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> ed un <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>,
-impiegare all’interno di singole partite. I giocatori potranno poi interagire all’interno della partita
-comunicando con una istanza di una classe che estende <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, dalla quale ottengono informazioni
-sulla partita in corso e grazie alla quale hanno una possibile interazione con l’utente umano, e con
-una istanza di <code class="docutils literal notranslate"><span class="pre">BoardController</span></code>, alla quale <strong>comunicano</strong> decisioni di gioco quali la sequenza da indovinare o le sequenze
-valide come tentativo per poter indovinare tale sequenza.</p>
-<p>Alla base della sequenza, a rappresentazione dei pioli impiegati nel gioco originale, sono presenti valori della
-classe enum <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code>, contenente otto colori.</p>
+<div class="section" id="architettura-fondamentale-del-progetto">
+<h2>Architettura fondamentale del progetto<a class="headerlink" href="#architettura-fondamentale-del-progetto" title="Link a questa intestazione">¶</a></h2>
+<p>L’avvio del programma è delegato ad una classe che estende <code class="docutils literal notranslate"><span class="pre">MainManager</span></code>, classe astratta contenente il funzionamento effettivo e a più alto livello del programma.
+La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">StartView</span></code> si è scelto di impiegare.</p>
+<p>Le classi <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">StartView</span></code> sono fondamentali in quanto estendibili con classi mirate a fornire delle viste finalizzate all’interazione con gli <strong>utenti fisici</strong>.
+Il funzionamento di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> si basa sulla creazione, esecuzione e monitoraggio di istanze personalizzate di <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code>, rappresentanti singole partite di gioco.</p>
+<p>La corrente implementazione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> consente la gestione di una singola istanza di <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code> alla volta.
+All’interno dell’esecuzione effettiva del metodo di avvio presente in <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code> si ha poi l’interazione di due entità rappresentanti i giocatori, rispettivamente
+un <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> <em>(colui che definisce la sequenza di ColorPegs da indovinare)</em> e un <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> <em>(colui che definisce sequenze di ColorPegs valide come tentativi)</em>,
+con l’entità <code class="docutils literal notranslate"><span class="pre">BoardController</span></code>, attraverso la quale viene aggiornata un’istanza di <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> <em>(rappresentante una plancia di gioco)</em>.</p>
+<p>Lo svolgimento di un <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code> si conclude quando si è arrivati ad una delle tre condizioni di vittoria, rappresentate dalla sconfitta del <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> a causa di una sua resa
+o per l’esaurimento dei tentativi disponibili e dalla sconfitta del <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> a causa della definizione di una corretta sequenza tentativa da parte del <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.
+L’interazione con l’utente fisico all’interno del programma è svolta da istanze estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> <em>(mirate alla fase di preparazione dei singoli match)</em> e da
+istanze estensione di <code class="docutils literal notranslate"><span class="pre">GameView</span></code> <em>(mirate alla gestione delle azioni da eseguire durante i match)</em>.</p>
 </div>
 <div class="section" id="estendibilita-ed-implementazioni-fornite-di-default">
 <h2>Estendibilità ed implementazioni fornite di default<a class="headerlink" href="#estendibilita-ed-implementazioni-fornite-di-default" title="Link a questa intestazione">¶</a></h2>
-<p>Si è deciso di adottare una struttura molto rigida per quanto riguarda la rappresentazione dei pioli e della plancia
-di gioco, non offrendo possibilità di aggiungere ulteriori implementazioni o diversificazioni di quelle che sono le classi
-<strong>ColorPegs</strong>, <strong>BoardModel</strong> e <strong>BoardCoordinator</strong>.
-Diverso il discorso sul piano delle implementazioni di giocatori o delle interfacce di comunicazione con l’utente umano.
-È infatti possibile aggiungere classi che estendono <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, fornendo anche le relative classi <em>factory</em> che estendono
-rispettivamente <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code>, senza che il codice venga ricompilato.
-Per fare ciò si è deciso di implementare una classe astratta <code class="docutils literal notranslate"><span class="pre">PlayerFactoryRegistry</span></code>, estesa nel progetto in questione
-da <code class="docutils literal notranslate"><span class="pre">MakerFactoryRegistry</span></code> e <code class="docutils literal notranslate"><span class="pre">BreakerFactoryRegistry</span></code>, classi che permettono di <strong>collezionare a runtime</strong> informazioni
-riguardo le factory puntate a generare istannze di classi estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.
-Analogamente è possibile aggiungere classi estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> per fornire particolari <em>viste</em> indirizzate <strong>all’interazione</strong>
-con l’utente fisico durante l’impostazione e l’avvio di nuove partite. Ad ogni <code class="docutils literal notranslate"><span class="pre">StartView</span></code> si richiede di associare anche una classe
-che estenda <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> che sia <strong>coerente</strong> con la particolare estensione di StartView trattata e di includere il metodo <strong>main</strong> per permettere
-l’avvio effettivo del programma.</p>
-<p>Di default sono fornite delle implementazioni di quelle che sono le classi rappresentanti i giocatori e l’interazione con l’utente umano:</p>
+<p>L’estendibilità del progetto si sostanzia nella possibilità di definire nuove implementazioni per le seguenti responsabilità:</p>
 <ul class="simple">
-<li><p><strong>ConsoleStartView</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code>, fornisce un’interazione con l’utente fisico per l’impostazione e l’avvio di nuove partite tramite console.</p></li>
-<li><p><strong>ConsoleInteractionView</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, è strettamente associata con la classe <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code> fornisce un’interazione con l’utente fisico in caso siano necessarie per <em>impartire</em> nuove decisioni durante lo svolgimento di una partita.</p></li>
-<li><p><strong>InteractiveMaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>, fornisce l’implementazione di un giocatore comandato dall’utente umano attraverso l’interazione fornita da una classe estensione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">InteractiveMakerFactory</span></code>.</p></li>
-<li><p><strong>InteractiveBreaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, fornisce l’implementazione di un giocatore comandato dall’utente umano attraverso l’interazione fornita da una classe estensione di <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">InteractiveBreakerFactory</span></code>.</p></li>
-<li><p><strong>RandomBotMaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>, fornisce l’implementazione di un giocatore comandato da un <strong>IA</strong> che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">RandomBotMakerFactory</span></code>.</p></li>
-<li><p><strong>RandomBotBreaker</strong>: estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, fornisce l’implementazione di un giocatore comandato da un <strong>IA</strong> che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe <code class="docutils literal notranslate"><span class="pre">RandomBotBreakerFactory</span></code>.</p></li>
+<li><p><strong>Gestione dell’avvio e del monitoraggio delle singole partite</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">MainManager</span></code>.</p></li>
+<li><p><strong>Gestione dell’interazione con l’utente fisico per l’avvio di nuove partite</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">StartView</span></code>.</p></li>
+<li><p><strong>Gestione dell’interazione con l’utente fisico per la gestione delle azioni all’interno di singole partite</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">GameView</span></code>.</p></li>
+<li><p><strong>Fornire istanze di implementazioni di GameView</strong>, rapprsentata da <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code>.</p></li>
+<li><p><strong>Rappresentazione di un giocatore che decide la sequenza da indovinare</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p></li>
+<li><p><strong>Fornire istanze di implementazioni di CodeMaker</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>.</p></li>
+<li><p><strong>Rappresentazione di un giocatore che cerca di indovinare la sequenza</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.</p></li>
+<li><p><strong>Fornire istanze di implementazioni di CodeBreaker</strong>, rappresentata da <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code>.</p></li>
+</ul>
+<p>Esempi di implementazioni già incluse nella release attuale del progetto sono:</p>
+<ul class="simple">
+<li><p><strong>ConsoleMainManager</strong>, ad estensione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code>.</p></li>
+<li><p><strong>ConsoleStartView</strong>, implementazione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code>.</p></li>
+<li><p><strong>ConsoleGameView</strong>, estensione di <code class="docutils literal notranslate"><span class="pre">GameView</span></code>.</p></li>
+<li><p><strong>ConsoleGameViewFactory</strong>, implementazione di <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code>.</p></li>
+<li><p><strong>InteractiveMaker, RandomBotMaker</strong>, estensioni di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p></li>
+<li><p><strong>InteractiveMakerFactory, RandomBotMakerFactory</strong>, implementazioni di <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>.</p></li>
+<li><p><strong>InteractiveBreaker, RandomBotBreaker, DonaldKnuthBreaker</strong>, estensioni di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.</p></li>
+<li><p><strong>InteractiveBreakerFactory, RandomBotBreakerFactory, DonaldKnuthBreakerFactory</strong>, estensioni di <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code>.</p></li>
 </ul>
 <p>Per ulteriori informazioni circa le classi elencate si rimanda alle relative <a class="reference internal" href="source/packages.html"><span class="doc">sezioni</span></a>.</p>
 </div>
 <div class="section" id="informazioni-fondamentali-circa-il-primo-avvio">
 <h2>Informazioni fondamentali circa il primo avvio<a class="headerlink" href="#informazioni-fondamentali-circa-il-primo-avvio" title="Link a questa intestazione">¶</a></h2>
-<p>Il caricamento a <strong>runtime</strong> delle informazioni relative alle classi factory grazie alle quali ottenere istanze di classi che estendono
-<code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> è stato reso possibile grazie alla lettura di specifici file testuali. In loro assenza il software creerà
-dei file standard, comunicando all’utente questa decisione, da modificare <strong>obbligatoriamente</strong> con le giuste informazioni per avere un
-corretto avvio ed una corretta esecuzione del programma.</p>
+<p>Il caricamento a <strong>runtime</strong> delle informazioni relative alle classi factory, grazie alle quali ottenere istanze di classi che estendono
+<code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>, è stato reso possibile grazie alla definizione di classi implementazione <code class="docutils literal notranslate"><span class="pre">PlayerFactoryRegistry</span></code>, classi le cui istanze sono indirizzate
+alla lettura a runtime di file di input e al caricamento di istanze di <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>.
+Il formato delle informazioni di tali file di input è molto importante ed in loro assenza ne vengono generati automaticamente altri
+<em>(all’interno della cartella GameResources)</em> contenenti le istruzioni necessarie per un corretto avvio del programma.
+Il caricamento a runtime di tali informazioni permette l’aggiunta di nuove funzionalità del programma, nei limiti di estendibilità già trattati, senza avere la
+necessità di ricompilare tutte le classi del progetto.</p>
+<p>Si rimanda alle <a class="reference internal" href="source/packages.html"><span class="doc">sezioni</span></a> per ulteriori informazioni circa le implementazioni di <code class="docutils literal notranslate"><span class="pre">PlayerFactoryRegistry</span></code> fornite.</p>
 </div>
 <div class="section" id="responsabilita-delle-classi">
 <h2>Responsabilità delle classi<a class="headerlink" href="#responsabilita-delle-classi" title="Link a questa intestazione">¶</a></h2>
@@ -221,45 +229,93 @@ corretto avvio ed una corretta esecuzione del programma.</p>
 </div>
 <div class="section" id="design-pattern-impiegati">
 <h2>Design pattern impiegati<a class="headerlink" href="#design-pattern-impiegati" title="Link a questa intestazione">¶</a></h2>
-<p>1. <strong>Model View Controller</strong> <a class="footnote-reference brackets" href="#id9" id="id2">2</a>
-Rappresenta la struttura alla base dell’intero gioco. È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">StartView</span></code>, <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>.</p>
-<p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id10" id="id3">3</a>
-Implementato fornendo come classe da osservare <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e come classi che osservano <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> e <code class="docutils literal notranslate"><span class="pre">CurrentGameStats</span></code>. Dalla versione 9 di Java l’interfaccia Observer, pensata nell’ottica di questo design pattern, risulta deprecata. La sua implementazione è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.</p>
-<p>3. <strong>Singleton</strong> <a class="footnote-reference brackets" href="#id11" id="id4">4</a>
-Presente all’interno delle classi <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code> e <code class="docutils literal notranslate"><span class="pre">ConsoleInteractionView</span></code>, esso garantisce che siano presenti <strong>singole</strong> istanze di tali classi all’interno del progetto.</p>
-<p>4. <strong>Factory</strong> <a class="footnote-reference brackets" href="#id12" id="id5">5</a>
-Implementato tramite l’interfaccia <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code>, implementata da <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>, <strong>classi astratte</strong> da estendere tramite classi factory che forniscano istanze di classi estensione rispettivamente di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p>
+<p>1. <strong>Model View Controller</strong> <a class="footnote-reference brackets" href="#id10" id="id2">2</a>
+Rappresenta la struttura alla base del funzionamento delle singole partite.
+È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">GameView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>, classi le cui istanze comunicano all’interno di <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code>.</p>
+<p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id11" id="id3">3</a>
+Implementato fornendo come classe da osservare <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e come classi che osservano <code class="docutils literal notranslate"><span class="pre">GameView</span></code> e <code class="docutils literal notranslate"><span class="pre">MatchState</span></code>, classi estensione di <code class="docutils literal notranslate"><span class="pre">BoardObserver</span></code>.
+Dalla versione 9 di Java l’interfaccia Observer, pensata nell’ottica di questo design pattern, risulta deprecata.
+La sua implementazione all’interno di questo progetto è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.</p>
+<p>3. <strong>Singleton</strong> <a class="footnote-reference brackets" href="#id12" id="id4">4</a>
+Presente all’interno della classe <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code>, esso garantisce che siano presenti <strong>singole</strong> istanze di tali classe all’interno del progetto.</p>
+<p>4. <strong>Factory</strong> <a class="footnote-reference brackets" href="#id13" id="id5">5</a>
+Implementato tramite le classi <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code>, <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>, <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code> e le loro implementazioni per poter fornire istanze di giocatori <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> e <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.
+Lo stesso pattern è stato inoltre implementato con <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> per poter fornire istanze di <code class="docutils literal notranslate"><span class="pre">GameView</span></code> all’inizializzazione dei vari <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code>.</p>
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Link a questa intestazione">¶</a></h2>
-<p>Sono stati ideati dei test, scritti sotto ambiente <strong>JUnit 5</strong> <a class="footnote-reference brackets" href="#id13" id="id6">6</a>, per poter testare in modo mirato le singole <em>funzionalità</em> del progetto.
-Per ulteriori informazioni si rimanda alle <a class="reference internal" href="test/packages.html"><span class="doc">sezioni</span></a>  riguardanti le implementazioni di tali test.</p>
+<p>Sono stati ideati dei test, scritti sotto ambiente <strong>JUnit 5</strong> <a class="footnote-reference brackets" href="#id14" id="id6">6</a>, per poter testare in modo mirato le singole <em>funzionalità</em> del progetto.</p>
+<p>Per ulteriori informazioni si rimanda alle <a class="reference internal" href="test/packages.html"><span class="doc">sezioni</span></a>  riguardanti le implementazioni di tali test.</p>
 </div>
 <div class="section" id="gradle">
 <h2>Gradle<a class="headerlink" href="#gradle" title="Link a questa intestazione">¶</a></h2>
-<p>Nell’ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building <strong>Gradle</strong> <a class="footnote-reference brackets" href="#id14" id="id7">7</a>, in versione 5.1.1,
+<p>Nell’ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building <strong>Gradle</strong> <a class="footnote-reference brackets" href="#id15" id="id7">7</a>, in versione 5.4.1,
 per facilitare il deploy e la distribuzione di tale software all’interno di altri sistemi.</p>
+</div>
+<div class="section" id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Link a questa intestazione">¶</a></h2>
+<blockquote>
+<div><p><em>La Continuous Integration, proprio come la Continuous Delivery, viene apprezzata soprattutto nello sviluppo agile di software. L’obiettivo di questo moderno metodo è quello di suddividere il lavoro in porzioni più piccole per rendere il processo stesso di sviluppo più efficiente e poter reagire con maggiore flessibilità alle modifiche. La Continuous Integration è stata nominata per la prima volta nella descrizione della metodologia agile Extreme Programming di Kent Beck.</em></p>
+</div></blockquote>
+<p>Mediante l’implementazione di <strong>Gradle</strong>, illustrata in precedenza, si è riuscito a integrare all’interno della natura del progetto
+anche il software <strong>Travis CI</strong> <a class="footnote-reference brackets" href="#id17" id="id8">8</a>.</p>
+<img alt="_images/ci.png" src="_images/ci.png" />
+<p>Quest’ultimo garantisce all’intero progetto la possibilità di sviluppare una <strong>integrazione continua</strong> all’interno di un team di lavoro in primo luogo, <em>e di consegunza</em>, una seria di vantaggi non indifferenti, quali:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Resa del build auto-testante</strong></dt><dd><ul>
+<li><p>Ogni volta che il codice sorgente viene buildato ed impacchettato vengono eseguiti dei test sul sorgente affinché la qualità del codice venga tenuta sotto controllo ed eventuali bug vengano scoperti il prima possibile.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Ogni commit lancia una build</strong></dt><dd><ul>
+<li><p>Ogni modifica al codice sorgente condiviso potrebbe generare dei bug e quindi compilare e testare subito dà la possibilità di intervenire immediatamente su eventuali falle del sistema.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Esecuzione di test in un clone dell’ambiente di produzione</strong></dt><dd><ul>
+<li><p>L’ambiente di lavoro può differire in base all’OS adottato e dal hardware stesso della macchina che si adopera, per questo è fondamentale creare un clone del <em>workspace</em> che sia il medesimo per tutti i membri del progetto e incontro a tale evenienza viene in aiuto <strong>Docker</strong>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Repository del codice sorgente</strong></dt><dd><ul>
+<li><p>Questo elemento è propedeutico a tutti gli altri principi descritti in precedenza, poichè senza avere un repository del codice è impossibile automatizzare il build ed i test.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Aver inserito anche una <em>feature</em> come quella del <strong>CI</strong> rende sicuramente l’intero parco software <strong>robusto</strong>, <strong>elegante</strong> e <strong>flessibile</strong>.</p>
 <dl class="footnote brackets">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Mastermind">Mastermind</a></p>
 </dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Model-view-controller">MVC</a></p>
 </dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
 <dd><p><a class="reference external" href="https://italiancoders.it/observer-pattern/">Observer</a></p>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p><a class="reference external" href="https://it.wikipedia.org/wiki/Singleton">Singleton</a></p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p><a class="reference external" href="https://italiancoders.it/factory-method-design-pattern/">Factory</a></p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
 <dd><p><a class="reference external" href="https://junit.org/junit5">JUnit</a></p>
 </dd>
-<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
 <dd><p><a class="reference external" href="https://gradle.org/">Gradle</a></p>
+</dd>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Travis_CI">Travis CI</a></p>
 </dd>
 </dl>
 </div>
@@ -273,7 +329,7 @@ per facilitare il deploy e la distribuzione di tale software all’interno di al
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sphinx.html" class="btn btn-neutral float-right" title="Sphinx e le sue potenzialità" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gameguide.html" class="btn btn-neutral float-right" title="Guida al gioco" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Benvenuto alla documentazione di MasterMind!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

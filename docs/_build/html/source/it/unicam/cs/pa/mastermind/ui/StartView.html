@@ -37,7 +37,7 @@
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
     <link rel="next" title="Test realizzati in JUnit" href="../../../../../../../test/packages.html" />
-    <link rel="prev" title="StartStats" href="StartStats.html" /> 
+    <link rel="prev" title="GameView" href="GameView.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,6 +86,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
@@ -93,14 +94,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="AnsiUtility.html">AnsiUtility</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ConsoleInteractionView.html">ConsoleInteractionView</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleGameView.html">ConsoleGameView</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ConsoleStartView.html">ConsoleStartView</a></li>
-<li class="toctree-l3"><a class="reference internal" href="InteractionView.html">InteractionView</a></li>
-<li class="toctree-l3"><a class="reference internal" href="StartStats.html">StartStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GameView.html">GameView</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">StartView</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
@@ -181,7 +178,7 @@
 <h1>StartView<a class="headerlink" href="#startview" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartView">
-public abstract class <code class="descname">StartView</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView" title="Link a questa definizione">¶</a></dt>
+public interface <code class="descname">StartView</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView" title="Link a questa definizione">¶</a></dt>
 <dd><p><strong>Responsabilità</strong>: fornire agli utenti fisici coinvolti nel gioco l’interazione per poter iniziare nuove partite.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -190,54 +187,22 @@ public abstract class <code class="descname">StartView</code><a class="headerlin
 </dl>
 </dd></dl>
 
-<div class="section" id="fields">
-<h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="startstats">
-<h3>startStats<a class="headerlink" href="#startstats" title="Link a questa intestazione">¶</a></h3>
-<dl class="field">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.startStats">
-protected <a class="reference internal" href="StartStats.html#it.unicam.cs.pa.mastermind.ui.StartStats" title="it.unicam.cs.pa.mastermind.ui.StartStats">StartStats</a> <code class="descname">startStats</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.startStats" title="Link a questa definizione">¶</a></dt>
-<dd><p>Istanza della classe <code class="docutils literal notranslate"><span class="pre">StartStats</span></code>.</p>
-</dd></dl>
-
-</div>
-</div>
-<div class="section" id="constructors">
-<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
-<div class="section" id="id1">
-<h3>StartView<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
-<dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.StartView()">
-public <code class="descname">StartView</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.StartView()" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-</div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
 <div class="section" id="asknewattempts">
 <h3>askNewAttempts<a class="headerlink" href="#asknewattempts" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewAttempts()">
-protected abstract int <code class="descname">askNewAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewAttempts()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestione dell’interazione con l’utente fisico per l’impostazione di un nuovo valore di numero di tentativi massimi richiesti al <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> all’interno della nuova partita.</p>
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewAttempts(int)">
+public int <code class="descname">askNewAttempts</code><span class="sig-paren">(</span>int<em> lowTres</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewAttempts(int)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico per ottenere un nuovo valore relativo al numero di tentativi utili all’interno del gioco.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>int numero di tentativi massimi richiesti al <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> all’interno della nuova partita.</p>
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowTres</strong> – limite inferiore al valore da scegliere</p></li>
+</ul>
 </dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="asknewgamesettings">
-<h3>askNewGameSettings<a class="headerlink" href="#asknewgamesettings" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewGameSettings()">
-protected abstract <a class="reference internal" href="../gamecore/NewGameStats.html#it.unicam.cs.pa.mastermind.gamecore.NewGameStats" title="it.unicam.cs.pa.mastermind.gamecore.NewGameStats">NewGameStats</a> <code class="descname">askNewGameSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewGameSettings()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interazione con l’utente fisico a fronte della conclusione di una singola partita.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>NewGameStats contenente informazioni relative all’inizio di una nuova partita e alle impostazioni correlate.</p>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>int valore scelto</p>
 </dd>
 </dl>
 </dd></dl>
@@ -246,26 +211,46 @@ protected abstract <a class="reference internal" href="../gamecore/NewGameStats.
 <div class="section" id="asknewlength">
 <h3>askNewLength<a class="headerlink" href="#asknewlength" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewLength()">
-protected abstract int <code class="descname">askNewLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewLength()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestione dell’interazione con l’utente fisico per l’impostazione di un nuovo valore della lunghezza delle sequenze di elementi presenti nella nuova partita.</p>
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewLength(int, int)">
+public int <code class="descname">askNewLength</code><span class="sig-paren">(</span>int<em> lowTres</em>, int<em> highTres</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewLength(int, int)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico per ottenere un nuovo valore relativo alla lunghezza delle sequenze impiegate nel gioco.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>int valore della lunghezza delle sequenze di elementi presenti nella nuova partita.</p>
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowTres</strong> – limite inferiore al valore da scegliere</p></li>
+<li><p><strong>highTres</strong> – limite superiore al valore da scegliere</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>int valore scelto</p>
 </dd>
 </dl>
 </dd></dl>
 
 </div>
-<div class="section" id="asknewsettings">
-<h3>askNewSettings<a class="headerlink" href="#asknewsettings" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="asknewlengthsandattempts">
+<h3>askNewLengthsAndAttempts<a class="headerlink" href="#asknewlengthsandattempts" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewSettings()">
-protected abstract boolean <code class="descname">askNewSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewSettings()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestione dell’interazione con l’utente fisico per l’impostazione o meno di nuove impostazioni relative alla nuova partita.</p>
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewLengthsAndAttempts()">
+public boolean <code class="descname">askNewLengthsAndAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewLengthsAndAttempts()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico circa le decisioni per l’impostazione di nuovi valori di lunghezza delle sequenze e di numero di tentativi per un nuovo match.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>boolean volontà dell’utente fisico di decidere nuove impostazioni per la nuova partita.</p>
+<dd class="field-odd"><p>boolean volontà dell’utente fisico di decidere nuove impostazioni per un nuovo match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="asknewstartupsettings">
+<h3>askNewStartupSettings<a class="headerlink" href="#asknewstartupsettings" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.askNewStartupSettings()">
+public <a class="reference internal" href="../gamecore/StartupSettings.html#it.unicam.cs.pa.mastermind.gamecore.StartupSettings" title="it.unicam.cs.pa.mastermind.gamecore.StartupSettings">StartupSettings</a> <code class="descname">askNewStartupSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.askNewStartupSettings()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico circa le decisioni per l’inizio di un nuovo match o meno dopo che uno è stato concluso.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>StartupSettings contenente informazioni utili per iniziare o meno nuovi match</p>
 </dd>
 </dl>
 </dd></dl>
@@ -275,12 +260,12 @@ protected abstract boolean <code class="descname">askNewSettings</code><span cla
 <h3>badEnding<a class="headerlink" href="#badending" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartView.badEnding(String)">
-protected abstract void <code class="descname">badEnding</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> reason</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.badEnding(String)" title="Link a questa definizione">¶</a></dt>
+public void <code class="descname">badEnding</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> reason</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.badEnding(String)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Gestione anticipata della conclusione dell’intero gioco, richiamata ad esempio per il sollevamento di errori importanti.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reason</strong> – </p></li>
+<li><p><strong>reason</strong> – da presentare all’utente fisico</p></li>
 </ul>
 </dd>
 </dl>
@@ -291,22 +276,8 @@ protected abstract void <code class="descname">badEnding</code><span class="sig-
 <h3>ending<a class="headerlink" href="#ending" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartView.ending()">
-protected abstract void <code class="descname">ending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.ending()" title="Link a questa definizione">¶</a></dt>
+public void <code class="descname">ending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.ending()" title="Link a questa definizione">¶</a></dt>
 <dd><p>Gestione della conclusione dell’intero gioco dopo la fine di ogni singola partita.</p>
-</dd></dl>
-
-</div>
-<div class="section" id="getinteractionview">
-<h3>getInteractionView<a class="headerlink" href="#getinteractionview" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.getInteractionView()">
-protected abstract <a class="reference internal" href="InteractionView.html#it.unicam.cs.pa.mastermind.ui.InteractionView" title="it.unicam.cs.pa.mastermind.ui.InteractionView">InteractionView</a> <code class="descname">getInteractionView</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.getInteractionView()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Ottenimento dell’oggetto <code class="docutils literal notranslate"><span class="pre">InteractionView</span></code> associato alla particolare implementazione di <code class="docutils literal notranslate"><span class="pre">StartView</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>InteractionView associata all’oggetto <code class="docutils literal notranslate"><span class="pre">StartView</span></code>.</p>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -314,13 +285,13 @@ protected abstract <a class="reference internal" href="InteractionView.html#it.u
 <h3>getPlayerName<a class="headerlink" href="#getplayername" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)">
-protected abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getPlayerName</code><span class="sig-paren">(</span><a class="reference internal" href="../players/PlayerFactoryRegistry.html#it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry" title="it.unicam.cs.pa.mastermind.players.PlayerFactoryRegistry">PlayerFactoryRegistry</a><em> registry</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">getPlayerName</code><span class="sig-paren">(</span><a class="reference internal" href="../factories/PlayerFactoryRegistry.html#it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry" title="it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry">PlayerFactoryRegistry</a><em> registry</em>, boolean<em> isBreaker</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Gestione dell’interazione dell’utente fisico per la scelta della particolare implementazione dei giocatori che verranno coinvolti nella nuova partita.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>registry</strong> – registro contenente le informazioni sulle classi <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> relative alle implementazioni dei giocatori.</p></li>
-<li><p><strong>isBreaker</strong> – flag che indica se la scelta è relativa ad un giocatore <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> o meno.</p></li>
+<li><p><strong>isBreaker</strong> – flag che indica se la scelta è relativa ad una factory finalizzata alla generazione di un giocatore <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> o meno.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
@@ -330,30 +301,59 @@ protected abstract <a class="reference external" href="http://docs.oracle.com/ja
 </dd></dl>
 
 </div>
+<div class="section" id="setupbreaker">
+<h3>setupBreaker<a class="headerlink" href="#setupbreaker" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.setupBreaker(BreakerFactoryRegistry)">
+public <a class="reference internal" href="../factories/BreakerFactory.html#it.unicam.cs.pa.mastermind.factories.BreakerFactory" title="it.unicam.cs.pa.mastermind.factories.BreakerFactory">BreakerFactory</a> <code class="descname">setupBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../factories/BreakerFactoryRegistry.html#it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry" title="it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry">BreakerFactoryRegistry</a><em> registry</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.setupBreaker(BreakerFactoryRegistry)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico circa la particolare implementazione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> da impiegare nel gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>registry</strong> – da cui recuperare le informazioni</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>BreakerFactory per la generazione di nuovi giocatori <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setupmaker">
+<h3>setupMaker<a class="headerlink" href="#setupmaker" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.setupMaker(MakerFactoryRegistry)">
+public <a class="reference internal" href="../factories/MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a> <code class="descname">setupMaker</code><span class="sig-paren">(</span><a class="reference internal" href="../factories/MakerFactoryRegistry.html#it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry" title="it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry">MakerFactoryRegistry</a><em> registry</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.setupMaker(MakerFactoryRegistry)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico circa la particolare implementazione di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code> da impiegare nel gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>registry</strong> – da cui recuperare le informazioni</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>MakerFactory per la generazione di nuovi giocatori <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="showlogo">
 <h3>showLogo<a class="headerlink" href="#showlogo" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.StartView.showLogo()">
-protected abstract void <code class="descname">showLogo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.showLogo()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestione del logo di avvio del gioco.</p>
+public void <code class="descname">showLogo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.showLogo()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione di interazione con l’utente fisico per mostrare il logo di gioco.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="shownewgamestarting">
-<h3>showNewGameStarting<a class="headerlink" href="#shownewgamestarting" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="shownewmatchstarting">
+<h3>showNewMatchStarting<a class="headerlink" href="#shownewmatchstarting" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.showNewGameStarting()">
-protected abstract void <code class="descname">showNewGameStarting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.showNewGameStarting()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestione del messaggio di avvio di una singola partita.</p>
-</dd></dl>
-
-</div>
-<div class="section" id="startup">
-<h3>startUp<a class="headerlink" href="#startup" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.StartView.startUp()">
-public void <code class="descname">startUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.startUp()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Gestione completa dell’interazione con l’utente fisico per poter iniziare una nuova partita.</p>
+<dt id="it.unicam.cs.pa.mastermind.ui.StartView.showNewMatchStarting()">
+public void <code class="descname">showNewMatchStarting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.StartView.showNewMatchStarting()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Gestione dell’interazione con l’utente fisico circa l’inizio di un nuovo match</p>
 </dd></dl>
 
 </div>
@@ -371,7 +371,7 @@ public void <code class="descname">startUp</code><span class="sig-paren">(</span
         <a href="../../../../../../../test/packages.html" class="btn btn-neutral float-right" title="Test realizzati in JUnit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="StartStats.html" class="btn btn-neutral float-left" title="StartStats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="GameView.html" class="btn btn-neutral float-left" title="GameView" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

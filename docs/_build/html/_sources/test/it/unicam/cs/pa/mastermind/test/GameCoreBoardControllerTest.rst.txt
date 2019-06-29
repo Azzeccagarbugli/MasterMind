@@ -58,14 +58,6 @@ testBoardController
 
    Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(it.unicam.cs.pa.mastermind.gamecore.BoardModel)`\ .
 
-testGetBoardReference
-^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: @Test  void testGetBoardReference()
-   :outertype: GameCoreBoardControllerTest
-
-   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.gamecore.BoardController.getBoardReference()`\ .
-
 testGetSequenceLength
 ^^^^^^^^^^^^^^^^^^^^^
 

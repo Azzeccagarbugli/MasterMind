@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="ColorPegs" href="ColorPegs.html" />
+    <link rel="next" title="BoardObserver" href="BoardObserver.html" />
     <link rel="prev" title="BoardController" href="BoardController.html" /> 
 </head>
 
@@ -86,6 +86,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
@@ -96,10 +97,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="CurrentGameStats.html">CurrentGameStats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="NewGameStats.html">NewGameStats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainManager.html">MainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchStartSettings.html">MatchStartSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
@@ -180,7 +186,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel">
 public class <code class="descname">BoardModel</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="Link a questa definizione">¶</a></dt>
-<dd><p><strong>Responsabilità</strong>: gestire le informazioni relative ad una plancia di gioco.</p>
+<dd><p><strong>Responsabilità</strong>: gestire le informazioni relative ad una plancia di gioco. Rientra nei pattern <strong>MVC</strong> e <strong>Observer</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -195,7 +201,7 @@ public class <code class="descname">BoardModel</code><a class="headerlink" href=
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel.BoardModel(int, int)">
 public <code class="descname">BoardModel</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, int<em> maxAttempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.BoardModel(int, int)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Costruttore di una plancia</p>
+<dd><p>Costruttore di una plancia. L’impiego di una LinkedHashMap quale particolare struttura dati per tenere traccia delle sequenze inserite permette di tenere conto anche dell’ordine di inserimento.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
@@ -238,7 +244,7 @@ public boolean <code class="descname">addAttempt</code><span class="sig-paren">(
 <h3>addObserver<a class="headerlink" href="#addobserver" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel.addObserver(BoardObserver)">
-public void <code class="descname">addObserver</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/BoardObserver.html#it.unicam.cs.pa.mastermind.ui.BoardObserver" title="it.unicam.cs.pa.mastermind.ui.BoardObserver">BoardObserver</a><em> observer</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.addObserver(BoardObserver)" title="Link a questa definizione">¶</a></dt>
+public void <code class="descname">addObserver</code><span class="sig-paren">(</span><a class="reference internal" href="BoardObserver.html#it.unicam.cs.pa.mastermind.gamecore.BoardObserver" title="it.unicam.cs.pa.mastermind.gamecore.BoardObserver">BoardObserver</a><em> observer</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.addObserver(BoardObserver)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Metodo il quale registra un nuovo <code class="docutils literal notranslate"><span class="pre">BoardObserver</span></code> e notifica tutti i <code class="docutils literal notranslate"><span class="pre">BoardObserver</span></code> attualmente associati all’istanza di <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -268,29 +274,10 @@ public int <code class="descname">attemptsInserted</code><span class="sig-paren"
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel.getAttemptAndClueList()">
 public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>.Entry&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;&gt;&gt; <code class="descname">getAttemptAndClueList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.getAttemptAndClueList()" title="Link a questa definizione">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Ottenimento di una <code class="docutils literal notranslate"><span class="pre">List</span></code> contenente tutta le coppie sequenza tentativo - sequenza indizio inserite nella plancia.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>List contenenti Map.Entry con le sequenze di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> inserite come tentativo e le relative sequenze indizio</p>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="getcluefromattempt">
-<h3>getClueFromAttempt<a class="headerlink" href="#getcluefromattempt" title="Link a questa intestazione">¶</a></h3>
-<dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel.getClueFromAttempt(List)">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getClueFromAttempt</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> attempt</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.getClueFromAttempt(List)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Calcolo della sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> indizio a fronte di una sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> assicurata valida come tentativo.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>attempt</strong> – la lista che si inserisce come tentativo di risoluzione.</p></li>
-<li><p><strong>toGuess</strong> – la lista che contiene la sequenza da indovinare.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>List di indizi generata a partire dalla lista di tentativi.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -353,7 +340,8 @@ public boolean <code class="descname">isBoardEmpty</code><span class="sig-paren"
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel.lastAttemptAndClue()">
 public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="java.util.Map">Map</a>.Entry&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;&gt; <code class="descname">lastAttemptAndClue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.lastAttemptAndClue()" title="Link a questa definizione">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Ottenimento dell’ultima coppia sequenza tentativo - sequenza indizio inserita nella plancia.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>Map.Entry contenente l’ultima sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> inserita come tentativo e la relativa sequenza indizio.</p>
 </dd>
@@ -369,6 +357,20 @@ public int <code class="descname">leftAttempts</code><span class="sig-paren">(</
 <dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>int numero di tentativi rimasti</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removelastattemptandclue">
+<h3>removeLastAttemptAndClue<a class="headerlink" href="#removelastattemptandclue" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.BoardModel.removeLastAttemptAndClue()">
+public boolean <code class="descname">removeLastAttemptAndClue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardModel.removeLastAttemptAndClue()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Rimozione dell’ultima coppia sequenza tentativo - sequenza indizio inserita nella plancia.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>boolean relativo alla riuscita della rimozione.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -409,7 +411,7 @@ public boolean <code class="descname">setSequenceToGuess</code><span class="sig-
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ColorPegs.html" class="btn btn-neutral float-right" title="ColorPegs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="BoardObserver.html" class="btn btn-neutral float-right" title="BoardObserver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="BoardController.html" class="btn btn-neutral float-left" title="BoardController" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
