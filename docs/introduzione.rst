@@ -5,62 +5,72 @@ del gioco da tavolo **Mastermind** [1]_. Nell'ideare la struttura del progetto s
 alla **massima modularità possibile**, per quanto non totale, ottenuta tramite l'applicazione
 di determinati design pattern.
 
-Struttura fondamentale del progetto
---------------------------------------
-
-.. image:: _static/MasterMind.png
-
-L'idea alla base della struttura del gioco riguarda le *interazioni* tra l'utente umano ed un'istanza 
-di una classe che estende ``StartView``. Tramite questa interazione è possibile decidere quali impostazioni 
-e quali implementazioni dei giocatori, rispettivamente un ``CodeBreaker`` ed un ``CodeMaker``,
-impiegare all'interno di singole partite. I giocatori potranno poi interagire all'interno della partita
-comunicando con una istanza di una classe che estende ``InteractionView``, dalla quale ottengono informazioni 
-sulla partita in corso e grazie alla quale hanno una possibile interazione con l'utente umano, e con
-una istanza di ``BoardController``, alla quale **comunicano** decisioni di gioco quali la sequenza da indovinare o le sequenze 
-valide come tentativo per poter indovinare tale sequenza.
-
-Alla base della sequenza, a rappresentazione dei pioli impiegati nel gioco originale, sono presenti valori della
-classe enum ``ColorPegs``, contenente otto colori.
+Architettura fondamentale del progetto
+---------------------------------------
+L'avvio del programma è delegato ad una classe che estende ``MainManager``, classe astratta contenente il funzionamento effettivo e a più alto livello del programma. 
+La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi ``GameViewFactory`` e ``StartView`` si è scelto di impiegare.
+Le classi ``GameViewFactory`` e ``StartView`` sono fondamentali in quanto estendibili con classi mirate a fornire delle viste finalizzate all'interazione con gli **utenti fisici**.
+Il funzionamento di ``MainManager`` si basa sulla creazione, esecuzione e monitoraggio di istanze personalizzate di ``SingleMatch``, rappresentanti singole partite di gioco.
+La corrente implementazione di ``MainManager`` consente la gestione di una singola istanza di ``SingleMatch`` alla volta.
+All'interno dell'esecuzione effettiva del metodo di avvio presente in ``SingleMatch`` si ha poi l'interazione di due entità rappresentanti i giocatori, rispettivamente
+un ``CodeMaker`` *(colui che definisce la sequenza di ``ColorPegs`` da indovinare)* e un ``CodeBreaker`` *(colui che definisce sequenze di ``ColorPegs`` valide come tentativi)*,
+con l'entità ``BoardController``, attraverso la quale viene aggiornata un'istanza di ``BoardModel`` *(rappresentante una plancia di gioco)*.
+Lo svolgimento di un ``SingleMatch`` si conclude quando si è arrivati ad una delle tre condizioni di vittoria, rappresentate dalla sconfitta del ``CodeBreaker`` a causa di una sua resa 
+o per l'esaurimento dei tentativi disponibili e dalla sconfitta del ``CodeMaker`` a causa della definizione di una corretta sequenza tentativa da parte del ``CodeBreaker``.
+L'interazione con l'utente fisico all'interno del programma è svolta da istanze estensione di ``StartView`` *(mirate alla fase di preparazione dei singoli match)* e da 
+istanze estensione di ``GameView`` *(mirate alla gestione delle azioni da eseguire durante i match)*.
 
 Estendibilità ed implementazioni fornite di default
 -------------------------------------------------------
-Si è deciso di adottare una struttura molto rigida per quanto riguarda la rappresentazione dei pioli e della plancia
-di gioco, non offrendo possibilità di aggiungere ulteriori implementazioni o diversificazioni di quelle che sono le classi
-**ColorPegs**, **BoardModel** e **BoardCoordinator**.
-Diverso il discorso sul piano delle implementazioni di giocatori o delle interfacce di comunicazione con l'utente umano.
-È infatti possibile aggiungere classi che estendono ``CodeMaker`` e ``CodeBreaker``, fornendo anche le relative classi *factory* che estendono
-rispettivamente ``MakerFactory`` e ``BreakerFactory``, senza che il codice venga ricompilato. 
-Per fare ciò si è deciso di implementare una classe astratta ``PlayerFactoryRegistry``, estesa nel progetto in questione 
-da ``MakerFactoryRegistry`` e ``BreakerFactoryRegistry``, classi che permettono di **collezionare a runtime** informazioni 
-riguardo le factory puntate a generare istannze di classi estensione di ``CodeMaker`` e ``CodeBreaker``.
-Analogamente è possibile aggiungere classi estensione di ``StartView`` per fornire particolari *viste* indirizzate **all'interazione**
-con l'utente fisico durante l'impostazione e l'avvio di nuove partite. Ad ogni ``StartView`` si richiede di associare anche una classe
-che estenda ``InteractionView`` che sia **coerente** con la particolare estensione di StartView trattata e di includere il metodo **main** per permettere
-l'avvio effettivo del programma. 
+L'estendibilità del progetto si sostanzia nella possibilità di definire nuove implementazioni per le seguenti responsabilità:
 
-Di default sono fornite delle implementazioni di quelle che sono le classi rappresentanti i giocatori e l'interazione con l'utente umano:
+* **Gestione dell'avvio e del monitoraggio delle singole partite**, rappresentata da ``MainManager``.
 
-* **ConsoleStartView**: estensione di ``StartView``, fornisce un'interazione con l'utente fisico per l'impostazione e l'avvio di nuove partite tramite console.
+* **Gestione dell'interazione con l'utente fisico per l'avvio di nuove partite**, rappresentata da ``StartView``.
 
-* **ConsoleInteractionView**: estensione di ``InteractionView``, è strettamente associata con la classe ``ConsoleStartView`` fornisce un'interazione con l'utente fisico in caso siano necessarie per *impartire* nuove decisioni durante lo svolgimento di una partita.
+* **Gestione dell'interazione con l'utente fisico per la gestione delle azioni all'interno di singole partite**, rappresentata da ``GameView``.
 
-* **InteractiveMaker**: estensione di ``CodeMaker``, fornisce l'implementazione di un giocatore comandato dall'utente umano attraverso l'interazione fornita da una classe estensione di ``InteractionView``. È possibile ottenere istanze di questa estensione tramite la classe ``InteractiveMakerFactory``.
+* **Fornire istanze di implementazioni di ``GameView``**, rapprsentata da ``GameViewFactory``.
 
-* **InteractiveBreaker**: estensione di ``CodeBreaker``, fornisce l'implementazione di un giocatore comandato dall'utente umano attraverso l'interazione fornita da una classe estensione di ``InteractionView``. È possibile ottenere istanze di questa estensione tramite la classe ``InteractiveBreakerFactory``.
+* **Rappresentazione di un giocatore che decide la sequenza da indovinare**, rappresentata da ``CodeMaker``.
 
-* **RandomBotMaker**: estensione di ``CodeMaker``, fornisce l'implementazione di un giocatore comandato da un **IA** che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe ``RandomBotMakerFactory``.
+* **Fornire istanze di implementazioni di ``CodeMaker``**, rappresentata da ``MakerFactory``.
 
-* **RandomBotBreaker**: estensione di ``CodeBreaker``, fornisce l'implementazione di un giocatore comandato da un **IA** che agisce fornendo sequenze randomiche. È possibile ottenere istanze di questa estensione tramite la classe ``RandomBotBreakerFactory``.
+* **Rappresentazione di un giocatore che cerca di indovinare la sequenza**, rappresentata da ``CodeBreaker``.
+
+* **Fornire istanze di implementazioni di ``CodeBreaker``**, rappresentata da ``BreakerFactory``.
+
+Esempi di implementazioni già incluse nella release attuale del progetto sono:
+
+* **ConsoleMainManager**, ad estensione di ``MainManager``.
+
+* **ConsoleStartView**, implementazione di ``StartView``.
+
+* **ConsoleGameView**, estensione di ``GameView``.
+
+* **ConsoleGameViewFactory**, implementazione di ``GameViewFactory``.
+
+* **InteractiveMaker, RandomBotMaker**, estensioni di ``CodeMaker``.
+
+* **InteractiveMakerFactory, RandomBotMakerFactory**, implementazioni di ``MakerFactory``.
+
+* **InteractiveBreaker, RandomBotBreaker, DonaldKnuthBreaker**, estensioni di ``CodeBreaker``.
+
+* **InteractiveBreakerFactory, RandomBotBreakerFactory, DonaldKnuthBreakerFactory**, estensioni di ``BreakerFactory``.
 
 Per ulteriori informazioni circa le classi elencate si rimanda alle relative :doc:`sezioni <source/packages>`. 
 
 
 Informazioni fondamentali circa il primo avvio
 --------------------------------------------------
-Il caricamento a **runtime** delle informazioni relative alle classi factory grazie alle quali ottenere istanze di classi che estendono
-``CodeBreaker`` e ``CodeMaker`` è stato reso possibile grazie alla lettura di specifici file testuali. In loro assenza il software creerà 
-dei file standard, comunicando all'utente questa decisione, da modificare **obbligatoriamente** con le giuste informazioni per avere un
-corretto avvio ed una corretta esecuzione del programma.
+Il caricamento a **runtime** delle informazioni relative alle classi factory, grazie alle quali ottenere istanze di classi che estendono
+``CodeBreaker`` e ``CodeMaker``, è stato reso possibile grazie alla definizione di classi implementazione ``PlayerFactoryRegistry``, classi le cui istanze sono indirizzate
+alla lettura a runtime di file di input e al caricamento di istanze di ``BreakerFactory`` e ``MakerFactory``. 
+Il formato delle informazioni di tali file di input è molto importante ed in loro assenza ne vengono generati automaticamente altri contenenti
+le istruzioni necessarie per un corretto avvio del programma. 
+Il caricamento a runtime di tali informazioni permette l'aggiunta di nuove funzionalità del programma, nei limiti di estendibilità già trattati, senza avere la
+necessità di ricompilare tutte le classi del progetto.
+Si rimanda alle :doc:`sezioni <source/packages>` per ulteriori informazioni circa le implementazioni di ``PlayerFactoryRegistry`` fornite.
 
 Responsabilità delle classi
 --------------------------------------
@@ -69,16 +79,20 @@ Si rimanda alle :doc:`sezioni <source/packages>` riguardanti le implementazioni 
 Design pattern impiegati 
 --------------------------------------
 1. **Model View Controller** [2]_
-Rappresenta la struttura alla base dell'intero gioco. È stata implementata tramite le classi ``StartView``, ``InteractionView``, ``BoardModel`` e ``BoardCoordinator``.
+Rappresenta la struttura alla base del funzionamento delle singole partite. 
+È stata implementata tramite le classi ``GameView``, ``BoardModel`` e ``BoardCoordinator``, classi le cui istanze comunicano all'interno di ``SingleMatch``.
 
 2. **Observer** [3]_
-Implementato fornendo come classe da osservare ``BoardModel`` e come classi che osservano ``InteractionView`` e ``CurrentGameStats``. Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. La sua implementazione è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
+Implementato fornendo come classe da osservare ``BoardModel`` e come classi che osservano ``GameView`` e ``MatchState``, classi estensione di ``BoardObserver``. 
+Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. 
+La sua implementazione all'interno di questo progetto è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
 
 3. **Singleton** [4]_
-Presente all'interno delle classi ``ConsoleStartView`` e ``ConsoleInteractionView``, esso garantisce che siano presenti **singole** istanze di tali classi all'interno del progetto.
+Presente all'interno della classe ``ConsoleStartView``, esso garantisce che siano presenti **singole** istanze di tali classe all'interno del progetto.
 
 4. **Factory** [5]_
-Implementato tramite l'interfaccia ``PlayerFactory``, implementata da ``BreakerFactory`` e ``MakerFactory``, **classi astratte** da estendere tramite classi factory che forniscano istanze di classi estensione rispettivamente di ``CodeBreaker`` e ``CodeMaker``.  
+Implementato tramite le classi ``PlayerFactory``, ``MakerFactory``, ``BreakerFactory`` e le loro implementazioni per poter fornire istanze di giocatori ``CodeMaker`` e ``CodeBreaker``.
+Lo stesso pattern è stato inoltre implementato con ``GameViewFactory`` per poter fornire istanze di ``GameView`` all'inizializzazione dei vari ``SingleMatch``.
 
 Testing
 --------------------------------------
@@ -87,7 +101,7 @@ Per ulteriori informazioni si rimanda alle :doc:`sezioni <test/packages>`  rigua
 
 Gradle
 --------------------------------------
-Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [7]_, in versione 5.1.1, 
+Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [7]_, in versione 5.4.1, 
 per facilitare il deploy e la distribuzione di tale software all'interno di altri sistemi.
 
 

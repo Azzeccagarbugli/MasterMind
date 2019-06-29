@@ -4,6 +4,7 @@ import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
+ * <b>Responsabilità</b>: fornire istanze di implementazioni di <code>CodeBreaker</code>.
  * Interfaccia finalizzata all'implementazione di classi factory per le particolari implementazioni dei giocatori <code>CodeBreaker</code>.
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

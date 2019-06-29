@@ -13,6 +13,7 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
 /**
  * Implementazione con interazione via console della classe
  * <code>StartView</code>.
+ * Integra il pattern <b>Singleton</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

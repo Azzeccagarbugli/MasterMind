@@ -5,7 +5,7 @@ import java.util.List;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
- * Rappresentazione di un giocatore <code>CodeMaker</code>, il cui compito è
+ * <b>Responsabilità</b>: rappresentazione di un giocatore <code>CodeMaker</code>, il cui compito è
  * quello di decretare una sequenza di <code>ColorPegs</code> che il giocatore
  * <code>CodeBreaker</code> deve indovinare.
  * 
