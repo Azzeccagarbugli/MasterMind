@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Guida al gioco &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Sphinx e le sue potenzialità" href="sphinx.html" />
+    <link rel="prev" title="Introduzione" href="introduzione.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduzione.html">Introduzione</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guida al gioco</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#regolamento">Regolamento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#singola-partita">Singola partita</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx e le sue potenzialità</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/packages.html">Documentazione del codice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/packages.html">Test realizzati in JUnit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Guida al gioco</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/gameguide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="guida-al-gioco">
+<h1>Guida al gioco<a class="headerlink" href="#guida-al-gioco" title="Link a questa intestazione">¶</a></h1>
+<p>Mastermind o <em>Master Mind</em> è un gioco da tavolo astratto di crittoanalisi <a class="footnote-reference brackets" href="#id3" id="id1">1</a> per due giocatori, in cui un giocatore, il <strong>«decodificatore»</strong>,
+deve indovinare il codice segreto composto dal suo avversario, detto <strong>«codificatore»</strong>.</p>
+<div class="section" id="regolamento">
+<h2>Regolamento<a class="headerlink" href="#regolamento" title="Link a questa intestazione">¶</a></h2>
+<p>Nella versione <strong>originale</strong> di Mastermind, il codice segreto è di quattro cifre e il codificatore ha a disposizione, per comporlo, le dieci cifre del sistema decimale standard <code class="docutils literal notranslate"><span class="pre">(0,1,2,3,4,5,6,7,8,9)</span></code>.</p>
+<p>Esistono numerose versioni successive, <strong>la più famosa</strong> è quella in cui al posto dei numeri si usano dei pioli di 6 colori differenti. Tale implementazione infatti è quella fornita all’interno del progetto proposto.</p>
+<p>Dopo che il codificatore ha composto il codice, il decodificatore fa il suo primo tentativo, cercando di indovinare il codice. Il codificatore, appena il suo avversario ha completato il tentativo, fornisce degli aiuti comunicando:</p>
+<ul class="simple">
+<li><p><strong>Il numero di cifre giuste al posto giusto</strong>, cioè le cifre del tentativo che sono effettivamente presenti nel codice al posto tentato, <strong>con pioli neri</strong>.</p></li>
+<li><p><strong>Il numero di cifre giuste al posto sbagliato</strong>, cioè le cifre del tentativo che sono effettivamente presenti nel codice, ma non al posto tentato, <strong>con pioli bianchi</strong>.</p></li>
+</ul>
+<p>Nella versione di gioco prodotta <strong>la lunghezza della sequenza</strong> da inserire può essere selezionata dall’utente, così come il <strong>numero di tentativi disponibili</strong> per provare ad indovinare il codice segreto.</p>
+<p>Se il decodificatore riesce ad indovinare il codice entro il numero di tentativi predeterminati, <em>che nel caso di default sono pari a 9</em>, allora quest’ultimo vince la partita, altrimenti vince il codificatore.</p>
+</div>
+<div class="section" id="singola-partita">
+<h2>Singola partita<a class="headerlink" href="#singola-partita" title="Link a questa intestazione">¶</a></h2>
+<p>Avviando il gioco si avrà accesso alla seguente schermata:</p>
+<img alt="_images/start.png" src="_images/start.png" />
+<p>Da quest’ultima si potrà scegliere quale giocatore selezionare per il effettuare il ruolo di <strong>codificatore</strong>.
+Una volta inserito il valore desiderato sarà possibile selezionare il giocatore <strong>decodificatore</strong> all’interno di tale interfaccia:</p>
+<img alt="_images/decod.png" src="_images/decod.png" />
+<p>Come è possibile osservare nelle immagini precedenti il progetto ammette anche l’utilizzo di un <strong>codificatore</strong> e di un <strong>decodificatore</strong> aventi sembianze artificiali, ovvero controllati da <em>puri</em> e <em>meri</em> algoritmi matematici.</p>
+<p>Ovviamente è possibile anche effettuare partite mediante il solo utilizzo di giocatori di natura <strong>interactive</strong>, cioè controllati da classici <em>player</em> umani.</p>
+<p>È interessante inoltre notare come il parco software prodotto metta anche a disposizione un algoritmo di risoluzione del <strong>Mastermind</strong> più avanzato. Quest’ultimo prende il nome da un noto informatico statunitense <strong>Donald Knuth</strong> <a class="footnote-reference brackets" href="#id4" id="id2">2</a>.</p>
+<p>Esso afferma infatti di risolvere una classica partita con un numero di mosse <em>minori o pari</em> a 5, grazie ad un rubusto algoritmo che basa la sua potenza computazionale sugli indizi forniti e su un ampio numero di combinazioni possibili che genera a priori.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><em>Per crittoanalisi (dal greco kryptós, «nascosto», e analýein, «scomporre»), o crittanalisi, si intende lo studio dei metodi per ottenere il significato di informazioni cifrate senza avere accesso all’informazione segreta che è di solito richiesta per effettuare l’operazione.</em></p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><em>Knuth è appunto considerato il padre del campo di studio che studia in maniera rigorosa la parte algoritmica della teoria della complessità e ha dato fondamentali contributi in svariati rami dell’informatica teorica. Ha contribuito infatti con la sua analisi comparativa dei due algoritmi usati («first fit» e «best fit») per la frammentazione esterna della memoria segmentata dei calcolatori, dimostrando che l’algoritmo «first fit» risulta essere migliore in termini di prestazioni complessive rispetto al «best fit».</em></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sphinx.html" class="btn btn-neutral float-right" title="Sphinx e le sue potenzialità" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduzione.html" class="btn btn-neutral float-left" title="Introduzione" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

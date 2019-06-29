@@ -259,8 +259,8 @@ public class ConsoleStartView implements StartView {
 		System.out.format("%14s ┃ %10s • %10s \n", AnsiUtility.ANSI_CYAN_BOLD + (index + 1) + AnsiUtility.ANSI_RESET,
 				AnsiUtility.ANSI_CYAN_BOLD + names.get(index) + AnsiUtility.ANSI_RESET,
 				AnsiUtility.ANSI_CYAN_BOLD + desc.get(index) + AnsiUtility.ANSI_RESET);
-		System.out.format(String.format("%s%4s%56s%s\n", (index == 1 ? "┗" : "┣"), (index == 1 ? "┻" : "╋"), " ",
-				(index == 1 ? "┛" : "┫")).replace(' ', '━'));
+		System.out.format(String.format("%s%4s%56s%s\n", (names.size() -1 == index ? "┗" : "┣"), (names.size() -1 == index ? "┻" : "╋"), " ",
+				(names.size() -1 == index ? "┛" : "┫")).replace(' ', '━'));
 	}
 
 	@Override

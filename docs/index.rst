@@ -22,6 +22,7 @@ Lo sviluppo di tale codice è da attribuire interamente agli studenti **Francesc
     :maxdepth: 2
 
     introduzione
+    gameguide
     sphinx
     source/packages
     test/packages

@@ -3,6 +3,8 @@ package it.unicam.cs.pa.mastermind.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map.Entry;
 
 import static java.time.Duration.ofMillis;
 
@@ -39,24 +41,19 @@ class SimulationGame {
 			assertEquals(maxAttempts - board.attemptsInserted(), board.leftAttempts());
 			assertFalse(board.hasBreakerGuessed());
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
+
 			boardController
-					.insertNewAttempt(Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.YELLOW));
-			assertEquals(Arrays.asList(ColorPegs.WHITE),
-					board.getClueFromAttempt(
-							Arrays.asList(ColorPegs.WHITE, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.YELLOW)));
+					.insertNewAttempt(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.WHITE));
+			Entry<List<ColorPegs>, List<ColorPegs>> list = board.lastAttemptAndClue();
+			assertEquals(Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK), list.getValue());
+
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.WHITE));
-			assertEquals(Arrays.asList(ColorPegs.WHITE, ColorPegs.WHITE),
-					board.getClueFromAttempt(
-							Arrays.asList(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.WHITE)));
-			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
-			assertFalse(board.hasBreakerGuessed());
+			list = board.lastAttemptAndClue();
+			assertEquals(Arrays.asList(ColorPegs.WHITE, ColorPegs.WHITE), list.getValue());
+
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.RED));
-			assertEquals(Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK),
-					board.getClueFromAttempt(
-							Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.RED)));
-			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 			assertTrue(board.hasBreakerGuessed());
 		});
 	}

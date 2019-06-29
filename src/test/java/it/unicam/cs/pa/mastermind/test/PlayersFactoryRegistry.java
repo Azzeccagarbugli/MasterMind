@@ -61,10 +61,10 @@ class PlayersFactoryRegistry {
 	@Test
 	void testBreakerFactoryRegistry() throws BadRegistryException {
 		BreakerFactoryRegistry breakerFactory = new BreakerFactoryRegistry("./GameResources/BreakerFactories.txt");
-		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("Interactive Breaker");
+		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("Interactive");
 		codeBreaker = codeBreakerFactory.getBreaker(null, 4, 11);
 		assertNotNull(codeBreaker);
-		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("Random Breaker");
+		codeBreakerFactory = (BreakerFactory) breakerFactory.getFactoryByName("Random Bot");
 		codeBreaker = codeBreakerFactory.getBreaker(null, 4, 11);
 		assertNotNull(codeBreaker);
 	}
@@ -79,11 +79,11 @@ class PlayersFactoryRegistry {
 	void testMakerFactoryRegistry() throws BadRegistryException {
 		MakerFactoryRegistry makerFactory = new MakerFactoryRegistry("./GameResources/MakerFactories.txt");
 		playersFactory = makerFactory.getPlayersNames();
-		assertEquals(Arrays.asList("Interactive Maker", "Random Maker"), playersFactory);
-		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("Interactive Maker");
+		assertEquals(Arrays.asList("Interactive", "Random Bot"), playersFactory);
+		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("Interactive");
 		codeMaker = codeMakerFactory.getMaker(null, 4, 11);
 		assertNotNull(codeMaker);
-		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("Random Maker");
+		codeMakerFactory = (MakerFactory) makerFactory.getFactoryByName("Random Bot");
 		codeMaker = codeMakerFactory.getMaker(null, 4, 11);
 		assertNotNull(codeMaker);
 	}
@@ -102,10 +102,10 @@ class PlayersFactoryRegistry {
 				() -> makerFactory.getFactoryByName("42"));		
 		Assertions.assertThrows(BadRegistryException.class,
 				() -> makerFactory.getFactoryByName("Guida Galattica per Autostoppisti"));
-		assertNotNull(makerFactory.getFactoryByName("Interactive Maker"));
-		assertNotNull(makerFactory.getFactoryByName("Random Maker"));
-		assertNotNull(breakerFactory.getFactoryByName("Interactive Breaker"));
-		assertNotNull(breakerFactory.getFactoryByName("Random Breaker"));
+		assertNotNull(makerFactory.getFactoryByName("Interactive"));
+		assertNotNull(makerFactory.getFactoryByName("Random Bot"));
+		assertNotNull(breakerFactory.getFactoryByName("Interactive"));
+		assertNotNull(breakerFactory.getFactoryByName("Random Bot"));
 	}
 
 	/**
@@ -118,9 +118,9 @@ class PlayersFactoryRegistry {
 	void testGetPlayersNames() throws BadRegistryException {
 		MakerFactoryRegistry makerFactory = new MakerFactoryRegistry("./GameResources/MakerFactories.txt");
 		BreakerFactoryRegistry breakerFactory = new BreakerFactoryRegistry("./GameResources/BreakerFactories.txt");
-		playersFactory = Arrays.asList("Interactive Maker", "Random Maker");
+		playersFactory = Arrays.asList("Interactive", "Random Bot");
 		assertEquals(playersFactory, makerFactory.getPlayersNames());
-		playersFactory = Arrays.asList("Interactive Breaker", "Random Breaker");
+		playersFactory = Arrays.asList("Interactive", "Random Bot", "Knuth");
 		assertEquals(playersFactory, breakerFactory.getPlayersNames());
 	}
 
