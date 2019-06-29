@@ -20,7 +20,8 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
 public class ConsoleStartView implements StartView {
 
 	/**
-	 * <code>FilterInputStream</code> fondamentale per le operazioni di Input con <code>InputStreamReader</code> e <code>BufferedReader</code>
+	 * <code>FilterInputStream</code> fondamentale per le operazioni di Input con
+	 * <code>InputStreamReader</code> e <code>BufferedReader</code>
 	 */
 	private FilterInputStream fis;
 
@@ -30,9 +31,9 @@ public class ConsoleStartView implements StartView {
 			+ "/ /\\/\\ \\ (_| \\__ \\ ||  __/ |  | | | | | | | | | | (_| |\r\n"
 			+ "\\/    \\/\\__,_|___/\\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|\r\n"
 			+ "                                                       \r\n" + "";
-	
+
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
-	
+
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
 	/**
@@ -41,7 +42,9 @@ public class ConsoleStartView implements StartView {
 	private final static ConsoleStartView instance = new ConsoleStartView();
 
 	/**
-	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non porta alla chiusura di <code>System.in</code> all'interno del suo metodo <code>close()</code>.
+	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non
+	 * porta alla chiusura di <code>System.in</code> all'interno del suo metodo
+	 * <code>close()</code>.
 	 */
 	private ConsoleStartView() {
 		super();
@@ -53,7 +56,8 @@ public class ConsoleStartView implements StartView {
 	}
 
 	/**
-	 * @return ConsoleStartView istanza <code>Singleton</code> di <code>ConsoleStartView</code>.
+	 * @return ConsoleStartView istanza <b>Singleton</b> di
+	 *         <code>ConsoleStartView</code>.
 	 */
 	public static ConsoleStartView getInstance() {
 		return instance;
@@ -92,7 +96,8 @@ public class ConsoleStartView implements StartView {
 	}
 
 	/**
-	 * 
+	 * <b>Contratto</b>: il metodo deve essere impiegato esclusivamente all'interno
+	 * di quella che è l'output su console per l'interazione con l'utente fisico.
 	 */
 	private void showGameFinalMenu() {
 		System.out.format(String.format("\n┏%60s┓\n", " ").replace(' ', '━'));
@@ -114,7 +119,7 @@ public class ConsoleStartView implements StartView {
 	 * 
 	 * @param input
 	 * @return boolean[] contenente informazioni per la creazione di un oggetto
-	 *         <code>NewGameStats</code>.
+	 *         <code>StartupSettings</code>.
 	 */
 	private boolean[] settingEnd(int input) {
 		boolean[] endingSettings = new boolean[2];
@@ -235,8 +240,8 @@ public class ConsoleStartView implements StartView {
 	}
 
 	/**
-	 * 
-	 * @param isBreaker
+	 * <b>Contratto</b>: il metodo deve essere impiegato esclusivamente all'interno
+	 * di quella che è l'output su console per l'interazione con l'utente fisico.Fs
 	 */
 	private void showMenuSelectMode(boolean isBreaker) {
 		String selectionStuff = "Select the " + (isBreaker ? "breaker" : "maker") + " from this list";
@@ -247,10 +252,8 @@ public class ConsoleStartView implements StartView {
 	}
 
 	/**
-	 * 
-	 * @param names
-	 * @param desc
-	 * @param index
+	 * <b>Contratto</b>: il metodo deve essere impiegato esclusivamente all'interno
+	 * di quella che è l'output su console per l'interazione con l'utente fisico.
 	 */
 	private void showMenuChooseMode(List<String> names, List<String> desc, int index) {
 		System.out.format("%14s ┃ %10s • %10s \n", AnsiUtility.ANSI_CYAN_BOLD + (index + 1) + AnsiUtility.ANSI_RESET,
@@ -300,7 +303,9 @@ public class ConsoleStartView implements StartView {
 
 	/**
 	 * Si effettua una sorta di pulizia della console di interazione con l'utente
-	 * fisico.
+	 * fisico. <b>Contratto</b>: il metodo deve essere impiegato esclusivamente
+	 * all'interno di quella che è l'output su console per l'interazione con
+	 * l'utente fisico.
 	 */
 	private void clearScreen() {
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));

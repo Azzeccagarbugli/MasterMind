@@ -17,7 +17,14 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
  */
 public interface StartView {
 
-	// TODO Javadoc
+	/**
+	 * Gestione dell'interazione con l'utente fisico circa la particolare
+	 * implementazione di <code>CodeMaker</code> da impiegare nel gioco.
+	 * 
+	 * @param registry da cui recuperare le informazioni
+	 * @return MakerFactory per la generazione di nuovi giocatori
+	 *         <code>CodeMaker</code>
+	 */
 	public default MakerFactory setupMaker(MakerFactoryRegistry registry) {
 		try {
 			return (MakerFactory) registry.getFactoryByName(getPlayerName(registry, false));
@@ -27,7 +34,14 @@ public interface StartView {
 		}
 	}
 
-	// TODO Javadoc
+	/**
+	 * Gestione dell'interazione con l'utente fisico circa la particolare
+	 * implementazione di <code>CodeBreaker</code> da impiegare nel gioco.
+	 * 
+	 * @param registry da cui recuperare le informazioni
+	 * @return BreakerFactory per la generazione di nuovi giocatori
+	 *         <code>CodeBreaker</code>
+	 */
 	public default BreakerFactory setupBreaker(BreakerFactoryRegistry registry) {
 		try {
 			return (BreakerFactory) registry.getFactoryByName(getPlayerName(registry, true));
@@ -47,22 +61,42 @@ public interface StartView {
 	 * Gestione anticipata della conclusione dell'intero gioco, richiamata ad
 	 * esempio per il sollevamento di errori importanti.
 	 * 
-	 * @param reason
+	 * @param reason da presentare all'utente fisico
 	 */
 	public void badEnding(String reason);
 
-	// TODO Javadoc
+	/**
+	 * Gestione dell'interazione con l'utente fisico circa le decisioni per l'inizio
+	 * di un nuovo match o meno dopo che uno è stato concluso.
+	 * 
+	 * @return StartupSettings contenente informazioni utili per iniziare o meno
+	 *         nuovi match
+	 */
 	public StartupSettings askNewStartupSettings();
 
 	/**
-	 * Gestione del messaggio di avvio di una singola partita.
+	 * Gestione dell'interazione con l'utente fisico circa l'inizio di un nuovo
+	 * match
 	 */
 	public void showNewMatchStarting();
 
-	// TODO Javadoc
+	/**
+	 * Gestione dell'interazione con l'utente fisico per ottenere un nuovo valore
+	 * relativo alla lunghezza delle sequenze impiegate nel gioco.
+	 * 
+	 * @param lowTres  limite inferiore al valore da scegliere
+	 * @param highTres limite superiore al valore da scegliere
+	 * @return int valore scelto
+	 */
 	public int askNewLength(int lowTres, int highTres);
 
-	// TODO Javadoc
+	/**
+	 * Gestione dell'interazione con l'utente fisico per ottenere un nuovo valore
+	 * relativo al numero di tentativi utili all'interno del gioco.
+	 * 
+	 * @param lowTres limite inferiore al valore da scegliere
+	 * @return int valore scelto
+	 */
 	public int askNewAttempts(int lowTres);
 
 	/**
@@ -72,7 +106,8 @@ public interface StartView {
 	 * @param registry  registro contenente le informazioni sulle classi
 	 *                  <code>PlayerFactory</code> relative alle implementazioni dei
 	 *                  giocatori.
-	 * @param isBreaker flag che indica se la scelta è relativa ad un giocatore
+	 * @param isBreaker flag che indica se la scelta è relativa ad una factory
+	 *                  finalizzata alla generazione di un giocatore
 	 *                  <code>CodeBreaker</code> o meno.
 	 * @return String rappresentante l'implementazione del giocatore scelta per la
 	 *         nuova partita.
@@ -80,16 +115,17 @@ public interface StartView {
 	public String getPlayerName(PlayerFactoryRegistry registry, boolean isBreaker);
 
 	/**
-	 * Gestione dell'interazione con l'utente fisico per l'impostazione o meno di
-	 * nuove impostazioni relative alla nuova partita.
+	 * Gestione dell'interazione con l'utente fisico circa le decisioni per
+	 * l'impostazione di nuovi valori di lunghezza delle sequenze e di numero di
+	 * tentativi per un nuovo match.
 	 * 
 	 * @return boolean volontà dell'utente fisico di decidere nuove impostazioni per
-	 *         la nuova partita.
+	 *         un nuovo match.
 	 */
 	public boolean askNewLengthsAndAttempts();
 
 	/**
-	 * Gestione del logo di avvio del gioco.
+	 * Gestione di interazione con l'utente fisico per mostrare il logo di gioco.
 	 */
 	public void showLogo();
 

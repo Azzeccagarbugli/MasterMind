@@ -12,8 +12,8 @@ import java.util.stream.IntStream;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
- * Implementazione con interazione via console della classe
- * <code>InteractionView</code>.
+ * Implementazione di una vista con interazione via console della classe
+ * <code>GameView</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -21,12 +21,15 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 public class ConsoleGameView extends GameView {
 
 	/**
-	 * <code>FilterInputStream</code> fondamentale per le operazioni di Input con <code>InputStreamReader</code> e <code>BufferedReader</code>
+	 * <code>FilterInputStream</code> fondamentale per le operazioni di Input con
+	 * <code>InputStreamReader</code> e <code>BufferedReader</code>
 	 */
 	private FilterInputStream fis;
 
 	/**
-	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non porta alla chiusura di <code>System.in</code> all'interno del suo metodo <code>close()</code>.
+	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non
+	 * porta alla chiusura di <code>System.in</code> all'interno del suo metodo
+	 * <code>close()</code>.
 	 */
 	public ConsoleGameView() {
 		fis = new FilterInputStream(System.in) {
@@ -55,7 +58,9 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Metodo necessario alla creazione del disegno tabulare che contiene le
-	 * informazioni di gioco.
+	 * informazioni di gioco. <b>Contratto</b>: il metodo deve essere impiegato
+	 * esclusivamente all'interno di quella che è l'output su console per
+	 * l'interazione con l'utente fisico.
 	 * 
 	 * @param size         la launghezza dell'array che viene inserito come
 	 *                     parametro locale
@@ -69,7 +74,7 @@ public class ConsoleGameView extends GameView {
 			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
 			System.out.format("%s %53s %26s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + getSubject().leftAttempts()
 					+ " attempts left" + AnsiUtility.ANSI_RESET, "┃");
-			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));	
+			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
 			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
 			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
 		} else {
@@ -80,7 +85,9 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Metodo necessario alla stampa della scelta dei colori da parte di un
-	 * giocatore qualsiasi.
+	 * giocatore qualsiasi. <b>Contratto</b>: il metodo deve essere impiegato
+	 * esclusivamente all'interno di quella che è l'output su console per
+	 * l'interazione con l'utente fisico.
 	 * 
 	 * @param labelMsg1 il primo messaggio da visualizzare.
 	 * @param labelMsg2 il secondo messaggio da visualizzare.
@@ -101,7 +108,9 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Mostra la possibilità di resa al giocatore <code>CodeBreaker</code> durante
-	 * la selezione dei colori.
+	 * la selezione dei colori. <b>Contratto</b>: il metodo deve essere impiegato
+	 * esclusivamente all'interno di quello che è l'output su console per
+	 * l'interazione con l'utente fisico.
 	 * 
 	 * @param isBreaker flag che indica se il giocatore è un
 	 *                  <code>CodeBreaker</code>.
@@ -117,7 +126,9 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Metodo necessario alla corretta formattazione tabluare della modalità di
-	 * inserimento dei colori.
+	 * inserimento dei colori. <b>Contratto</b>: il metodo deve essere impiegato
+	 * esclusivamente all'interno di quella che è l'output su console per
+	 * l'interazione con l'utente fisico.
 	 * 
 	 * @param index l'indice restituito dallo stream
 	 * @return String formattata secondo dei canoni tabulari
@@ -147,7 +158,9 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Dato un colore sottoforma di <code>ColorPegs</code> viene restituito il suo
-	 * corrispetivo secondo i canoni della decodifica ANSI.
+	 * corrispetivo secondo i canoni della decodifica ANSI. <b>Contratto</b>: il
+	 * metodo deve essere impiegato esclusivamente all'interno di quella che è
+	 * l'output su console per l'interazione con l'utente fisico.
 	 * 
 	 * @param color <code>ColorPegs</code> che si vuole codificare in una stringa
 	 *              colorata
@@ -189,10 +202,11 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Interazione con l'utente fisico per poter ottenere gli indici relativi ai
-	 * valori di <code>ColorPegs</code> contenuti in una sequenza. Il metodo
-	 * potrebbe aggiungere alla lista il valore <code>Integer</code> 0,
-	 * rappresentante la volontà di un giocatore <code>CodeBreaker</code> di
-	 * arrendersi.
+	 * valori di <code>ColorPegs</code> contenuti in una sequenza. <b>Contratto</b>:
+	 * il metodo deve essere impiegato esclusivamente all'interno di quella che è
+	 * l'output su console per l'interazione con l'utente fisico. Il metodo potrebbe
+	 * aggiungere alla lista il valore <code>Integer</code> 0, rappresentante la
+	 * volontà di un giocatore <code>CodeBreaker</code> di arrendersi.
 	 * 
 	 * @param list      in cui inserire gli indici
 	 * @param index     rappresentante la posizione del <code>ColorPegs</code>
@@ -231,6 +245,8 @@ public class ConsoleGameView extends GameView {
 	/**
 	 * Metodo privato che formatta in maniera corretta la visualizzazione della
 	 * tabella in base alla lunghezza della sequenza delle pedine indizio.
+	 * <b>Contratto</b>: il metodo deve essere impiegato esclusivamente all'interno
+	 * di quella che è l'output su console per l'interazione con l'utente fisico.
 	 * 
 	 * @param size la dimensione dell'array passato come paramentro locale
 	 * @return int distanza dall'ultimo carattere in maniera dinamica per permettere
@@ -256,7 +272,9 @@ public class ConsoleGameView extends GameView {
 	/**
 	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
 	 * indizio visualizzata all'interno della tabella ASCII generata dal metodo
-	 * <code>showGame</code>.
+	 * <code>showGame</code>. <b>Contratto</b>: il metodo deve essere impiegato
+	 * esclusivamente all'interno di quella che è l'output su console per
+	 * l'interazione con l'utente fisico.
 	 * 
 	 * @param cluesList la lista di pedine indizio
 	 * @param flag      imposta la stampa anche della tabella
@@ -283,11 +301,13 @@ public class ConsoleGameView extends GameView {
 	 * 
 	 * Metodo privato che aggiunge una nota colorata per ogni sequenza di pedine
 	 * tentativo inserite all'interno della tabella ASCII generata dal metodo
-	 * <code>showGame</code>.
+	 * <code>showGame</code>. <b>Contratto</b>: il metodo deve essere impiegato
+	 * esclusivamente all'interno di quella che è l'output su console per
+	 * l'interazione con l'utente fisico.
 	 * 
 	 * @param attemptsList la lista di pedine tentativo inserite
 	 * @param flag         imposta la stampa anche della tabella
-	 * @return String contenente la corriespetiva sequenza colorata
+	 * @return String contenente la corrispettiva sequenza colorata
 	 */
 	private String beautifyAttempts(List<ColorPegs> attemptsList, boolean flag) {
 		String attemptCombination;
@@ -310,7 +330,9 @@ public class ConsoleGameView extends GameView {
 
 	/**
 	 * Si effettua una sorta di pulizia della console di interazione con l'utente
-	 * fisico.
+	 * fisico. <b>Contratto</b>: il metodo deve essere impiegato esclusivamente
+	 * all'interno di quella che è l'output su console per l'interazione con
+	 * l'utente fisico.
 	 */
 	private void clearScreen() {
 		System.out.println(new String(new char[100]).replace("\0", "\r\n"));
