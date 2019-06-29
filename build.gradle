@@ -47,4 +47,4 @@ buildScan {
 }
 
 // Define the main class for the application
-mainClassName = 'it.unicam.cs.pa.mastermind.ui.ConsoleStartView'
+mainClassName = 'it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager'
