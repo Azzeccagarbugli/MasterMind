@@ -59,7 +59,7 @@ public class SingleMatch {
 		
 		BoardModel newModel = new BoardModel(sequenceLength, attempts);
 		this.controller = new BoardController(newModel);
-		this.view = viewFactory.getIntView(newModel);
+		this.view = viewFactory.getGameView(newModel);
 				
 		this.maker = mFactory.getMaker(view, sequenceLength, attempts);
 		this.breaker = bFactory.getBreaker(view, sequenceLength, attempts);

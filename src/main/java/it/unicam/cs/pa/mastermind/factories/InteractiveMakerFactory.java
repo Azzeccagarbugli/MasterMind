@@ -5,7 +5,7 @@ import it.unicam.cs.pa.mastermind.players.InteractiveMaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
- * Classe factory estensione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>InteractiveMaker</code>.
+ * Classe factory implementazione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>InteractiveMaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -19,7 +19,7 @@ public class InteractiveMakerFactory implements MakerFactory {
 
 	@Override
 	public String getName() {
-		return "Interactive Maker";
+		return "Interactive";
 	}
 
 	@Override

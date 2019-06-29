@@ -5,7 +5,7 @@ import it.unicam.cs.pa.mastermind.players.RandomBotMaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
- * Classe factory estensione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>RandomBotMaker</code>.
+ * Classe factory implementazione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>RandomBotMaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -19,7 +19,7 @@ public class RandomBotMakerFactory implements MakerFactory {
 
 	@Override
 	public String getName() {
-		return "Random Maker";
+		return "Random Bot";
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import it.unicam.cs.pa.mastermind.players.InteractiveBreaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
- * Classe factory estensione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>InteractiveBreaker</code>.
+ * Classe factory implementazione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>InteractiveBreaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -19,7 +19,7 @@ public class InteractiveBreakerFactory implements BreakerFactory {
 
 	@Override
 	public String getName() {
-		return "Interactive Breaker";
+		return "Interactive";
 	}
 
 	@Override

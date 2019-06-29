@@ -1,2 +1,3 @@
 it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory
 it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory
+it.unicam.cs.pa.mastermind.factories.DonaldKnuthBreakerFactory
