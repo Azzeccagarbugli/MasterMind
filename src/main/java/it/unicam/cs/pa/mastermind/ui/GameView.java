@@ -8,7 +8,8 @@ import it.unicam.cs.pa.mastermind.gamecore.BoardObserver;
  * <b>Responsabilità</b>: fornire agli utenti fisici coinvolti in una singola
  * partita operazioni di Input/Output. Rientra nel pattern <b>Observer</b> per
  * poter fornire in output all'utente fisico una rappresentazione di quelle che
- * sono le azioni effettuate dai giocatori nel gioco.
+ * sono le azioni effettuate dai giocatori nel gioco. Rientra nel pattern
+ * <b>MVC</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

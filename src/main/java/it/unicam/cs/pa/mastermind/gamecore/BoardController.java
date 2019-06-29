@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * <b>Responsabilità</b>: gestire le interazioni dall'esterno e dirette alla
  * modifica di un'istanza <code>BoardModel</code>.
+ * Rientra nel pattern <b>MVC</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

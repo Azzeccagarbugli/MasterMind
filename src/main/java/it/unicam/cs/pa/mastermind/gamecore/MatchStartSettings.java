@@ -6,7 +6,9 @@ import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 
 /**
  * <b>Responsabilità</b>: tenere traccia delle informazioni necessarie per poter
- * iniziare una nuova partita.
+ * iniziare una nuova partita e da impiegare all'interno di essa.
+ * <b>Contratto</b>: le istanze vengono gestite all'interno di
+ * <code>MainManager</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -22,16 +24,14 @@ public class MatchStartSettings {
 	int highTresholdLength;
 	int lowTresholdAttempts;
 
-	
 	public MatchStartSettings(GameViewFactory gameViewFactory) {
 		this.gameViewFactory = gameViewFactory;
 		lowTresholdLength = 1;
 		highTresholdLength = 10;
 		lowTresholdAttempts = 1;
 		this.resetLengthAttempts();
-		
-	}
 
+	}
 
 	public int getAttempts() {
 		return attempts;
@@ -76,26 +76,22 @@ public class MatchStartSettings {
 	public void setLowTresholdAttempts(int lowTresholdAttempts) {
 		this.lowTresholdAttempts = lowTresholdAttempts;
 	}
-	
+
 	public MakerFactory getMakerFactory() {
 		return makerFactory;
 	}
-
 
 	public void setMakerFactory(MakerFactory makerFactory) {
 		this.makerFactory = makerFactory;
 	}
 
-
 	public BreakerFactory getBreakerFactory() {
 		return breakerFactory;
 	}
 
-
 	public void setBreakerFactory(BreakerFactory breakerFactory) {
 		this.breakerFactory = breakerFactory;
 	}
-
 
 	public void resetLengthAttempts() {
 		this.attempts = 9;

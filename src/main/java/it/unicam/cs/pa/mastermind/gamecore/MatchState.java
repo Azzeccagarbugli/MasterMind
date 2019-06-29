@@ -2,7 +2,8 @@ package it.unicam.cs.pa.mastermind.gamecore;
 
 /**
  * <b>Responsabilità</b>: tenere traccia delle informazioni necessarie per poter
- * decretare se una partita è ancora in corso o meno.
+ * decretare se una partita è ancora in corso o meno. Rientra nel pattern
+ * <b>Observer</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -29,7 +30,9 @@ public class MatchState extends BoardObserver {
 	private int usedAttempts;
 
 	/**
-	 * Costruttore.
+	 * Inizializzazione con valori di default.
+	 * 
+	 * @param subject BoardModel coinvolta nel pattern <b>Observer</b>
 	 */
 	public MatchState(BoardModel subject) {
 		this.addSubject(subject);
@@ -41,12 +44,12 @@ public class MatchState extends BoardObserver {
 
 	/**
 	 * Metodo attraverso il quale vengono restituiti i tentativi usati fino ad ora
-	 * dal <code>CodeBreaker</code>
+	 * dal <code>CodeBreaker</code> in caso abbia vinto.
 	 * 
 	 * @return int numero di tentativi che sono stati necessari al Breaker per
 	 *         vincere.
 	 */
-	public int getAttempts() {
+	public int getBreakerVictoryAttempts() {
 		return (breakerVictory) ? usedAttempts : 0;
 	}
 

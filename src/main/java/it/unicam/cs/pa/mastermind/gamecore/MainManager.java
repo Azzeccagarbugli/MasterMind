@@ -5,18 +5,39 @@ import it.unicam.cs.pa.mastermind.factories.GameViewFactory;
 import it.unicam.cs.pa.mastermind.ui.StartView;
 
 /**
- * <b>Responsabilità</b>: monitorare e tenere traccia di una partita di
- * MasterMind alla volta.
+ * <b>Responsabilità</b>: permettere il corretto svolgimento del gioco,
+ * monitorando e tenendo traccia di una partita di MasterMind alla volta
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
 public abstract class MainManager {
 
+	/**
+	 * Riferimento al singolo match in esecuzione al momento.
+	 */
 	private SingleMatch currentMatch;
+
+	/**
+	 * Riferimento all'oggetto contenente le impostazioni comuni a tutti i match.
+	 */
 	private GlobalSettings globalSettings;
+
+	/**
+	 * Riferimento all'oggetto contenente le impostazioni per l'avvio di nuove
+	 * partite.
+	 */
 	private StartupSettings startupSettings;
+
+	/**
+	 * Riferimento all'oggetto contenente le impostazioni relative allo svolgimento
+	 * interno dei singoli match.
+	 */
 	private MatchStartSettings currentMatchSettings;
+
+	/**
+	 * Riferimento alla vista finalizzata all'interazione con l'utente fisico.
+	 */
 	private StartView startView;
 
 	public MainManager() {
@@ -31,8 +52,11 @@ public abstract class MainManager {
 		}
 	}
 
+	/**
+	 * Definizione completa delle impostazioni per creare un nuovo match.
+	 */
 	private void setupNewMatch() {
-		if (!startupSettings.getKeepSettings()) {
+		if (!startupSettings.getKeepMatchStartSettings()) {
 			currentMatchSettings.setMakerFactory(startView.setupMaker(globalSettings.getMakers()));
 			currentMatchSettings.setBreakerFactory(startView.setupBreaker(globalSettings.getBreakers()));
 			currentMatchSettings.resetLengthAttempts();
@@ -46,16 +70,30 @@ public abstract class MainManager {
 		setCurrentMatch(this.matchBuilder());
 	}
 
+	/**
+	 * Ottenimento di un'istanza di un nuovo match di MasterMind in base alle
+	 * impostazioni definite nel metodo <code>setupNewMatch()</code>.
+	 * 
+	 * @return SingleMatch da avviare
+	 */
 	private SingleMatch matchBuilder() {
 		return new SingleMatch(currentMatchSettings.getSequenceLength(), currentMatchSettings.getAttempts(),
 				currentMatchSettings.getGameViewFactory(), currentMatchSettings.getBreakerFactory(),
 				currentMatchSettings.getMakerFactory());
 	}
 
+	/**
+	 * Impostazione del riferimento del match correntemente in esecuzione.
+	 * 
+	 * @param newMatch da impostare come quello correntemente in esecuzione
+	 */
 	private void setCurrentMatch(SingleMatch newMatch) {
 		currentMatch = newMatch;
 	}
 
+	/**
+	 * Gestione continua di nuovi match, creati, gestiti ed avviati uno alla volta.
+	 */
 	public void startUp() {
 		while (startupSettings.getContinue()) {
 			startView.showLogo();
@@ -66,13 +104,33 @@ public abstract class MainManager {
 		}
 		this.ending();
 	}
-	
+
+	/**
+	 * Gestione della fase finale dell'intero programma.
+	 */
 	private void ending() {
 		startView.ending();
 		System.exit(-1);
 	}
-	
+
+	/**
+	 * Ottenimento dell'istanza di <code>StartView</code> che si desidera impiegare
+	 * con l'istanza di <code>MainManager</code> corrente. <b>Contratto</b>: il
+	 * metodo deve risultare coerente con la particolare estensione di
+	 * <code>MainManager</code> in cui viene definito.
+	 * 
+	 * @return StartView da impiegare nel <code>MainManager</code>
+	 */
 	protected abstract StartView getStartViewInstance();
 
+	/**
+	 * Ottenimento dell'istanza di <code>GameViewFactory</code> che si desidera
+	 * impiegare all'interno di tutti i match per poter generare istanze di
+	 * <code>GameView</code> utili per l'interazione con l'utente fisico durante il
+	 * loro svolgimento. <b>Contratto</b>: il metodo deve risultare coerente con la
+	 * particolare estensione di <code>MainManager</code> in cui viene definito.
+	 * 
+	 * @return GameViewFactory da impiegare in <code>SingleMatch</code>
+	 */
 	protected abstract GameViewFactory getGameViewFactory();
 }

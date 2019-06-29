@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 /**
  * <b>Responsabilità</b>: gestire le informazioni relative ad una plancia di
- * gioco.
+ * gioco. Rientra nei pattern <b>MVC</b> e <b>Observer</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -19,7 +19,7 @@ public class BoardModel {
 
 	/**
 	 * Una lista di <code>BoardObserver</code> in cui verranno immagazinati gli
-	 * observer dell'istanza attiva.
+	 * observer dell'istanza attiva secondo il pattern <b>Observer</b>.
 	 */
 	private List<BoardObserver> observers;
 
@@ -46,7 +46,9 @@ public class BoardModel {
 	private final int sequenceLength;
 
 	/**
-	 * Costruttore di una plancia
+	 * Costruttore di una plancia. L'impiego di una LinkedHashMap quale particolare
+	 * struttura dati per tenere traccia delle sequenze inserite permette di tenere
+	 * conto anche dell'ordine di inserimento.
 	 * 
 	 * @param sequenceLength massima delle sequenze presenti in questa plancia
 	 * @param maxAttempts    numero massimo di tentativi possibili per indovinare la
@@ -143,7 +145,7 @@ public class BoardModel {
 	 * @param toGuess la lista che contiene la sequenza da indovinare.
 	 * @return List di indizi generata a partire dalla lista di tentativi.
 	 */
-	public List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt) {
+	private List<ColorPegs> getClueFromAttempt(List<ColorPegs> attempt) {
 		List<ColorPegs> attemptCopy = new ArrayList<ColorPegs>(attempt),
 				toGuessCopy = new ArrayList<ColorPegs>(this.sequenceToGuess), clue = new ArrayList<ColorPegs>();
 		IntStream.range(0, attemptCopy.size()).forEach(i -> {
@@ -165,6 +167,8 @@ public class BoardModel {
 	}
 
 	/**
+	 * Ottenimento dell'ultima coppia sequenza tentativo - sequenza indizio inserita
+	 * nella plancia.
 	 * 
 	 * @return Map.Entry contenente l'ultima sequenza di <code>ColorPegs</code>
 	 *         inserita come tentativo e la relativa sequenza indizio.
@@ -179,6 +183,24 @@ public class BoardModel {
 	}
 
 	/**
+	 * Rimozione dell'ultima coppia sequenza tentativo - sequenza indizio inserita
+	 * nella plancia.
+	 * 
+	 * @return boolean relativo alla riuscita della rimozione.
+	 */
+	public boolean removeLastAttemptAndClue() {
+		if (this.lastAttemptAndClue() != null) {
+			this.board.remove(lastAttemptAndClue().getKey());
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Ottenimento di una <code>List</code> contenente tutta le coppie sequenza
+	 * tentativo - sequenza indizio inserite nella plancia.
+	 * 
 	 * @return List contenenti Map.Entry con le sequenze di <code>ColorPegs</code>
 	 *         inserite come tentativo e le relative sequenze indizio
 	 */
@@ -213,7 +235,9 @@ public class BoardModel {
 	}
 
 	/**
-	 * Metodo che notifica ogni observer iscritto al registro <code>observers</code> del cambio di stato dell'istanza di <code>BoardModel</code> su cui è chiamato.
+	 * Metodo che notifica ogni observer iscritto al registro <code>observers</code>
+	 * del cambio di stato dell'istanza di <code>BoardModel</code> su cui è
+	 * chiamato.
 	 */
 	private void notifyObservers() {
 		for (BoardObserver obs : observers) {

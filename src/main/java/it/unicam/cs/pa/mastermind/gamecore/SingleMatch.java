@@ -32,7 +32,7 @@ public class SingleMatch {
 	private CodeBreaker breaker;
 
 	/**
-	 * Istanza della particolare implementazione di <code>InteractionView</code>
+	 * Istanza della particolare implementazione di <code>GameView</code>
 	 * scelta per l'istanza di partita in corso.
 	 */
 	private GameView view;
