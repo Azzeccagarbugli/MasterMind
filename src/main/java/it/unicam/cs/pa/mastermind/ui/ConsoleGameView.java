@@ -20,9 +20,14 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 public class ConsoleGameView extends GameView {
 
+	/**
+	 * <code>FilterInputStream</code> fondamentale per le operazioni di Input con <code>InputStreamReader</code> e <code>BufferedReader</code>
+	 */
 	private FilterInputStream fis;
 
-	// TODO JavaDoc
+	/**
+	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non porta alla chiusura di <code>System.in</code> all'interno del suo metodo <code>close()</code>.
+	 */
 	public ConsoleGameView() {
 		fis = new FilterInputStream(System.in) {
 			@Override
@@ -40,7 +45,7 @@ public class ConsoleGameView extends GameView {
 		showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
 		for (int i = 1; i <= getSubject().getSequenceLength(); i++) {
 			this.addIndexOfSinglePeg(indexPegs, i, isBreaker);
-			if (indexPegs.contains(0)) {
+			if (indexPegs.contains(0) && isBreaker) {
 				break;
 			}
 		}
@@ -204,9 +209,9 @@ public class ConsoleGameView extends GameView {
 				try {
 					temp = Integer.parseInt(in.readLine());
 					if (isBreaker && temp == 0) {
-						System.out.println("You decided to give up");
+						System.out.println("The breaker decided to give up");
 						break;
-					} else if (temp < 0 || temp > ColorPegs.values().length) {
+					} else if (temp < 1 || temp > ColorPegs.values().length) {
 						throw new NumberFormatException();
 					} else {
 						break;

@@ -28,8 +28,7 @@ public class MatchStartSettings {
 		lowTresholdLength = 1;
 		highTresholdLength = 10;
 		lowTresholdAttempts = 1;
-		this.attempts = 9;
-		this.sequenceLength = 4;
+		this.resetLengthAttempts();
 		
 	}
 
@@ -95,6 +94,12 @@ public class MatchStartSettings {
 
 	public void setBreakerFactory(BreakerFactory breakerFactory) {
 		this.breakerFactory = breakerFactory;
+	}
+
+
+	public void resetLengthAttempts() {
+		this.attempts = 9;
+		this.sequenceLength = 4;
 	}
 
 }

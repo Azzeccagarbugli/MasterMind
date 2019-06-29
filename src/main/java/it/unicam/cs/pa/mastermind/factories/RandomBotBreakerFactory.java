@@ -14,7 +14,7 @@ public class RandomBotBreakerFactory implements BreakerFactory {
 
 	@Override
 	public CodeBreaker getBreaker(GameView view, int seqLength, int attempts) {
-		return new RandomBotBreaker(seqLength, attempts);
+		return new RandomBotBreaker(seqLength);
 	}
 
 	@Override

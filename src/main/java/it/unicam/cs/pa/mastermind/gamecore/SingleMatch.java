@@ -81,6 +81,7 @@ public class SingleMatch {
 	private void singleTurn() {
 		controller.insertNewAttempt(this.breaker.getAttempt());
 		if (this.breaker.hasGivenUp()) {
+			gameState.toggleBreakerGiveUp();
 			gameState.toggleMakerWin();
 		}
 	}

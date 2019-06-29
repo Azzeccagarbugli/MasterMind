@@ -14,7 +14,7 @@ public class RandomBotMakerFactory implements MakerFactory {
 
 	@Override
 	public CodeMaker getMaker(GameView view, int seqLength, int attempts) {
-		return new RandomBotMaker(seqLength, attempts);
+		return new RandomBotMaker(seqLength);
 	}
 
 	@Override

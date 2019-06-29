@@ -8,7 +8,7 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * Estensione di <code>CodeMaker</code> mirata ad una gestione del comportamento
- * del giocatore totalmente random.
+ * del giocatore in maniera casuale.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -17,7 +17,7 @@ public class RandomBotMaker extends CodeMaker {
 
 	private int seqLength;
 
-	public RandomBotMaker(int seqLength, int attempts) {
+	public RandomBotMaker(int seqLength) {
 		this.seqLength = seqLength;
 	}
 

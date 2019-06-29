@@ -35,6 +35,7 @@ public abstract class MainManager {
 		if (!startupSettings.getKeepSettings()) {
 			currentMatchSettings.setMakerFactory(startView.setupMaker(globalSettings.getMakers()));
 			currentMatchSettings.setBreakerFactory(startView.setupBreaker(globalSettings.getBreakers()));
+			currentMatchSettings.resetLengthAttempts();
 			if (startView.askNewLengthsAndAttempts()) {
 				currentMatchSettings
 						.setAttempts(startView.askNewAttempts(currentMatchSettings.getLowTresholdAttempts()));

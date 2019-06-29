@@ -19,6 +19,9 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
  */
 public class ConsoleStartView implements StartView {
 
+	/**
+	 * <code>FilterInputStream</code> fondamentale per le operazioni di Input con <code>InputStreamReader</code> e <code>BufferedReader</code>
+	 */
 	private FilterInputStream fis;
 
 	private String mastermindLogo = "\r\n" + "                  _                      _           _ \r\n"
@@ -27,14 +30,19 @@ public class ConsoleStartView implements StartView {
 			+ "/ /\\/\\ \\ (_| \\__ \\ ||  __/ |  | | | | | | | | | | (_| |\r\n"
 			+ "\\/    \\/\\__,_|___/\\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|\r\n"
 			+ "                                                       \r\n" + "";
+	
 	private String mastermindCaptionStart = "Welcome player, play and have fun!";
+	
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
 	/**
-	 * Riferimento all'istanza Singleton di <code>ConsoleStartView</code>.
+	 * Riferimento all'istanza <b>Singleton</b> di <code>ConsoleStartView</code>.
 	 */
 	private final static ConsoleStartView instance = new ConsoleStartView();
 
+	/**
+	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non porta alla chiusura di <code>System.in</code> all'interno del suo metodo <code>close()</code>.
+	 */
 	private ConsoleStartView() {
 		super();
 		fis = new FilterInputStream(System.in) {
@@ -45,7 +53,7 @@ public class ConsoleStartView implements StartView {
 	}
 
 	/**
-	 * @return ConsoleStartView istanza singleton di <code>ConsoleStartView</code>.
+	 * @return ConsoleStartView istanza <code>Singleton</code> di <code>ConsoleStartView</code>.
 	 */
 	public static ConsoleStartView getInstance() {
 		return instance;
@@ -53,7 +61,6 @@ public class ConsoleStartView implements StartView {
 
 	@Override
 	public void ending() {
-		// this.clearScreen();
 		System.out.format(
 				AnsiUtility.ANSI_CYAN_BOLD + "%-1s " + AnsiUtility.ANSI_YELLOW + "%50s" + AnsiUtility.ANSI_RESET,
 				mastermindLogo, mastermindCaptionEnd);
@@ -78,8 +85,7 @@ public class ConsoleStartView implements StartView {
 				}
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
+			this.badEnding(e1.getMessage());
 		}
 
 		return new StartupSettings(settingEnd(intInput)[0], settingEnd(intInput)[1]);
@@ -88,7 +94,7 @@ public class ConsoleStartView implements StartView {
 	/**
 	 * 
 	 */
-	void showGameFinalMenu() {
+	private void showGameFinalMenu() {
 		System.out.format(String.format("\n┏%60s┓\n", " ").replace(' ', '━'));
 		System.out.format("%s %55s %6s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD
 				+ "The game has finished, what would you like to do now?" + AnsiUtility.ANSI_RESET, "┃");
@@ -132,8 +138,7 @@ public class ConsoleStartView implements StartView {
 
 	@Override
 	public void showNewMatchStarting() {
-		// System.out.println("\nNow starting the game");
-		this.clearScreen();
+		System.out.println("\nNow starting the game");
 	}
 
 	@Override
@@ -163,8 +168,7 @@ public class ConsoleStartView implements StartView {
 				}
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
+			this.badEnding(e1.getMessage());
 		}
 
 		return length;
@@ -195,8 +199,7 @@ public class ConsoleStartView implements StartView {
 				}
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
+			this.badEnding(e1.getMessage());
 		}
 
 		return attempts;
@@ -224,8 +227,7 @@ public class ConsoleStartView implements StartView {
 				}
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
+			this.badEnding(e1.getMessage());
 		}
 
 		this.showLogo();
@@ -236,7 +238,7 @@ public class ConsoleStartView implements StartView {
 	 * 
 	 * @param isBreaker
 	 */
-	public void showMenuSelectMode(boolean isBreaker) {
+	private void showMenuSelectMode(boolean isBreaker) {
 		String selectionStuff = "Select the " + (isBreaker ? "breaker" : "maker") + " from this list";
 		System.out.format(String.format("┏%60s┓\n", " ").replace(' ', '━'));
 		System.out.format("%s %59s %11s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + selectionStuff + AnsiUtility.ANSI_RESET,
@@ -250,7 +252,7 @@ public class ConsoleStartView implements StartView {
 	 * @param desc
 	 * @param index
 	 */
-	public void showMenuChooseMode(List<String> names, List<String> desc, int index) {
+	private void showMenuChooseMode(List<String> names, List<String> desc, int index) {
 		System.out.format("%14s ┃ %10s • %10s \n", AnsiUtility.ANSI_CYAN_BOLD + (index + 1) + AnsiUtility.ANSI_RESET,
 				AnsiUtility.ANSI_CYAN_BOLD + names.get(index) + AnsiUtility.ANSI_RESET,
 				AnsiUtility.ANSI_CYAN_BOLD + desc.get(index) + AnsiUtility.ANSI_RESET);
@@ -283,8 +285,7 @@ public class ConsoleStartView implements StartView {
 				}
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
+			this.badEnding(e1.getMessage());
 		}
 
 		return strInput.toLowerCase().equals("n") ? true : false;

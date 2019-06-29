@@ -12,13 +12,17 @@ public class MatchState extends BoardObserver {
 	/**
 	 * Booleano relativo alla condizione di vittoria del Maker.
 	 */
-	private boolean hasMakerWon;
+	private boolean makerVictory;
 
 	/**
 	 * Booleano relativo alla condizione di vittoria del Breaker.
 	 */
-	private boolean hasBreakerWon;
+	private boolean breakerVictory;
 
+	/**
+	 * Booleano relativo alla condizione di resa del Breaker.
+	 */
+	private boolean breakerSurrender;
 	/**
 	 * Numero di tentativi relativi alla condizione di vittoria del Breaker.
 	 */
@@ -29,8 +33,9 @@ public class MatchState extends BoardObserver {
 	 */
 	public MatchState(BoardModel subject) {
 		this.addSubject(subject);
-		hasMakerWon = false;
-		hasBreakerWon = false;
+		makerVictory = false;
+		breakerVictory = false;
+		breakerSurrender = false;
 		usedAttempts = 0;
 	}
 
@@ -42,15 +47,15 @@ public class MatchState extends BoardObserver {
 	 *         vincere.
 	 */
 	public int getAttempts() {
-		return (hasBreakerWon) ? usedAttempts : 0;
+		return (breakerVictory) ? usedAttempts : 0;
 	}
 
 	/**
 	 * Toggle sulle variabili private per indicare la vittoria del Maker.
 	 */
 	public void toggleMakerWin() {
-		hasMakerWon = true;
-		hasBreakerWon = false;
+		makerVictory = true;
+		breakerVictory = false;
 	}
 
 	/**
@@ -59,9 +64,16 @@ public class MatchState extends BoardObserver {
 	 * @param attempts il numero di tentativi impiegati dal Breaker per vincere
 	 */
 	public void toggleBreakerWin(int attempts) {
-		hasMakerWon = false;
-		hasBreakerWon = true;
+		makerVictory = false;
+		breakerVictory = true;
 		this.usedAttempts = attempts;
+	}
+
+	/**
+	 * Toggle sulle variabili private per indicare la resa del Breaker.
+	 */
+	public void toggleBreakerGiveUp() {
+		this.breakerSurrender = true;
 	}
 
 	/**
@@ -70,7 +82,7 @@ public class MatchState extends BoardObserver {
 	 * @return boolean che indica se il Maker ha vinto o meno.
 	 */
 	public boolean getHasMakerWon() {
-		return hasMakerWon;
+		return makerVictory;
 	}
 
 	/**
@@ -79,7 +91,7 @@ public class MatchState extends BoardObserver {
 	 * @return boolean che indica se il Breaker ha vinto o meno.
 	 */
 	public boolean getHasBreakerWon() {
-		return hasBreakerWon;
+		return breakerVictory;
 	}
 
 	/**
@@ -88,9 +100,11 @@ public class MatchState extends BoardObserver {
 	 * @return String che comunica il vincitore attuale della partita
 	 */
 	public String getMessage() {
-		if (this.getHasBreakerWon()) {
+		if (this.breakerVictory) {
 			return "\nThe breaker guessed the combination after " + usedAttempts + " attempts. The breaker wins";
-		} else if (this.hasMakerWon) {
+		} else if (this.breakerSurrender) {
+			return "\nThe breaker gave up. The maker wins";
+		} else if (this.makerVictory) {
 			return "\nThe breaker didn't guess the combination. The maker wins";
 		} else
 			return "\nThere are no losers and no winners";

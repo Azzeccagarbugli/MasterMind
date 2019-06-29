@@ -1,14 +1,13 @@
 package it.unicam.cs.pa.mastermind.players;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
  * Estensione di <code>CodeBreaker</code> mirata ad una gestione del
- * comportamento del player random.
- * 
- * Tale comportamento è basato sull'algoritmo di risoluzione teorizzato dal
+ * comportamento è basato sull'algoritmo di risoluzione teorizzato dal
  * matematico Donald Knuth, il quale attesta di risolvere il gioco del
  * Mastermind in cinque mosse al massimo mediante una precisa serie di passaggi.
  * 
@@ -54,8 +53,12 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 	@Override
 	public List<ColorPegs> getAttempt() {
-		// TODO Auto-generated method stub
-		return null;
+		if(seqLength != 4) {
+			this.toggleGiveUp();
+			return new ArrayList<ColorPegs>();
+		} else {
+			return new ArrayList<ColorPegs>();
+		}
 	}
 
 }
