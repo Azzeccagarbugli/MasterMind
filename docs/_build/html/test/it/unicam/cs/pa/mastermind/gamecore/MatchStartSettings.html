@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="it" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="it" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MatchStartSettings &mdash; MasterMind 1.0.0 documentazione</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Cerca" href="../../../../../../../search.html" />
+    <link rel="next" title="MatchState" href="MatchState.html" />
+    <link rel="prev" title="MainManager" href="MainManager.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> MasterMind
+          
+
+          
+            
+            <img src="../../../../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../introduzione.html">Introduzione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../gameguide.html">Guida al gioco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../sphinx.html">Sphinx e le sue potenzialità</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../source/packages.html">Documentazione del codice</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../packages.html">Documentazione del codice</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BoardController.html">BoardController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MainManager.html">MainManager</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MatchStartSettings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observable.html">Observable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observer.html">Observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">MasterMind</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../../packages.html">Documentazione del codice</a> &raquo;</li>
+        
+          <li><a href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a> &raquo;</li>
+        
+      <li>MatchStartSettings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/test/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="matchstartsettings">
+<h1>MatchStartSettings<a class="headerlink" href="#matchstartsettings" title="Link a questa intestazione">¶</a></h1>
+<dl class="type">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings">
+public class <code class="descname">MatchStartSettings</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings" title="Link a questa definizione">¶</a></dt>
+<dd><p><strong>Responsabilità</strong>: tenere traccia delle informazioni necessarie per poter iniziare una nuova partita e da impiegare all’interno di essa. <strong>Contratto</strong>: le istanze vengono gestite all’interno di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="hightresholdlength">
+<h3>highTresholdLength<a class="headerlink" href="#hightresholdlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.highTresholdLength">
+ int <code class="descname">highTresholdLength</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.highTresholdLength" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="lowtresholdattempts">
+<h3>lowTresholdAttempts<a class="headerlink" href="#lowtresholdattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.lowTresholdAttempts">
+ int <code class="descname">lowTresholdAttempts</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.lowTresholdAttempts" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="lowtresholdlength">
+<h3>lowTresholdLength<a class="headerlink" href="#lowtresholdlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="field">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.lowTresholdLength">
+ int <code class="descname">lowTresholdLength</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.lowTresholdLength" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="id1">
+<h3>MatchStartSettings<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
+<dl class="constructor">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.MatchStartSettings(GameViewFactory)">
+public <code class="descname">MatchStartSettings</code><span class="sig-paren">(</span><a class="reference internal" href="../factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a><em> gameViewFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.MatchStartSettings(GameViewFactory)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="getattempts">
+<h3>getAttempts<a class="headerlink" href="#getattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getAttempts()">
+public int <code class="descname">getAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getAttempts()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getbreakerfactory">
+<h3>getBreakerFactory<a class="headerlink" href="#getbreakerfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getBreakerFactory()">
+public <a class="reference internal" href="../factories/BreakerFactory.html#it.unicam.cs.pa.mastermind.factories.BreakerFactory" title="it.unicam.cs.pa.mastermind.factories.BreakerFactory">BreakerFactory</a> <code class="descname">getBreakerFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getBreakerFactory()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getgameviewfactory">
+<h3>getGameViewFactory<a class="headerlink" href="#getgameviewfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getGameViewFactory()">
+public <a class="reference internal" href="../factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a> <code class="descname">getGameViewFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getGameViewFactory()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="gethightresholdlength">
+<h3>getHighTresholdLength<a class="headerlink" href="#gethightresholdlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getHighTresholdLength()">
+public int <code class="descname">getHighTresholdLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getHighTresholdLength()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getlowtresholdattempts">
+<h3>getLowTresholdAttempts<a class="headerlink" href="#getlowtresholdattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getLowTresholdAttempts()">
+public int <code class="descname">getLowTresholdAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getLowTresholdAttempts()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getlowtresholdlength">
+<h3>getLowTresholdLength<a class="headerlink" href="#getlowtresholdlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getLowTresholdLength()">
+public int <code class="descname">getLowTresholdLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getLowTresholdLength()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getmakerfactory">
+<h3>getMakerFactory<a class="headerlink" href="#getmakerfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getMakerFactory()">
+public <a class="reference internal" href="../factories/MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a> <code class="descname">getMakerFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getMakerFactory()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getsequencelength">
+<h3>getSequenceLength<a class="headerlink" href="#getsequencelength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getSequenceLength()">
+public int <code class="descname">getSequenceLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getSequenceLength()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="resetlengthattempts">
+<h3>resetLengthAttempts<a class="headerlink" href="#resetlengthattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.resetLengthAttempts()">
+public void <code class="descname">resetLengthAttempts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.resetLengthAttempts()" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setattempts">
+<h3>setAttempts<a class="headerlink" href="#setattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setAttempts(int)">
+public void <code class="descname">setAttempts</code><span class="sig-paren">(</span>int<em> attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setAttempts(int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setbreakerfactory">
+<h3>setBreakerFactory<a class="headerlink" href="#setbreakerfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setBreakerFactory(BreakerFactory)">
+public void <code class="descname">setBreakerFactory</code><span class="sig-paren">(</span><a class="reference internal" href="../factories/BreakerFactory.html#it.unicam.cs.pa.mastermind.factories.BreakerFactory" title="it.unicam.cs.pa.mastermind.factories.BreakerFactory">BreakerFactory</a><em> breakerFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setBreakerFactory(BreakerFactory)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="sethightresholdlength">
+<h3>setHighTresholdLength<a class="headerlink" href="#sethightresholdlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setHighTresholdLength(int)">
+public void <code class="descname">setHighTresholdLength</code><span class="sig-paren">(</span>int<em> highTresholdLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setHighTresholdLength(int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setlowtresholdattempts">
+<h3>setLowTresholdAttempts<a class="headerlink" href="#setlowtresholdattempts" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setLowTresholdAttempts(int)">
+public void <code class="descname">setLowTresholdAttempts</code><span class="sig-paren">(</span>int<em> lowTresholdAttempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setLowTresholdAttempts(int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setlowtresholdlength">
+<h3>setLowTresholdLength<a class="headerlink" href="#setlowtresholdlength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setLowTresholdLength(int)">
+public void <code class="descname">setLowTresholdLength</code><span class="sig-paren">(</span>int<em> lowTresholdLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setLowTresholdLength(int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setmakerfactory">
+<h3>setMakerFactory<a class="headerlink" href="#setmakerfactory" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setMakerFactory(MakerFactory)">
+public void <code class="descname">setMakerFactory</code><span class="sig-paren">(</span><a class="reference internal" href="../factories/MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a><em> makerFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setMakerFactory(MakerFactory)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setsequencelength">
+<h3>setSequenceLength<a class="headerlink" href="#setsequencelength" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setSequenceLength(int)">
+public void <code class="descname">setSequenceLength</code><span class="sig-paren">(</span>int<em> sequenceLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setSequenceLength(int)" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MatchState.html" class="btn btn-neutral float-right" title="MatchState" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MainManager.html" class="btn btn-neutral float-left" title="MainManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Francesco Pio Stelluti, Francesco Coppola
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

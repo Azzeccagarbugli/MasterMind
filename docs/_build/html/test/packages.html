@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Test realizzati in JUnit &mdash; MasterMind 1.0.0 documentazione</title>
+  <title>Documentazione del codice &mdash; MasterMind 1.0.0 documentazione</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
-    <link rel="next" title="it.unicam.cs.pa.mastermind.test" href="it/unicam/cs/pa/mastermind/test/package-index.html" />
+    <link rel="next" title="it.unicam.cs.pa.mastermind.factories" href="it/unicam/cs/pa/mastermind/factories/package-index.html" />
     <link rel="prev" title="StartView" href="../source/it/unicam/cs/pa/mastermind/ui/StartView.html" /> 
 </head>
 
@@ -89,8 +89,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../source/packages.html">Documentazione del codice</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Test realizzati in JUnit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/package-index.html">it.unicam.cs.pa.mastermind.test</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentazione del codice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/package-index.html">it.unicam.cs.pa.mastermind.players</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a></li>
 </ul>
 </li>
 </ul>
@@ -138,7 +141,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Test realizzati in JUnit</li>
+      <li>Documentazione del codice</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -157,23 +160,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="test-realizzati-in-junit">
-<h1>Test realizzati in JUnit<a class="headerlink" href="#test-realizzati-in-junit" title="Link a questa intestazione">¶</a></h1>
-<p>Di seguito è possibile analizzare in maniera dettagliata e scrupolosa quelli che sono
-i <strong>test</strong> che sono stati prodotti per mostrare il corretto funzionamento del progetto.</p>
-<p>Essi infatti <strong>garantiscono oggettivamente</strong> che il codice si comporti come previsto.</p>
+  <div class="section" id="documentazione-del-codice">
+<h1>Documentazione del codice<a class="headerlink" href="#documentazione-del-codice" title="Link a questa intestazione">¶</a></h1>
+<p>Nella seguente pagina sarà possibile accedere alle informazioni che descrivono in maniera <em>dettagliata</em> ogni
+<strong>classe</strong> ed ogni <strong>package</strong> appartenente al parco software prodotto.</p>
+<p>Per rendere più chiara la composizione della struttura del progetto, e quindi comprendere più dettagliatamente quello
+che è stato realizzato, abbiamo reso disponibile un <strong>diagramma UML</strong> il quale è possibile visualizzare qui di seguito.</p>
+<img alt="../_images/diagram1.png" src="../_images/diagram1.png" />
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/package-index.html">it.unicam.cs.pa.mastermind.test</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest.html">GameCoreBoardControllerTest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest.html">GameCoreBoardModelTest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/PlayersFactoryRegistry.html">PlayersFactoryRegistry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/PlayersInteractiveBreakerTest.html">PlayersInteractiveBreakerTest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/PlayersInteractiveMakerTest.html">PlayersInteractiveMakerTest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/PlayersRandomBotBreakerTest.html">PlayersRandomBotBreakerTest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/PlayersRandomBotMakerTest.html">PlayersRandomBotMakerTest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/SimulationGame.html">SimulationGame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/test/UIConsoleStartViewTest.html">UIConsoleStartViewTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/package-index.html">it.unicam.cs.pa.mastermind.factories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/BadRegistryException.html">BadRegistryException</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/BreakerFactory.html">BreakerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory.html">ConsoleGameViewFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory.html">DonaldKnuthBreakerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/GameViewFactory.html">GameViewFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory.html">InteractiveBreakerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory.html">InteractiveMakerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/MakerFactory.html">MakerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry.html">MakerFactoryRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/PlayerFactory.html">PlayerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry.html">PlayerFactoryRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory.html">RandomBotBreakerFactory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory.html">RandomBotMakerFactory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/BoardController.html">BoardController</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/BoardModel.html">BoardModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html">ColorPegs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager.html">ConsoleMainManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/GlobalSettings.html">GlobalSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/MainManager.html">MainManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings.html">MatchStartSettings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/MatchState.html">MatchState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/Observable.html">Observable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/Observer.html">Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/SingleMatch.html">SingleMatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/gamecore/StartupSettings.html">StartupSettings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/package-index.html">it.unicam.cs.pa.mastermind.players</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/CodeBreaker.html">CodeBreaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/CodeMaker.html">CodeMaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker.html">DonaldKnuthBreaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/InteractiveBreaker.html">InteractiveBreaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/InteractiveMaker.html">InteractiveMaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/RandomBotBreaker.html">RandomBotBreaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/players/RandomBotMaker.html">RandomBotMaker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/package-index.html">it.unicam.cs.pa.mastermind.ui</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/AnsiUtility.html">AnsiUtility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/ConsoleGameView.html">ConsoleGameView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/ConsoleStartView.html">ConsoleStartView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/GameView.html">GameView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="it/unicam/cs/pa/mastermind/ui/StartView.html">StartView</a></li>
 </ul>
 </li>
 </ul>
@@ -188,7 +231,7 @@ i <strong>test</strong> che sono stati prodotti per mostrare il corretto funzion
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="it/unicam/cs/pa/mastermind/test/package-index.html" class="btn btn-neutral float-right" title="it.unicam.cs.pa.mastermind.test" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="it/unicam/cs/pa/mastermind/factories/package-index.html" class="btn btn-neutral float-right" title="it.unicam.cs.pa.mastermind.factories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../source/it/unicam/cs/pa/mastermind/ui/StartView.html" class="btn btn-neutral float-left" title="StartView" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

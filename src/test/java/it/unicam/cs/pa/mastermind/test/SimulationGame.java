@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.MatchState;
 
 /**
  * Il seguente test simula il corretto funzionamento di una singola partita.
@@ -27,11 +28,15 @@ class SimulationGame {
 
 	private BoardModel board;
 	private BoardController boardController;
+	
+	private MatchState gameState;
 
 	@Test
 	void testSimulationGame() {
 		assertTimeout(ofMillis(5000), () -> {
 			board = new BoardModel(sequenceLenght, maxAttempts);
+			gameState = new MatchState();
+			board.addObserver(gameState);
 			boardController = new BoardController(board);
 			assertEquals(maxAttempts - board.leftAttempts(), board.attemptsInserted());
 			boardController

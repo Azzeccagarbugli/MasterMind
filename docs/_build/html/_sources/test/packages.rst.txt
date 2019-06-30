@@ -1,13 +1,19 @@
-Test realizzati in JUnit
-=========================
+Documentazione del codice
+=============================
 
-Di seguito è possibile analizzare in maniera dettagliata e scrupolosa quelli che sono
-i **test** che sono stati prodotti per mostrare il corretto funzionamento del progetto.
+Nella seguente pagina sarà possibile accedere alle informazioni che descrivono in maniera *dettagliata* ogni 
+**classe** ed ogni **package** appartenente al parco software prodotto.
 
-Essi infatti **garantiscono oggettivamente** che il codice si comporti come previsto.
+Per rendere più chiara la composizione della struttura del progetto, e quindi comprendere più dettagliatamente quello 
+che è stato realizzato, abbiamo reso disponibile un **diagramma UML** il quale è possibile visualizzare qui di seguito.
+
+.. image:: ../_static/diagram.png
 
 .. toctree::
    :maxdepth: 2
 
-   it/unicam/cs/pa/mastermind/test/package-index
+   it/unicam/cs/pa/mastermind/factories/package-index
+   it/unicam/cs/pa/mastermind/gamecore/package-index
+   it/unicam/cs/pa/mastermind/players/package-index
+   it/unicam/cs/pa/mastermind/ui/package-index
 

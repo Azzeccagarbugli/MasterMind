@@ -93,8 +93,8 @@ La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Mo
 Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. 
 La sua implementazione all'interno di questo progetto è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
 L'implementazione fornita si sostanzia nelle classi ``Observer`` e ``Observable``, rispettivamente interfaccia e classe astratta.
-Esempi di relazioni tra classi nel progetto che rientrano nel pattern **Observer** sono quelle tra ``BoardModel`` *(``Observable``)* e ``MatchState``, ``GameView`` e ``SingleMatch`` *(``Observer``)*
-e tra ``SingleMatch`` *(``Observable``)* e ``GameView`` *(``Observer``)*. 
+Esempi di relazioni tra classi nel progetto che rientrano nel pattern **Observer** sono quelle tra ``BoardModel`` *(Observable)* e ``MatchState``, ``GameView`` e ``SingleMatch`` *(Observer)*
+e tra ``SingleMatch`` *(Observable)* e ``GameView`` *(Observer)*. 
 La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Observer** ma anche nel pattern **Model View Controller**.
 
 3. **Singleton** [4]_

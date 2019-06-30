@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.MatchState;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 
 /**
@@ -19,6 +20,8 @@ import it.unicam.cs.pa.mastermind.gamecore.BoardController;
  */
 class PlayersRandomBotBreakerTest {
 
+	private MatchState gameState;
+	
 	/**
 	 * Test method for
 	 * {@link it.unicam.cs.pa.mastermind.players.RandomBotBreaker#getAttempt(int, it.unicam.cs.pa.mastermind.ui.InteractionManager)}.
@@ -26,6 +29,8 @@ class PlayersRandomBotBreakerTest {
 	@Test
 	void testGetAttempt() {
 		BoardModel boardTemp = new BoardModel(4, 9);
+		gameState = new MatchState();
+		boardTemp.addObserver(gameState);
 		BoardController boardController = new BoardController(boardTemp);
 		boardController
 				.insertCodeToGuess(Arrays.asList(ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.GREEN, ColorPegs.GREEN));

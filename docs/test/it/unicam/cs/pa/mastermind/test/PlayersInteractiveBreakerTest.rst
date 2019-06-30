@@ -8,7 +8,7 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
-.. java:import:: it.unicam.cs.pa.mastermind.players InteractiveBreaker
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore MatchState
 
 PlayersInteractiveBreakerTest
 =============================
@@ -31,12 +31,4 @@ testGetAttempt
    :outertype: PlayersInteractiveBreakerTest
 
    Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt(int,it.unicam.cs.pa.mastermind.ui.InteractionView)`\ .
-
-testInteractiveBreaker
-^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: @Test  void testInteractiveBreaker()
-   :outertype: PlayersInteractiveBreakerTest
-
-   Test method for \ :java:ref:`it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker()`\ .
 

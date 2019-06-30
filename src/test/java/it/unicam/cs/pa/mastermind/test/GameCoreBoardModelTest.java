@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.MatchState;
 
 /**
  * Test di controllo all'interno della board.
@@ -36,12 +37,16 @@ class GameCoreBoardModelTest {
 	List<ColorPegs> attempt = new ArrayList<ColorPegs>(
 			Arrays.asList(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.GREEN, ColorPegs.BLUE));
 
+	private MatchState gameState;
+	
 	/**
 	 * Setup of the board runned before each other test.
 	 */
 	@BeforeEach
 	void setUp() {
 		board = new BoardModel(sequenceLenght, maxAttempts);
+		gameState = new MatchState();
+		board.addObserver(gameState);
 		boardContr = new BoardController(board);
 	}
 

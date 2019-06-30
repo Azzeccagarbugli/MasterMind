@@ -99,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gameguide.html">Guida al gioco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx e le sue potenzialità</a></li>
 <li class="toctree-l1"><a class="reference internal" href="source/packages.html">Documentazione del codice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test/packages.html">Test realizzati in JUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/packages.html">Documentazione del codice</a></li>
 </ul>
 
             
@@ -208,7 +208,7 @@ istanze estensione di <code class="docutils literal notranslate"><span class="pr
 <li><p><strong>InteractiveMaker, RandomBotMaker</strong>, estensioni di <code class="docutils literal notranslate"><span class="pre">CodeMaker</span></code>.</p></li>
 <li><p><strong>InteractiveMakerFactory, RandomBotMakerFactory</strong>, implementazioni di <code class="docutils literal notranslate"><span class="pre">MakerFactory</span></code>.</p></li>
 <li><p><strong>InteractiveBreaker, RandomBotBreaker, DonaldKnuthBreaker</strong>, estensioni di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>.</p></li>
-<li><p><strong>InteractiveBreakerFactory, RandomBotBreakerFactory, DonaldKnuthBreakerFactory</strong>, estensioni di <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code>.</p></li>
+<li><p><strong>InteractiveBreakerFactory, RandomBotBreakerFactory, DonaldKnuthBreakerFactory</strong>, implementazioni di <code class="docutils literal notranslate"><span class="pre">BreakerFactory</span></code>.</p></li>
 </ul>
 <p>Per ulteriori informazioni circa le classi elencate si rimanda alle relative <a class="reference internal" href="source/packages.html"><span class="doc">sezioni</span></a>.</p>
 </div>
@@ -231,11 +231,15 @@ necessità di ricompilare tutte le classi del progetto.</p>
 <h2>Design pattern impiegati<a class="headerlink" href="#design-pattern-impiegati" title="Link a questa intestazione">¶</a></h2>
 <p>1. <strong>Model View Controller</strong> <a class="footnote-reference brackets" href="#id10" id="id2">2</a>
 Rappresenta la struttura alla base del funzionamento delle singole partite.
-È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">GameView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>, classi le cui istanze comunicano all’interno di <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code>.</p>
+È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">GameView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>, classi le cui istanze comunicano all’interno di <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code>.
+La relazione tra <code class="docutils literal notranslate"><span class="pre">GameView</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> non solo rientra nel pattern <strong>Model View Controller</strong> ma anche nel pattern <strong>Observer</strong>.</p>
 <p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id11" id="id3">3</a>
-Implementato fornendo come classe da osservare <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e come classi che osservano <code class="docutils literal notranslate"><span class="pre">GameView</span></code> e <code class="docutils literal notranslate"><span class="pre">MatchState</span></code>, classi estensione di <code class="docutils literal notranslate"><span class="pre">BoardObserver</span></code>.
 Dalla versione 9 di Java l’interfaccia Observer, pensata nell’ottica di questo design pattern, risulta deprecata.
-La sua implementazione all’interno di questo progetto è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.</p>
+La sua implementazione all’interno di questo progetto è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.
+L’implementazione fornita si sostanzia nelle classi <code class="docutils literal notranslate"><span class="pre">Observer</span></code> e <code class="docutils literal notranslate"><span class="pre">Observable</span></code>, rispettivamente interfaccia e classe astratta.
+Esempi di relazioni tra classi nel progetto che rientrano nel pattern <strong>Observer</strong> sono quelle tra <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> <em>(Observable)</em> e <code class="docutils literal notranslate"><span class="pre">MatchState</span></code>, <code class="docutils literal notranslate"><span class="pre">GameView</span></code> e <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code> <em>(Observer)</em>
+e tra <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code> <em>(Observable)</em> e <code class="docutils literal notranslate"><span class="pre">GameView</span></code> <em>(Observer)</em>.
+La relazione tra <code class="docutils literal notranslate"><span class="pre">GameView</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> non solo rientra nel pattern <strong>Observer</strong> ma anche nel pattern <strong>Model View Controller</strong>.</p>
 <p>3. <strong>Singleton</strong> <a class="footnote-reference brackets" href="#id12" id="id4">4</a>
 Presente all’interno della classe <code class="docutils literal notranslate"><span class="pre">ConsoleStartView</span></code>, esso garantisce che siano presenti <strong>singole</strong> istanze di tali classe all’interno del progetto.</p>
 <p>4. <strong>Factory</strong> <a class="footnote-reference brackets" href="#id13" id="id5">5</a>

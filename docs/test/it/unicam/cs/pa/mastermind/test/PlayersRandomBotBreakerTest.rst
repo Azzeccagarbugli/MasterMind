@@ -6,6 +6,8 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore MatchState
+
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardController
 
 PlayersRandomBotBreakerTest
