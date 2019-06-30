@@ -116,7 +116,7 @@ public class MatchState implements Observer {
 	 * Lo stato dell'oggetto si aggiorna grazie a oggetti <code>BoardModel</code>.
 	 */
 	@Override
-	public void update(Object o) {
+	public void update(Observable o) {
 		if(o instanceof BoardModel) {
 			BoardModel temp = (BoardModel) o;
 			if (temp.hasBreakerGuessed()) {

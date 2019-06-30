@@ -12,6 +12,6 @@ public interface Observer {
 	/**
 	 * Aggiornamento dello stato dell'oggetto.
 	 */
-	public void update(Object o);
+	public void update(Observable o);
 
 }

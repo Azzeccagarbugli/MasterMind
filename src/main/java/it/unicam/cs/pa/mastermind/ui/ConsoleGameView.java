@@ -11,6 +11,7 @@ import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.Observable;
 import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
 
 /**
@@ -369,7 +370,7 @@ public class ConsoleGameView extends GameView {
 	 * Lo stato dell'oggetto si aggiorna grazie a oggetti <code>BoardModel</code> e oggetti <code>SingleMatch</code>.
 	 */
 	@Override
-	public void update(Object o) {
+	public void update(Observable o) {
 		
 		if (o instanceof BoardModel) {
 			this.showGame((BoardModel) o);

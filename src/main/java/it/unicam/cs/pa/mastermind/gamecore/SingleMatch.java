@@ -109,7 +109,7 @@ public class SingleMatch extends Observable implements Observer{
 	}
 
 	@Override
-	public void update(Object o) {
+	public void update(Observable o) {
 		if(o instanceof BoardModel) {
 			BoardModel temp = (BoardModel) o;
 			this.sequenceToGuess = temp.getSequenceToGuess();
