@@ -2,11 +2,9 @@ package it.unicam.cs.pa.mastermind.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.gamecore.MatchState;
 
 /**
  * Test di controllo all'interno della board.
@@ -119,10 +116,10 @@ class GameCoreBoardModelTest {
 		boardContr.insertCodeToGuess(toGuess);
 		board.addAttempt(attempt);
 
-		Map.Entry<List<ColorPegs>, List<ColorPegs>> map = new AbstractMap.SimpleEntry<>(
-				Arrays.asList(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.GREEN, ColorPegs.BLUE),
-				Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK));
-
-		assertEquals(board.lastAttemptAndClue(), map);
+		List<ColorPegs> list_clue = Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK);
+		assertEquals(board.getLastClue(), list_clue);
+		
+		List<ColorPegs> list_att = Arrays.asList(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.GREEN, ColorPegs.BLUE);
+		assertEquals(board.getLastAttempt(), list_att);
 	}
 }

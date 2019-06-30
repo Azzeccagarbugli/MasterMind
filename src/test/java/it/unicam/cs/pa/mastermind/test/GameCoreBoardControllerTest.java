@@ -58,7 +58,6 @@ class GameCoreBoardControllerTest {
 	@Test
 	void testInsertNewAttempt() {
 		boardCord.insertCodeToGuess(toGuess);
-		assertTrue(boardCord.insertNewAttempt(attempt));
 		assertFalse(board.hasBreakerGuessed());
 	}
 

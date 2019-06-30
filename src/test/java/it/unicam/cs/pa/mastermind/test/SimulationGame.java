@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map.Entry;
 
 import static java.time.Duration.ofMillis;
 
@@ -44,14 +43,14 @@ class SimulationGame {
 
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.WHITE));
-			Entry<List<ColorPegs>, List<ColorPegs>> list = board.lastAttemptAndClue();
-			assertEquals(Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK), list.getValue());
-
+			List<ColorPegs> list = board.getLastClue();
+			assertEquals(Arrays.asList(ColorPegs.BLACK, ColorPegs.BLACK, ColorPegs.BLACK), list);
+			
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.GREEN, ColorPegs.RED, ColorPegs.WHITE, ColorPegs.WHITE));
-			list = board.lastAttemptAndClue();
-			assertEquals(Arrays.asList(ColorPegs.WHITE, ColorPegs.WHITE), list.getValue());
-
+			list = board.getLastClue();
+			assertEquals(Arrays.asList(ColorPegs.WHITE, ColorPegs.WHITE), list);
+			
 			boardController
 					.insertNewAttempt(Arrays.asList(ColorPegs.RED, ColorPegs.GREEN, ColorPegs.BLUE, ColorPegs.RED));
 			assertTrue(board.hasBreakerGuessed());

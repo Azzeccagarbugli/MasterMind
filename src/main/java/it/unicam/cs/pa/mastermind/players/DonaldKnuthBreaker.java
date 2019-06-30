@@ -52,7 +52,7 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	private BoardModel reference;
 	private Set<List<ColorPegs>> combinationSet;
 	private Set<List<ColorPegs>> possibleSolutions;
- 	private List<ColorPegs> currentAttempt;
+	private List<ColorPegs> currentAttempt;
 	private boolean firstTry;
 
 	public DonaldKnuthBreaker(int seqLength, int attempts) {
@@ -71,14 +71,15 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 	@Override
 	public List<ColorPegs> getAttempt() {
-			if(firstTry) {
-				currentAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
-						ColorPegs.values()[1]);
-				firstTry = false;
-				return currentAttempt;
-			} else {
-				
-			}
+		if (firstTry) {
+			currentAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
+					ColorPegs.values()[1]);
+			firstTry = false;
+			return currentAttempt;
+		} else {
+			// Knuth!
+		}
+		return null;
 	}
 
 	public void generateSet() {
@@ -110,9 +111,9 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		super.setLastClue(lastClue);
 		reference = new BoardModel(this.seqLength, 10);
 		reference.setSequenceToGuess(currentAttempt);
-		for(List<ColorPegs> seq : this.combinationSet) {
+		for (List<ColorPegs> seq : this.combinationSet) {
 			reference.addAttempt(seq);
-			if(!reference.getLastClue().equals(this.getLastClue())) {
+			if (!reference.getLastClue().equals(this.getLastClue())) {
 				this.possibleSolutions.remove(seq);
 			}
 			reference.removeLastAttemptAndClue();
