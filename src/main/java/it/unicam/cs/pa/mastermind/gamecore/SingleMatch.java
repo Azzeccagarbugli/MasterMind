@@ -16,7 +16,7 @@ import it.unicam.cs.pa.mastermind.ui.GameView;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class SingleMatch extends Observable implements Observer{
+public class SingleMatch extends Observable implements Observer {
 
 	/**
 	 * Il controllore associato con l'istanza di partita in corso.
@@ -48,6 +48,7 @@ public class SingleMatch extends Observable implements Observer{
 	 * Copia della sequenza da indovinare nel match corrente
 	 */
 	List<ColorPegs> sequenceToGuess;
+
 	/**
 	 * Costruttore di una singola partita
 	 * 
@@ -68,13 +69,13 @@ public class SingleMatch extends Observable implements Observer{
 			MakerFactory mFactory) {
 
 		BoardModel newModel = new BoardModel(sequenceLength, attempts);
-		
+
 		this.gameState = new MatchState();
 		this.view = viewFactory.getGameView();
 		newModel.addObserver(gameState);
 		newModel.addObserver(view);
 		newModel.addObserver(this);
-		
+
 		this.addObserver(this.view);
 		this.controller = new BoardController(newModel);
 		this.maker = mFactory.getMaker(view, sequenceLength, attempts);
@@ -89,19 +90,25 @@ public class SingleMatch extends Observable implements Observer{
 	public String endingMessage() {
 		return gameState.getMessage();
 	}
+
 	/**
 	 * Avvio e gestione completa di una singola partita di gioco.
 	 */
 	public void start() {
 		controller.insertCodeToGuess(this.maker.getCodeToGuess());
-		do {
+		this.checkBreakerGiveUp();
+		while (!(gameState.getHasMakerWon() || gameState.getHasBreakerWon())) {
 			this.singleTurn();
-		} while (!(gameState.getHasMakerWon() || gameState.getHasBreakerWon()));
+		}
 		this.notifyObservers();
 	}
 
 	private void singleTurn() {
 		controller.insertNewAttempt(this.breaker.getAttempt());
+		checkBreakerGiveUp();
+	}
+
+	private void checkBreakerGiveUp() {
 		if (this.breaker.hasGivenUp()) {
 			gameState.toggleBreakerGiveUp();
 			gameState.toggleMakerWin();
@@ -110,7 +117,7 @@ public class SingleMatch extends Observable implements Observer{
 
 	@Override
 	public void update(Observable o) {
-		if(o instanceof BoardModel) {
+		if (o instanceof BoardModel) {
 			BoardModel temp = (BoardModel) o;
 			this.sequenceToGuess = temp.getSequenceToGuess();
 		}

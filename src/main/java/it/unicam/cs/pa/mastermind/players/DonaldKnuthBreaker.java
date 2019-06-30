@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.mastermind.players;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -50,30 +51,33 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	private int attempts;
 	private BoardModel reference;
 	private Set<List<ColorPegs>> combinationSet;
+	private List<ColorPegs> curAttempt;
 
 	public DonaldKnuthBreaker(int seqLength, int attempts) {
 		this.seqLength = seqLength;
-		this.attempts = attempts;
-		reference = new BoardModel(seqLength, attempts);
+		if (seqLength == 4) {
+			this.attempts = attempts;
+			reference = new BoardModel(seqLength, attempts);
+			this.generateSet();
+			curAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
+					ColorPegs.values()[1]);
+		} else {
+			this.toggleGiveUp();
+		}
 	}
 
 	@Override
 	public List<ColorPegs> getAttempt() {
-		if (seqLength != 4) {
-			this.toggleGiveUp();
 			return new ArrayList<ColorPegs>();
-		} else {
-			return new ArrayList<ColorPegs>();
-		}
 	}
 
 	public void generateSet() {
 		combinationSet = new HashSet<List<ColorPegs>>();
-		List<Integer> indexes = new ArrayList<Integer>();
+		List<Integer> base = new ArrayList<Integer>();
 		for (int i = 1; i <= seqLength; i++) {
-			indexes.add(0);
+			base.add(0);
 		}
-		combinationGenerator(0, indexes);
+		combinationGenerator(0, base);
 	}
 
 	private void combinationGenerator(int position, List<Integer> indexes) {
