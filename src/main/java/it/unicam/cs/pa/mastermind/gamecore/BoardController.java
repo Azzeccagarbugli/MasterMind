@@ -4,8 +4,8 @@ import java.util.List;
 
 /**
  * <b>Responsabilità</b>: gestire le interazioni dall'esterno e dirette alla
- * modifica di un'istanza <code>BoardModel</code>.
- * Rientra nel pattern <b>MVC</b>.
+ * modifica di un'istanza <code>BoardModel</code>. Rientra nel pattern
+ * <b>MVC</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -34,15 +34,16 @@ public class BoardController {
 	 * @param attempt la <code>List</code> di <code>ColorPegs</code> contenente i
 	 *                valori che si vogliono inserire all'interno della
 	 *                <code>BoardModel</code>
-	 * @return boolean a rappresentazione dell'esito dell'inserimento
+	 * @return List contenente la sequenza di <code>ColorPegs</code> indizio
+	 *         generata dalla plancia
 	 */
-	public boolean insertNewAttempt(List<ColorPegs> attempt) {
+	public List<ColorPegs> insertNewAttempt(List<ColorPegs> attempt) {
 		try {
 			board.addAttempt(attempt);
 		} catch (IllegalArgumentException e) {
-			return false;
+			return List.of();
 		}
-		return true;
+		return board.getLastClue();
 	}
 
 	/**
@@ -61,6 +62,5 @@ public class BoardController {
 		}
 		return true;
 	}
-
 
 }

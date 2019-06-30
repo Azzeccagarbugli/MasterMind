@@ -104,7 +104,7 @@ public class SingleMatch extends Observable implements Observer {
 	}
 
 	private void singleTurn() {
-		controller.insertNewAttempt(this.breaker.getAttempt());
+		breaker.setLastClue(controller.insertNewAttempt(this.breaker.getAttempt()));
 		checkBreakerGiveUp();
 	}
 

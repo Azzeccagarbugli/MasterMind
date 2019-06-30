@@ -51,15 +51,18 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	private int attempts;
 	private BoardModel reference;
 	private Set<List<ColorPegs>> combinationSet;
-	private List<ColorPegs> curAttempt;
+	private Set<List<ColorPegs>> possibleSolutions;
+ 	private List<ColorPegs> currentAttempt;
+	private boolean firstTry;
 
 	public DonaldKnuthBreaker(int seqLength, int attempts) {
 		this.seqLength = seqLength;
+		firstTry = true;
 		if (seqLength == 4) {
 			this.attempts = attempts;
 			reference = new BoardModel(seqLength, attempts);
 			this.generateSet();
-			curAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
+			currentAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
 					ColorPegs.values()[1]);
 		} else {
 			this.toggleGiveUp();
@@ -68,7 +71,14 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 	@Override
 	public List<ColorPegs> getAttempt() {
-			return new ArrayList<ColorPegs>();
+			if(firstTry) {
+				currentAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
+						ColorPegs.values()[1]);
+				firstTry = false;
+				return currentAttempt;
+			} else {
+				
+			}
 	}
 
 	public void generateSet() {
@@ -82,9 +92,10 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 	private void combinationGenerator(int position, List<Integer> indexes) {
 		if (position >= seqLength) {
-			List<ColorPegs> c = new ArrayList<ColorPegs>();
-			indexes.stream().map(index -> ColorPegs.values()[index]).forEach(peg -> c.add(peg));
-			this.combinationSet.add(c);
+			List<ColorPegs> combo = new ArrayList<ColorPegs>();
+			indexes.stream().map(index -> ColorPegs.values()[index]).forEach(peg -> combo.add(peg));
+			this.combinationSet.add(combo);
+			this.possibleSolutions.add(combo);
 			return;
 		}
 
@@ -94,4 +105,17 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		}
 	}
 
+	@Override
+	public void setLastClue(List<ColorPegs> lastClue) {
+		super.setLastClue(lastClue);
+		reference = new BoardModel(this.seqLength, 10);
+		reference.setSequenceToGuess(currentAttempt);
+		for(List<ColorPegs> seq : this.combinationSet) {
+			reference.addAttempt(seq);
+			if(!reference.getLastClue().equals(this.getLastClue())) {
+				this.possibleSolutions.remove(seq);
+			}
+			reference.removeLastAttemptAndClue();
+		}
+	}
 }

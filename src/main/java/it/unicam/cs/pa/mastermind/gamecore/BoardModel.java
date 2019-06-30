@@ -166,7 +166,7 @@ public class BoardModel extends Observable{
 	 * @return Map.Entry contenente l'ultima sequenza di <code>ColorPegs</code>
 	 *         inserita come tentativo e la relativa sequenza indizio.
 	 */
-	public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue() {
+	private Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue() {
 		Map.Entry<List<ColorPegs>, List<ColorPegs>> temp = null;
 		Iterator<Map.Entry<List<ColorPegs>, List<ColorPegs>>> it = this.board.entrySet().iterator();
 		while (it.hasNext()) {
@@ -188,6 +188,14 @@ public class BoardModel extends Observable{
 		} else {
 			return false;
 		}
+	}
+	
+	public List<ColorPegs> getLastAttempt(){
+		return this.lastAttemptAndClue().getKey();
+	}
+	
+	public List<ColorPegs> getLastClue(){
+		return this.lastAttemptAndClue().getValue();
 	}
 
 	/**
