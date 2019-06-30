@@ -14,7 +14,7 @@ public class InteractiveMakerFactory implements MakerFactory {
 
 	@Override
 	public CodeMaker getMaker(GameView view, int seqLength, int attempts) {
-		return new InteractiveMaker(view);
+		return new InteractiveMaker(view, seqLength);
 	}
 
 	@Override

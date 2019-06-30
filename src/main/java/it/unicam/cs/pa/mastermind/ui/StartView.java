@@ -15,7 +15,7 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public interface StartView {
+public interface StartView{
 
 	/**
 	 * Gestione dell'interazione con l'utente fisico circa la particolare

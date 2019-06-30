@@ -21,14 +21,17 @@ public class InteractiveMaker extends CodeMaker {
 	 */
 	private GameView view;
 
-	public InteractiveMaker(GameView newView) {
+	private int seqLength;
+	
+	public InteractiveMaker(GameView newView, int seqLength) {
 		view = newView;
+		this.seqLength = seqLength;
 	}
 
 	@Override
 	public List<ColorPegs> getCodeToGuess() {
 		List<ColorPegs> listToGuess = new ArrayList<ColorPegs>();
-		this.view.getIndexSequence(false).stream().map(index -> ColorPegs.values()[index - 1])
+		this.view.getIndexSequence(seqLength, false).stream().map(index -> ColorPegs.values()[index - 1])
 				.forEach(listToGuess::add);
 		return listToGuess;
 	}

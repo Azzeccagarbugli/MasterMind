@@ -8,7 +8,7 @@ package it.unicam.cs.pa.mastermind.gamecore;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class MatchState extends BoardObserver {
+public class MatchState implements Observer {
 
 	/**
 	 * Booleano relativo alla condizione di vittoria del Maker.
@@ -34,8 +34,7 @@ public class MatchState extends BoardObserver {
 	 * 
 	 * @param subject BoardModel coinvolta nel pattern <b>Observer</b>
 	 */
-	public MatchState(BoardModel subject) {
-		this.addSubject(subject);
+	public MatchState() {
 		makerVictory = false;
 		breakerVictory = false;
 		breakerSurrender = false;
@@ -113,14 +112,20 @@ public class MatchState extends BoardObserver {
 			return "There are no losers and no winners";
 	}
 
+	/**
+	 * Lo stato dell'oggetto si aggiorna grazie a oggetti <code>BoardModel</code>.
+	 */
 	@Override
-	public void update() {
-		if (getSubject().hasBreakerGuessed()) {
-			toggleBreakerWin(getSubject().attemptsInserted());
-			return;
-		} else if (getSubject().leftAttempts() <= 0) {
-			toggleMakerWin();
-			return;
+	public void update(Object o) {
+		if(o instanceof BoardModel) {
+			BoardModel temp = (BoardModel) o;
+			if (temp.hasBreakerGuessed()) {
+				toggleBreakerWin(temp.attemptsInserted());
+				return;
+			} else if (temp.leftAttempts() <= 0) {
+				toggleMakerWin();
+				return;
+			}
 		}
 	}
 }

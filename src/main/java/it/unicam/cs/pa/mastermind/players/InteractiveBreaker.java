@@ -29,9 +29,12 @@ public class InteractiveBreaker extends CodeBreaker {
 	 */
 	private GameView view;
 
-	public InteractiveBreaker(GameView newView) {
+	private int seqLength;
+	
+	public InteractiveBreaker(GameView newView, int seqLength) {
 		combinationAttempts = new HashSet<>();
 		view = newView;
+		this.seqLength = seqLength;
 	}
 
 	/**
@@ -47,7 +50,7 @@ public class InteractiveBreaker extends CodeBreaker {
 		List<Integer> listIndex;
 		do {
 			listAttempt = new ArrayList<ColorPegs>();
-			listIndex = this.view.getIndexSequence(true);
+			listIndex = this.view.getIndexSequence(seqLength, true);
 			if (listIndex.contains(0)) {
 				this.toggleGiveUp();
 				break;

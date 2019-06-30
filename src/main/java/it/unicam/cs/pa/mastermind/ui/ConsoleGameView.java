@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
+import it.unicam.cs.pa.mastermind.gamecore.SingleMatch;
 
 /**
  * Implementazione di una vista con interazione via console della classe
@@ -40,13 +42,13 @@ public class ConsoleGameView extends GameView {
 	}
 
 	@Override
-	public List<Integer> getIndexSequence(boolean isBreaker) {
+	public List<Integer> getIndexSequence(int seqLength, boolean isBreaker) {
 		List<Integer> indexPegs = new ArrayList<Integer>();
 		String isBreakerMsg = isBreaker ? "Defining a new attempt" : "Defining the sequence to guess";
 		String isBreakerAttempts = "Define the color of each of the pegs knowing that";
 
 		showMenuColor(isBreakerMsg, isBreakerAttempts, isBreaker);
-		for (int i = 1; i <= getSubject().getSequenceLength(); i++) {
+		for (int i = 1; i <= seqLength; i++) {
 			this.addIndexOfSinglePeg(indexPegs, i, isBreaker);
 			if (indexPegs.contains(0) && isBreaker) {
 				break;
@@ -69,11 +71,11 @@ public class ConsoleGameView extends GameView {
 	 * @param clueLabel    il nome dell'etichetta che si vuole dare al titolo degli
 	 *                     indizi generati
 	 */
-	private void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel) {
+	private void showGameBasingOnLenght(int size, String attemptLabel, String clueLabel, int leftAttempts) {
 		if (size < 5) {
 			System.out.format(String.format("\n┏%69s┓\n", " ").replace(' ', '━'));
-			System.out.format("%s %53s %26s \n", "┃", AnsiUtility.ANSI_CYAN_BOLD + getSubject().leftAttempts()
-					+ " attempts left" + AnsiUtility.ANSI_RESET, "┃");
+			System.out.format("%s %53s %26s \n", "┃",
+					AnsiUtility.ANSI_CYAN_BOLD + leftAttempts + " attempts left" + AnsiUtility.ANSI_RESET, "┃");
 			System.out.format(String.format("┣%34s┳%34s┫\n", " ", " ").replace(' ', '━'));
 			System.out.format("┃%31s %14s %30s %14s\n", attemptLabel, "┃", clueLabel, "┃");
 			System.out.format(String.format("┣%34s╋%34s┫\n", " ", " ").replace(' ', '━'));
@@ -195,12 +197,12 @@ public class ConsoleGameView extends GameView {
 	}
 
 	@Override
-	public void endingScreen(String gameEndingMessage) {
+	public void endingScreen(String gameEndingMessage, List<ColorPegs> seqToGuess) {
 		System.out.println(gameEndingMessage);
-		String endingScreen = "The correct sequence was: " + beautifyClues(getSubject().getSequenceToGuess(), false);
+		String endingScreen = "The correct sequence was: " + beautifyClues(seqToGuess, false);
 		System.out.println(beautifyEndMessage(endingScreen));
 	}
-	
+
 	private String beautifyEndMessage(String msg) {
 		String result = String.format("┏%60s┓\n", " ").replace(' ', '━');
 		result += String.format("   %s \n", msg);
@@ -347,19 +349,12 @@ public class ConsoleGameView extends GameView {
 	}
 
 	@Override
-	public void update() {
-		if (!getSubject().isBoardEmpty()) {
-			this.showGame();
-		}
-	}
-
-	@Override
-	public void showGame() {
-		List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = getSubject().getAttemptAndClueList();
+	public void showGame(BoardModel o) {
+		List<Map.Entry<List<ColorPegs>, List<ColorPegs>>> attemptsAndClues = o.getAttemptAndClueList();
 		if (!attemptsAndClues.isEmpty()) {
 			int dynamicTable = attemptsAndClues.get(0).getKey().size();
 			showGameBasingOnLenght(dynamicTable, AnsiUtility.ANSI_WHITE_BOLD + "Attempt" + AnsiUtility.ANSI_RESET,
-					AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET);
+					AnsiUtility.ANSI_WHITE_BOLD + "Clue" + AnsiUtility.ANSI_RESET, o.leftAttempts());
 			if (dynamicTable < 5) {
 				attemptsAndClues.stream().forEach(entry -> System.out.format("┃ %-34s %-80s",
 						beautifyAttempts(entry.getKey(), true), beautifyClues(entry.getValue(), true)));
@@ -368,6 +363,25 @@ public class ConsoleGameView extends GameView {
 						beautifyAttempts(entry.getKey(), false), beautifyClues(entry.getValue(), false)));
 			}
 		}
+	}
+
+	/**
+	 * Lo stato dell'oggetto si aggiorna grazie a oggetti <code>BoardModel</code> e oggetti <code>SingleMatch</code>.
+	 */
+	@Override
+	public void update(Object o) {
+		
+		if (o instanceof BoardModel) {
+			this.showGame((BoardModel) o);
+		}
+
+		if (o instanceof SingleMatch) {
+			SingleMatch temp = (SingleMatch) o;
+			System.out.println(temp.endingMessage());
+			String endingScreen = "The correct sequence was: " + beautifyClues(temp.getSequenceToGuess(), false);
+			System.out.println(beautifyEndMessage(endingScreen));
+		}
+
 	}
 
 }

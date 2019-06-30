@@ -13,7 +13,7 @@ import it.unicam.cs.pa.mastermind.ui.GameView;
 public class ConsoleGameViewFactory implements GameViewFactory {
 
 	@Override
-	public GameView getNewInstance() {
+	public GameView getGameView() {
 		return new ConsoleGameView();
 	}
 

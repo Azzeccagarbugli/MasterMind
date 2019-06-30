@@ -1,11 +1,12 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
+import java.util.List;
+
 import it.unicam.cs.pa.mastermind.factories.BreakerFactory;
 import it.unicam.cs.pa.mastermind.factories.GameViewFactory;
 import it.unicam.cs.pa.mastermind.factories.MakerFactory;
 import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.CodeMaker;
-import it.unicam.cs.pa.mastermind.ui.AnsiUtility;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
@@ -15,7 +16,7 @@ import it.unicam.cs.pa.mastermind.ui.GameView;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class SingleMatch {
+public class SingleMatch extends Observable implements Observer{
 
 	/**
 	 * Il controllore associato con l'istanza di partita in corso.
@@ -44,6 +45,10 @@ public class SingleMatch {
 	MatchState gameState;
 
 	/**
+	 * Copia della sequenza da indovinare nel match corrente
+	 */
+	List<ColorPegs> sequenceToGuess;
+	/**
 	 * Costruttore di una singola partita
 	 * 
 	 * @param sequenceLength relativa alle sequenze di <code>CodePegs</code>
@@ -63,15 +68,27 @@ public class SingleMatch {
 			MakerFactory mFactory) {
 
 		BoardModel newModel = new BoardModel(sequenceLength, attempts);
+		
+		this.gameState = new MatchState();
+		this.view = viewFactory.getGameView();
+		newModel.addObserver(gameState);
+		newModel.addObserver(view);
+		newModel.addObserver(this);
+		
+		this.addObserver(this.view);
 		this.controller = new BoardController(newModel);
-		this.view = viewFactory.getGameView(newModel);
-
 		this.maker = mFactory.getMaker(view, sequenceLength, attempts);
 		this.breaker = bFactory.getBreaker(view, sequenceLength, attempts);
-
-		this.gameState = new MatchState(newModel);
 	}
 
+	/**
+	 * Metodo che comunica l'esito finale della partita corrente.
+	 * 
+	 * @return String che comunica il vincitore attuale della partita
+	 */
+	public String endingMessage() {
+		return gameState.getMessage();
+	}
 	/**
 	 * Avvio e gestione completa di una singola partita di gioco.
 	 */
@@ -80,7 +97,7 @@ public class SingleMatch {
 		do {
 			this.singleTurn();
 		} while (!(gameState.getHasMakerWon() || gameState.getHasBreakerWon()));
-		view.endingScreen(beautifyEndMessage(gameState.getMessage()));
+		this.notifyObservers();
 	}
 
 	private void singleTurn() {
@@ -91,10 +108,15 @@ public class SingleMatch {
 		}
 	}
 
-	private String beautifyEndMessage(String msg) {
-		String result = String.format("\n┏%64s┓\n", " ").replace(' ', '━');
-		result += String.format("   %s \n", AnsiUtility.ANSI_CYAN_BOLD + msg + AnsiUtility.ANSI_RESET);
-		result += String.format("┗%64s┛\n", " ", " ").replace(' ', '━');
-		return result;
+	@Override
+	public void update(Object o) {
+		if(o instanceof BoardModel) {
+			BoardModel temp = (BoardModel) o;
+			this.sequenceToGuess = temp.getSequenceToGuess();
+		}
+	}
+
+	public List<ColorPegs> getSequenceToGuess() {
+		return sequenceToGuess;
 	}
 }

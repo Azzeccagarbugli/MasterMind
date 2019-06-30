@@ -14,7 +14,7 @@ public class InteractiveBreakerFactory implements BreakerFactory {
 
 	@Override
 	public CodeBreaker getBreaker(GameView view, int seqLength, int attempts) {
-		return new InteractiveBreaker(view);
+		return new InteractiveBreaker(view, seqLength);
 	}
 
 	@Override

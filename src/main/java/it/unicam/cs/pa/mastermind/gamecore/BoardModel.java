@@ -15,13 +15,7 @@ import java.util.stream.IntStream;
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
  */
-public class BoardModel {
-
-	/**
-	 * Una lista di <code>BoardObserver</code> in cui verranno immagazinati gli
-	 * observer dell'istanza attiva secondo il pattern <b>Observer</b>.
-	 */
-	private List<BoardObserver> observers;
+public class BoardModel extends Observable{
 
 	/**
 	 * Sequenza di <code>ColorPegs</code> da indovinare.
@@ -59,7 +53,6 @@ public class BoardModel {
 		this.sequenceToGuess = new ArrayList<ColorPegs>();
 		this.sequenceLength = sequenceLength;
 		this.maxAttempts = maxAttempts;
-		observers = new ArrayList<BoardObserver>();
 	}
 
 	/**
@@ -222,26 +215,4 @@ public class BoardModel {
 			return false;
 	}
 
-	/**
-	 * Metodo il quale registra un nuovo <code>BoardObserver</code> e notifica tutti
-	 * i <code>BoardObserver</code> attualmente associati all'istanza di
-	 * <code>BoardModel</code>.
-	 * 
-	 * @param observer nuova istanza di <code>BoardObserver</code> da aggiungere
-	 */
-	public void addObserver(BoardObserver observer) {
-		observers.add(observer);
-		this.notifyObservers();
-	}
-
-	/**
-	 * Metodo che notifica ogni observer iscritto al registro <code>observers</code>
-	 * del cambio di stato dell'istanza di <code>BoardModel</code> su cui è
-	 * chiamato.
-	 */
-	private void notifyObservers() {
-		for (BoardObserver obs : observers) {
-			obs.update();
-		}
-	}
 }
