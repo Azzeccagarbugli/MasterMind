@@ -87,11 +87,15 @@ Design pattern impiegati
 1. **Model View Controller** [2]_
 Rappresenta la struttura alla base del funzionamento delle singole partite. 
 È stata implementata tramite le classi ``GameView``, ``BoardModel`` e ``BoardCoordinator``, classi le cui istanze comunicano all'interno di ``SingleMatch``.
+La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Model View Controller** ma anche nel pattern **Observer**.
 
 2. **Observer** [3]_
-Implementato fornendo come classe da osservare ``BoardModel`` e come classi che osservano ``GameView`` e ``MatchState``, classi estensione di ``BoardObserver``. 
 Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. 
 La sua implementazione all'interno di questo progetto è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
+L'implementazione fornita si sostanzia nelle classi ``Observer`` e ``Observable``, rispettivamente interfaccia e classe astratta.
+Esempi di relazioni tra classi nel progetto che rientrano nel pattern **Observer** sono quelle tra ``BoardModel`` *(``Observable``)* e ``MatchState``, ``GameView`` e ``SingleMatch`` *(``Observer``)*
+e tra ``SingleMatch`` *(``Observable``)* e ``GameView`` *(``Observer``)*. 
+La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Observer** ma anche nel pattern **Model View Controller**.
 
 3. **Singleton** [4]_
 Presente all'interno della classe ``ConsoleStartView``, esso garantisce che siano presenti **singole** istanze di tali classe all'interno del progetto.
