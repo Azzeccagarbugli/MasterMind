@@ -61,7 +61,7 @@ Esempi di implementazioni già incluse nella release attuale del progetto sono:
 
 * **InteractiveBreaker, RandomBotBreaker, DonaldKnuthBreaker**, estensioni di ``CodeBreaker``.
 
-* **InteractiveBreakerFactory, RandomBotBreakerFactory, DonaldKnuthBreakerFactory**, estensioni di ``BreakerFactory``.
+* **InteractiveBreakerFactory, RandomBotBreakerFactory, DonaldKnuthBreakerFactory**, implementazioni di ``BreakerFactory``.
 
 Per ulteriori informazioni circa le classi elencate si rimanda alle relative :doc:`sezioni <source/packages>`. 
 
