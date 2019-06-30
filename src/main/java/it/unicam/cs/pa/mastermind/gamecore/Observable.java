@@ -16,11 +16,7 @@ public abstract class Observable {
 	 * Una lista di <code>Observer</code> in cui verranno immagazinati gli observer
 	 * dell'istanza attiva secondo il pattern <b>Observer</b>.
 	 */
-	private List<Observer> observers;
-
-	public void setupObservers() {
-		this.observers = new ArrayList<Observer>();
-	}
+	private List<Observer> observers = new ArrayList<Observer>();
 
 	/**
 	 * Metodo il quale registra un nuovo <code>BoardObserver</code> e notifica tutti
@@ -30,9 +26,6 @@ public abstract class Observable {
 	 * @param obs nuova istanza di <code>Observer</code> da aggiungere
 	 */
 	public void addObserver(Observer obs) {
-		if(observers == null) {
-			this.setupObservers();
-		}
 		observers.add(obs);
 	}
 

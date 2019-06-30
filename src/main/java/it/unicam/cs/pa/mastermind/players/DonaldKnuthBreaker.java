@@ -1,8 +1,11 @@
 package it.unicam.cs.pa.mastermind.players;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
 
 /**
@@ -45,19 +48,45 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 	private int seqLength;
 	private int attempts;
+	private BoardModel reference;
+	private Set<List<ColorPegs>> combinationSet;
 
 	public DonaldKnuthBreaker(int seqLength, int attempts) {
 		this.seqLength = seqLength;
 		this.attempts = attempts;
+		reference = new BoardModel(seqLength, attempts);
 	}
 
 	@Override
 	public List<ColorPegs> getAttempt() {
-		if(seqLength != 4) {
+		if (seqLength != 4) {
 			this.toggleGiveUp();
 			return new ArrayList<ColorPegs>();
 		} else {
 			return new ArrayList<ColorPegs>();
+		}
+	}
+
+	public void generateSet() {
+		combinationSet = new HashSet<List<ColorPegs>>();
+		List<Integer> indexes = new ArrayList<Integer>();
+		for (int i = 1; i <= seqLength; i++) {
+			indexes.add(0);
+		}
+		combinationGenerator(0, indexes);
+	}
+
+	private void combinationGenerator(int position, List<Integer> indexes) {
+		if (position >= seqLength) {
+			List<ColorPegs> c = new ArrayList<ColorPegs>();
+			indexes.stream().map(index -> ColorPegs.values()[index]).forEach(peg -> c.add(peg));
+			this.combinationSet.add(c);
+			return;
+		}
+
+		for (int i = 0; i < ColorPegs.values().length; i++) {
+			indexes.set(position, i);
+			combinationGenerator(position + 1, indexes);
 		}
 	}
 
