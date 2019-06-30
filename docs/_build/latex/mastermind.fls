@@ -345,11 +345,6 @@ INPUT /usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/adobe/courier/pcrb8t.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm
-INPUT diagram1.png
-INPUT ./diagram1.png
-INPUT ./diagram1.png
-INPUT diagram1.png
-INPUT ./diagram1.png
 INPUT mastermind.ind
 INPUT mastermind.ind
 INPUT mastermind.aux

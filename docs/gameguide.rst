@@ -24,6 +24,10 @@ Avviando il gioco si avrà accesso alla seguente schermata:
 
 .. image:: _static/start.png
 
+Tale interfaccia è mostrata poichè l'avvio di default è eseguito da ``ConsoleMainManager``, in cui abbiamo ``StartView`` e ``GameViewFactory`` che lanciano il gioco all'interno di una bash interattiva.
+
+Ovviamente è possibile modificare tale possibilità sviluppando per esempio un interfaccia grafica, utilizzando software come **JavaFX**, implementando ``StartView`` e ``GameViewFactory`` in modo differente.
+
 Da quest'ultima si potrà scegliere quale giocatore selezionare per il effettuare il ruolo di **codificatore**.
 Una volta inserito il valore desiderato sarà possibile selezionare il giocatore **decodificatore** all'interno di tale interfaccia:
 

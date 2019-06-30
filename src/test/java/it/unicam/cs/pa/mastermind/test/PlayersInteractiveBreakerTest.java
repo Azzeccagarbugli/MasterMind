@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.BoardController;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
-import it.unicam.cs.pa.mastermind.gamecore.MatchState;
 
 /**
  * Test di controllo utili alla generazione di un player decodficatore di natura
@@ -20,8 +19,6 @@ import it.unicam.cs.pa.mastermind.gamecore.MatchState;
  */
 class PlayersInteractiveBreakerTest {
 
-	private MatchState gameState;
-	
 	/**
 	 * Test method for
 	 * {@link it.unicam.cs.pa.mastermind.players.InteractiveBreaker#getAttempt(int, it.unicam.cs.pa.mastermind.ui.InteractionView)}.
@@ -29,8 +26,6 @@ class PlayersInteractiveBreakerTest {
 	@Test
 	void testGetAttempt() {
 		BoardModel tempBoard = new BoardModel(4, 9);
-		gameState = new MatchState();
-		tempBoard.addObserver(gameState);
 		BoardController boardController = new BoardController(tempBoard);
 		boardController.insertCodeToGuess(Arrays.asList(ColorPegs.RED, ColorPegs.RED, ColorPegs.RED, ColorPegs.YELLOW));
 		assertEquals(tempBoard.getSequenceToGuess(),

@@ -179,6 +179,8 @@ deve indovinare il codice segreto composto dal suo avversario, detto <strong>«c
 <h2>Singola partita<a class="headerlink" href="#singola-partita" title="Link a questa intestazione">¶</a></h2>
 <p>Avviando il gioco si avrà accesso alla seguente schermata:</p>
 <img alt="_images/start.png" src="_images/start.png" />
+<p>Tale interfaccia è mostrata poichè l’avvio di default è eseguito da <code class="docutils literal notranslate"><span class="pre">ConsoleMainManager</span></code>, in cui abbiamo <code class="docutils literal notranslate"><span class="pre">StartView</span></code> e <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> che lanciano il gioco all’interno di una bash interattiva.</p>
+<p>Ovviamente è possibile modificare tale possibilità sviluppando per esempio un interfaccia grafica, utilizzando software come <strong>JavaFX</strong>, implementando <code class="docutils literal notranslate"><span class="pre">StartView</span></code> e <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> in modo differente.</p>
 <p>Da quest’ultima si potrà scegliere quale giocatore selezionare per il effettuare il ruolo di <strong>codificatore</strong>.
 Una volta inserito il valore desiderato sarà possibile selezionare il giocatore <strong>decodificatore</strong> all’interno di tale interfaccia:</p>
 <img alt="_images/decod.png" src="_images/decod.png" />

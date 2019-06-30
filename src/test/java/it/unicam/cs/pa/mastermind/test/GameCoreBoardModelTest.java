@@ -37,16 +37,12 @@ class GameCoreBoardModelTest {
 	List<ColorPegs> attempt = new ArrayList<ColorPegs>(
 			Arrays.asList(ColorPegs.RED, ColorPegs.BLACK, ColorPegs.GREEN, ColorPegs.BLUE));
 
-	private MatchState gameState;
-	
 	/**
 	 * Setup of the board runned before each other test.
 	 */
 	@BeforeEach
 	void setUp() {
 		board = new BoardModel(sequenceLenght, maxAttempts);
-		gameState = new MatchState();
-		board.addObserver(gameState);
 		boardContr = new BoardController(board);
 	}
 
