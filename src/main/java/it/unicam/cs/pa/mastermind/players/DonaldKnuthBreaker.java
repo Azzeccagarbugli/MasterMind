@@ -118,14 +118,14 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			}
 			
 			int maxCount = Collections.max(clueCounter.values());
-			guessScores.put(guess, maxCount);
+			guessScores.put(guess, possibleSolutions.size() - maxCount);
 
 			this.resetClueCounter(clueCounter);
 		}
 
 		// Colleziono i possibili tentativi con il numero maggiore di tutti di punti
-		int minCount = Collections.min(guessScores.values());
-		guessScores.entrySet().stream().filter(entry -> entry.getValue() == minCount)
+		int maxCount = Collections.max(guessScores.values());
+		guessScores.entrySet().stream().filter(entry -> entry.getValue() == maxCount)
 				.forEach(entry -> nextAttempts.add(entry.getKey()));
 
 		for (List<ColorPegs> possibleSolution : nextAttempts) {
