@@ -1,9 +1,13 @@
 package it.unicam.cs.pa.mastermind.players;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
@@ -20,45 +24,19 @@ import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
  */
 public class DonaldKnuthBreaker extends CodeBreaker {
 
-	/*
-	 * Create the set S of 1296 possible codes (1111, 1112 ... 6665, 6666) Start
-	 * with initial guess 1122 (Knuth gives examples showing that other first
-	 * guesses such as 1123, 1234 do not win in five tries on every code) Play the
-	 * guess to get a response of colored and white pegs. If the response is four
-	 * colored pegs, the game is won, the algorithm terminates. Otherwise, remove
-	 * from S any code that would not give the same response if it (the guess) were
-	 * the code. Apply minimax technique to find a next guess as follows: For each
-	 * possible guess, that is, any unused code of the 1296 not just those in S,
-	 * calculate how many possibilities in S would be eliminated for each possible
-	 * colored/white peg score. The score of a guess is the minimum number of
-	 * possibilities it might eliminate from S. A single pass through S for each
-	 * unused code of the 1296 will provide a hit count for each colored/white peg
-	 * score found; the colored/white peg score with the highest hit count will
-	 * eliminate the fewest possibilities; calculate the score of a guess by using
-	 * "minimum eliminated" = "count of elements in S" - (minus)
-	 * "highest hit count". From the set of guesses with the maximum score, select
-	 * one as the next guess, choosing a member of S whenever possible. (Knuth
-	 * follows the convention of choosing the guess with the least numeric value
-	 * e.g. 2345 is lower than 3456. Knuth also gives an example showing that in
-	 * some cases no member of S will be among the highest scoring guesses and thus
-	 * the guess cannot win on the next turn, yet will be necessary to assure a win
-	 * in five.) Repeat from step 3.
-	 * 
-	 * https://en.wikipedia.org/wiki/Mastermind_(board_game)
-	 */
-
 	private int seqLength;
 	private int attempts;
 	private BoardModel reference;
 	private Set<List<ColorPegs>> combinationSet;
-	private Set<List<ColorPegs>> possibleSolutions;
+	private Set<List<ColorPegs>> possibleSolutions; // S
 	private List<ColorPegs> currentAttempt;
 	private boolean firstTry;
 
 	public DonaldKnuthBreaker(int seqLength, int attempts) {
 		this.seqLength = seqLength;
+		this.attempts = attempts;
 		firstTry = true;
-		if (seqLength == 4) {
+		if (this.seqLength == 4 && this.attempts >= 5) {
 			this.attempts = attempts;
 			reference = new BoardModel(seqLength, attempts);
 			this.generateSet();
@@ -77,13 +55,14 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			firstTry = false;
 			return currentAttempt;
 		} else {
-			// Knuth!
+			currentAttempt = this.minmax();
+			return currentAttempt;
 		}
-		return null;
 	}
 
 	public void generateSet() {
 		combinationSet = new HashSet<List<ColorPegs>>();
+		possibleSolutions = new HashSet<List<ColorPegs>>();
 		List<Integer> base = new ArrayList<Integer>();
 		for (int i = 1; i <= seqLength; i++) {
 			base.add(0);
@@ -95,6 +74,7 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		if (position >= seqLength) {
 			List<ColorPegs> combo = new ArrayList<ColorPegs>();
 			indexes.stream().map(index -> ColorPegs.values()[index]).forEach(peg -> combo.add(peg));
+
 			this.combinationSet.add(combo);
 			this.possibleSolutions.add(combo);
 			return;
@@ -106,16 +86,86 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		}
 	}
 
+	private void addClueCounter(Map<List<ColorPegs>, Integer> clueCounter, List<ColorPegs> clue) {
+		if (clueCounter.containsKey(clue)) {
+			clueCounter.replace(clue, clueCounter.get(clue) + 1);
+		} else {
+			clueCounter.put(clue, 1);
+		}
+	}
+
+	private void resetClueCounter(Map<List<ColorPegs>, Integer> clueCounter) {
+		clueCounter.clear();
+	}
+
+	private List<ColorPegs> minmax() {
+
+		Map<List<ColorPegs>, Integer> clueCounter = new LinkedHashMap<>();
+
+		// Per ogni possibile combinazione riporta il numero minimo di eliminati dalle
+		// possibili soluzioni
+		Map<List<ColorPegs>, Integer> guessScores = new LinkedHashMap<>();
+		List<List<ColorPegs>> nextAttempts = new ArrayList<List<ColorPegs>>();
+
+		for (List<ColorPegs> guess : this.combinationSet) {
+			for (List<ColorPegs> possibleSolution : this.possibleSolutions) {
+				reference = new BoardModel(this.seqLength, 10);
+				reference.setSequenceToGuess(possibleSolution);
+				reference.addAttempt(guess);
+				addClueCounter(clueCounter, reference.getLastClue());
+			}
+			
+			clueCounter.entrySet().stream()
+					.forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
+			System.out.println("FINE clueCounter di " + guess);
+			int maxCount = Collections.max(clueCounter.values());
+			guessScores.put(guess, (possibleSolutions.size() - maxCount));
+
+			this.resetClueCounter(clueCounter);
+		}
+
+		// Colleziono i possibili tentativi con il numero maggiore di tutti di punti
+		int maxCount = Collections.max(guessScores.values());
+		guessScores.entrySet().stream().filter(entry -> entry.getValue() == maxCount)
+				.forEach(entry -> nextAttempts.add(entry.getKey()));
+
+		for (List<ColorPegs> possibleSolution : nextAttempts) {
+			for (List<ColorPegs> compatibleSolution : this.possibleSolutions) {
+				if (compatibleSolution.equals(possibleSolution)) {
+					return possibleSolution;
+				}
+			}
+		}
+
+		for (List<ColorPegs> possibleSolution : nextAttempts) {
+			for (List<ColorPegs> compatibleSolution : this.combinationSet) {
+				if (compatibleSolution.equals(possibleSolution)) {
+					return possibleSolution;
+				}
+			}
+		}
+
+		return currentAttempt;
+	}
+
 	@Override
 	public void setLastClue(List<ColorPegs> lastClue) {
 		super.setLastClue(lastClue);
 		reference = new BoardModel(this.seqLength, 10);
 		reference.setSequenceToGuess(currentAttempt);
-		for (List<ColorPegs> seq : this.combinationSet) {
+		Iterator<List<ColorPegs>> it = this.possibleSolutions.iterator();
+		while (it.hasNext()) {
+			List<ColorPegs> seq = it.next();
 			reference.addAttempt(seq);
+			System.out.println("Last Clue corrente: " + this.getLastClue());
+			System.out.println("Ultimo tentativo: " + this.currentAttempt);
+			System.out.println("Sequenza tentativo corrente: " + seq);
+			System.out.println("Indizio correlato: " + reference.getLastClue());
 			if (!reference.getLastClue().equals(this.getLastClue())) {
 				this.possibleSolutions.remove(seq);
+				it = this.possibleSolutions.iterator();
 			}
+			System.out.println("PossibleSolutions: " + possibleSolutions.size());
 			reference.removeLastAttemptAndClue();
 		}
 	}
