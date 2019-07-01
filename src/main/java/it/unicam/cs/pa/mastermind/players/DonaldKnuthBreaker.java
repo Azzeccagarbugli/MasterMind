@@ -172,11 +172,6 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		return currentAttempt;
 	}
 
-	@Override
-	public void setLastClue(List<ColorPegs> lastClue) {
-		super.setLastClue(lastClue);
-		this.solutionsFilter();
-	}
 
 	/**
 	 * Operazione di filtro della struttura <code>possibleSolutions</code>
