@@ -53,9 +53,11 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			currentAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
 					ColorPegs.values()[1]);
 			firstTry = false;
+			combinationSet.remove(currentAttempt);
 			return currentAttempt;
 		} else {
 			currentAttempt = this.minmax();
+			combinationSet.remove(currentAttempt);
 			return currentAttempt;
 		}
 	}
@@ -115,18 +117,15 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 				addClueCounter(clueCounter, reference.getLastClue());
 			}
 			
-			clueCounter.entrySet().stream()
-					.forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue()));
-			System.out.println("FINE clueCounter di " + guess);
 			int maxCount = Collections.max(clueCounter.values());
-			guessScores.put(guess, (possibleSolutions.size() - maxCount));
+			guessScores.put(guess, maxCount);
 
 			this.resetClueCounter(clueCounter);
 		}
 
 		// Colleziono i possibili tentativi con il numero maggiore di tutti di punti
-		int maxCount = Collections.max(guessScores.values());
-		guessScores.entrySet().stream().filter(entry -> entry.getValue() == maxCount)
+		int minCount = Collections.min(guessScores.values());
+		guessScores.entrySet().stream().filter(entry -> entry.getValue() == minCount)
 				.forEach(entry -> nextAttempts.add(entry.getKey()));
 
 		for (List<ColorPegs> possibleSolution : nextAttempts) {
@@ -151,22 +150,20 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	@Override
 	public void setLastClue(List<ColorPegs> lastClue) {
 		super.setLastClue(lastClue);
-		reference = new BoardModel(this.seqLength, 10);
-		reference.setSequenceToGuess(currentAttempt);
 		Iterator<List<ColorPegs>> it = this.possibleSolutions.iterator();
 		while (it.hasNext()) {
 			List<ColorPegs> seq = it.next();
-			reference.addAttempt(seq);
-			System.out.println("Last Clue corrente: " + this.getLastClue());
-			System.out.println("Ultimo tentativo: " + this.currentAttempt);
-			System.out.println("Sequenza tentativo corrente: " + seq);
-			System.out.println("Indizio correlato: " + reference.getLastClue());
+			BoardModel reference = new BoardModel(seqLength, 10);
+			reference.setSequenceToGuess(seq);
+			reference.addAttempt(currentAttempt);
 			if (!reference.getLastClue().equals(this.getLastClue())) {
-				this.possibleSolutions.remove(seq);
-				it = this.possibleSolutions.iterator();
+				it.remove();
 			}
-			System.out.println("PossibleSolutions: " + possibleSolutions.size());
-			reference.removeLastAttemptAndClue();
+			
+			//Da risolvere
+			if(possibleSolutions.size() == 0) {
+				this.toggleGiveUp();
+			}
 		}
 	}
 }
