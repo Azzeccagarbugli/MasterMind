@@ -2,13 +2,10 @@ package it.unicam.cs.pa.mastermind.players;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import it.unicam.cs.pa.mastermind.gamecore.BoardModel;
 import it.unicam.cs.pa.mastermind.gamecore.ColorPegs;
@@ -27,11 +24,18 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	private int seqLength;
 	private int attempts;
 	private BoardModel reference;
-	private Set<List<ColorPegs>> combinationSet;
-	private Set<List<ColorPegs>> possibleSolutions; // S
+	private ArrayList<List<ColorPegs>> combinationSet;
+	private ArrayList<List<ColorPegs>> possibleSolutions; // S
 	private List<ColorPegs> currentAttempt;
 	private boolean firstTry;
 
+	/**
+	 * Viene inizializzato il player <code>DonaldKnuthBreaker</code> mediante il suo
+	 * costruttore.
+	 * 
+	 * @param seqLength la lunghezza della sequenza segreto
+	 * @param attempts  il numero di tentativi disponibili
+	 */
 	public DonaldKnuthBreaker(int seqLength, int attempts) {
 		this.seqLength = seqLength;
 		this.attempts = attempts;
@@ -62,9 +66,12 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		}
 	}
 
+	/**
+	 * Viene generato il set contenente le 1296 combinazioni possibili.
+	 */
 	public void generateSet() {
-		combinationSet = new HashSet<List<ColorPegs>>();
-		possibleSolutions = new HashSet<List<ColorPegs>>();
+		combinationSet = new ArrayList<List<ColorPegs>>();
+		possibleSolutions = new ArrayList<List<ColorPegs>>();
 		List<Integer> base = new ArrayList<Integer>();
 		for (int i = 1; i <= seqLength; i++) {
 			base.add(0);
@@ -88,6 +95,14 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		}
 	}
 
+	/**
+	 * Metodo privato che garantisce l'incremento di un valore intero se una
+	 * specifica lista di soluzioni è già stata trovata.
+	 * 
+	 * @param clueCounter la mappa che racchiude l'insieme di liste di indizi
+	 *                    associate ad un proprio counter
+	 * @param clue        la lista di indizi che si vuole reperire
+	 */
 	private void addClueCounter(Map<List<ColorPegs>, Integer> clueCounter, List<ColorPegs> clue) {
 		if (clueCounter.containsKey(clue)) {
 			clueCounter.replace(clue, clueCounter.get(clue) + 1);
@@ -96,10 +111,25 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		}
 	}
 
+	/**
+	 * Reset effettivo della mappa passata come parametro locale.
+	 * 
+	 * @param clueCounter la mappa sulla quale si vuole effettuare il
+	 *                    <code>clear</code>.
+	 */
 	private void resetClueCounter(Map<List<ColorPegs>, Integer> clueCounter) {
 		clueCounter.clear();
 	}
 
+	/**
+	 * Il minimax, nella teoria delle decisioni, è un metodo per minimizzare la
+	 * massima perdita possibile.
+	 * 
+	 * Nel caso qui riporato ha il compito di trovare la migliore lista tentativo
+	 * possibile per il prossimo turno.
+	 * 
+	 * @return la migliore lista di <code>ColorPegs</code> per il prossimo turno
+	 */
 	private List<ColorPegs> minmax() {
 
 		Map<List<ColorPegs>, Integer> clueCounter = new LinkedHashMap<>();
@@ -116,7 +146,7 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 				reference.addAttempt(guess);
 				addClueCounter(clueCounter, reference.getLastClue());
 			}
-			
+
 			int maxCount = Collections.max(clueCounter.values());
 			guessScores.put(guess, possibleSolutions.size() - maxCount);
 
@@ -159,9 +189,9 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			if (!reference.getLastClue().equals(this.getLastClue())) {
 				it.remove();
 			}
-			
-			//Da risolvere
-			if(possibleSolutions.size() == 0) {
+
+			// Da risolvere
+			if (possibleSolutions.size() == 0) {
 				this.toggleGiveUp();
 			}
 		}

@@ -126,4 +126,5 @@ public class SingleMatch extends Observable implements Observer {
 	public List<ColorPegs> getSequenceToGuess() {
 		return sequenceToGuess;
 	}
+	
 }

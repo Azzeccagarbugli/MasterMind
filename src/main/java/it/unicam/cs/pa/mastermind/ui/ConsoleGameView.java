@@ -205,9 +205,9 @@ public class ConsoleGameView extends GameView {
 	}
 
 	private String beautifyEndMessage(String msg) {
-		String result = String.format("┏%60s┓\n", " ").replace(' ', '━');
+		String result = String.format("\n┏%70s┓\n", " ").replace(' ', '━');
 		result += String.format("   %s \n", msg);
-		result += String.format("┗%60s┛", " ", " ").replace(' ', '━');
+		result += String.format("┗%70s┛", " ", " ").replace(' ', '━');
 		return result;
 	}
 
@@ -365,7 +365,7 @@ public class ConsoleGameView extends GameView {
 			}
 		}
 	}
-
+	
 	/**
 	 * Lo stato dell'oggetto si aggiorna grazie a oggetti <code>BoardModel</code> e oggetti <code>SingleMatch</code>.
 	 */
@@ -378,7 +378,7 @@ public class ConsoleGameView extends GameView {
 
 		if (o instanceof SingleMatch) {
 			SingleMatch temp = (SingleMatch) o;
-			System.out.println(temp.endingMessage());
+			System.out.println(beautifyEndMessage(temp.endingMessage()));
 			String endingScreen = "The correct sequence was: " + beautifyClues(temp.getSequenceToGuess(), false);
 			System.out.println(beautifyEndMessage(endingScreen));
 		}
