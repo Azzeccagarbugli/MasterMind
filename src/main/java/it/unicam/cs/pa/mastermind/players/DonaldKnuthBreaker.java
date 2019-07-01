@@ -125,7 +125,7 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	 * Il minimax, nella teoria delle decisioni, è un metodo per minimizzare la
 	 * massima perdita possibile.
 	 * 
-	 * Nel caso qui riporato ha il compito di trovare la migliore lista tentativo
+	 * Nel caso qui riportato ha il compito di trovare la migliore lista tentativo
 	 * possibile per il prossimo turno.
 	 * 
 	 * @return la migliore lista di <code>ColorPegs</code> per il prossimo turno
@@ -133,9 +133,6 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	private List<ColorPegs> minmax() {
 
 		Map<List<ColorPegs>, Integer> clueCounter = new LinkedHashMap<>();
-
-		// Per ogni possibile combinazione riporta il numero minimo di eliminati dalle
-		// possibili soluzioni
 		Map<List<ColorPegs>, Integer> guessScores = new LinkedHashMap<>();
 		List<List<ColorPegs>> nextAttempts = new ArrayList<List<ColorPegs>>();
 
@@ -153,24 +150,19 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			this.resetClueCounter(clueCounter);
 		}
 
-		// Colleziono i possibili tentativi con il numero maggiore di tutti di punti
 		int maxCount = Collections.max(guessScores.values());
 		guessScores.entrySet().stream().filter(entry -> entry.getValue() == maxCount)
 				.forEach(entry -> nextAttempts.add(entry.getKey()));
 
-		for (List<ColorPegs> possibleSolution : nextAttempts) {
-			for (List<ColorPegs> compatibleSolution : this.possibleSolutions) {
-				if (compatibleSolution.equals(possibleSolution)) {
-					return possibleSolution;
-				}
+		for (List<ColorPegs> newAttempt : nextAttempts) {
+			if (possibleSolutions.contains(newAttempt)) {
+				return newAttempt;
 			}
 		}
 
-		for (List<ColorPegs> possibleSolution : nextAttempts) {
-			for (List<ColorPegs> compatibleSolution : this.combinationSet) {
-				if (compatibleSolution.equals(possibleSolution)) {
-					return possibleSolution;
-				}
+		for (List<ColorPegs> newAttempt : nextAttempts) {
+			if (combinationSet.contains(newAttempt)) {
+				return newAttempt;
 			}
 		}
 
@@ -180,6 +172,14 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 	@Override
 	public void setLastClue(List<ColorPegs> lastClue) {
 		super.setLastClue(lastClue);
+		this.solutionsFilter();
+	}
+
+	/**
+	 * Operazione di filtro della struttura <code>possibleSolutions</code>
+	 * necessaria secondo l'algoritmo.
+	 */
+	private void solutionsFilter() {
 		Iterator<List<ColorPegs>> it = this.possibleSolutions.iterator();
 		while (it.hasNext()) {
 			List<ColorPegs> seq = it.next();
@@ -188,12 +188,13 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			reference.addAttempt(currentAttempt);
 			if (!reference.getLastClue().equals(this.getLastClue())) {
 				it.remove();
+
+				if (possibleSolutions.size() == 0) {
+					this.toggleGiveUp();
+					break;
+				}
 			}
 
-			// Da risolvere
-			if (possibleSolutions.size() == 0) {
-				this.toggleGiveUp();
-			}
 		}
 	}
 }

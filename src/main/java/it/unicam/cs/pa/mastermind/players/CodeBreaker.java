@@ -26,18 +26,34 @@ public abstract class CodeBreaker {
 	 */
 	private List<ColorPegs> lastClue;
 
+	/**
+	 * Verifica che il giocatore si sia arreso.
+	 * @return boolean
+	 */
 	public boolean isGiveUp() {
 		return giveUp;
 	}
 
+	/**
+	 * Imposta una volontà del giocatore di arrendersi o meno.
+	 * @param giveUp
+	 */
 	public void setGiveUp(boolean giveUp) {
 		this.giveUp = giveUp;
 	}
 
+	/**
+	 * Ritorna il valore memorizzato dell'ultima sequenza indizio relativa all'ultimo tentativo generato.
+	 * @return
+	 */
 	public List<ColorPegs> getLastClue() {
 		return lastClue;
 	}
 
+	/**
+	 * Imposta il valore memorizzato dell'ultima sequenza indizio relativa all'ultimo tentativo generato.
+	 * @param lastClue
+	 */
 	public void setLastClue(List<ColorPegs> lastClue) {
 		this.lastClue = lastClue;
 	}

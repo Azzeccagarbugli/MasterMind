@@ -6,7 +6,9 @@ import it.unicam.cs.pa.mastermind.ui.StartView;
 
 /**
  * <b>Responsabilità</b>: permettere il corretto svolgimento del gioco,
- * monitorando e tenendo traccia di una partita di MasterMind alla volta
+ * monitorando e tenendo traccia di una partita di MasterMind alla volta.
+ * <b>Contratto</b>: le classi che estendono <code>MainManager</code> devono
+ * includere al loro interno il metodo di avvio <code>main</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

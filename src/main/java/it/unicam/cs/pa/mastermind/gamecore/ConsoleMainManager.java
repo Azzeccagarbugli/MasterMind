@@ -26,7 +26,9 @@ public class ConsoleMainManager extends MainManager {
 	}
 
 	/**
-	 * Metodo main fondamentale per l'avvio
+	 * Metodo main fondamentale per l'avvio, richiesto dal contratto di
+	 * <code>MainManager</code>.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
