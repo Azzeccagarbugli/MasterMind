@@ -27,14 +27,6 @@ public abstract class CodeBreaker {
 	private List<ColorPegs> lastClue;
 
 	/**
-	 * Verifica che il giocatore si sia arreso.
-	 * @return boolean
-	 */
-	public boolean isGiveUp() {
-		return giveUp;
-	}
-
-	/**
 	 * Imposta una volontà del giocatore di arrendersi o meno.
 	 * @param giveUp
 	 */

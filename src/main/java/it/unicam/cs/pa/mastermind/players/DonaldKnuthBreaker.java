@@ -60,8 +60,11 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 			combinationSet.remove(currentAttempt);
 			return currentAttempt;
 		} else {
-			currentAttempt = this.minmax();
-			combinationSet.remove(currentAttempt);
+			this.solutionsFilter();
+			if (!this.hasGivenUp()) {
+				currentAttempt = this.minmax();
+				combinationSet.remove(currentAttempt);
+			}
 			return currentAttempt;
 		}
 	}
