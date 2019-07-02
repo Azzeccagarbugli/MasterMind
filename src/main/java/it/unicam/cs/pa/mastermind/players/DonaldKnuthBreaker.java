@@ -23,10 +23,28 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 	private int seqLength;
 	private int attempts;
-	private BoardModel reference;
-	private ArrayList<List<ColorPegs>> combinationSet;
-	private ArrayList<List<ColorPegs>> possibleSolutions; // S
+
+	/**
+	 * Struttura dati per la memorizzazione di tutte le possibili combinazioni di
+	 * sequenze di <code>ColorPegs</code>.
+	 */
+	private List<List<ColorPegs>> combinationSet;
+
+	/**
+	 * Struttura dati per la memorizzazione di tutte le possibili sequenze di
+	 * <code>ColorPegs</code> valide come soluzione per la risoluzione del gioco.
+	 */
+	private List<List<ColorPegs>> possibleSolutions;
+
+	/**
+	 * Sequenza di <code>ColorPegs</code> correntemente usata come tentativo.
+	 */
 	private List<ColorPegs> currentAttempt;
+
+	/**
+	 * Variabile flag ad indicare l'uso della prima sequenza di
+	 * <code>ColorPegs</code> valida come tentativo.
+	 */
 	private boolean firstTry;
 
 	/**
@@ -42,7 +60,6 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 		firstTry = true;
 		if (this.seqLength == 4 && this.attempts >= 5) {
 			this.attempts = attempts;
-			reference = new BoardModel(seqLength, attempts);
 			this.generateSet();
 			currentAttempt = List.of(ColorPegs.values()[0], ColorPegs.values()[0], ColorPegs.values()[1],
 					ColorPegs.values()[1]);
@@ -141,7 +158,7 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 		for (List<ColorPegs> guess : this.combinationSet) {
 			for (List<ColorPegs> possibleSolution : this.possibleSolutions) {
-				reference = new BoardModel(this.seqLength, 10);
+				BoardModel reference = new BoardModel(this.seqLength, 10);
 				reference.setSequenceToGuess(possibleSolution);
 				reference.addAttempt(guess);
 				addClueCounter(clueCounter, reference.getLastClue());
@@ -171,7 +188,6 @@ public class DonaldKnuthBreaker extends CodeBreaker {
 
 		return currentAttempt;
 	}
-
 
 	/**
 	 * Operazione di filtro della struttura <code>possibleSolutions</code>
