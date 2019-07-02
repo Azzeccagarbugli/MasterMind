@@ -5,266 +5,266 @@
 \let\spxextra \sphinxstyleindexextra
 
   \bigletter A
-  \item \spxentry{addAttempt(List)}\spxextra{Java method}, \hyperpage{23}
-  \item \spxentry{addObserver(Observer)}\spxextra{Java method}, \hyperpage{32}
-  \item \spxentry{ANSI\_BLACK\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
-  \item \spxentry{ANSI\_BLUE\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_CYAN\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_CYAN\_BOLD}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_GREEN\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_PURPLE\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_RED\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_RED\_BOLD}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_RESET}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_WHITE\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_WHITE\_BOLD}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_YELLOW}\spxextra{Java field}, \hyperpage{40}
-  \item \spxentry{ANSI\_YELLOW\_BACKGROUND}\spxextra{Java field}, \hyperpage{41}
-  \item \spxentry{AnsiUtility}\spxextra{Java class}, \hyperpage{39}
-  \item \spxentry{askNewAttempts(int)}\spxextra{Java method}, \hyperpage{42}, \hyperpage{44}
-  \item \spxentry{askNewLength(int, int)}\spxextra{Java method}, \hyperpage{42}, \hyperpage{44}
-  \item \spxentry{askNewLengthsAndAttempts()}\spxextra{Java method}, \hyperpage{42}, \hyperpage{44}
-  \item \spxentry{askNewStartupSettings()}\spxextra{Java method}, \hyperpage{42}, \hyperpage{44}
-  \item \spxentry{attempt}\spxextra{Java field}, \hyperpage{46}, \hyperpage{48}
-  \item \spxentry{attemptsInserted()}\spxextra{Java method}, \hyperpage{24}
+  \item \spxentry{addAttempt(List)}\spxextra{Java method}, \hyperpage{22}
+  \item \spxentry{addObserver(Observer)}\spxextra{Java method}, \hyperpage{31}
+  \item \spxentry{ANSI\_BLACK\_BACKGROUND}\spxextra{Java field}, \hyperpage{38}
+  \item \spxentry{ANSI\_BLUE\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_CYAN\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_CYAN\_BOLD}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_GREEN\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_PURPLE\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_RED\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_RED\_BOLD}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_RESET}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_WHITE\_BACKGROUND}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_WHITE\_BOLD}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_YELLOW}\spxextra{Java field}, \hyperpage{39}
+  \item \spxentry{ANSI\_YELLOW\_BACKGROUND}\spxextra{Java field}, \hyperpage{40}
+  \item \spxentry{AnsiUtility}\spxextra{Java class}, \hyperpage{38}
+  \item \spxentry{askNewAttempts(int)}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
+  \item \spxentry{askNewLength(int, int)}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
+  \item \spxentry{askNewLengthsAndAttempts()}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
+  \item \spxentry{askNewStartupSettings()}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
+  \item \spxentry{attempt}\spxextra{Java field}, \hyperpage{45}, \hyperpage{47}
+  \item \spxentry{attemptsInserted()}\spxextra{Java method}, \hyperpage{23}
 
   \indexspace
   \bigletter B
-  \item \spxentry{badEnding(String)}\spxextra{Java method}, \hyperpage{42}, \hyperpage{44}
-  \item \spxentry{BadRegistryException}\spxextra{Java class}, \hyperpage{16}
-  \item \spxentry{BadRegistryException(String)}\spxextra{Java constructor}, \hyperpage{16}
-  \item \spxentry{BLACK}\spxextra{Java field}, \hyperpage{25}
-  \item \spxentry{BLUE}\spxextra{Java field}, \hyperpage{25}
-  \item \spxentry{BoardController}\spxextra{Java class}, \hyperpage{22}
-  \item \spxentry{BoardController(BoardModel)}\spxextra{Java constructor}, \hyperpage{22}
-  \item \spxentry{BoardModel}\spxextra{Java class}, \hyperpage{23}
-  \item \spxentry{BoardModel(int, int)}\spxextra{Java constructor}, \hyperpage{23}
-  \item \spxentry{BreakerFactory}\spxextra{Java interface}, \hyperpage{16}
-  \item \spxentry{BreakerFactoryRegistry}\spxextra{Java class}, \hyperpage{16}
-  \item \spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{16}
+  \item \spxentry{badEnding(String)}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
+  \item \spxentry{BadRegistryException}\spxextra{Java class}, \hyperpage{15}
+  \item \spxentry{BadRegistryException(String)}\spxextra{Java constructor}, \hyperpage{15}
+  \item \spxentry{BLACK}\spxextra{Java field}, \hyperpage{24}
+  \item \spxentry{BLUE}\spxextra{Java field}, \hyperpage{24}
+  \item \spxentry{BoardController}\spxextra{Java class}, \hyperpage{21}
+  \item \spxentry{BoardController(BoardModel)}\spxextra{Java constructor}, \hyperpage{21}
+  \item \spxentry{BoardModel}\spxextra{Java class}, \hyperpage{22}
+  \item \spxentry{BoardModel(int, int)}\spxextra{Java constructor}, \hyperpage{22}
+  \item \spxentry{BreakerFactory}\spxextra{Java interface}, \hyperpage{15}
+  \item \spxentry{BreakerFactoryRegistry}\spxextra{Java class}, \hyperpage{15}
+  \item \spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{15}
 
   \indexspace
   \bigletter C
-  \item \spxentry{CodeBreaker}\spxextra{Java class}, \hyperpage{35}
-  \item \spxentry{CodeMaker}\spxextra{Java class}, \hyperpage{36}
-  \item \spxentry{ColorPegs}\spxextra{Java enum}, \hyperpage{25}
-  \item \spxentry{ConsoleGameView}\spxextra{Java class}, \hyperpage{41}
-  \item \spxentry{ConsoleGameView()}\spxextra{Java constructor}, \hyperpage{41}
-  \item \spxentry{ConsoleGameViewFactory}\spxextra{Java class}, \hyperpage{17}
-  \item \spxentry{ConsoleMainManager}\spxextra{Java class}, \hyperpage{26}
-  \item \spxentry{ConsoleStartView}\spxextra{Java class}, \hyperpage{41}
+  \item \spxentry{CodeBreaker}\spxextra{Java class}, \hyperpage{34}
+  \item \spxentry{CodeMaker}\spxextra{Java class}, \hyperpage{35}
+  \item \spxentry{ColorPegs}\spxextra{Java enum}, \hyperpage{24}
+  \item \spxentry{ConsoleGameView}\spxextra{Java class}, \hyperpage{40}
+  \item \spxentry{ConsoleGameView()}\spxextra{Java constructor}, \hyperpage{40}
+  \item \spxentry{ConsoleGameViewFactory}\spxextra{Java class}, \hyperpage{16}
+  \item \spxentry{ConsoleMainManager}\spxextra{Java class}, \hyperpage{25}
+  \item \spxentry{ConsoleStartView}\spxextra{Java class}, \hyperpage{40}
 
   \indexspace
   \bigletter D
-  \item \spxentry{DonaldKnuthBreaker}\spxextra{Java class}, \hyperpage{37}
-  \item \spxentry{DonaldKnuthBreaker(int, int)}\spxextra{Java constructor}, \hyperpage{37}
-  \item \spxentry{DonaldKnuthBreakerFactory}\spxextra{Java class}, \hyperpage{17}
+  \item \spxentry{DonaldKnuthBreaker}\spxextra{Java class}, \hyperpage{36}
+  \item \spxentry{DonaldKnuthBreaker(int, int)}\spxextra{Java constructor}, \hyperpage{36}
+  \item \spxentry{DonaldKnuthBreakerFactory}\spxextra{Java class}, \hyperpage{16}
 
   \indexspace
   \bigletter E
-  \item \spxentry{ending()}\spxextra{Java method}, \hyperpage{42}, \hyperpage{45}
-  \item \spxentry{endingMessage()}\spxextra{Java method}, \hyperpage{34}
-  \item \spxentry{endingScreen(String, List)}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
+  \item \spxentry{ending()}\spxextra{Java method}, \hyperpage{41}, \hyperpage{44}
+  \item \spxentry{endingMessage()}\spxextra{Java method}, \hyperpage{33}
+  \item \spxentry{endingScreen(String, List)}\spxextra{Java method}, \hyperpage{40}, \hyperpage{42}
 
   \indexspace
   \bigletter G
-  \item \spxentry{GameCoreBoardControllerTest}\spxextra{Java class}, \hyperpage{46}
-  \item \spxentry{GameCoreBoardModelTest}\spxextra{Java class}, \hyperpage{47}
-  \item \spxentry{gameState}\spxextra{Java field}, \hyperpage{33}
-  \item \spxentry{GameView}\spxextra{Java class}, \hyperpage{43}
-  \item \spxentry{GameViewFactory}\spxextra{Java interface}, \hyperpage{17}
-  \item \spxentry{generateSet()}\spxextra{Java method}, \hyperpage{37}
-  \item \spxentry{getAttempt()}\spxextra{Java method}, \hyperpage{36--39}
-  \item \spxentry{getAttemptAndClueList()}\spxextra{Java method}, \hyperpage{24}
-  \item \spxentry{getAttempts()}\spxextra{Java method}, \hyperpage{29}
-  \item \spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}, \hyperpage{16--18}, 
+  \item \spxentry{GameCoreBoardControllerTest}\spxextra{Java class}, \hyperpage{45}
+  \item \spxentry{GameCoreBoardModelTest}\spxextra{Java class}, \hyperpage{46}
+  \item \spxentry{gameState}\spxextra{Java field}, \hyperpage{32}
+  \item \spxentry{GameView}\spxextra{Java class}, \hyperpage{42}
+  \item \spxentry{GameViewFactory}\spxextra{Java interface}, \hyperpage{16}
+  \item \spxentry{generateSet()}\spxextra{Java method}, \hyperpage{36}
+  \item \spxentry{getAttempt()}\spxextra{Java method}, \hyperpage{35--38}
+  \item \spxentry{getAttemptAndClueList()}\spxextra{Java method}, \hyperpage{23}
+  \item \spxentry{getAttempts()}\spxextra{Java method}, \hyperpage{28}
+  \item \spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}, \hyperpage{15--17}, 
+		\hyperpage{20}
+  \item \spxentry{getBreakerFactory()}\spxextra{Java method}, \hyperpage{28}
+  \item \spxentry{getBreakers()}\spxextra{Java method}, \hyperpage{26}
+  \item \spxentry{getBreakerVictoryAttempts()}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{getCodeToGuess()}\spxextra{Java method}, \hyperpage{36--38}
+  \item \spxentry{getContinue()}\spxextra{Java method}, \hyperpage{34}
+  \item \spxentry{getDescription()}\spxextra{Java method}, \hyperpage{16, 17}, \hyperpage{19--21}
+  \item \spxentry{getFactoryByName(String)}\spxextra{Java method}, \hyperpage{19}
+  \item \spxentry{getGameView()}\spxextra{Java method}, \hyperpage{16, 17}
+  \item \spxentry{getGameViewFactory()}\spxextra{Java method}, \hyperpage{25}, \hyperpage{27, 28}
+  \item \spxentry{getHasBreakerWon()}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{getHasMakerWon()}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{getHighTresholdLength()}\spxextra{Java method}, \hyperpage{28}
+  \item \spxentry{getIndexSequence(int, boolean)}\spxextra{Java method}, \hyperpage{40}, 
+		\hyperpage{42}
+  \item \spxentry{getInstance()}\spxextra{Java method}, \hyperpage{41}
+  \item \spxentry{getKeepMatchStartSettings()}\spxextra{Java method}, \hyperpage{34}
+  \item \spxentry{getLastAttempt()}\spxextra{Java method}, \hyperpage{23}
+  \item \spxentry{getLastClue()}\spxextra{Java method}, \hyperpage{23}, \hyperpage{35}
+  \item \spxentry{getLowTresholdAttempts()}\spxextra{Java method}, \hyperpage{28}
+  \item \spxentry{getLowTresholdLength()}\spxextra{Java method}, \hyperpage{28}
+  \item \spxentry{getMaker(GameView, int, int)}\spxextra{Java method}, \hyperpage{17, 18}, 
 		\hyperpage{21}
-  \item \spxentry{getBreakerFactory()}\spxextra{Java method}, \hyperpage{29}
-  \item \spxentry{getBreakers()}\spxextra{Java method}, \hyperpage{27}
-  \item \spxentry{getBreakerVictoryAttempts()}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{getCodeToGuess()}\spxextra{Java method}, \hyperpage{37--39}
-  \item \spxentry{getContinue()}\spxextra{Java method}, \hyperpage{35}
-  \item \spxentry{getDescription()}\spxextra{Java method}, \hyperpage{17, 18}, \hyperpage{20--22}
-  \item \spxentry{getFactoryByName(String)}\spxextra{Java method}, \hyperpage{20}
-  \item \spxentry{getGameView()}\spxextra{Java method}, \hyperpage{17, 18}
-  \item \spxentry{getGameViewFactory()}\spxextra{Java method}, \hyperpage{26}, \hyperpage{28, 29}
-  \item \spxentry{getHasBreakerWon()}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{getHasMakerWon()}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{getHighTresholdLength()}\spxextra{Java method}, \hyperpage{29}
-  \item \spxentry{getIndexSequence(int, boolean)}\spxextra{Java method}, \hyperpage{41}, 
-		\hyperpage{43}
-  \item \spxentry{getInstance()}\spxextra{Java method}, \hyperpage{42}
-  \item \spxentry{getKeepMatchStartSettings()}\spxextra{Java method}, \hyperpage{35}
-  \item \spxentry{getLastAttempt()}\spxextra{Java method}, \hyperpage{24}
-  \item \spxentry{getLastClue()}\spxextra{Java method}, \hyperpage{24}, \hyperpage{36}
-  \item \spxentry{getLowTresholdAttempts()}\spxextra{Java method}, \hyperpage{29}
-  \item \spxentry{getLowTresholdLength()}\spxextra{Java method}, \hyperpage{29}
-  \item \spxentry{getMaker(GameView, int, int)}\spxextra{Java method}, \hyperpage{18, 19}, 
-		\hyperpage{22}
-  \item \spxentry{getMakerFactory()}\spxextra{Java method}, \hyperpage{29}
-  \item \spxentry{getMakers()}\spxextra{Java method}, \hyperpage{27}
-  \item \spxentry{getMessage()}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{getName()}\spxextra{Java method}, \hyperpage{17--22}
-  \item \spxentry{getPlayerFactoriesInstances()}\spxextra{Java method}, \hyperpage{21}
+  \item \spxentry{getMakerFactory()}\spxextra{Java method}, \hyperpage{28}
+  \item \spxentry{getMakers()}\spxextra{Java method}, \hyperpage{26}
+  \item \spxentry{getMessage()}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{getName()}\spxextra{Java method}, \hyperpage{16--21}
+  \item \spxentry{getPlayerFactoriesInstances()}\spxextra{Java method}, \hyperpage{20}
   \item \spxentry{getPlayerName(PlayerFactoryRegistry, boolean)}\spxextra{Java method}, 
-		\hyperpage{42}, \hyperpage{45}
-  \item \spxentry{getPlayersDescription()}\spxextra{Java method}, \hyperpage{21}
-  \item \spxentry{getPlayersNames()}\spxextra{Java method}, \hyperpage{21}
-  \item \spxentry{getSequenceLength()}\spxextra{Java method}, \hyperpage{24}, \hyperpage{29}
-  \item \spxentry{getSequenceToGuess()}\spxextra{Java method}, \hyperpage{24}, \hyperpage{34}
-  \item \spxentry{getStartViewInstance()}\spxextra{Java method}, \hyperpage{26}, \hyperpage{28}
-  \item \spxentry{GlobalSettings}\spxextra{Java class}, \hyperpage{27}
-  \item \spxentry{GlobalSettings()}\spxextra{Java constructor}, \hyperpage{27}
-  \item \spxentry{GREEN}\spxextra{Java field}, \hyperpage{26}
+		\hyperpage{41}, \hyperpage{44}
+  \item \spxentry{getPlayersDescription()}\spxextra{Java method}, \hyperpage{20}
+  \item \spxentry{getPlayersNames()}\spxextra{Java method}, \hyperpage{20}
+  \item \spxentry{getSequenceLength()}\spxextra{Java method}, \hyperpage{23}, \hyperpage{28}
+  \item \spxentry{getSequenceToGuess()}\spxextra{Java method}, \hyperpage{23}, \hyperpage{33}
+  \item \spxentry{getStartViewInstance()}\spxextra{Java method}, \hyperpage{25}, \hyperpage{27}
+  \item \spxentry{GlobalSettings}\spxextra{Java class}, \hyperpage{26}
+  \item \spxentry{GlobalSettings()}\spxextra{Java constructor}, \hyperpage{26}
+  \item \spxentry{GREEN}\spxextra{Java field}, \hyperpage{25}
 
   \indexspace
   \bigletter H
-  \item \spxentry{hasBreakerGuessed()}\spxextra{Java method}, \hyperpage{24}
-  \item \spxentry{hasGivenUp()}\spxextra{Java method}, \hyperpage{36}
-  \item \spxentry{highTresholdLength}\spxextra{Java field}, \hyperpage{28}
+  \item \spxentry{hasBreakerGuessed()}\spxextra{Java method}, \hyperpage{23}
+  \item \spxentry{hasGivenUp()}\spxextra{Java method}, \hyperpage{35}
+  \item \spxentry{highTresholdLength}\spxextra{Java field}, \hyperpage{27}
 
   \indexspace
   \bigletter I
-  \item \spxentry{insertCodeToGuess(List)}\spxextra{Java method}, \hyperpage{23}
-  \item \spxentry{insertNewAttempt(List)}\spxextra{Java method}, \hyperpage{23}
-  \item \spxentry{InteractiveBreaker}\spxextra{Java class}, \hyperpage{37}
-  \item \spxentry{InteractiveBreaker(GameView, int)}\spxextra{Java constructor}, \hyperpage{38}
-  \item \spxentry{InteractiveBreakerFactory}\spxextra{Java class}, \hyperpage{18}
-  \item \spxentry{InteractiveMaker}\spxextra{Java class}, \hyperpage{38}
-  \item \spxentry{InteractiveMaker(GameView, int)}\spxextra{Java constructor}, \hyperpage{38}
-  \item \spxentry{InteractiveMakerFactory}\spxextra{Java class}, \hyperpage{18}
-  \item \spxentry{isBoardEmpty()}\spxextra{Java method}, \hyperpage{25}
-  \item \spxentry{it.unicam.cs.pa.mastermind.factories}\spxextra{package}, \hyperpage{15}
-  \item \spxentry{it.unicam.cs.pa.mastermind.gamecore}\spxextra{package}, \hyperpage{22}
-  \item \spxentry{it.unicam.cs.pa.mastermind.players}\spxextra{package}, \hyperpage{35}
-  \item \spxentry{it.unicam.cs.pa.mastermind.test}\spxextra{package}, \hyperpage{46}
-  \item \spxentry{it.unicam.cs.pa.mastermind.ui}\spxextra{package}, \hyperpage{39}
+  \item \spxentry{insertCodeToGuess(List)}\spxextra{Java method}, \hyperpage{22}
+  \item \spxentry{insertNewAttempt(List)}\spxextra{Java method}, \hyperpage{22}
+  \item \spxentry{InteractiveBreaker}\spxextra{Java class}, \hyperpage{36}
+  \item \spxentry{InteractiveBreaker(GameView, int)}\spxextra{Java constructor}, \hyperpage{37}
+  \item \spxentry{InteractiveBreakerFactory}\spxextra{Java class}, \hyperpage{17}
+  \item \spxentry{InteractiveMaker}\spxextra{Java class}, \hyperpage{37}
+  \item \spxentry{InteractiveMaker(GameView, int)}\spxextra{Java constructor}, \hyperpage{37}
+  \item \spxentry{InteractiveMakerFactory}\spxextra{Java class}, \hyperpage{17}
+  \item \spxentry{isBoardEmpty()}\spxextra{Java method}, \hyperpage{24}
+  \item \spxentry{it.unicam.cs.pa.mastermind.factories}\spxextra{package}, \hyperpage{14}
+  \item \spxentry{it.unicam.cs.pa.mastermind.gamecore}\spxextra{package}, \hyperpage{21}
+  \item \spxentry{it.unicam.cs.pa.mastermind.players}\spxextra{package}, \hyperpage{34}
+  \item \spxentry{it.unicam.cs.pa.mastermind.test}\spxextra{package}, \hyperpage{45}
+  \item \spxentry{it.unicam.cs.pa.mastermind.ui}\spxextra{package}, \hyperpage{38}
 
   \indexspace
   \bigletter L
-  \item \spxentry{leftAttempts()}\spxextra{Java method}, \hyperpage{25}
-  \item \spxentry{lowTresholdAttempts}\spxextra{Java field}, \hyperpage{28}
-  \item \spxentry{lowTresholdLength}\spxextra{Java field}, \hyperpage{28}
+  \item \spxentry{leftAttempts()}\spxextra{Java method}, \hyperpage{24}
+  \item \spxentry{lowTresholdAttempts}\spxextra{Java field}, \hyperpage{27}
+  \item \spxentry{lowTresholdLength}\spxextra{Java field}, \hyperpage{27}
 
   \indexspace
   \bigletter M
-  \item \spxentry{main(String{[}{]})}\spxextra{Java method}, \hyperpage{26}
-  \item \spxentry{MainManager}\spxextra{Java class}, \hyperpage{27}
-  \item \spxentry{MainManager()}\spxextra{Java constructor}, \hyperpage{27}
-  \item \spxentry{MakerFactory}\spxextra{Java interface}, \hyperpage{19}
-  \item \spxentry{MakerFactoryRegistry}\spxextra{Java class}, \hyperpage{19}
-  \item \spxentry{MakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{19}
-  \item \spxentry{MatchStartSettings}\spxextra{Java class}, \hyperpage{28}
-  \item \spxentry{MatchStartSettings(GameViewFactory)}\spxextra{Java constructor}, \hyperpage{29}
-  \item \spxentry{MatchState}\spxextra{Java class}, \hyperpage{30}
-  \item \spxentry{MatchState()}\spxextra{Java constructor}, \hyperpage{30}
+  \item \spxentry{main(String{[}{]})}\spxextra{Java method}, \hyperpage{25}
+  \item \spxentry{MainManager}\spxextra{Java class}, \hyperpage{26}
+  \item \spxentry{MainManager()}\spxextra{Java constructor}, \hyperpage{26}
+  \item \spxentry{MakerFactory}\spxextra{Java interface}, \hyperpage{18}
+  \item \spxentry{MakerFactoryRegistry}\spxextra{Java class}, \hyperpage{18}
+  \item \spxentry{MakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{18}
+  \item \spxentry{MatchStartSettings}\spxextra{Java class}, \hyperpage{27}
+  \item \spxentry{MatchStartSettings(GameViewFactory)}\spxextra{Java constructor}, \hyperpage{28}
+  \item \spxentry{MatchState}\spxextra{Java class}, \hyperpage{29}
+  \item \spxentry{MatchState()}\spxextra{Java constructor}, \hyperpage{29}
 
   \indexspace
   \bigletter N
-  \item \spxentry{notifyObservers()}\spxextra{Java method}, \hyperpage{32}
+  \item \spxentry{notifyObservers()}\spxextra{Java method}, \hyperpage{31}
 
   \indexspace
   \bigletter O
-  \item \spxentry{Observable}\spxextra{Java class}, \hyperpage{32}
-  \item \spxentry{Observer}\spxextra{Java interface}, \hyperpage{32}
+  \item \spxentry{Observable}\spxextra{Java class}, \hyperpage{31}
+  \item \spxentry{Observer}\spxextra{Java interface}, \hyperpage{31}
 
   \indexspace
   \bigletter P
-  \item \spxentry{PlayerFactory}\spxextra{Java interface}, \hyperpage{20}
-  \item \spxentry{PlayerFactoryRegistry}\spxextra{Java class}, \hyperpage{20}
-  \item \spxentry{PlayerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{20}
-  \item \spxentry{playersFactory}\spxextra{Java field}, \hyperpage{49}
-  \item \spxentry{PlayersFactoryRegistry}\spxextra{Java class}, \hyperpage{49}
-  \item \spxentry{PlayersInteractiveBreakerTest}\spxextra{Java class}, \hyperpage{50}
-  \item \spxentry{PlayersInteractiveMakerTest}\spxextra{Java class}, \hyperpage{50}
-  \item \spxentry{PlayersRandomBotBreakerTest}\spxextra{Java class}, \hyperpage{51}
-  \item \spxentry{PlayersRandomBotMakerTest}\spxextra{Java class}, \hyperpage{51}
+  \item \spxentry{PlayerFactory}\spxextra{Java interface}, \hyperpage{19}
+  \item \spxentry{PlayerFactoryRegistry}\spxextra{Java class}, \hyperpage{19}
+  \item \spxentry{PlayerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{19}
+  \item \spxentry{playersFactory}\spxextra{Java field}, \hyperpage{48}
+  \item \spxentry{PlayersFactoryRegistry}\spxextra{Java class}, \hyperpage{48}
+  \item \spxentry{PlayersInteractiveBreakerTest}\spxextra{Java class}, \hyperpage{49}
+  \item \spxentry{PlayersInteractiveMakerTest}\spxextra{Java class}, \hyperpage{49}
+  \item \spxentry{PlayersRandomBotBreakerTest}\spxextra{Java class}, \hyperpage{50}
+  \item \spxentry{PlayersRandomBotMakerTest}\spxextra{Java class}, \hyperpage{50}
 
   \indexspace
   \bigletter R
-  \item \spxentry{RandomBotBreaker}\spxextra{Java class}, \hyperpage{38}
-  \item \spxentry{RandomBotBreaker(int)}\spxextra{Java constructor}, \hyperpage{38}
-  \item \spxentry{RandomBotBreakerFactory}\spxextra{Java class}, \hyperpage{21}
-  \item \spxentry{RandomBotMaker}\spxextra{Java class}, \hyperpage{39}
-  \item \spxentry{RandomBotMaker(int)}\spxextra{Java constructor}, \hyperpage{39}
-  \item \spxentry{RandomBotMakerFactory}\spxextra{Java class}, \hyperpage{22}
-  \item \spxentry{RED}\spxextra{Java field}, \hyperpage{26}
-  \item \spxentry{removeLastAttemptAndClue()}\spxextra{Java method}, \hyperpage{25}
-  \item \spxentry{removeObserver(Observer)}\spxextra{Java method}, \hyperpage{32}
-  \item \spxentry{resetLengthAttempts()}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{RandomBotBreaker}\spxextra{Java class}, \hyperpage{37}
+  \item \spxentry{RandomBotBreaker(int)}\spxextra{Java constructor}, \hyperpage{37}
+  \item \spxentry{RandomBotBreakerFactory}\spxextra{Java class}, \hyperpage{20}
+  \item \spxentry{RandomBotMaker}\spxextra{Java class}, \hyperpage{38}
+  \item \spxentry{RandomBotMaker(int)}\spxextra{Java constructor}, \hyperpage{38}
+  \item \spxentry{RandomBotMakerFactory}\spxextra{Java class}, \hyperpage{21}
+  \item \spxentry{RED}\spxextra{Java field}, \hyperpage{25}
+  \item \spxentry{removeLastAttemptAndClue()}\spxextra{Java method}, \hyperpage{24}
+  \item \spxentry{removeObserver(Observer)}\spxextra{Java method}, \hyperpage{31}
+  \item \spxentry{resetLengthAttempts()}\spxextra{Java method}, \hyperpage{28}
 
   \indexspace
   \bigletter S
-  \item \spxentry{sequenceToGuess}\spxextra{Java field}, \hyperpage{33}
-  \item \spxentry{setAttempts(int)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setBreakerFactory(BreakerFactory)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setGiveUp(boolean)}\spxextra{Java method}, \hyperpage{36}
-  \item \spxentry{setHighTresholdLength(int)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setKeepMatchStartSettings(boolean)}\spxextra{Java method}, \hyperpage{35}
-  \item \spxentry{setLastClue(List)}\spxextra{Java method}, \hyperpage{36}
-  \item \spxentry{setLowTresholdAttempts(int)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setLowTresholdLength(int)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setMakerFactory(MakerFactory)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setSequenceLength(int)}\spxextra{Java method}, \hyperpage{30}
-  \item \spxentry{setSequenceToGuess(List)}\spxextra{Java method}, \hyperpage{25}
-  \item \spxentry{setToContinue(boolean)}\spxextra{Java method}, \hyperpage{35}
-  \item \spxentry{setUp()}\spxextra{Java method}, \hyperpage{47, 48}
-  \item \spxentry{setupBreaker(BreakerFactoryRegistry)}\spxextra{Java method}, \hyperpage{45}
-  \item \spxentry{setupMaker(MakerFactoryRegistry)}\spxextra{Java method}, \hyperpage{45}
-  \item \spxentry{showGame(BoardModel)}\spxextra{Java method}, \hyperpage{41}, \hyperpage{43}
-  \item \spxentry{showLogo()}\spxextra{Java method}, \hyperpage{42}, \hyperpage{45}
-  \item \spxentry{showNewMatchStarting()}\spxextra{Java method}, \hyperpage{42}, \hyperpage{45}
-  \item \spxentry{SimulationGame}\spxextra{Java class}, \hyperpage{51}
-  \item \spxentry{SingleMatch}\spxextra{Java class}, \hyperpage{33}
+  \item \spxentry{sequenceToGuess}\spxextra{Java field}, \hyperpage{32}
+  \item \spxentry{setAttempts(int)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setBreakerFactory(BreakerFactory)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setGiveUp(boolean)}\spxextra{Java method}, \hyperpage{35}
+  \item \spxentry{setHighTresholdLength(int)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setKeepMatchStartSettings(boolean)}\spxextra{Java method}, \hyperpage{34}
+  \item \spxentry{setLastClue(List)}\spxextra{Java method}, \hyperpage{35}
+  \item \spxentry{setLowTresholdAttempts(int)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setLowTresholdLength(int)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setMakerFactory(MakerFactory)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setSequenceLength(int)}\spxextra{Java method}, \hyperpage{29}
+  \item \spxentry{setSequenceToGuess(List)}\spxextra{Java method}, \hyperpage{24}
+  \item \spxentry{setToContinue(boolean)}\spxextra{Java method}, \hyperpage{34}
+  \item \spxentry{setUp()}\spxextra{Java method}, \hyperpage{46, 47}
+  \item \spxentry{setupBreaker(BreakerFactoryRegistry)}\spxextra{Java method}, \hyperpage{44}
+  \item \spxentry{setupMaker(MakerFactoryRegistry)}\spxextra{Java method}, \hyperpage{44}
+  \item \spxentry{showGame(BoardModel)}\spxextra{Java method}, \hyperpage{40}, \hyperpage{42}
+  \item \spxentry{showLogo()}\spxextra{Java method}, \hyperpage{41}, \hyperpage{44}
+  \item \spxentry{showNewMatchStarting()}\spxextra{Java method}, \hyperpage{41}, \hyperpage{44}
+  \item \spxentry{SimulationGame}\spxextra{Java class}, \hyperpage{50}
+  \item \spxentry{SingleMatch}\spxextra{Java class}, \hyperpage{32}
   \item \spxentry{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)}\spxextra{Java constructor}, 
-		\hyperpage{33}
-  \item \spxentry{start()}\spxextra{Java method}, \hyperpage{34}
-  \item \spxentry{startUp()}\spxextra{Java method}, \hyperpage{28}
-  \item \spxentry{StartupSettings}\spxextra{Java class}, \hyperpage{34}
-  \item \spxentry{StartupSettings()}\spxextra{Java constructor}, \hyperpage{34}
-  \item \spxentry{StartupSettings(boolean, boolean)}\spxextra{Java constructor}, \hyperpage{34}
-  \item \spxentry{StartView}\spxextra{Java interface}, \hyperpage{43}
+		\hyperpage{32}
+  \item \spxentry{start()}\spxextra{Java method}, \hyperpage{33}
+  \item \spxentry{startUp()}\spxextra{Java method}, \hyperpage{27}
+  \item \spxentry{StartupSettings}\spxextra{Java class}, \hyperpage{33}
+  \item \spxentry{StartupSettings()}\spxextra{Java constructor}, \hyperpage{33}
+  \item \spxentry{StartupSettings(boolean, boolean)}\spxextra{Java constructor}, \hyperpage{33}
+  \item \spxentry{StartView}\spxextra{Java interface}, \hyperpage{42}
 
   \indexspace
   \bigletter T
-  \item \spxentry{testAddAttempt()}\spxextra{Java method}, \hyperpage{48}
-  \item \spxentry{testAttemptsInserted()}\spxextra{Java method}, \hyperpage{48}
-  \item \spxentry{testBoard()}\spxextra{Java method}, \hyperpage{48}
-  \item \spxentry{testBoardController()}\spxextra{Java method}, \hyperpage{47}
-  \item \spxentry{testBreakerFactoryRegistry()}\spxextra{Java method}, \hyperpage{49}
-  \item \spxentry{testCheckRightPathName()}\spxextra{Java method}, \hyperpage{49}
-  \item \spxentry{testGetAttempt()}\spxextra{Java method}, \hyperpage{50, 51}
-  \item \spxentry{testGetCodeToGuess()}\spxextra{Java method}, \hyperpage{51}
-  \item \spxentry{testGetFactoryByName()}\spxextra{Java method}, \hyperpage{50}
-  \item \spxentry{testGetIstance()}\spxextra{Java method}, \hyperpage{52}
-  \item \spxentry{testGetPlayersNames()}\spxextra{Java method}, \hyperpage{50}
-  \item \spxentry{testGetSequenceLength()}\spxextra{Java method}, \hyperpage{47}
-  \item \spxentry{testGetSequenceToGuess()}\spxextra{Java method}, \hyperpage{47}
-  \item \spxentry{testInsertCodeToGuess()}\spxextra{Java method}, \hyperpage{47}
-  \item \spxentry{testInsertNewAttempt()}\spxextra{Java method}, \hyperpage{47}
-  \item \spxentry{testIsEmpty()}\spxextra{Java method}, \hyperpage{48}
-  \item \spxentry{testLastAttemptAndClue()}\spxextra{Java method}, \hyperpage{48}
-  \item \spxentry{testLeftAttempts()}\spxextra{Java method}, \hyperpage{49}
-  \item \spxentry{testMakerFactoryRegistry()}\spxextra{Java method}, \hyperpage{50}
-  \item \spxentry{testSetSequenceToGuess()}\spxextra{Java method}, \hyperpage{49}
-  \item \spxentry{testSimulationGame()}\spxextra{Java method}, \hyperpage{51}
-  \item \spxentry{toggleBreakerGiveUp()}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{toggleBreakerWin(int)}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{toggleGiveUp()}\spxextra{Java method}, \hyperpage{36}
-  \item \spxentry{toggleMakerWin()}\spxextra{Java method}, \hyperpage{31}
-  \item \spxentry{toGuess}\spxextra{Java field}, \hyperpage{46}, \hyperpage{48}
+  \item \spxentry{testAddAttempt()}\spxextra{Java method}, \hyperpage{47}
+  \item \spxentry{testAttemptsInserted()}\spxextra{Java method}, \hyperpage{47}
+  \item \spxentry{testBoard()}\spxextra{Java method}, \hyperpage{47}
+  \item \spxentry{testBoardController()}\spxextra{Java method}, \hyperpage{46}
+  \item \spxentry{testBreakerFactoryRegistry()}\spxextra{Java method}, \hyperpage{48}
+  \item \spxentry{testCheckRightPathName()}\spxextra{Java method}, \hyperpage{48}
+  \item \spxentry{testGetAttempt()}\spxextra{Java method}, \hyperpage{49, 50}
+  \item \spxentry{testGetCodeToGuess()}\spxextra{Java method}, \hyperpage{50}
+  \item \spxentry{testGetFactoryByName()}\spxextra{Java method}, \hyperpage{49}
+  \item \spxentry{testGetIstance()}\spxextra{Java method}, \hyperpage{51}
+  \item \spxentry{testGetPlayersNames()}\spxextra{Java method}, \hyperpage{49}
+  \item \spxentry{testGetSequenceLength()}\spxextra{Java method}, \hyperpage{46}
+  \item \spxentry{testGetSequenceToGuess()}\spxextra{Java method}, \hyperpage{46}
+  \item \spxentry{testInsertCodeToGuess()}\spxextra{Java method}, \hyperpage{46}
+  \item \spxentry{testInsertNewAttempt()}\spxextra{Java method}, \hyperpage{46}
+  \item \spxentry{testIsEmpty()}\spxextra{Java method}, \hyperpage{47}
+  \item \spxentry{testLastAttemptAndClue()}\spxextra{Java method}, \hyperpage{47}
+  \item \spxentry{testLeftAttempts()}\spxextra{Java method}, \hyperpage{48}
+  \item \spxentry{testMakerFactoryRegistry()}\spxextra{Java method}, \hyperpage{49}
+  \item \spxentry{testSetSequenceToGuess()}\spxextra{Java method}, \hyperpage{48}
+  \item \spxentry{testSimulationGame()}\spxextra{Java method}, \hyperpage{50}
+  \item \spxentry{toggleBreakerGiveUp()}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{toggleBreakerWin(int)}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{toggleGiveUp()}\spxextra{Java method}, \hyperpage{35}
+  \item \spxentry{toggleMakerWin()}\spxextra{Java method}, \hyperpage{30}
+  \item \spxentry{toGuess}\spxextra{Java field}, \hyperpage{45}, \hyperpage{47}
 
   \indexspace
   \bigletter U
-  \item \spxentry{UIConsoleStartViewTest}\spxextra{Java class}, \hyperpage{52}
-  \item \spxentry{update(Observable)}\spxextra{Java method}, \hyperpage{32--34}, \hyperpage{41}
+  \item \spxentry{UIConsoleStartViewTest}\spxextra{Java class}, \hyperpage{51}
+  \item \spxentry{update(Observable)}\spxextra{Java method}, \hyperpage{31--33}, \hyperpage{40}
 
   \indexspace
   \bigletter W
-  \item \spxentry{WHITE}\spxextra{Java field}, \hyperpage{26}
+  \item \spxentry{WHITE}\spxextra{Java field}, \hyperpage{25}
 
   \indexspace
   \bigletter Y
-  \item \spxentry{YELLOW}\spxextra{Java field}, \hyperpage{26}
+  \item \spxentry{YELLOW}\spxextra{Java field}, \hyperpage{25}
 
 \end{sphinxtheindex}

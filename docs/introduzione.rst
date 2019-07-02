@@ -10,8 +10,6 @@ di determinati design pattern.
 Architettura fondamentale del progetto
 ---------------------------------------
 
-.. image:: _static/MasterMind.png
-
 L'avvio del programma è delegato ad una classe che estende ``MainManager``, classe astratta contenente il funzionamento effettivo e a più alto livello del programma. 
 La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi ``GameViewFactory`` e ``StartView`` si è scelto di impiegare.
 
@@ -98,6 +96,8 @@ Rappresenta la struttura alla base del funzionamento delle singole partite.
 È stata implementata tramite le classi ``GameView``, ``BoardModel`` e ``BoardCoordinator``, classi le cui istanze comunicano all'interno di ``SingleMatch``.
 La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Model View Controller** ma anche nel pattern **Observer**.
 
+.. image:: _static/MasterMind.png
+
 2. **Observer** [3]_
 Dalla versione 9 di Java l'interfaccia Observer, pensata nell'ottica di questo design pattern, risulta deprecata. 
 La sua implementazione all'interno di questo progetto è quindi da vedere in un'ottica puramente accademica e finalizzata all'apprendimento del concetto alla base del pattern.
@@ -130,10 +130,10 @@ Continuous Integration
 
     *La Continuous Integration, proprio come la Continuous Delivery, viene apprezzata soprattutto nello sviluppo agile di software. L'obiettivo di questo moderno metodo è quello di suddividere il lavoro in porzioni più piccole per rendere il processo stesso di sviluppo più efficiente e poter reagire con maggiore flessibilità alle modifiche. La Continuous Integration è stata nominata per la prima volta nella descrizione della metodologia agile Extreme Programming di Kent Beck.*
 
+.. image:: _static/ci.png
+
 Mediante l'implementazione di **Gradle**, illustrata in precedenza, si è riuscito a integrare all'interno della natura del progetto
 anche il software **Travis CI** [8]_. 
-
-.. image:: _static/ci.png
 
 Quest'ultimo garantisce all'intero progetto la possibilità di sviluppare una **integrazione continua** all'interno di un team di lavoro in primo luogo, *e di consegunza*, una seria di vantaggi non indifferenti, quali:
 

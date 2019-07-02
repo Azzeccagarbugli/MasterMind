@@ -173,7 +173,6 @@ alla <strong>massima modularità possibile</strong>, per quanto non totale, otte
 di determinati design pattern.</p>
 <div class="section" id="architettura-fondamentale-del-progetto">
 <h2>Architettura fondamentale del progetto<a class="headerlink" href="#architettura-fondamentale-del-progetto" title="Link a questa intestazione">¶</a></h2>
-<img alt="_images/MasterMind.png" src="_images/MasterMind.png" />
 <p>L’avvio del programma è delegato ad una classe che estende <code class="docutils literal notranslate"><span class="pre">MainManager</span></code>, classe astratta contenente il funzionamento effettivo e a più alto livello del programma.
 La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">StartView</span></code> si è scelto di impiegare.</p>
 <p>Le classi <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> e <code class="docutils literal notranslate"><span class="pre">StartView</span></code> sono fondamentali in quanto estendibili con classi mirate a fornire delle viste finalizzate all’interazione con gli <strong>utenti fisici</strong>.
@@ -236,6 +235,7 @@ necessità di ricompilare tutte le classi del progetto.</p>
 Rappresenta la struttura alla base del funzionamento delle singole partite.
 È stata implementata tramite le classi <code class="docutils literal notranslate"><span class="pre">GameView</span></code>, <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardCoordinator</span></code>, classi le cui istanze comunicano all’interno di <code class="docutils literal notranslate"><span class="pre">SingleMatch</span></code>.
 La relazione tra <code class="docutils literal notranslate"><span class="pre">GameView</span></code> e <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code> non solo rientra nel pattern <strong>Model View Controller</strong> ma anche nel pattern <strong>Observer</strong>.</p>
+<img alt="_images/MasterMind.png" src="_images/MasterMind.png" />
 <p>2. <strong>Observer</strong> <a class="footnote-reference brackets" href="#id11" id="id3">3</a>
 Dalla versione 9 di Java l’interfaccia Observer, pensata nell’ottica di questo design pattern, risulta deprecata.
 La sua implementazione all’interno di questo progetto è quindi da vedere in un’ottica puramente accademica e finalizzata all’apprendimento del concetto alla base del pattern.
@@ -264,9 +264,9 @@ per facilitare il deploy e la distribuzione di tale software all’interno di al
 <blockquote>
 <div><p><em>La Continuous Integration, proprio come la Continuous Delivery, viene apprezzata soprattutto nello sviluppo agile di software. L’obiettivo di questo moderno metodo è quello di suddividere il lavoro in porzioni più piccole per rendere il processo stesso di sviluppo più efficiente e poter reagire con maggiore flessibilità alle modifiche. La Continuous Integration è stata nominata per la prima volta nella descrizione della metodologia agile Extreme Programming di Kent Beck.</em></p>
 </div></blockquote>
+<img alt="_images/ci.png" src="_images/ci.png" />
 <p>Mediante l’implementazione di <strong>Gradle</strong>, illustrata in precedenza, si è riuscito a integrare all’interno della natura del progetto
 anche il software <strong>Travis CI</strong> <a class="footnote-reference brackets" href="#id16" id="id8">8</a>.</p>
-<img alt="_images/ci.png" src="_images/ci.png" />
 <p>Quest’ultimo garantisce all’intero progetto la possibilità di sviluppare una <strong>integrazione continua</strong> all’interno di un team di lavoro in primo luogo, <em>e di consegunza</em>, una seria di vantaggi non indifferenti, quali:</p>
 <ul class="simple">
 <li><dl class="simple">

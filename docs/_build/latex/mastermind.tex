@@ -131,8 +131,6 @@ di determinati design pattern.
 
 \section{Architettura fondamentale del progetto}
 \label{\detokenize{introduzione:architettura-fondamentale-del-progetto}}
-\noindent\sphinxincludegraphics{{MasterMind}.png}
-
 L’avvio del programma è delegato ad una classe che estende \sphinxcode{\sphinxupquote{MainManager}}, classe astratta contenente il funzionamento effettivo e a più alto livello del programma.
 La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi \sphinxcode{\sphinxupquote{GameViewFactory}} e \sphinxcode{\sphinxupquote{StartView}} si è scelto di impiegare.
 
@@ -245,6 +243,8 @@ Rappresenta la struttura alla base del funzionamento delle singole partite.
 È stata implementata tramite le classi \sphinxcode{\sphinxupquote{GameView}}, \sphinxcode{\sphinxupquote{BoardModel}} e \sphinxcode{\sphinxupquote{BoardCoordinator}}, classi le cui istanze comunicano all’interno di \sphinxcode{\sphinxupquote{SingleMatch}}.
 La relazione tra \sphinxcode{\sphinxupquote{GameView}} e \sphinxcode{\sphinxupquote{BoardModel}} non solo rientra nel pattern \sphinxstylestrong{Model View Controller} ma anche nel pattern \sphinxstylestrong{Observer}.
 
+\noindent\sphinxincludegraphics{{MasterMind}.png}
+
 2. \sphinxstylestrong{Observer} %
 \begin{footnote}[3]\sphinxAtStartFootnote
 \sphinxstyleemphasis{L’Observer pattern è un design pattern che sostanzialemente si basa su uno o più oggetti, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall’oggetto «osservato», che può essere chiamato soggetto.}
@@ -300,14 +300,14 @@ per facilitare il deploy e la distribuzione di tale software all’interno di al
 \sphinxstyleemphasis{La Continuous Integration, proprio come la Continuous Delivery, viene apprezzata soprattutto nello sviluppo agile di software. L’obiettivo di questo moderno metodo è quello di suddividere il lavoro in porzioni più piccole per rendere il processo stesso di sviluppo più efficiente e poter reagire con maggiore flessibilità alle modifiche. La Continuous Integration è stata nominata per la prima volta nella descrizione della metodologia agile Extreme Programming di Kent Beck.}
 \end{quote}
 
+\noindent\sphinxincludegraphics{{ci}.png}
+
 Mediante l’implementazione di \sphinxstylestrong{Gradle}, illustrata in precedenza, si è riuscito a integrare all’interno della natura del progetto
 anche il software \sphinxstylestrong{Travis CI} %
 \begin{footnote}[8]\sphinxAtStartFootnote
 \sphinxstyleemphasis{Travis CI è un servizio di integrazione continua utilizzato per costruire e testare progetti software ospitati su GitHub}
 %
 \end{footnote}.
-
-\noindent\sphinxincludegraphics{{ci}.png}
 
 Quest’ultimo garantisce all’intero progetto la possibilità di sviluppare una \sphinxstylestrong{integrazione continua} all’interno di un team di lavoro in primo luogo, \sphinxstyleemphasis{e di consegunza}, una seria di vantaggi non indifferenti, quali:
 \begin{itemize}

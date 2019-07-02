@@ -1,337 +1,337 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
 \contentsline {chapter}{\numberline {1}Introduzione}{2}{chapter.1}% 
-\contentsline {section}{\numberline {1.1}Architettura fondamentale del progetto}{3}{section.1.1}% 
+\contentsline {section}{\numberline {1.1}Architettura fondamentale del progetto}{2}{section.1.1}% 
 \contentsline {section}{\numberline {1.2}Estendibilit\IeC {\`a} ed implementazioni fornite di default}{3}{section.1.2}% 
-\contentsline {section}{\numberline {1.3}Informazioni fondamentali circa il primo avvio}{4}{section.1.3}% 
-\contentsline {section}{\numberline {1.4}Responsabilit\IeC {\`a} delle classi}{5}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Design pattern impiegati}{5}{section.1.5}% 
+\contentsline {section}{\numberline {1.3}Informazioni fondamentali circa il primo avvio}{3}{section.1.3}% 
+\contentsline {section}{\numberline {1.4}Responsabilit\IeC {\`a} delle classi}{4}{section.1.4}% 
+\contentsline {section}{\numberline {1.5}Design pattern impiegati}{4}{section.1.5}% 
 \contentsline {section}{\numberline {1.6}Testing}{5}{section.1.6}% 
-\contentsline {section}{\numberline {1.7}Gradle}{6}{section.1.7}% 
-\contentsline {section}{\numberline {1.8}Continuous Integration}{6}{section.1.8}% 
-\contentsline {chapter}{\numberline {2}Guida al gioco}{8}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Regolamento}{8}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Singola partita}{8}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Struttura dell\IeC {\textquoteright }interfaccia}{12}{section.2.3}% 
-\contentsline {chapter}{\numberline {3}Sphinx e le sue potenzialit\IeC {\`a}}{13}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Strumenti con cui \IeC {\`e} stata realizzata}{13}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Autogenerazione della sintassi convertita da JavaDoc a Sphinx}{13}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Documentazione del codice}{15}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}it.unicam.cs.pa.mastermind.factories}{15}{section.4.1}% 
-\contentsline {subsection}{\numberline {4.1.1}BadRegistryException}{16}{subsection.4.1.1}% 
-\contentsline {subsubsection}{Constructors}{16}{subsubsection*.5}% 
-\contentsline {paragraph}{BadRegistryException}{16}{paragraph*.6}% 
-\contentsline {subsection}{\numberline {4.1.2}BreakerFactory}{16}{subsection.4.1.2}% 
-\contentsline {subsubsection}{Methods}{16}{subsubsection*.9}% 
-\contentsline {paragraph}{getBreaker}{16}{paragraph*.10}% 
-\contentsline {subsection}{\numberline {4.1.3}BreakerFactoryRegistry}{16}{subsection.4.1.3}% 
-\contentsline {subsubsection}{Constructors}{16}{subsubsection*.13}% 
-\contentsline {paragraph}{BreakerFactoryRegistry}{16}{paragraph*.14}% 
-\contentsline {subsection}{\numberline {4.1.4}ConsoleGameViewFactory}{17}{subsection.4.1.4}% 
-\contentsline {subsubsection}{Methods}{17}{subsubsection*.17}% 
-\contentsline {paragraph}{getGameView}{17}{paragraph*.18}% 
-\contentsline {subsection}{\numberline {4.1.5}DonaldKnuthBreakerFactory}{17}{subsection.4.1.5}% 
-\contentsline {subsubsection}{Methods}{17}{subsubsection*.21}% 
-\contentsline {paragraph}{getBreaker}{17}{paragraph*.22}% 
-\contentsline {paragraph}{getDescription}{17}{paragraph*.24}% 
-\contentsline {paragraph}{getName}{17}{paragraph*.26}% 
-\contentsline {subsection}{\numberline {4.1.6}GameViewFactory}{17}{subsection.4.1.6}% 
-\contentsline {subsubsection}{Methods}{18}{subsubsection*.29}% 
-\contentsline {paragraph}{getGameView}{18}{paragraph*.30}% 
-\contentsline {subsection}{\numberline {4.1.7}InteractiveBreakerFactory}{18}{subsection.4.1.7}% 
-\contentsline {subsubsection}{Methods}{18}{subsubsection*.33}% 
-\contentsline {paragraph}{getBreaker}{18}{paragraph*.34}% 
-\contentsline {paragraph}{getDescription}{18}{paragraph*.36}% 
-\contentsline {paragraph}{getName}{18}{paragraph*.38}% 
-\contentsline {subsection}{\numberline {4.1.8}InteractiveMakerFactory}{18}{subsection.4.1.8}% 
-\contentsline {subsubsection}{Methods}{18}{subsubsection*.41}% 
-\contentsline {paragraph}{getDescription}{18}{paragraph*.42}% 
-\contentsline {paragraph}{getMaker}{18}{paragraph*.44}% 
-\contentsline {paragraph}{getName}{19}{paragraph*.46}% 
-\contentsline {subsection}{\numberline {4.1.9}MakerFactory}{19}{subsection.4.1.9}% 
-\contentsline {subsubsection}{Methods}{19}{subsubsection*.49}% 
-\contentsline {paragraph}{getMaker}{19}{paragraph*.50}% 
-\contentsline {subsection}{\numberline {4.1.10}MakerFactoryRegistry}{19}{subsection.4.1.10}% 
-\contentsline {subsubsection}{Constructors}{19}{subsubsection*.53}% 
-\contentsline {paragraph}{MakerFactoryRegistry}{19}{paragraph*.54}% 
-\contentsline {subsection}{\numberline {4.1.11}PlayerFactory}{20}{subsection.4.1.11}% 
-\contentsline {subsubsection}{Methods}{20}{subsubsection*.57}% 
-\contentsline {paragraph}{getDescription}{20}{paragraph*.58}% 
-\contentsline {paragraph}{getName}{20}{paragraph*.60}% 
-\contentsline {subsection}{\numberline {4.1.12}PlayerFactoryRegistry}{20}{subsection.4.1.12}% 
-\contentsline {subsubsection}{Constructors}{20}{subsubsection*.63}% 
-\contentsline {paragraph}{PlayerFactoryRegistry}{20}{paragraph*.64}% 
-\contentsline {subsubsection}{Methods}{20}{subsubsection*.66}% 
-\contentsline {paragraph}{getFactoryByName}{20}{paragraph*.67}% 
-\contentsline {paragraph}{getPlayerFactoriesInstances}{21}{paragraph*.69}% 
-\contentsline {paragraph}{getPlayersDescription}{21}{paragraph*.71}% 
-\contentsline {paragraph}{getPlayersNames}{21}{paragraph*.73}% 
-\contentsline {subsection}{\numberline {4.1.13}RandomBotBreakerFactory}{21}{subsection.4.1.13}% 
-\contentsline {subsubsection}{Methods}{21}{subsubsection*.76}% 
-\contentsline {paragraph}{getBreaker}{21}{paragraph*.77}% 
-\contentsline {paragraph}{getDescription}{21}{paragraph*.79}% 
-\contentsline {paragraph}{getName}{21}{paragraph*.81}% 
-\contentsline {subsection}{\numberline {4.1.14}RandomBotMakerFactory}{22}{subsection.4.1.14}% 
-\contentsline {subsubsection}{Methods}{22}{subsubsection*.84}% 
-\contentsline {paragraph}{getDescription}{22}{paragraph*.85}% 
-\contentsline {paragraph}{getMaker}{22}{paragraph*.87}% 
-\contentsline {paragraph}{getName}{22}{paragraph*.89}% 
-\contentsline {section}{\numberline {4.2}it.unicam.cs.pa.mastermind.gamecore}{22}{section.4.2}% 
-\contentsline {subsection}{\numberline {4.2.1}BoardController}{22}{subsection.4.2.1}% 
-\contentsline {subsubsection}{Constructors}{22}{subsubsection*.93}% 
-\contentsline {paragraph}{BoardController}{22}{paragraph*.94}% 
-\contentsline {subsubsection}{Methods}{23}{subsubsection*.96}% 
-\contentsline {paragraph}{insertCodeToGuess}{23}{paragraph*.97}% 
-\contentsline {paragraph}{insertNewAttempt}{23}{paragraph*.99}% 
-\contentsline {subsection}{\numberline {4.2.2}BoardModel}{23}{subsection.4.2.2}% 
-\contentsline {subsubsection}{Constructors}{23}{subsubsection*.102}% 
-\contentsline {paragraph}{BoardModel}{23}{paragraph*.103}% 
-\contentsline {subsubsection}{Methods}{23}{subsubsection*.105}% 
-\contentsline {paragraph}{addAttempt}{23}{paragraph*.106}% 
-\contentsline {paragraph}{attemptsInserted}{24}{paragraph*.108}% 
-\contentsline {paragraph}{getAttemptAndClueList}{24}{paragraph*.110}% 
-\contentsline {paragraph}{getLastAttempt}{24}{paragraph*.112}% 
-\contentsline {paragraph}{getLastClue}{24}{paragraph*.114}% 
-\contentsline {paragraph}{getSequenceLength}{24}{paragraph*.116}% 
-\contentsline {paragraph}{getSequenceToGuess}{24}{paragraph*.118}% 
-\contentsline {paragraph}{hasBreakerGuessed}{24}{paragraph*.120}% 
-\contentsline {paragraph}{isBoardEmpty}{25}{paragraph*.122}% 
-\contentsline {paragraph}{leftAttempts}{25}{paragraph*.124}% 
-\contentsline {paragraph}{removeLastAttemptAndClue}{25}{paragraph*.126}% 
-\contentsline {paragraph}{setSequenceToGuess}{25}{paragraph*.128}% 
-\contentsline {subsection}{\numberline {4.2.3}ColorPegs}{25}{subsection.4.2.3}% 
-\contentsline {subsubsection}{Enum Constants}{25}{subsubsection*.131}% 
-\contentsline {paragraph}{BLACK}{25}{paragraph*.132}% 
-\contentsline {paragraph}{BLUE}{25}{paragraph*.134}% 
-\contentsline {paragraph}{GREEN}{26}{paragraph*.136}% 
-\contentsline {paragraph}{RED}{26}{paragraph*.138}% 
-\contentsline {paragraph}{WHITE}{26}{paragraph*.140}% 
-\contentsline {paragraph}{YELLOW}{26}{paragraph*.142}% 
-\contentsline {subsection}{\numberline {4.2.4}ConsoleMainManager}{26}{subsection.4.2.4}% 
-\contentsline {subsubsection}{Methods}{26}{subsubsection*.145}% 
-\contentsline {paragraph}{getGameViewFactory}{26}{paragraph*.146}% 
-\contentsline {paragraph}{getStartViewInstance}{26}{paragraph*.148}% 
-\contentsline {paragraph}{main}{26}{paragraph*.150}% 
-\contentsline {subsection}{\numberline {4.2.5}GlobalSettings}{27}{subsection.4.2.5}% 
-\contentsline {subsubsection}{Constructors}{27}{subsubsection*.153}% 
-\contentsline {paragraph}{GlobalSettings}{27}{paragraph*.154}% 
-\contentsline {subsubsection}{Methods}{27}{subsubsection*.156}% 
-\contentsline {paragraph}{getBreakers}{27}{paragraph*.157}% 
-\contentsline {paragraph}{getMakers}{27}{paragraph*.159}% 
-\contentsline {subsection}{\numberline {4.2.6}MainManager}{27}{subsection.4.2.6}% 
-\contentsline {subsubsection}{Constructors}{27}{subsubsection*.162}% 
-\contentsline {paragraph}{MainManager}{27}{paragraph*.163}% 
-\contentsline {subsubsection}{Methods}{28}{subsubsection*.165}% 
-\contentsline {paragraph}{getGameViewFactory}{28}{paragraph*.166}% 
-\contentsline {paragraph}{getStartViewInstance}{28}{paragraph*.168}% 
-\contentsline {paragraph}{startUp}{28}{paragraph*.170}% 
-\contentsline {subsection}{\numberline {4.2.7}MatchStartSettings}{28}{subsection.4.2.7}% 
-\contentsline {subsubsection}{Fields}{28}{subsubsection*.173}% 
-\contentsline {paragraph}{highTresholdLength}{28}{paragraph*.174}% 
-\contentsline {paragraph}{lowTresholdAttempts}{28}{paragraph*.176}% 
-\contentsline {paragraph}{lowTresholdLength}{28}{paragraph*.178}% 
-\contentsline {subsubsection}{Constructors}{29}{subsubsection*.180}% 
-\contentsline {paragraph}{MatchStartSettings}{29}{paragraph*.181}% 
-\contentsline {subsubsection}{Methods}{29}{subsubsection*.183}% 
-\contentsline {paragraph}{getAttempts}{29}{paragraph*.184}% 
-\contentsline {paragraph}{getBreakerFactory}{29}{paragraph*.186}% 
-\contentsline {paragraph}{getGameViewFactory}{29}{paragraph*.188}% 
-\contentsline {paragraph}{getHighTresholdLength}{29}{paragraph*.190}% 
-\contentsline {paragraph}{getLowTresholdAttempts}{29}{paragraph*.192}% 
-\contentsline {paragraph}{getLowTresholdLength}{29}{paragraph*.194}% 
-\contentsline {paragraph}{getMakerFactory}{29}{paragraph*.196}% 
-\contentsline {paragraph}{getSequenceLength}{29}{paragraph*.198}% 
-\contentsline {paragraph}{resetLengthAttempts}{29}{paragraph*.200}% 
-\contentsline {paragraph}{setAttempts}{30}{paragraph*.202}% 
-\contentsline {paragraph}{setBreakerFactory}{30}{paragraph*.204}% 
-\contentsline {paragraph}{setHighTresholdLength}{30}{paragraph*.206}% 
-\contentsline {paragraph}{setLowTresholdAttempts}{30}{paragraph*.208}% 
-\contentsline {paragraph}{setLowTresholdLength}{30}{paragraph*.210}% 
-\contentsline {paragraph}{setMakerFactory}{30}{paragraph*.212}% 
-\contentsline {paragraph}{setSequenceLength}{30}{paragraph*.214}% 
-\contentsline {subsection}{\numberline {4.2.8}MatchState}{30}{subsection.4.2.8}% 
-\contentsline {subsubsection}{Constructors}{30}{subsubsection*.217}% 
-\contentsline {paragraph}{MatchState}{30}{paragraph*.218}% 
-\contentsline {subsubsection}{Methods}{31}{subsubsection*.220}% 
-\contentsline {paragraph}{getBreakerVictoryAttempts}{31}{paragraph*.221}% 
-\contentsline {paragraph}{getHasBreakerWon}{31}{paragraph*.223}% 
-\contentsline {paragraph}{getHasMakerWon}{31}{paragraph*.225}% 
-\contentsline {paragraph}{getMessage}{31}{paragraph*.227}% 
-\contentsline {paragraph}{toggleBreakerGiveUp}{31}{paragraph*.229}% 
-\contentsline {paragraph}{toggleBreakerWin}{31}{paragraph*.231}% 
-\contentsline {paragraph}{toggleMakerWin}{31}{paragraph*.233}% 
-\contentsline {paragraph}{update}{32}{paragraph*.235}% 
-\contentsline {subsection}{\numberline {4.2.9}Observable}{32}{subsection.4.2.9}% 
-\contentsline {subsubsection}{Methods}{32}{subsubsection*.238}% 
-\contentsline {paragraph}{addObserver}{32}{paragraph*.239}% 
-\contentsline {paragraph}{notifyObservers}{32}{paragraph*.241}% 
-\contentsline {paragraph}{removeObserver}{32}{paragraph*.243}% 
-\contentsline {subsection}{\numberline {4.2.10}Observer}{32}{subsection.4.2.10}% 
-\contentsline {subsubsection}{Methods}{33}{subsubsection*.246}% 
-\contentsline {paragraph}{update}{33}{paragraph*.247}% 
-\contentsline {subsection}{\numberline {4.2.11}SingleMatch}{33}{subsection.4.2.11}% 
-\contentsline {subsubsection}{Fields}{33}{subsubsection*.250}% 
-\contentsline {paragraph}{gameState}{33}{paragraph*.251}% 
-\contentsline {paragraph}{sequenceToGuess}{33}{paragraph*.253}% 
-\contentsline {subsubsection}{Constructors}{33}{subsubsection*.255}% 
-\contentsline {paragraph}{SingleMatch}{33}{paragraph*.256}% 
-\contentsline {subsubsection}{Methods}{34}{subsubsection*.258}% 
-\contentsline {paragraph}{endingMessage}{34}{paragraph*.259}% 
-\contentsline {paragraph}{getSequenceToGuess}{34}{paragraph*.261}% 
-\contentsline {paragraph}{start}{34}{paragraph*.263}% 
-\contentsline {paragraph}{update}{34}{paragraph*.265}% 
-\contentsline {subsection}{\numberline {4.2.12}StartupSettings}{34}{subsection.4.2.12}% 
-\contentsline {subsubsection}{Constructors}{34}{subsubsection*.268}% 
-\contentsline {paragraph}{StartupSettings}{34}{paragraph*.269}% 
-\contentsline {paragraph}{StartupSettings}{34}{paragraph*.271}% 
-\contentsline {subsubsection}{Methods}{35}{subsubsection*.273}% 
-\contentsline {paragraph}{getContinue}{35}{paragraph*.274}% 
-\contentsline {paragraph}{getKeepMatchStartSettings}{35}{paragraph*.276}% 
-\contentsline {paragraph}{setKeepMatchStartSettings}{35}{paragraph*.278}% 
-\contentsline {paragraph}{setToContinue}{35}{paragraph*.280}% 
-\contentsline {section}{\numberline {4.3}it.unicam.cs.pa.mastermind.players}{35}{section.4.3}% 
-\contentsline {subsection}{\numberline {4.3.1}CodeBreaker}{35}{subsection.4.3.1}% 
-\contentsline {subsubsection}{Methods}{36}{subsubsection*.284}% 
-\contentsline {paragraph}{getAttempt}{36}{paragraph*.285}% 
-\contentsline {paragraph}{getLastClue}{36}{paragraph*.287}% 
-\contentsline {paragraph}{hasGivenUp}{36}{paragraph*.289}% 
-\contentsline {paragraph}{setGiveUp}{36}{paragraph*.291}% 
-\contentsline {paragraph}{setLastClue}{36}{paragraph*.293}% 
-\contentsline {paragraph}{toggleGiveUp}{36}{paragraph*.295}% 
-\contentsline {subsection}{\numberline {4.3.2}CodeMaker}{36}{subsection.4.3.2}% 
-\contentsline {subsubsection}{Methods}{37}{subsubsection*.298}% 
-\contentsline {paragraph}{getCodeToGuess}{37}{paragraph*.299}% 
-\contentsline {subsection}{\numberline {4.3.3}DonaldKnuthBreaker}{37}{subsection.4.3.3}% 
-\contentsline {subsubsection}{Constructors}{37}{subsubsection*.302}% 
-\contentsline {paragraph}{DonaldKnuthBreaker}{37}{paragraph*.303}% 
-\contentsline {subsubsection}{Methods}{37}{subsubsection*.305}% 
-\contentsline {paragraph}{generateSet}{37}{paragraph*.306}% 
-\contentsline {paragraph}{getAttempt}{37}{paragraph*.308}% 
-\contentsline {subsection}{\numberline {4.3.4}InteractiveBreaker}{37}{subsection.4.3.4}% 
-\contentsline {subsubsection}{Constructors}{38}{subsubsection*.311}% 
-\contentsline {paragraph}{InteractiveBreaker}{38}{paragraph*.312}% 
-\contentsline {subsubsection}{Methods}{38}{subsubsection*.314}% 
-\contentsline {paragraph}{getAttempt}{38}{paragraph*.315}% 
-\contentsline {subsection}{\numberline {4.3.5}InteractiveMaker}{38}{subsection.4.3.5}% 
-\contentsline {subsubsection}{Constructors}{38}{subsubsection*.318}% 
-\contentsline {paragraph}{InteractiveMaker}{38}{paragraph*.319}% 
-\contentsline {subsubsection}{Methods}{38}{subsubsection*.321}% 
-\contentsline {paragraph}{getCodeToGuess}{38}{paragraph*.322}% 
-\contentsline {subsection}{\numberline {4.3.6}RandomBotBreaker}{38}{subsection.4.3.6}% 
-\contentsline {subsubsection}{Constructors}{38}{subsubsection*.325}% 
-\contentsline {paragraph}{RandomBotBreaker}{38}{paragraph*.326}% 
-\contentsline {subsubsection}{Methods}{39}{subsubsection*.328}% 
-\contentsline {paragraph}{getAttempt}{39}{paragraph*.329}% 
-\contentsline {subsection}{\numberline {4.3.7}RandomBotMaker}{39}{subsection.4.3.7}% 
-\contentsline {subsubsection}{Constructors}{39}{subsubsection*.332}% 
-\contentsline {paragraph}{RandomBotMaker}{39}{paragraph*.333}% 
-\contentsline {subsubsection}{Methods}{39}{subsubsection*.335}% 
-\contentsline {paragraph}{getCodeToGuess}{39}{paragraph*.336}% 
-\contentsline {section}{\numberline {4.4}it.unicam.cs.pa.mastermind.ui}{39}{section.4.4}% 
-\contentsline {subsection}{\numberline {4.4.1}AnsiUtility}{39}{subsection.4.4.1}% 
-\contentsline {subsubsection}{Fields}{39}{subsubsection*.340}% 
-\contentsline {paragraph}{ANSI\_BLACK\_BACKGROUND}{39}{paragraph*.341}% 
-\contentsline {paragraph}{ANSI\_BLUE\_BACKGROUND}{40}{paragraph*.343}% 
-\contentsline {paragraph}{ANSI\_CYAN\_BACKGROUND}{40}{paragraph*.345}% 
-\contentsline {paragraph}{ANSI\_CYAN\_BOLD}{40}{paragraph*.347}% 
-\contentsline {paragraph}{ANSI\_GREEN\_BACKGROUND}{40}{paragraph*.349}% 
-\contentsline {paragraph}{ANSI\_PURPLE\_BACKGROUND}{40}{paragraph*.351}% 
-\contentsline {paragraph}{ANSI\_RED\_BACKGROUND}{40}{paragraph*.353}% 
-\contentsline {paragraph}{ANSI\_RED\_BOLD}{40}{paragraph*.355}% 
-\contentsline {paragraph}{ANSI\_RESET}{40}{paragraph*.357}% 
-\contentsline {paragraph}{ANSI\_WHITE\_BACKGROUND}{40}{paragraph*.359}% 
-\contentsline {paragraph}{ANSI\_WHITE\_BOLD}{40}{paragraph*.361}% 
-\contentsline {paragraph}{ANSI\_YELLOW}{40}{paragraph*.363}% 
-\contentsline {paragraph}{ANSI\_YELLOW\_BACKGROUND}{41}{paragraph*.365}% 
-\contentsline {subsection}{\numberline {4.4.2}ConsoleGameView}{41}{subsection.4.4.2}% 
-\contentsline {subsubsection}{Constructors}{41}{subsubsection*.368}% 
-\contentsline {paragraph}{ConsoleGameView}{41}{paragraph*.369}% 
-\contentsline {subsubsection}{Methods}{41}{subsubsection*.371}% 
-\contentsline {paragraph}{endingScreen}{41}{paragraph*.372}% 
-\contentsline {paragraph}{getIndexSequence}{41}{paragraph*.374}% 
-\contentsline {paragraph}{showGame}{41}{paragraph*.376}% 
-\contentsline {paragraph}{update}{41}{paragraph*.378}% 
-\contentsline {subsection}{\numberline {4.4.3}ConsoleStartView}{41}{subsection.4.4.3}% 
-\contentsline {subsubsection}{Methods}{42}{subsubsection*.381}% 
-\contentsline {paragraph}{askNewAttempts}{42}{paragraph*.382}% 
-\contentsline {paragraph}{askNewLength}{42}{paragraph*.384}% 
-\contentsline {paragraph}{askNewLengthsAndAttempts}{42}{paragraph*.386}% 
-\contentsline {paragraph}{askNewStartupSettings}{42}{paragraph*.388}% 
-\contentsline {paragraph}{badEnding}{42}{paragraph*.390}% 
-\contentsline {paragraph}{ending}{42}{paragraph*.392}% 
-\contentsline {paragraph}{getInstance}{42}{paragraph*.394}% 
-\contentsline {paragraph}{getPlayerName}{42}{paragraph*.396}% 
-\contentsline {paragraph}{showLogo}{42}{paragraph*.398}% 
-\contentsline {paragraph}{showNewMatchStarting}{42}{paragraph*.400}% 
-\contentsline {subsection}{\numberline {4.4.4}GameView}{43}{subsection.4.4.4}% 
-\contentsline {subsubsection}{Methods}{43}{subsubsection*.403}% 
-\contentsline {paragraph}{endingScreen}{43}{paragraph*.404}% 
-\contentsline {paragraph}{getIndexSequence}{43}{paragraph*.406}% 
-\contentsline {paragraph}{showGame}{43}{paragraph*.408}% 
-\contentsline {subsection}{\numberline {4.4.5}StartView}{43}{subsection.4.4.5}% 
-\contentsline {subsubsection}{Methods}{44}{subsubsection*.411}% 
-\contentsline {paragraph}{askNewAttempts}{44}{paragraph*.412}% 
-\contentsline {paragraph}{askNewLength}{44}{paragraph*.414}% 
-\contentsline {paragraph}{askNewLengthsAndAttempts}{44}{paragraph*.416}% 
-\contentsline {paragraph}{askNewStartupSettings}{44}{paragraph*.418}% 
-\contentsline {paragraph}{badEnding}{44}{paragraph*.420}% 
-\contentsline {paragraph}{ending}{45}{paragraph*.422}% 
-\contentsline {paragraph}{getPlayerName}{45}{paragraph*.424}% 
-\contentsline {paragraph}{setupBreaker}{45}{paragraph*.426}% 
-\contentsline {paragraph}{setupMaker}{45}{paragraph*.428}% 
-\contentsline {paragraph}{showLogo}{45}{paragraph*.430}% 
-\contentsline {paragraph}{showNewMatchStarting}{45}{paragraph*.432}% 
-\contentsline {chapter}{\numberline {5}Test realizzati in JUnit}{46}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}it.unicam.cs.pa.mastermind.test}{46}{section.5.1}% 
-\contentsline {subsection}{\numberline {5.1.1}GameCoreBoardControllerTest}{46}{subsection.5.1.1}% 
-\contentsline {subsubsection}{Fields}{46}{subsubsection*.436}% 
-\contentsline {paragraph}{attempt}{46}{paragraph*.437}% 
-\contentsline {paragraph}{toGuess}{46}{paragraph*.439}% 
-\contentsline {subsubsection}{Methods}{47}{subsubsection*.441}% 
-\contentsline {paragraph}{setUp}{47}{paragraph*.442}% 
-\contentsline {paragraph}{testBoardController}{47}{paragraph*.444}% 
-\contentsline {paragraph}{testGetSequenceLength}{47}{paragraph*.446}% 
-\contentsline {paragraph}{testGetSequenceToGuess}{47}{paragraph*.448}% 
-\contentsline {paragraph}{testInsertCodeToGuess}{47}{paragraph*.450}% 
-\contentsline {paragraph}{testInsertNewAttempt}{47}{paragraph*.452}% 
-\contentsline {subsection}{\numberline {5.1.2}GameCoreBoardModelTest}{47}{subsection.5.1.2}% 
-\contentsline {subsubsection}{Fields}{48}{subsubsection*.455}% 
-\contentsline {paragraph}{attempt}{48}{paragraph*.456}% 
-\contentsline {paragraph}{toGuess}{48}{paragraph*.458}% 
-\contentsline {subsubsection}{Methods}{48}{subsubsection*.460}% 
-\contentsline {paragraph}{setUp}{48}{paragraph*.461}% 
-\contentsline {paragraph}{testAddAttempt}{48}{paragraph*.463}% 
-\contentsline {paragraph}{testAttemptsInserted}{48}{paragraph*.465}% 
-\contentsline {paragraph}{testBoard}{48}{paragraph*.467}% 
-\contentsline {paragraph}{testIsEmpty}{48}{paragraph*.469}% 
-\contentsline {paragraph}{testLastAttemptAndClue}{48}{paragraph*.471}% 
-\contentsline {paragraph}{testLeftAttempts}{49}{paragraph*.473}% 
-\contentsline {paragraph}{testSetSequenceToGuess}{49}{paragraph*.475}% 
-\contentsline {subsection}{\numberline {5.1.3}PlayersFactoryRegistry}{49}{subsection.5.1.3}% 
-\contentsline {subsubsection}{Fields}{49}{subsubsection*.478}% 
-\contentsline {paragraph}{playersFactory}{49}{paragraph*.479}% 
-\contentsline {subsubsection}{Methods}{49}{subsubsection*.481}% 
-\contentsline {paragraph}{testBreakerFactoryRegistry}{49}{paragraph*.482}% 
-\contentsline {paragraph}{testCheckRightPathName}{49}{paragraph*.484}% 
-\contentsline {paragraph}{testGetFactoryByName}{50}{paragraph*.486}% 
-\contentsline {paragraph}{testGetPlayersNames}{50}{paragraph*.488}% 
-\contentsline {paragraph}{testMakerFactoryRegistry}{50}{paragraph*.490}% 
-\contentsline {subsection}{\numberline {5.1.4}PlayersInteractiveBreakerTest}{50}{subsection.5.1.4}% 
-\contentsline {subsubsection}{Methods}{50}{subsubsection*.493}% 
-\contentsline {paragraph}{testGetAttempt}{50}{paragraph*.494}% 
-\contentsline {subsection}{\numberline {5.1.5}PlayersInteractiveMakerTest}{50}{subsection.5.1.5}% 
-\contentsline {subsubsection}{Methods}{51}{subsubsection*.497}% 
-\contentsline {paragraph}{testGetCodeToGuess}{51}{paragraph*.498}% 
-\contentsline {subsection}{\numberline {5.1.6}PlayersRandomBotBreakerTest}{51}{subsection.5.1.6}% 
-\contentsline {subsubsection}{Methods}{51}{subsubsection*.501}% 
-\contentsline {paragraph}{testGetAttempt}{51}{paragraph*.502}% 
-\contentsline {subsection}{\numberline {5.1.7}PlayersRandomBotMakerTest}{51}{subsection.5.1.7}% 
-\contentsline {subsubsection}{Methods}{51}{subsubsection*.505}% 
-\contentsline {paragraph}{testGetCodeToGuess}{51}{paragraph*.506}% 
-\contentsline {subsection}{\numberline {5.1.8}SimulationGame}{51}{subsection.5.1.8}% 
-\contentsline {subsubsection}{Methods}{51}{subsubsection*.509}% 
-\contentsline {paragraph}{testSimulationGame}{51}{paragraph*.510}% 
-\contentsline {subsection}{\numberline {5.1.9}UIConsoleStartViewTest}{52}{subsection.5.1.9}% 
-\contentsline {subsubsection}{Methods}{52}{subsubsection*.513}% 
-\contentsline {paragraph}{testGetIstance}{52}{paragraph*.514}% 
-\contentsline {chapter}{Indice}{53}{section*.516}% 
+\contentsline {section}{\numberline {1.7}Gradle}{5}{section.1.7}% 
+\contentsline {section}{\numberline {1.8}Continuous Integration}{5}{section.1.8}% 
+\contentsline {chapter}{\numberline {2}Guida al gioco}{7}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Regolamento}{7}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Singola partita}{7}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Struttura dell\IeC {\textquoteright }interfaccia}{11}{section.2.3}% 
+\contentsline {chapter}{\numberline {3}Sphinx e le sue potenzialit\IeC {\`a}}{12}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Strumenti con cui \IeC {\`e} stata realizzata}{12}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Autogenerazione della sintassi convertita da JavaDoc a Sphinx}{12}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Documentazione del codice}{14}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}it.unicam.cs.pa.mastermind.factories}{14}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}BadRegistryException}{15}{subsection.4.1.1}% 
+\contentsline {subsubsection}{Constructors}{15}{subsubsection*.5}% 
+\contentsline {paragraph}{BadRegistryException}{15}{paragraph*.6}% 
+\contentsline {subsection}{\numberline {4.1.2}BreakerFactory}{15}{subsection.4.1.2}% 
+\contentsline {subsubsection}{Methods}{15}{subsubsection*.9}% 
+\contentsline {paragraph}{getBreaker}{15}{paragraph*.10}% 
+\contentsline {subsection}{\numberline {4.1.3}BreakerFactoryRegistry}{15}{subsection.4.1.3}% 
+\contentsline {subsubsection}{Constructors}{15}{subsubsection*.13}% 
+\contentsline {paragraph}{BreakerFactoryRegistry}{15}{paragraph*.14}% 
+\contentsline {subsection}{\numberline {4.1.4}ConsoleGameViewFactory}{16}{subsection.4.1.4}% 
+\contentsline {subsubsection}{Methods}{16}{subsubsection*.17}% 
+\contentsline {paragraph}{getGameView}{16}{paragraph*.18}% 
+\contentsline {subsection}{\numberline {4.1.5}DonaldKnuthBreakerFactory}{16}{subsection.4.1.5}% 
+\contentsline {subsubsection}{Methods}{16}{subsubsection*.21}% 
+\contentsline {paragraph}{getBreaker}{16}{paragraph*.22}% 
+\contentsline {paragraph}{getDescription}{16}{paragraph*.24}% 
+\contentsline {paragraph}{getName}{16}{paragraph*.26}% 
+\contentsline {subsection}{\numberline {4.1.6}GameViewFactory}{16}{subsection.4.1.6}% 
+\contentsline {subsubsection}{Methods}{17}{subsubsection*.29}% 
+\contentsline {paragraph}{getGameView}{17}{paragraph*.30}% 
+\contentsline {subsection}{\numberline {4.1.7}InteractiveBreakerFactory}{17}{subsection.4.1.7}% 
+\contentsline {subsubsection}{Methods}{17}{subsubsection*.33}% 
+\contentsline {paragraph}{getBreaker}{17}{paragraph*.34}% 
+\contentsline {paragraph}{getDescription}{17}{paragraph*.36}% 
+\contentsline {paragraph}{getName}{17}{paragraph*.38}% 
+\contentsline {subsection}{\numberline {4.1.8}InteractiveMakerFactory}{17}{subsection.4.1.8}% 
+\contentsline {subsubsection}{Methods}{17}{subsubsection*.41}% 
+\contentsline {paragraph}{getDescription}{17}{paragraph*.42}% 
+\contentsline {paragraph}{getMaker}{17}{paragraph*.44}% 
+\contentsline {paragraph}{getName}{18}{paragraph*.46}% 
+\contentsline {subsection}{\numberline {4.1.9}MakerFactory}{18}{subsection.4.1.9}% 
+\contentsline {subsubsection}{Methods}{18}{subsubsection*.49}% 
+\contentsline {paragraph}{getMaker}{18}{paragraph*.50}% 
+\contentsline {subsection}{\numberline {4.1.10}MakerFactoryRegistry}{18}{subsection.4.1.10}% 
+\contentsline {subsubsection}{Constructors}{18}{subsubsection*.53}% 
+\contentsline {paragraph}{MakerFactoryRegistry}{18}{paragraph*.54}% 
+\contentsline {subsection}{\numberline {4.1.11}PlayerFactory}{19}{subsection.4.1.11}% 
+\contentsline {subsubsection}{Methods}{19}{subsubsection*.57}% 
+\contentsline {paragraph}{getDescription}{19}{paragraph*.58}% 
+\contentsline {paragraph}{getName}{19}{paragraph*.60}% 
+\contentsline {subsection}{\numberline {4.1.12}PlayerFactoryRegistry}{19}{subsection.4.1.12}% 
+\contentsline {subsubsection}{Constructors}{19}{subsubsection*.63}% 
+\contentsline {paragraph}{PlayerFactoryRegistry}{19}{paragraph*.64}% 
+\contentsline {subsubsection}{Methods}{19}{subsubsection*.66}% 
+\contentsline {paragraph}{getFactoryByName}{19}{paragraph*.67}% 
+\contentsline {paragraph}{getPlayerFactoriesInstances}{20}{paragraph*.69}% 
+\contentsline {paragraph}{getPlayersDescription}{20}{paragraph*.71}% 
+\contentsline {paragraph}{getPlayersNames}{20}{paragraph*.73}% 
+\contentsline {subsection}{\numberline {4.1.13}RandomBotBreakerFactory}{20}{subsection.4.1.13}% 
+\contentsline {subsubsection}{Methods}{20}{subsubsection*.76}% 
+\contentsline {paragraph}{getBreaker}{20}{paragraph*.77}% 
+\contentsline {paragraph}{getDescription}{20}{paragraph*.79}% 
+\contentsline {paragraph}{getName}{20}{paragraph*.81}% 
+\contentsline {subsection}{\numberline {4.1.14}RandomBotMakerFactory}{21}{subsection.4.1.14}% 
+\contentsline {subsubsection}{Methods}{21}{subsubsection*.84}% 
+\contentsline {paragraph}{getDescription}{21}{paragraph*.85}% 
+\contentsline {paragraph}{getMaker}{21}{paragraph*.87}% 
+\contentsline {paragraph}{getName}{21}{paragraph*.89}% 
+\contentsline {section}{\numberline {4.2}it.unicam.cs.pa.mastermind.gamecore}{21}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}BoardController}{21}{subsection.4.2.1}% 
+\contentsline {subsubsection}{Constructors}{21}{subsubsection*.93}% 
+\contentsline {paragraph}{BoardController}{21}{paragraph*.94}% 
+\contentsline {subsubsection}{Methods}{22}{subsubsection*.96}% 
+\contentsline {paragraph}{insertCodeToGuess}{22}{paragraph*.97}% 
+\contentsline {paragraph}{insertNewAttempt}{22}{paragraph*.99}% 
+\contentsline {subsection}{\numberline {4.2.2}BoardModel}{22}{subsection.4.2.2}% 
+\contentsline {subsubsection}{Constructors}{22}{subsubsection*.102}% 
+\contentsline {paragraph}{BoardModel}{22}{paragraph*.103}% 
+\contentsline {subsubsection}{Methods}{22}{subsubsection*.105}% 
+\contentsline {paragraph}{addAttempt}{22}{paragraph*.106}% 
+\contentsline {paragraph}{attemptsInserted}{23}{paragraph*.108}% 
+\contentsline {paragraph}{getAttemptAndClueList}{23}{paragraph*.110}% 
+\contentsline {paragraph}{getLastAttempt}{23}{paragraph*.112}% 
+\contentsline {paragraph}{getLastClue}{23}{paragraph*.114}% 
+\contentsline {paragraph}{getSequenceLength}{23}{paragraph*.116}% 
+\contentsline {paragraph}{getSequenceToGuess}{23}{paragraph*.118}% 
+\contentsline {paragraph}{hasBreakerGuessed}{23}{paragraph*.120}% 
+\contentsline {paragraph}{isBoardEmpty}{24}{paragraph*.122}% 
+\contentsline {paragraph}{leftAttempts}{24}{paragraph*.124}% 
+\contentsline {paragraph}{removeLastAttemptAndClue}{24}{paragraph*.126}% 
+\contentsline {paragraph}{setSequenceToGuess}{24}{paragraph*.128}% 
+\contentsline {subsection}{\numberline {4.2.3}ColorPegs}{24}{subsection.4.2.3}% 
+\contentsline {subsubsection}{Enum Constants}{24}{subsubsection*.131}% 
+\contentsline {paragraph}{BLACK}{24}{paragraph*.132}% 
+\contentsline {paragraph}{BLUE}{24}{paragraph*.134}% 
+\contentsline {paragraph}{GREEN}{25}{paragraph*.136}% 
+\contentsline {paragraph}{RED}{25}{paragraph*.138}% 
+\contentsline {paragraph}{WHITE}{25}{paragraph*.140}% 
+\contentsline {paragraph}{YELLOW}{25}{paragraph*.142}% 
+\contentsline {subsection}{\numberline {4.2.4}ConsoleMainManager}{25}{subsection.4.2.4}% 
+\contentsline {subsubsection}{Methods}{25}{subsubsection*.145}% 
+\contentsline {paragraph}{getGameViewFactory}{25}{paragraph*.146}% 
+\contentsline {paragraph}{getStartViewInstance}{25}{paragraph*.148}% 
+\contentsline {paragraph}{main}{25}{paragraph*.150}% 
+\contentsline {subsection}{\numberline {4.2.5}GlobalSettings}{26}{subsection.4.2.5}% 
+\contentsline {subsubsection}{Constructors}{26}{subsubsection*.153}% 
+\contentsline {paragraph}{GlobalSettings}{26}{paragraph*.154}% 
+\contentsline {subsubsection}{Methods}{26}{subsubsection*.156}% 
+\contentsline {paragraph}{getBreakers}{26}{paragraph*.157}% 
+\contentsline {paragraph}{getMakers}{26}{paragraph*.159}% 
+\contentsline {subsection}{\numberline {4.2.6}MainManager}{26}{subsection.4.2.6}% 
+\contentsline {subsubsection}{Constructors}{26}{subsubsection*.162}% 
+\contentsline {paragraph}{MainManager}{26}{paragraph*.163}% 
+\contentsline {subsubsection}{Methods}{27}{subsubsection*.165}% 
+\contentsline {paragraph}{getGameViewFactory}{27}{paragraph*.166}% 
+\contentsline {paragraph}{getStartViewInstance}{27}{paragraph*.168}% 
+\contentsline {paragraph}{startUp}{27}{paragraph*.170}% 
+\contentsline {subsection}{\numberline {4.2.7}MatchStartSettings}{27}{subsection.4.2.7}% 
+\contentsline {subsubsection}{Fields}{27}{subsubsection*.173}% 
+\contentsline {paragraph}{highTresholdLength}{27}{paragraph*.174}% 
+\contentsline {paragraph}{lowTresholdAttempts}{27}{paragraph*.176}% 
+\contentsline {paragraph}{lowTresholdLength}{27}{paragraph*.178}% 
+\contentsline {subsubsection}{Constructors}{28}{subsubsection*.180}% 
+\contentsline {paragraph}{MatchStartSettings}{28}{paragraph*.181}% 
+\contentsline {subsubsection}{Methods}{28}{subsubsection*.183}% 
+\contentsline {paragraph}{getAttempts}{28}{paragraph*.184}% 
+\contentsline {paragraph}{getBreakerFactory}{28}{paragraph*.186}% 
+\contentsline {paragraph}{getGameViewFactory}{28}{paragraph*.188}% 
+\contentsline {paragraph}{getHighTresholdLength}{28}{paragraph*.190}% 
+\contentsline {paragraph}{getLowTresholdAttempts}{28}{paragraph*.192}% 
+\contentsline {paragraph}{getLowTresholdLength}{28}{paragraph*.194}% 
+\contentsline {paragraph}{getMakerFactory}{28}{paragraph*.196}% 
+\contentsline {paragraph}{getSequenceLength}{28}{paragraph*.198}% 
+\contentsline {paragraph}{resetLengthAttempts}{28}{paragraph*.200}% 
+\contentsline {paragraph}{setAttempts}{29}{paragraph*.202}% 
+\contentsline {paragraph}{setBreakerFactory}{29}{paragraph*.204}% 
+\contentsline {paragraph}{setHighTresholdLength}{29}{paragraph*.206}% 
+\contentsline {paragraph}{setLowTresholdAttempts}{29}{paragraph*.208}% 
+\contentsline {paragraph}{setLowTresholdLength}{29}{paragraph*.210}% 
+\contentsline {paragraph}{setMakerFactory}{29}{paragraph*.212}% 
+\contentsline {paragraph}{setSequenceLength}{29}{paragraph*.214}% 
+\contentsline {subsection}{\numberline {4.2.8}MatchState}{29}{subsection.4.2.8}% 
+\contentsline {subsubsection}{Constructors}{29}{subsubsection*.217}% 
+\contentsline {paragraph}{MatchState}{29}{paragraph*.218}% 
+\contentsline {subsubsection}{Methods}{30}{subsubsection*.220}% 
+\contentsline {paragraph}{getBreakerVictoryAttempts}{30}{paragraph*.221}% 
+\contentsline {paragraph}{getHasBreakerWon}{30}{paragraph*.223}% 
+\contentsline {paragraph}{getHasMakerWon}{30}{paragraph*.225}% 
+\contentsline {paragraph}{getMessage}{30}{paragraph*.227}% 
+\contentsline {paragraph}{toggleBreakerGiveUp}{30}{paragraph*.229}% 
+\contentsline {paragraph}{toggleBreakerWin}{30}{paragraph*.231}% 
+\contentsline {paragraph}{toggleMakerWin}{30}{paragraph*.233}% 
+\contentsline {paragraph}{update}{31}{paragraph*.235}% 
+\contentsline {subsection}{\numberline {4.2.9}Observable}{31}{subsection.4.2.9}% 
+\contentsline {subsubsection}{Methods}{31}{subsubsection*.238}% 
+\contentsline {paragraph}{addObserver}{31}{paragraph*.239}% 
+\contentsline {paragraph}{notifyObservers}{31}{paragraph*.241}% 
+\contentsline {paragraph}{removeObserver}{31}{paragraph*.243}% 
+\contentsline {subsection}{\numberline {4.2.10}Observer}{31}{subsection.4.2.10}% 
+\contentsline {subsubsection}{Methods}{32}{subsubsection*.246}% 
+\contentsline {paragraph}{update}{32}{paragraph*.247}% 
+\contentsline {subsection}{\numberline {4.2.11}SingleMatch}{32}{subsection.4.2.11}% 
+\contentsline {subsubsection}{Fields}{32}{subsubsection*.250}% 
+\contentsline {paragraph}{gameState}{32}{paragraph*.251}% 
+\contentsline {paragraph}{sequenceToGuess}{32}{paragraph*.253}% 
+\contentsline {subsubsection}{Constructors}{32}{subsubsection*.255}% 
+\contentsline {paragraph}{SingleMatch}{32}{paragraph*.256}% 
+\contentsline {subsubsection}{Methods}{33}{subsubsection*.258}% 
+\contentsline {paragraph}{endingMessage}{33}{paragraph*.259}% 
+\contentsline {paragraph}{getSequenceToGuess}{33}{paragraph*.261}% 
+\contentsline {paragraph}{start}{33}{paragraph*.263}% 
+\contentsline {paragraph}{update}{33}{paragraph*.265}% 
+\contentsline {subsection}{\numberline {4.2.12}StartupSettings}{33}{subsection.4.2.12}% 
+\contentsline {subsubsection}{Constructors}{33}{subsubsection*.268}% 
+\contentsline {paragraph}{StartupSettings}{33}{paragraph*.269}% 
+\contentsline {paragraph}{StartupSettings}{33}{paragraph*.271}% 
+\contentsline {subsubsection}{Methods}{34}{subsubsection*.273}% 
+\contentsline {paragraph}{getContinue}{34}{paragraph*.274}% 
+\contentsline {paragraph}{getKeepMatchStartSettings}{34}{paragraph*.276}% 
+\contentsline {paragraph}{setKeepMatchStartSettings}{34}{paragraph*.278}% 
+\contentsline {paragraph}{setToContinue}{34}{paragraph*.280}% 
+\contentsline {section}{\numberline {4.3}it.unicam.cs.pa.mastermind.players}{34}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}CodeBreaker}{34}{subsection.4.3.1}% 
+\contentsline {subsubsection}{Methods}{35}{subsubsection*.284}% 
+\contentsline {paragraph}{getAttempt}{35}{paragraph*.285}% 
+\contentsline {paragraph}{getLastClue}{35}{paragraph*.287}% 
+\contentsline {paragraph}{hasGivenUp}{35}{paragraph*.289}% 
+\contentsline {paragraph}{setGiveUp}{35}{paragraph*.291}% 
+\contentsline {paragraph}{setLastClue}{35}{paragraph*.293}% 
+\contentsline {paragraph}{toggleGiveUp}{35}{paragraph*.295}% 
+\contentsline {subsection}{\numberline {4.3.2}CodeMaker}{35}{subsection.4.3.2}% 
+\contentsline {subsubsection}{Methods}{36}{subsubsection*.298}% 
+\contentsline {paragraph}{getCodeToGuess}{36}{paragraph*.299}% 
+\contentsline {subsection}{\numberline {4.3.3}DonaldKnuthBreaker}{36}{subsection.4.3.3}% 
+\contentsline {subsubsection}{Constructors}{36}{subsubsection*.302}% 
+\contentsline {paragraph}{DonaldKnuthBreaker}{36}{paragraph*.303}% 
+\contentsline {subsubsection}{Methods}{36}{subsubsection*.305}% 
+\contentsline {paragraph}{generateSet}{36}{paragraph*.306}% 
+\contentsline {paragraph}{getAttempt}{36}{paragraph*.308}% 
+\contentsline {subsection}{\numberline {4.3.4}InteractiveBreaker}{36}{subsection.4.3.4}% 
+\contentsline {subsubsection}{Constructors}{37}{subsubsection*.311}% 
+\contentsline {paragraph}{InteractiveBreaker}{37}{paragraph*.312}% 
+\contentsline {subsubsection}{Methods}{37}{subsubsection*.314}% 
+\contentsline {paragraph}{getAttempt}{37}{paragraph*.315}% 
+\contentsline {subsection}{\numberline {4.3.5}InteractiveMaker}{37}{subsection.4.3.5}% 
+\contentsline {subsubsection}{Constructors}{37}{subsubsection*.318}% 
+\contentsline {paragraph}{InteractiveMaker}{37}{paragraph*.319}% 
+\contentsline {subsubsection}{Methods}{37}{subsubsection*.321}% 
+\contentsline {paragraph}{getCodeToGuess}{37}{paragraph*.322}% 
+\contentsline {subsection}{\numberline {4.3.6}RandomBotBreaker}{37}{subsection.4.3.6}% 
+\contentsline {subsubsection}{Constructors}{37}{subsubsection*.325}% 
+\contentsline {paragraph}{RandomBotBreaker}{37}{paragraph*.326}% 
+\contentsline {subsubsection}{Methods}{38}{subsubsection*.328}% 
+\contentsline {paragraph}{getAttempt}{38}{paragraph*.329}% 
+\contentsline {subsection}{\numberline {4.3.7}RandomBotMaker}{38}{subsection.4.3.7}% 
+\contentsline {subsubsection}{Constructors}{38}{subsubsection*.332}% 
+\contentsline {paragraph}{RandomBotMaker}{38}{paragraph*.333}% 
+\contentsline {subsubsection}{Methods}{38}{subsubsection*.335}% 
+\contentsline {paragraph}{getCodeToGuess}{38}{paragraph*.336}% 
+\contentsline {section}{\numberline {4.4}it.unicam.cs.pa.mastermind.ui}{38}{section.4.4}% 
+\contentsline {subsection}{\numberline {4.4.1}AnsiUtility}{38}{subsection.4.4.1}% 
+\contentsline {subsubsection}{Fields}{38}{subsubsection*.340}% 
+\contentsline {paragraph}{ANSI\_BLACK\_BACKGROUND}{38}{paragraph*.341}% 
+\contentsline {paragraph}{ANSI\_BLUE\_BACKGROUND}{39}{paragraph*.343}% 
+\contentsline {paragraph}{ANSI\_CYAN\_BACKGROUND}{39}{paragraph*.345}% 
+\contentsline {paragraph}{ANSI\_CYAN\_BOLD}{39}{paragraph*.347}% 
+\contentsline {paragraph}{ANSI\_GREEN\_BACKGROUND}{39}{paragraph*.349}% 
+\contentsline {paragraph}{ANSI\_PURPLE\_BACKGROUND}{39}{paragraph*.351}% 
+\contentsline {paragraph}{ANSI\_RED\_BACKGROUND}{39}{paragraph*.353}% 
+\contentsline {paragraph}{ANSI\_RED\_BOLD}{39}{paragraph*.355}% 
+\contentsline {paragraph}{ANSI\_RESET}{39}{paragraph*.357}% 
+\contentsline {paragraph}{ANSI\_WHITE\_BACKGROUND}{39}{paragraph*.359}% 
+\contentsline {paragraph}{ANSI\_WHITE\_BOLD}{39}{paragraph*.361}% 
+\contentsline {paragraph}{ANSI\_YELLOW}{39}{paragraph*.363}% 
+\contentsline {paragraph}{ANSI\_YELLOW\_BACKGROUND}{40}{paragraph*.365}% 
+\contentsline {subsection}{\numberline {4.4.2}ConsoleGameView}{40}{subsection.4.4.2}% 
+\contentsline {subsubsection}{Constructors}{40}{subsubsection*.368}% 
+\contentsline {paragraph}{ConsoleGameView}{40}{paragraph*.369}% 
+\contentsline {subsubsection}{Methods}{40}{subsubsection*.371}% 
+\contentsline {paragraph}{endingScreen}{40}{paragraph*.372}% 
+\contentsline {paragraph}{getIndexSequence}{40}{paragraph*.374}% 
+\contentsline {paragraph}{showGame}{40}{paragraph*.376}% 
+\contentsline {paragraph}{update}{40}{paragraph*.378}% 
+\contentsline {subsection}{\numberline {4.4.3}ConsoleStartView}{40}{subsection.4.4.3}% 
+\contentsline {subsubsection}{Methods}{41}{subsubsection*.381}% 
+\contentsline {paragraph}{askNewAttempts}{41}{paragraph*.382}% 
+\contentsline {paragraph}{askNewLength}{41}{paragraph*.384}% 
+\contentsline {paragraph}{askNewLengthsAndAttempts}{41}{paragraph*.386}% 
+\contentsline {paragraph}{askNewStartupSettings}{41}{paragraph*.388}% 
+\contentsline {paragraph}{badEnding}{41}{paragraph*.390}% 
+\contentsline {paragraph}{ending}{41}{paragraph*.392}% 
+\contentsline {paragraph}{getInstance}{41}{paragraph*.394}% 
+\contentsline {paragraph}{getPlayerName}{41}{paragraph*.396}% 
+\contentsline {paragraph}{showLogo}{41}{paragraph*.398}% 
+\contentsline {paragraph}{showNewMatchStarting}{41}{paragraph*.400}% 
+\contentsline {subsection}{\numberline {4.4.4}GameView}{42}{subsection.4.4.4}% 
+\contentsline {subsubsection}{Methods}{42}{subsubsection*.403}% 
+\contentsline {paragraph}{endingScreen}{42}{paragraph*.404}% 
+\contentsline {paragraph}{getIndexSequence}{42}{paragraph*.406}% 
+\contentsline {paragraph}{showGame}{42}{paragraph*.408}% 
+\contentsline {subsection}{\numberline {4.4.5}StartView}{42}{subsection.4.4.5}% 
+\contentsline {subsubsection}{Methods}{43}{subsubsection*.411}% 
+\contentsline {paragraph}{askNewAttempts}{43}{paragraph*.412}% 
+\contentsline {paragraph}{askNewLength}{43}{paragraph*.414}% 
+\contentsline {paragraph}{askNewLengthsAndAttempts}{43}{paragraph*.416}% 
+\contentsline {paragraph}{askNewStartupSettings}{43}{paragraph*.418}% 
+\contentsline {paragraph}{badEnding}{43}{paragraph*.420}% 
+\contentsline {paragraph}{ending}{44}{paragraph*.422}% 
+\contentsline {paragraph}{getPlayerName}{44}{paragraph*.424}% 
+\contentsline {paragraph}{setupBreaker}{44}{paragraph*.426}% 
+\contentsline {paragraph}{setupMaker}{44}{paragraph*.428}% 
+\contentsline {paragraph}{showLogo}{44}{paragraph*.430}% 
+\contentsline {paragraph}{showNewMatchStarting}{44}{paragraph*.432}% 
+\contentsline {chapter}{\numberline {5}Test realizzati in JUnit}{45}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}it.unicam.cs.pa.mastermind.test}{45}{section.5.1}% 
+\contentsline {subsection}{\numberline {5.1.1}GameCoreBoardControllerTest}{45}{subsection.5.1.1}% 
+\contentsline {subsubsection}{Fields}{45}{subsubsection*.436}% 
+\contentsline {paragraph}{attempt}{45}{paragraph*.437}% 
+\contentsline {paragraph}{toGuess}{45}{paragraph*.439}% 
+\contentsline {subsubsection}{Methods}{46}{subsubsection*.441}% 
+\contentsline {paragraph}{setUp}{46}{paragraph*.442}% 
+\contentsline {paragraph}{testBoardController}{46}{paragraph*.444}% 
+\contentsline {paragraph}{testGetSequenceLength}{46}{paragraph*.446}% 
+\contentsline {paragraph}{testGetSequenceToGuess}{46}{paragraph*.448}% 
+\contentsline {paragraph}{testInsertCodeToGuess}{46}{paragraph*.450}% 
+\contentsline {paragraph}{testInsertNewAttempt}{46}{paragraph*.452}% 
+\contentsline {subsection}{\numberline {5.1.2}GameCoreBoardModelTest}{46}{subsection.5.1.2}% 
+\contentsline {subsubsection}{Fields}{47}{subsubsection*.455}% 
+\contentsline {paragraph}{attempt}{47}{paragraph*.456}% 
+\contentsline {paragraph}{toGuess}{47}{paragraph*.458}% 
+\contentsline {subsubsection}{Methods}{47}{subsubsection*.460}% 
+\contentsline {paragraph}{setUp}{47}{paragraph*.461}% 
+\contentsline {paragraph}{testAddAttempt}{47}{paragraph*.463}% 
+\contentsline {paragraph}{testAttemptsInserted}{47}{paragraph*.465}% 
+\contentsline {paragraph}{testBoard}{47}{paragraph*.467}% 
+\contentsline {paragraph}{testIsEmpty}{47}{paragraph*.469}% 
+\contentsline {paragraph}{testLastAttemptAndClue}{47}{paragraph*.471}% 
+\contentsline {paragraph}{testLeftAttempts}{48}{paragraph*.473}% 
+\contentsline {paragraph}{testSetSequenceToGuess}{48}{paragraph*.475}% 
+\contentsline {subsection}{\numberline {5.1.3}PlayersFactoryRegistry}{48}{subsection.5.1.3}% 
+\contentsline {subsubsection}{Fields}{48}{subsubsection*.478}% 
+\contentsline {paragraph}{playersFactory}{48}{paragraph*.479}% 
+\contentsline {subsubsection}{Methods}{48}{subsubsection*.481}% 
+\contentsline {paragraph}{testBreakerFactoryRegistry}{48}{paragraph*.482}% 
+\contentsline {paragraph}{testCheckRightPathName}{48}{paragraph*.484}% 
+\contentsline {paragraph}{testGetFactoryByName}{49}{paragraph*.486}% 
+\contentsline {paragraph}{testGetPlayersNames}{49}{paragraph*.488}% 
+\contentsline {paragraph}{testMakerFactoryRegistry}{49}{paragraph*.490}% 
+\contentsline {subsection}{\numberline {5.1.4}PlayersInteractiveBreakerTest}{49}{subsection.5.1.4}% 
+\contentsline {subsubsection}{Methods}{49}{subsubsection*.493}% 
+\contentsline {paragraph}{testGetAttempt}{49}{paragraph*.494}% 
+\contentsline {subsection}{\numberline {5.1.5}PlayersInteractiveMakerTest}{49}{subsection.5.1.5}% 
+\contentsline {subsubsection}{Methods}{50}{subsubsection*.497}% 
+\contentsline {paragraph}{testGetCodeToGuess}{50}{paragraph*.498}% 
+\contentsline {subsection}{\numberline {5.1.6}PlayersRandomBotBreakerTest}{50}{subsection.5.1.6}% 
+\contentsline {subsubsection}{Methods}{50}{subsubsection*.501}% 
+\contentsline {paragraph}{testGetAttempt}{50}{paragraph*.502}% 
+\contentsline {subsection}{\numberline {5.1.7}PlayersRandomBotMakerTest}{50}{subsection.5.1.7}% 
+\contentsline {subsubsection}{Methods}{50}{subsubsection*.505}% 
+\contentsline {paragraph}{testGetCodeToGuess}{50}{paragraph*.506}% 
+\contentsline {subsection}{\numberline {5.1.8}SimulationGame}{50}{subsection.5.1.8}% 
+\contentsline {subsubsection}{Methods}{50}{subsubsection*.509}% 
+\contentsline {paragraph}{testSimulationGame}{50}{paragraph*.510}% 
+\contentsline {subsection}{\numberline {5.1.9}UIConsoleStartViewTest}{51}{subsection.5.1.9}% 
+\contentsline {subsubsection}{Methods}{51}{subsubsection*.513}% 
+\contentsline {paragraph}{testGetIstance}{51}{paragraph*.514}% 
+\contentsline {chapter}{Indice}{52}{section*.516}% 
