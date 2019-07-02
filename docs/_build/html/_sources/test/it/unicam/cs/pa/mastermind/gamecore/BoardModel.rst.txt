@@ -69,6 +69,18 @@ getAttemptAndClueList
 
    :return: List contenenti Map.Entry con le sequenze di \ ``ColorPegs``\  inserite come tentativo e le relative sequenze indizio
 
+getLastAttempt
+^^^^^^^^^^^^^^
+
+.. java:method:: public List<ColorPegs> getLastAttempt()
+   :outertype: BoardModel
+
+getLastClue
+^^^^^^^^^^^
+
+.. java:method:: public List<ColorPegs> getLastClue()
+   :outertype: BoardModel
+
 getSequenceLength
 ^^^^^^^^^^^^^^^^^
 
@@ -100,16 +112,6 @@ isBoardEmpty
    :outertype: BoardModel
 
    :return: boolean che indica se sono stati inseriti o meno tentativi nella plancia
-
-lastAttemptAndClue
-^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue()
-   :outertype: BoardModel
-
-   Ottenimento dell'ultima coppia sequenza tentativo - sequenza indizio inserita nella plancia.
-
-   :return: Map.Entry contenente l'ultima sequenza di \ ``ColorPegs``\  inserita come tentativo e la relativa sequenza indizio.
 
 leftAttempts
 ^^^^^^^^^^^^

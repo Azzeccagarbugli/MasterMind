@@ -178,7 +178,7 @@
 <h1>GameView<a class="headerlink" href="#gameview" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.GameView">
-public abstract class <code class="descname">GameView</code> extends <a class="reference internal" href="../gamecore/BoardObserver.html#it.unicam.cs.pa.mastermind.gamecore.BoardObserver" title="it.unicam.cs.pa.mastermind.gamecore.BoardObserver">BoardObserver</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView" title="Link a questa definizione">¶</a></dt>
+public abstract class <code class="descname">GameView</code> implements <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observer.html#it.unicam.cs.pa.mastermind.gamecore.Observer" title="it.unicam.cs.pa.mastermind.gamecore.Observer">Observer</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView" title="Link a questa definizione">¶</a></dt>
 <dd><p><strong>Responsabilità</strong>: fornire agli utenti fisici coinvolti in una singola partita operazioni di Input/Output. Rientra nel pattern <strong>Observer</strong> per poter fornire in output all’utente fisico una rappresentazione di quelle che sono le azioni effettuate dai giocatori nel gioco. Rientra nel pattern <strong>MVC</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -192,13 +192,14 @@ public abstract class <code class="descname">GameView</code> extends <a class="r
 <div class="section" id="endingscreen">
 <h3>endingScreen<a class="headerlink" href="#endingscreen" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String)">
-public abstract void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String)" title="Link a questa definizione">¶</a></dt>
-<dd><p>Interazione finale con l’utente fisico relativa al termine di una partita</p>
+<dt id="it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)">
+public abstract void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> seqToGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Interazione con l’utente fisico per la terminazione di una partita</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>gameEndingMessage</strong> – stringa con il messaggio finale da mostrare all’utente</p></li>
+<li><p><strong>gameEndingMessage</strong> – messaggio che comunica all’utente fisico l’esito</p></li>
+<li><p><strong>seqToGuess</strong> – sequenza da indovinare dal gioco, da mostrare all’utente fisico</p></li>
 </ul>
 </dd>
 </dl>
@@ -208,12 +209,13 @@ public abstract void <code class="descname">endingScreen</code><span class="sig-
 <div class="section" id="getindexsequence">
 <h3>getIndexSequence<a class="headerlink" href="#getindexsequence" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.GameView.getIndexSequence(boolean)">
-public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>boolean<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.getIndexSequence(boolean)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.ui.GameView.getIndexSequence(int, boolean)">
+public abstract <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="java.lang.Integer">Integer</a>&gt; <code class="descname">getIndexSequence</code><span class="sig-paren">(</span>int<em> seqLength</em>, boolean<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.getIndexSequence(int, boolean)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Interazione con l’utente fisico per poter ottenere gli indici associati ai diversi valori di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code>. Se il valore restituito contiene l”<code class="docutils literal notranslate"><span class="pre">Integer</span></code> 0 è stata rappresentata la volontà di un giocatore <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> di arrendersi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>seqLength</strong> – la lunghezza della sequenza di cui si vogliono ottenere indici</p></li>
 <li><p><strong>toGuess</strong> – flag che indica se la sequenza di indici interi da ottenere si riferisce alla sequenza da indovinare o meno</p></li>
 </ul>
 </dd>
@@ -227,9 +229,16 @@ public abstract <a class="reference external" href="http://docs.oracle.com/javas
 <div class="section" id="showgame">
 <h3>showGame<a class="headerlink" href="#showgame" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.ui.GameView.showGame()">
-public abstract void <code class="descname">showGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.showGame()" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)">
+public abstract void <code class="descname">showGame</code><span class="sig-paren">(</span><a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Interazione con l’utente fisico per mostrare la situazione di gioco.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>o</strong> – plancia di gioco da mostrare</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

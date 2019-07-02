@@ -40,11 +40,11 @@ insertCodeToGuess
 insertNewAttempt
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: public boolean insertNewAttempt(List<ColorPegs> attempt)
+.. java:method:: public List<ColorPegs> insertNewAttempt(List<ColorPegs> attempt)
    :outertype: BoardController
 
    Metodo che consente l'inserimento di un nuovo tentativo all'interno della \ ``BoardModel``\ .
 
    :param attempt: la \ ``List``\  di \ ``ColorPegs``\  contenente i valori che si vogliono inserire all'interno della \ ``BoardModel``\
-   :return: boolean a rappresentazione dell'esito dell'inserimento
+   :return: List contenente la sequenza di \ ``ColorPegs``\  indizio generata dalla plancia
 

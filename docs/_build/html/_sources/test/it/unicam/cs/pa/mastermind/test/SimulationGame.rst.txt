@@ -2,8 +2,6 @@
 
 .. java:import:: java.util List
 
-.. java:import:: java.util Map.Entry
-
 .. java:import:: org.junit.jupiter.api Test
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardModel

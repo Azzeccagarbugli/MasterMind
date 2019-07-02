@@ -5,7 +5,8 @@ import it.unicam.cs.pa.mastermind.players.InteractiveMaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
- * Classe factory implementazione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>InteractiveMaker</code>.
+ * Classe factory implementazione di <code>MakerFactory</code> impiegata per
+ * ottenere istanze di <code>InteractiveMaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

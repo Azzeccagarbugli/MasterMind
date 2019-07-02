@@ -144,7 +144,14 @@ public class ConsoleStartView implements StartView {
 
 	@Override
 	public void showNewMatchStarting() {
-		System.out.println("\nNow starting the game");
+		System.out.println(this.beautifyStartMessage(" Now starting the game"));
+	}
+	
+	private String beautifyStartMessage(String msg) {
+		String result = String.format("\n┏%30s┓\n", " ").replace(' ', '━');
+		result += String.format("   %s \n", msg);
+		result += String.format("┗%30s┛", " ", " ").replace(' ', '━');
+		return result;
 	}
 
 	@Override

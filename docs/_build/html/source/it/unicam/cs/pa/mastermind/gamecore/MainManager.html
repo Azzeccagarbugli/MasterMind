@@ -93,7 +93,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BoardController.html">BoardController</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
@@ -104,6 +103,8 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="MatchStartSettings.html">MatchStartSettings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observable.html">Observable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observer.html">Observer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
@@ -186,7 +187,7 @@
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.MainManager">
 public abstract class <code class="descname">MainManager</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager" title="Link a questa definizione">¶</a></dt>
-<dd><p><strong>Responsabilità</strong>: permettere il corretto svolgimento del gioco, monitorando e tenendo traccia di una partita di MasterMind alla volta</p>
+<dd><p><strong>Responsabilità</strong>: permettere il corretto svolgimento del gioco, monitorando e tenendo traccia di una partita di MasterMind alla volta. <strong>Contratto</strong>: le classi che estendono <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> devono includere al loro interno il metodo di avvio <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
 <dd class="field-odd"><p>Francesco Pio Stelluti, Francesco Coppola</p>
@@ -211,7 +212,7 @@ public <code class="descname">MainManager</code><span class="sig-paren">(</span>
 <h3>getGameViewFactory<a class="headerlink" href="#getgameviewfactory" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()">
-protected abstract <a class="reference internal" href="../factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a> <code class="descname">getGameViewFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()" title="Link a questa definizione">¶</a></dt>
+protected abstract <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a> <code class="descname">getGameViewFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()" title="Link a questa definizione">¶</a></dt>
 <dd><p>Ottenimento dell’istanza di <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> che si desidera impiegare all’interno di tutti i match per poter generare istanze di <code class="docutils literal notranslate"><span class="pre">GameView</span></code> utili per l’interazione con l’utente fisico durante il loro svolgimento. <strong>Contratto</strong>: il metodo deve risultare coerente con la particolare estensione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> in cui viene definito.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -225,7 +226,7 @@ protected abstract <a class="reference internal" href="../factories/GameViewFact
 <h3>getStartViewInstance<a class="headerlink" href="#getstartviewinstance" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewInstance()">
-protected abstract <a class="reference internal" href="../ui/StartView.html#it.unicam.cs.pa.mastermind.ui.StartView" title="it.unicam.cs.pa.mastermind.ui.StartView">StartView</a> <code class="descname">getStartViewInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewInstance()" title="Link a questa definizione">¶</a></dt>
+protected abstract <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/ui/StartView.html#it.unicam.cs.pa.mastermind.ui.StartView" title="it.unicam.cs.pa.mastermind.ui.StartView">StartView</a> <code class="descname">getStartViewInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewInstance()" title="Link a questa definizione">¶</a></dt>
 <dd><p>Ottenimento dell’istanza di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> che si desidera impiegare con l’istanza di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> corrente. <strong>Contratto</strong>: il metodo deve risultare coerente con la particolare estensione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> in cui viene definito.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>

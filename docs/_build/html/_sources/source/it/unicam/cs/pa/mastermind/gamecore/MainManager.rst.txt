@@ -12,7 +12,7 @@ MainManager
 
 .. java:type:: public abstract class MainManager
 
-   \ **Responsabilità**\ : permettere il corretto svolgimento del gioco, monitorando e tenendo traccia di una partita di MasterMind alla volta
+   \ **Responsabilità**\ : permettere il corretto svolgimento del gioco, monitorando e tenendo traccia di una partita di MasterMind alla volta. \ **Contratto**\ : le classi che estendono \ ``MainManager``\  devono includere al loro interno il metodo di avvio \ ``main``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 

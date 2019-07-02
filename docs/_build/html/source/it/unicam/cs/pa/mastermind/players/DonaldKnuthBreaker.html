@@ -181,7 +181,7 @@
 <h1>DonaldKnuthBreaker<a class="headerlink" href="#donaldknuthbreaker" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker">
-public class <code class="descname">DonaldKnuthBreaker</code> extends <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker" title="Link a questa definizione">¶</a></dt>
+public class <code class="descname">DonaldKnuthBreaker</code> extends <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker" title="Link a questa definizione">¶</a></dt>
 <dd><p>Estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code> mirata ad una gestione del comportamento è basato sull’algoritmo di risoluzione teorizzato dal matematico Donald Knuth, il quale attesta di risolvere il gioco del Mastermind in cinque mosse al massimo mediante una precisa serie di passaggi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -197,17 +197,35 @@ public class <code class="descname">DonaldKnuthBreaker</code> extends <a class="
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.DonaldKnuthBreaker(int, int)">
 public <code class="descname">DonaldKnuthBreaker</code><span class="sig-paren">(</span>int<em> seqLength</em>, int<em> attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.DonaldKnuthBreaker(int, int)" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Viene inizializzato il player <code class="docutils literal notranslate"><span class="pre">DonaldKnuthBreaker</span></code> mediante il suo costruttore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seqLength</strong> – la lunghezza della sequenza segreto</p></li>
+<li><p><strong>attempts</strong> – il numero di tentativi disponibili</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="generateset">
+<h3>generateSet<a class="headerlink" href="#generateset" title="Link a questa intestazione">¶</a></h3>
+<dl class="method">
+<dt id="it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.generateSet()">
+public void <code class="descname">generateSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.generateSet()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Viene generato il set contenente le 1296 combinazioni possibili.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="getattempt">
 <h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.getAttempt()">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.getAttempt()" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.getAttempt()" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>

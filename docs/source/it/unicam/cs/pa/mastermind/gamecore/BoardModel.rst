@@ -18,7 +18,7 @@ BoardModel
 .. java:package:: it.unicam.cs.pa.mastermind.gamecore
    :noindex:
 
-.. java:type:: public class BoardModel
+.. java:type:: public class BoardModel extends Observable
 
    \ **Responsabilità**\ : gestire le informazioni relative ad una plancia di gioco. Rientra nei pattern \ **MVC**\  e \ **Observer**\ .
 
@@ -51,16 +51,6 @@ addAttempt
    :throws IllegalArgumentException: in caso di inserimento illegale
    :return: boolean relativo alla riuscita dell'inserimento
 
-addObserver
-^^^^^^^^^^^
-
-.. java:method:: public void addObserver(BoardObserver observer)
-   :outertype: BoardModel
-
-   Metodo il quale registra un nuovo \ ``BoardObserver``\  e notifica tutti i \ ``BoardObserver``\  attualmente associati all'istanza di \ ``BoardModel``\ .
-
-   :param observer: nuova istanza di \ ``BoardObserver``\  da aggiungere
-
 attemptsInserted
 ^^^^^^^^^^^^^^^^
 
@@ -78,6 +68,18 @@ getAttemptAndClueList
    Ottenimento di una \ ``List``\  contenente tutta le coppie sequenza tentativo - sequenza indizio inserite nella plancia.
 
    :return: List contenenti Map.Entry con le sequenze di \ ``ColorPegs``\  inserite come tentativo e le relative sequenze indizio
+
+getLastAttempt
+^^^^^^^^^^^^^^
+
+.. java:method:: public List<ColorPegs> getLastAttempt()
+   :outertype: BoardModel
+
+getLastClue
+^^^^^^^^^^^
+
+.. java:method:: public List<ColorPegs> getLastClue()
+   :outertype: BoardModel
 
 getSequenceLength
 ^^^^^^^^^^^^^^^^^
@@ -110,16 +112,6 @@ isBoardEmpty
    :outertype: BoardModel
 
    :return: boolean che indica se sono stati inseriti o meno tentativi nella plancia
-
-lastAttemptAndClue
-^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public Map.Entry<List<ColorPegs>, List<ColorPegs>> lastAttemptAndClue()
-   :outertype: BoardModel
-
-   Ottenimento dell'ultima coppia sequenza tentativo - sequenza indizio inserita nella plancia.
-
-   :return: Map.Entry contenente l'ultima sequenza di \ ``ColorPegs``\  inserita come tentativo e la relativa sequenza indizio.
 
 leftAttempts
 ^^^^^^^^^^^^

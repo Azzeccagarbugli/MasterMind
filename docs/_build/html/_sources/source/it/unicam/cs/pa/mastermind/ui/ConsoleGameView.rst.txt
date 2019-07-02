@@ -14,7 +14,13 @@
 
 .. java:import:: java.util.stream IntStream
 
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardModel
+
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
+
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore Observable
+
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore SingleMatch
 
 ConsoleGameView
 ===============
@@ -43,24 +49,26 @@ Methods
 endingScreen
 ^^^^^^^^^^^^
 
-.. java:method:: @Override public void endingScreen(String gameEndingMessage)
+.. java:method:: @Override public void endingScreen(String gameEndingMessage, List<ColorPegs> seqToGuess)
    :outertype: ConsoleGameView
 
 getIndexSequence
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<Integer> getIndexSequence(boolean isBreaker)
+.. java:method:: @Override public List<Integer> getIndexSequence(int seqLength, boolean isBreaker)
    :outertype: ConsoleGameView
 
 showGame
 ^^^^^^^^
 
-.. java:method:: @Override public void showGame()
+.. java:method:: @Override public void showGame(BoardModel o)
    :outertype: ConsoleGameView
 
 update
 ^^^^^^
 
-.. java:method:: @Override public void update()
+.. java:method:: @Override public void update(Observable o)
    :outertype: ConsoleGameView
+
+   Lo stato dell'oggetto si aggiorna grazie a oggetti \ ``BoardModel``\  e oggetti \ ``SingleMatch``\ .
 

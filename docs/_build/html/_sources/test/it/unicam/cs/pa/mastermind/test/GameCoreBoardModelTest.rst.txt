@@ -1,12 +1,8 @@
-.. java:import:: java.util AbstractMap
-
 .. java:import:: java.util ArrayList
 
 .. java:import:: java.util Arrays
 
 .. java:import:: java.util List
-
-.. java:import:: java.util Map
 
 .. java:import:: org.junit.jupiter.api Assertions
 
@@ -19,8 +15,6 @@
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardModel
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
-
-.. java:import:: it.unicam.cs.pa.mastermind.gamecore MatchState
 
 GameCoreBoardModelTest
 ======================

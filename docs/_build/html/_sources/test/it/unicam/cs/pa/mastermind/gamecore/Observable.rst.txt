@@ -44,9 +44,3 @@ removeObserver
 
    :param obs: oggetto \ ``Observer``\  da rimuovere
 
-setupObservers
-^^^^^^^^^^^^^^
-
-.. java:method:: public void setupObservers()
-   :outertype: Observable
-

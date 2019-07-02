@@ -97,13 +97,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MainManager.html">MainManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MatchStartSettings.html">MatchStartSettings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MatchState.html">MatchState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observable.html">Observable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observer.html">Observer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
@@ -200,7 +201,7 @@ public class <code class="descname">BoardController</code><a class="headerlink" 
 <h3>BoardController<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(BoardModel)">
-public <code class="descname">BoardController</code><span class="sig-paren">(</span><a class="reference internal" href="BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a><em> newBoard</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(BoardModel)" title="Link a questa definizione">¶</a></dt>
+public <code class="descname">BoardController</code><span class="sig-paren">(</span><a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a><em> newBoard</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(BoardModel)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -219,7 +220,7 @@ public <code class="descname">BoardController</code><span class="sig-paren">(</s
 <h3>insertCodeToGuess<a class="headerlink" href="#insertcodetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(List)">
-public boolean <code class="descname">insertCodeToGuess</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(List)" title="Link a questa definizione">¶</a></dt>
+public boolean <code class="descname">insertCodeToGuess</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> toGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(List)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Metodo che consente l’inserimento di una sequenza da indovinare all’interno della <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -238,7 +239,7 @@ public boolean <code class="descname">insertCodeToGuess</code><span class="sig-p
 <h3>insertNewAttempt<a class="headerlink" href="#insertnewattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(List)">
-public boolean <code class="descname">insertNewAttempt</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> attempt</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(List)" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">insertNewAttempt</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> attempt</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(List)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Metodo che consente l’inserimento di un nuovo tentativo all’interno della <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -247,7 +248,7 @@ public boolean <code class="descname">insertNewAttempt</code><span class="sig-pa
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>boolean a rappresentazione dell’esito dell’inserimento</p>
+<dd class="field-even"><p>List contenente la sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> indizio generata dalla plancia</p>
 </dd>
 </dl>
 </dd></dl>

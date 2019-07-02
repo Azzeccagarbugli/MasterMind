@@ -103,7 +103,7 @@ public class MatchState implements Observer {
 	 */
 	public String getMessage() {
 		if (this.breakerVictory) {
-			return "The breaker guessed the combination after " + usedAttempts + " attempts. The breaker is the winner of the match.";
+			return "The breaker guessed the combination after " + usedAttempts + " attempts, he wins.";
 		} else if (this.breakerSurrender) {
 			return "The breaker gave up. The maker is the winner of the match.";
 		} else if (this.makerVictory) {

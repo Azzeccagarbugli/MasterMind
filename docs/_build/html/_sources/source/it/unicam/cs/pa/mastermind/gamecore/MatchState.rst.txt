@@ -4,7 +4,7 @@ MatchState
 .. java:package:: it.unicam.cs.pa.mastermind.gamecore
    :noindex:
 
-.. java:type:: public class MatchState extends BoardObserver
+.. java:type:: public class MatchState implements Observer
 
    \ **Responsabilità**\ : tenere traccia delle informazioni necessarie per poter decretare se una partita è ancora in corso o meno. Rientra nel pattern \ **Observer**\ .
 
@@ -15,7 +15,7 @@ Constructors
 MatchState
 ^^^^^^^^^^
 
-.. java:constructor:: public MatchState(BoardModel subject)
+.. java:constructor:: public MatchState()
    :outertype: MatchState
 
    Inizializzazione con valori di default.
@@ -93,6 +93,8 @@ toggleMakerWin
 update
 ^^^^^^
 
-.. java:method:: @Override public void update()
+.. java:method:: @Override public void update(Observable o)
    :outertype: MatchState
+
+   Lo stato dell'oggetto si aggiorna grazie a oggetti \ ``BoardModel``\ .
 

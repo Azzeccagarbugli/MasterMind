@@ -27,7 +27,7 @@ Constructors
 InteractiveBreaker
 ^^^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public InteractiveBreaker(GameView newView)
+.. java:constructor:: public InteractiveBreaker(GameView newView, int seqLength)
    :outertype: InteractiveBreaker
 
 Methods

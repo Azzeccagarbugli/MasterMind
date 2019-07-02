@@ -181,7 +181,7 @@
 <h1>InteractiveBreaker<a class="headerlink" href="#interactivebreaker" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker">
-public class <code class="descname">InteractiveBreaker</code> extends <a class="reference internal" href="CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker" title="Link a questa definizione">¶</a></dt>
+public class <code class="descname">InteractiveBreaker</code> extends <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/players/CodeBreaker.html#it.unicam.cs.pa.mastermind.players.CodeBreaker" title="it.unicam.cs.pa.mastermind.players.CodeBreaker">CodeBreaker</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker" title="Link a questa definizione">¶</a></dt>
 <dd><p>Particolare estensione di <code class="docutils literal notranslate"><span class="pre">CodeBreaker</span></code>, rappresentante un utente fisico. Nello specifico l’utente umano può effettuare decisioni ed impartire comandi passando da un’istanza di <code class="docutils literal notranslate"><span class="pre">GameView</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -195,8 +195,8 @@ public class <code class="descname">InteractiveBreaker</code> extends <a class="
 <div class="section" id="id1">
 <h3>InteractiveBreaker<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(GameView)">
-public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../ui/GameView.html#it.unicam.cs.pa.mastermind.ui.GameView" title="it.unicam.cs.pa.mastermind.ui.GameView">GameView</a><em> newView</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(GameView)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(GameView, int)">
+public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(</span><a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/ui/GameView.html#it.unicam.cs.pa.mastermind.ui.GameView" title="it.unicam.cs.pa.mastermind.ui.GameView">GameView</a><em> newView</em>, int<em> seqLength</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(GameView, int)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -207,7 +207,7 @@ public <code class="descname">InteractiveBreaker</code><span class="sig-paren">(
 <h3>getAttempt<a class="headerlink" href="#getattempt" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt()">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt()" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getAttempt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt()" title="Link a questa definizione">¶</a></dt>
 <dd><p>L’utente fisico può decidere di voler reinserire una sequenza di <code class="docutils literal notranslate"><span class="pre">ColorPegs</span></code> già inserita precedentemente. In tal caso ripeterà l’azione di definizione di una nuova sequenza. <strong>Contratto</strong>: se dalla vista <code class="docutils literal notranslate"><span class="pre">GameView</span></code> viene restuito il valore 0 allora tale valore viene interpretato come la volontà dell’utente fisico di arrendersi.</p>
 </dd></dl>
 

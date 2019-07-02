@@ -9,6 +9,9 @@ di determinati design pattern.
 
 Architettura fondamentale del progetto
 ---------------------------------------
+
+.. image:: _static/MasterMind.png
+
 L'avvio del programma è delegato ad una classe che estende ``MainManager``, classe astratta contenente il funzionamento effettivo e a più alto livello del programma. 
 La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi ``GameViewFactory`` e ``StartView`` si è scelto di impiegare.
 
@@ -72,7 +75,10 @@ Il caricamento a **runtime** delle informazioni relative alle classi factory, gr
 ``CodeBreaker`` e ``CodeMaker``, è stato reso possibile grazie alla definizione di classi implementazione ``PlayerFactoryRegistry``, classi le cui istanze sono indirizzate
 alla lettura a runtime di file di input e al caricamento di istanze di ``BreakerFactory`` e ``MakerFactory``. 
 
-//Inserire immagine MakerFactories.txt e BreakerFactories.txt 
+.. image:: _static/makerfact.png
+    :width: 49 %
+.. image:: _static/breakfact.png
+    :width: 49 %
 
 Il formato delle informazioni di tali file di input è molto importante ed in loro assenza ne vengono generati automaticamente altri 
 *(all'interno della cartella GameResources)* contenenti le istruzioni necessarie per un corretto avvio del programma. 
@@ -115,7 +121,7 @@ Per ulteriori informazioni si rimanda alle :doc:`sezioni <test/packages>`  rigua
 
 Gradle
 --------------------------------------
-Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [7]_, in versione 5.4.1, 
+Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [7]_, in versione **5.4.1**, 
 per facilitare il deploy e la distribuzione di tale software all'interno di altri sistemi.
 
 
@@ -143,11 +149,11 @@ Quest'ultimo garantisce all'intero progetto la possibilità di sviluppare una **
 
 Aver inserito anche una *feature* come quella del **CI** rende sicuramente l'intero parco software **robusto**, **elegante** e **flessibile**.
 
-.. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
-.. [2] `MVC <https://it.wikipedia.org/wiki/Model-view-controller>`_
-.. [3] `Observer <https://italiancoders.it/observer-pattern/>`_
-.. [4] `Singleton <https://it.wikipedia.org/wiki/Singleton>`_
-.. [5] `Factory <https://italiancoders.it/factory-method-design-pattern/>`_
-.. [6] `JUnit <https://junit.org/junit5>`_
-.. [7] `Gradle <https://gradle.org/>`_
-.. [8] `Travis CI <https://en.wikipedia.org/wiki/Travis_CI>`_
+.. [1] *Mastermind o Master Mind è un gioco da tavolo astratto di crittoanalisi per due giocatori, in cui un giocatore, il "decodificatore", deve indovinare il codice segreto composto dal suo avversario, detto "codificatore".*
+.. [2] *Model-view-controller (MVC, talvolta tradotto in italiano con la dicitura modello-vista-controllo), in informatica, è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in particolare nell'ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.*
+.. [3] *L'Observer pattern è un design pattern che sostanzialemente si basa su uno o più oggetti, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall'oggetto "osservato", che può essere chiamato soggetto.*
+.. [4] *Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.*
+.. [5] *Nella programmazione ad oggetti, il Factory Method è uno dei design pattern fondamentali per l'implementazione del concetto di factory. Come altri pattern creazionali, esso indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.*
+.. [6] *In informatica JUnit è un framework di unit testing per il linguaggio di programmazione Java. L'esperienza avuta con JUnit è stata importante nella crescita dell'idea di sviluppo guidato da test (in inglese Test Driven Development), ed è uno di una famiglia di framework di unit testing noti collettivamente come xUnit.*
+.. [7] *Gradle è un sistema open source per l'automazione dello sviluppo fondato sulle idee di Apache Ant e Apache Maven, che introduce un domain-specific language (DSL) basato su Groovy, al posto della modalità XML usata da Apache Maven per dichiarare la configurazione del progetto. Gli script Gradle possono essere eseguiti direttamente, in contrasto con le definizioni dei progetti Apache Maven (pom.xml).*
+.. [8] *Travis CI è un servizio di integrazione continua utilizzato per costruire e testare progetti software ospitati su GitHub*

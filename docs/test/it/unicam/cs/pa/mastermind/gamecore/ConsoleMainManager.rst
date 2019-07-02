@@ -38,7 +38,7 @@ main
 .. java:method:: public static void main(String[] args)
    :outertype: ConsoleMainManager
 
-   Metodo main fondamentale per l'avvio
+   Metodo main fondamentale per l'avvio, richiesto dal contratto di \ ``MainManager``\ .
 
    :param args:
 

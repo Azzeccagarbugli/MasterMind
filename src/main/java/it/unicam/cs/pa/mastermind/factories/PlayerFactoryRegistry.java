@@ -77,9 +77,9 @@ public abstract class PlayerFactoryRegistry {
 				FileWriter writer = new FileWriter(f);
 				writer.write(
 						"Please insert here the qualified names of all of the factories of the player implementations you added to the game.\n"
-								+ "Please insert only one factory's qualified name per line, like the following:\n\n"+
-								"it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory\n" + 
-								"it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory");
+								+ "Please insert only one factory's qualified name per line, like the following:\n\n"
+								+ "it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory\n"
+								+ "it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory");
 				writer.close();
 			}
 			throw new BadRegistryException("The file at path " + pathLettura

@@ -5,7 +5,8 @@ import it.unicam.cs.pa.mastermind.players.RandomBotBreaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
- * Classe factory implementazione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>RandomBotBreaker</code>.
+ * Classe factory implementazione di <code>BreakerFactory</code> impiegata per
+ * ottenere istanze di <code>RandomBotBreaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

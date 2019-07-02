@@ -23,7 +23,7 @@ Constructors
 InteractiveMaker
 ^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public InteractiveMaker(GameView newView)
+.. java:constructor:: public InteractiveMaker(GameView newView, int seqLength)
    :outertype: InteractiveMaker
 
 Methods

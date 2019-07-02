@@ -1,6 +1,16 @@
 .. java:import:: java.util ArrayList
 
+.. java:import:: java.util Collections
+
+.. java:import:: java.util Iterator
+
+.. java:import:: java.util LinkedHashMap
+
 .. java:import:: java.util List
+
+.. java:import:: java.util Map
+
+.. java:import:: it.unicam.cs.pa.mastermind.gamecore BoardModel
 
 .. java:import:: it.unicam.cs.pa.mastermind.gamecore ColorPegs
 
@@ -24,8 +34,21 @@ DonaldKnuthBreaker
 .. java:constructor:: public DonaldKnuthBreaker(int seqLength, int attempts)
    :outertype: DonaldKnuthBreaker
 
+   Viene inizializzato il player \ ``DonaldKnuthBreaker``\  mediante il suo costruttore.
+
+   :param seqLength: la lunghezza della sequenza segreto
+   :param attempts: il numero di tentativi disponibili
+
 Methods
 -------
+generateSet
+^^^^^^^^^^^
+
+.. java:method:: public void generateSet()
+   :outertype: DonaldKnuthBreaker
+
+   Viene generato il set contenente le 1296 combinazioni possibili.
+
 getAttempt
 ^^^^^^^^^^
 

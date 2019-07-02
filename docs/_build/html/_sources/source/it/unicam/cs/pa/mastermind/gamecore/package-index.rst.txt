@@ -10,13 +10,14 @@ Il package contiene le componenti chiave relative all'intera gestione del gioco,
 
    BoardController
    BoardModel
-   BoardObserver
    ColorPegs
    ConsoleMainManager
    GlobalSettings
    MainManager
    MatchStartSettings
    MatchState
+   Observable
+   Observer
    SingleMatch
    StartupSettings
 

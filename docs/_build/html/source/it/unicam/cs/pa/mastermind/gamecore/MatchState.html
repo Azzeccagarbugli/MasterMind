@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Indice" href="../../../../../../../genindex.html" />
     <link rel="search" title="Cerca" href="../../../../../../../search.html" />
-    <link rel="next" title="SingleMatch" href="SingleMatch.html" />
+    <link rel="next" title="Observable" href="Observable.html" />
     <link rel="prev" title="MatchStartSettings" href="MatchStartSettings.html" /> 
 </head>
 
@@ -93,7 +93,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="package-index.html">it.unicam.cs.pa.mastermind.gamecore</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="BoardController.html">BoardController</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BoardModel.html">BoardModel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BoardObserver.html">BoardObserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ColorPegs.html">ColorPegs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ConsoleMainManager.html">ConsoleMainManager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GlobalSettings.html">GlobalSettings</a></li>
@@ -104,6 +103,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="Observable.html">Observable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Observer.html">Observer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SingleMatch.html">SingleMatch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="StartupSettings.html">StartupSettings</a></li>
 </ul>
@@ -185,7 +186,7 @@
 <h1>MatchState<a class="headerlink" href="#matchstate" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.MatchState">
-public class <code class="descname">MatchState</code> extends <a class="reference internal" href="BoardObserver.html#it.unicam.cs.pa.mastermind.gamecore.BoardObserver" title="it.unicam.cs.pa.mastermind.gamecore.BoardObserver">BoardObserver</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchState" title="Link a questa definizione">¶</a></dt>
+public class <code class="descname">MatchState</code> implements <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observer.html#it.unicam.cs.pa.mastermind.gamecore.Observer" title="it.unicam.cs.pa.mastermind.gamecore.Observer">Observer</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchState" title="Link a questa definizione">¶</a></dt>
 <dd><p><strong>Responsabilità</strong>: tenere traccia delle informazioni necessarie per poter decretare se una partita è ancora in corso o meno. Rientra nel pattern <strong>Observer</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -199,8 +200,8 @@ public class <code class="descname">MatchState</code> extends <a class="referenc
 <div class="section" id="id1">
 <h3>MatchState<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchState.MatchState(BoardModel)">
-public <code class="descname">MatchState</code><span class="sig-paren">(</span><a class="reference internal" href="BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a><em> subject</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchState.MatchState(BoardModel)" title="Link a questa definizione">¶</a></dt>
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchState.MatchState()">
+public <code class="descname">MatchState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchState.MatchState()" title="Link a questa definizione">¶</a></dt>
 <dd><p>Inizializzazione con valori di default.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -308,9 +309,10 @@ public void <code class="descname">toggleMakerWin</code><span class="sig-paren">
 <div class="section" id="update">
 <h3>update<a class="headerlink" href="#update" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchState.update()">
-public void <code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchState.update()" title="Link a questa definizione">¶</a></dt>
-<dd></dd></dl>
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MatchState.update(Observable)">
+public void <code class="descname">update</code><span class="sig-paren">(</span><a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observable.html#it.unicam.cs.pa.mastermind.gamecore.Observable" title="it.unicam.cs.pa.mastermind.gamecore.Observable">Observable</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MatchState.update(Observable)" title="Link a questa definizione">¶</a></dt>
+<dd><p>Lo stato dell’oggetto si aggiorna grazie a oggetti <code class="docutils literal notranslate"><span class="pre">BoardModel</span></code>.</p>
+</dd></dl>
 
 </div>
 </div>
@@ -324,7 +326,7 @@ public void <code class="descname">update</code><span class="sig-paren">(</span>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="SingleMatch.html" class="btn btn-neutral float-right" title="SingleMatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Observable.html" class="btn btn-neutral float-right" title="Observable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="MatchStartSettings.html" class="btn btn-neutral float-left" title="MatchStartSettings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

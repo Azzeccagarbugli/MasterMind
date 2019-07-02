@@ -4,9 +4,9 @@ import it.unicam.cs.pa.mastermind.players.CodeBreaker;
 import it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
-
 /**
- * Classe factory implementazione di <code>BreakerFactory</code> impiegata per ottenere istanze di <code>DonaldKnuthBreaker</code>.
+ * Classe factory implementazione di <code>BreakerFactory</code> impiegata per
+ * ottenere istanze di <code>DonaldKnuthBreaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

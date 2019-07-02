@@ -1,3 +1,5 @@
+.. java:import:: java.util List
+
 .. java:import:: it.unicam.cs.pa.mastermind.factories BreakerFactory
 
 .. java:import:: it.unicam.cs.pa.mastermind.factories GameViewFactory
@@ -8,8 +10,6 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.players CodeMaker
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui AnsiUtility
-
 .. java:import:: it.unicam.cs.pa.mastermind.ui GameView
 
 SingleMatch
@@ -18,7 +18,7 @@ SingleMatch
 .. java:package:: it.unicam.cs.pa.mastermind.gamecore
    :noindex:
 
-.. java:type:: public class SingleMatch
+.. java:type:: public class SingleMatch extends Observable implements Observer
 
    \ **Responsabilità**\ : gestione dello svolgimento di una singola partita di gioco.
 
@@ -33,6 +33,14 @@ gameState
    :outertype: SingleMatch
 
    Oggetto contenente informazioni relative al vincitore della partita in corso.
+
+sequenceToGuess
+^^^^^^^^^^^^^^^
+
+.. java:field::  List<ColorPegs> sequenceToGuess
+   :outertype: SingleMatch
+
+   Copia della sequenza da indovinare nel match corrente
 
 Constructors
 ------------
@@ -52,6 +60,22 @@ SingleMatch
 
 Methods
 -------
+endingMessage
+^^^^^^^^^^^^^
+
+.. java:method:: public String endingMessage()
+   :outertype: SingleMatch
+
+   Metodo che comunica l'esito finale della partita corrente.
+
+   :return: String che comunica il vincitore attuale della partita
+
+getSequenceToGuess
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<ColorPegs> getSequenceToGuess()
+   :outertype: SingleMatch
+
 start
 ^^^^^
 
@@ -59,4 +83,10 @@ start
    :outertype: SingleMatch
 
    Avvio e gestione completa di una singola partita di gioco.
+
+update
+^^^^^^
+
+.. java:method:: @Override public void update(Observable o)
+   :outertype: SingleMatch
 

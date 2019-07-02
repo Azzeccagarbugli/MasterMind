@@ -5,7 +5,8 @@ import it.unicam.cs.pa.mastermind.players.RandomBotMaker;
 import it.unicam.cs.pa.mastermind.ui.GameView;
 
 /**
- * Classe factory implementazione di <code>MakerFactory</code> impiegata per ottenere istanze di <code>RandomBotMaker</code>.
+ * Classe factory implementazione di <code>MakerFactory</code> impiegata per
+ * ottenere istanze di <code>RandomBotMaker</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *

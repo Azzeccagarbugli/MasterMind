@@ -16,9 +16,9 @@ ConsoleGameViewFactory
 
 Methods
 -------
-getNewInstance
-^^^^^^^^^^^^^^
+getGameView
+^^^^^^^^^^^
 
-.. java:method:: @Override public GameView getNewInstance()
+.. java:method:: @Override public GameView getGameView()
    :outertype: ConsoleGameViewFactory
 
