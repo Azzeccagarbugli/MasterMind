@@ -107,7 +107,7 @@ public class MatchState implements Observer {
 		} else if (this.breakerSurrender) {
 			return "The breaker gave up. The maker is the winner of the match.";
 		} else if (this.makerVictory) {
-			return "The breaker didn't guess the combination. The maker is the winner of the match.";
+			return "The breaker didn't guess the combination, so the maker wins.";
 		} else
 			return "There are no losers and no winners.";
 	}

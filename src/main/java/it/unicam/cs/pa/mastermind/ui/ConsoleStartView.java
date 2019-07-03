@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry;
@@ -12,8 +15,7 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
 
 /**
  * Implementazione con interazione via console della classe
- * <code>StartView</code>.
- * Integra il pattern <b>Singleton</b>.
+ * <code>StartView</code>. Integra il pattern <b>Singleton</b>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -146,7 +148,7 @@ public class ConsoleStartView implements StartView {
 	public void showNewMatchStarting() {
 		System.out.println(this.beautifyStartMessage(" Now starting the game"));
 	}
-	
+
 	private String beautifyStartMessage(String msg) {
 		String result = String.format("\n┏%30s┓\n", " ").replace(' ', '━');
 		result += String.format("   %s \n", msg);
@@ -267,8 +269,10 @@ public class ConsoleStartView implements StartView {
 		System.out.format("%14s ┃ %10s • %10s \n", AnsiUtility.ANSI_CYAN_BOLD + (index + 1) + AnsiUtility.ANSI_RESET,
 				AnsiUtility.ANSI_CYAN_BOLD + names.get(index) + AnsiUtility.ANSI_RESET,
 				AnsiUtility.ANSI_CYAN_BOLD + desc.get(index) + AnsiUtility.ANSI_RESET);
-		System.out.format(String.format("%s%4s%56s%s\n", (names.size() -1 == index ? "┗" : "┣"), (names.size() -1 == index ? "┻" : "╋"), " ",
-				(names.size() -1 == index ? "┛" : "┫")).replace(' ', '━'));
+		System.out.format(String
+				.format("%s%4s%56s%s\n", (names.size() - 1 == index ? "┗" : "┣"),
+						(names.size() - 1 == index ? "┻" : "╋"), " ", (names.size() - 1 == index ? "┛" : "┫"))
+				.replace(' ', '━'));
 	}
 
 	@Override
@@ -325,5 +329,4 @@ public class ConsoleStartView implements StartView {
 		System.out.println(reason);
 	}
 
-	
 }
