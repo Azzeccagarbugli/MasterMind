@@ -128,11 +128,6 @@ ricompilare tutte le classi del progetto.
 
 Si rimanda alle sezioni per ulteriori informazioni circa le implementazioni di `PlayerFactoryRegistry` fornite.
 
-Responsabilità delle classi
----------------------------
-
-Si rimanda alle sezioni riguardanti le implementazioni delle singole classi per ulteriori informazioni.
-
 Design pattern impiegati
 ------------------------
 
