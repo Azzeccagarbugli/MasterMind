@@ -1,9 +1,9 @@
 package it.unicam.cs.pa.mastermind.gamecore;
 
 import it.unicam.cs.pa.mastermind.factories.ConsoleGameViewFactory;
+import it.unicam.cs.pa.mastermind.factories.ConsoleStartViewFactory;
 import it.unicam.cs.pa.mastermind.factories.GameViewFactory;
-import it.unicam.cs.pa.mastermind.ui.ConsoleStartView;
-import it.unicam.cs.pa.mastermind.ui.StartView;
+import it.unicam.cs.pa.mastermind.factories.StartViewFactory;
 
 /**
  * Implementazione di <code>MainManager</code> correlata ad implementazioni di
@@ -16,8 +16,8 @@ import it.unicam.cs.pa.mastermind.ui.StartView;
 public class ConsoleMainManager extends MainManager {
 
 	@Override
-	protected StartView getStartViewInstance() {
-		return ConsoleStartView.getInstance();
+	protected StartViewFactory getStartViewFactory() {
+		return new ConsoleStartViewFactory();
 	}
 
 	@Override

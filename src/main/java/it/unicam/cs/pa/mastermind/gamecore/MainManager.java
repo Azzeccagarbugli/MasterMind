@@ -2,6 +2,7 @@ package it.unicam.cs.pa.mastermind.gamecore;
 
 import it.unicam.cs.pa.mastermind.factories.BadRegistryException;
 import it.unicam.cs.pa.mastermind.factories.GameViewFactory;
+import it.unicam.cs.pa.mastermind.factories.StartViewFactory;
 import it.unicam.cs.pa.mastermind.ui.StartView;
 
 /**
@@ -43,7 +44,7 @@ public abstract class MainManager {
 	private StartView startView;
 
 	public MainManager() {
-		startView = this.getStartViewInstance();
+		startView = this.getStartViewFactory().getStartView();
 		startupSettings = new StartupSettings();
 		currentMatchSettings = new MatchStartSettings(this.getGameViewFactory());
 		try {
@@ -116,14 +117,15 @@ public abstract class MainManager {
 	}
 
 	/**
-	 * Ottenimento dell'istanza di <code>StartView</code> che si desidera impiegare
-	 * con l'istanza di <code>MainManager</code> corrente. <b>Contratto</b>: il
-	 * metodo deve risultare coerente con la particolare estensione di
-	 * <code>MainManager</code> in cui viene definito.
+	 * Ottenimento dell'istanza di <code>StartViewFactory</code> che si desidera
+	 * impiegare all'interno di <code>MainManager</code> per poter generare istanze
+	 * di <code>StartView</code> utili per l'interazione con l'utente fisico.
+	 * <b>Contratto</b>: il metodo deve risultare coerente con la particolare
+	 * estensione di <code>MainManager</code> in cui viene definito.
 	 * 
-	 * @return StartView da impiegare nel <code>MainManager</code>
+	 * @return StartViewFactory da impiegare in <code>MainManager</code>
 	 */
-	protected abstract StartView getStartViewInstance();
+	protected abstract StartViewFactory getStartViewFactory();
 
 	/**
 	 * Ottenimento dell'istanza di <code>GameViewFactory</code> che si desidera

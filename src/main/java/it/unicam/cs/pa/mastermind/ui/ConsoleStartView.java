@@ -12,7 +12,7 @@ import it.unicam.cs.pa.mastermind.gamecore.StartupSettings;
 
 /**
  * Implementazione con interazione via console della classe
- * <code>StartView</code>. Integra il pattern <b>Singleton</b>.
+ * <code>StartView</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -37,30 +37,17 @@ public class ConsoleStartView implements StartView {
 	private String mastermindCaptionEnd = "Thank you for taking part in this game, see you!";
 
 	/**
-	 * Riferimento all'istanza <b>Singleton</b> di <code>ConsoleStartView</code>.
-	 */
-	private final static ConsoleStartView instance = new ConsoleStartView();
-
-	/**
 	 * Inizializzazione della vista con un <code>FilterInputStream</code> che non
 	 * porta alla chiusura di <code>System.in</code> all'interno del suo metodo
 	 * <code>close()</code>.
 	 */
-	private ConsoleStartView() {
+	public ConsoleStartView() {
 		super();
 		fis = new FilterInputStream(System.in) {
 			@Override
 			public void close() throws IOException {
 			}
 		};
-	}
-
-	/**
-	 * @return ConsoleStartView istanza <b>Singleton</b> di
-	 *         <code>ConsoleStartView</code>.
-	 */
-	public static ConsoleStartView getInstance() {
-		return instance;
 	}
 
 	@Override

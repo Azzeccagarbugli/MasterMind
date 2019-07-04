@@ -9,7 +9,6 @@ di determinati design pattern.
 
 Architettura fondamentale del progetto
 ---------------------------------------
-
 L'avvio del programma è delegato ad una classe che estende ``MainManager``, classe astratta contenente il funzionamento effettivo e a più alto livello del programma. 
 La particolare estensione di tale classe è delegata a definire quali implementazioni delle classi ``GameViewFactory`` e ``StartView`` si è scelto di impiegare.
 
@@ -34,6 +33,8 @@ L'estendibilità del progetto si sostanzia nella possibilità di definire nuove 
 
 * **Gestione dell'interazione con l'utente fisico per l'avvio di nuove partite**, rappresentata da ``StartView``.
 
+* **Fornire istanze di implementazioni di StartView**, rapprsentata da ``StartViewFactory``.
+
 * **Gestione dell'interazione con l'utente fisico per la gestione delle azioni all'interno di singole partite**, rappresentata da ``GameView``.
 
 * **Fornire istanze di implementazioni di GameView**, rapprsentata da ``GameViewFactory``.
@@ -51,6 +52,8 @@ Esempi di implementazioni già incluse nella release attuale del progetto sono:
 * **ConsoleMainManager**, ad estensione di ``MainManager``.
 
 * **ConsoleStartView**, implementazione di ``StartView``.
+
+* **ConsoleStartViewFactory**, implementazione di ``StartViewFactory``.
 
 * **ConsoleGameView**, estensione di ``GameView``.
 
@@ -92,7 +95,7 @@ Si rimanda alle :doc:`sezioni <source/packages>` riguardanti le implementazioni 
 Design pattern impiegati 
 --------------------------------------
 1. **Model View Controller** [2]_
-Rappresenta la struttura alla base del funzionamento delle singole partite. 
+Rappresenta la struttura alla base del funzionamento delle singole partite ed il suo funzionamento è orientato principalmente all'interazione dei giocatori rappresentati con utenti fisici.
 È stata implementata tramite le classi ``GameView``, ``BoardModel`` e ``BoardCoordinator``, classi le cui istanze comunicano all'interno di ``SingleMatch``.
 La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Model View Controller** ma anche nel pattern **Observer**.
 
@@ -106,22 +109,20 @@ Esempi di relazioni tra classi nel progetto che rientrano nel pattern **Observer
 e tra ``SingleMatch`` *(Observable)* e ``GameView`` *(Observer)*. 
 La relazione tra ``GameView`` e ``BoardModel`` non solo rientra nel pattern **Observer** ma anche nel pattern **Model View Controller**.
 
-3. **Singleton** [4]_
-Presente all'interno della classe ``ConsoleStartView``, esso garantisce che siano presenti **singole** istanze di tali classe all'interno del progetto.
-
-4. **Factory** [5]_
+3. **Factory** [4]_
 Implementato tramite le classi ``PlayerFactory``, ``MakerFactory``, ``BreakerFactory`` e le loro implementazioni per poter fornire istanze di giocatori ``CodeMaker`` e ``CodeBreaker``.
-Lo stesso pattern è stato inoltre implementato con ``GameViewFactory`` per poter fornire istanze di ``GameView`` all'inizializzazione dei vari ``SingleMatch``.
+Lo stesso pattern è stato inoltre implementato con ``GameViewFactory`` e ``StartViewFactory`` per poter fornire rispettivamente
+istanze di ``GameView`` e ``StartView`` all'inizializzazione dei vari ``SingleMatch``.
 
 Testing
 --------------------------------------
-Sono stati ideati dei test, scritti sotto ambiente **JUnit 5** [6]_, per poter testare in modo mirato le singole *funzionalità* del progetto.
+Sono stati ideati dei test, scritti sotto ambiente **JUnit 5** [5]_, per poter testare in modo mirato le singole *funzionalità* del progetto.
 
 Per ulteriori informazioni si rimanda alle :doc:`sezioni <test/packages>`  riguardanti le implementazioni di tali test.
 
 Gradle
 --------------------------------------
-Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [7]_, in versione **5.4.1**, 
+Nell'ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building **Gradle** [6]_, in versione 5.4.1, 
 per facilitare il deploy e la distribuzione di tale software all'interno di altri sistemi.
 
 
@@ -131,9 +132,8 @@ Continuous Integration
     *La Continuous Integration, proprio come la Continuous Delivery, viene apprezzata soprattutto nello sviluppo agile di software. L'obiettivo di questo moderno metodo è quello di suddividere il lavoro in porzioni più piccole per rendere il processo stesso di sviluppo più efficiente e poter reagire con maggiore flessibilità alle modifiche. La Continuous Integration è stata nominata per la prima volta nella descrizione della metodologia agile Extreme Programming di Kent Beck.*
 
 .. image:: _static/ci.png
-
 Mediante l'implementazione di **Gradle**, illustrata in precedenza, si è riuscito a integrare all'interno della natura del progetto
-anche il software **Travis CI** [8]_. 
+anche il software **Travis CI** [7]_. 
 
 Quest'ultimo garantisce all'intero progetto la possibilità di sviluppare una **integrazione continua** all'interno di un team di lavoro in primo luogo, *e di consegunza*, una seria di vantaggi non indifferenti, quali:
 
@@ -149,11 +149,10 @@ Quest'ultimo garantisce all'intero progetto la possibilità di sviluppare una **
 
 Aver inserito anche una *feature* come quella del **CI** rende sicuramente l'intero parco software **robusto**, **elegante** e **flessibile**.
 
-.. [1] *Mastermind o Master Mind è un gioco da tavolo astratto di crittoanalisi per due giocatori, in cui un giocatore, il "decodificatore", deve indovinare il codice segreto composto dal suo avversario, detto "codificatore".*
-.. [2] *Model-view-controller (MVC, talvolta tradotto in italiano con la dicitura modello-vista-controllo), in informatica, è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in particolare nell'ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.*
-.. [3] *L'Observer pattern è un design pattern che sostanzialemente si basa su uno o più oggetti, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall'oggetto "osservato", che può essere chiamato soggetto.*
-.. [4] *Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.*
-.. [5] *Nella programmazione ad oggetti, il Factory Method è uno dei design pattern fondamentali per l'implementazione del concetto di factory. Come altri pattern creazionali, esso indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.*
-.. [6] *In informatica JUnit è un framework di unit testing per il linguaggio di programmazione Java. L'esperienza avuta con JUnit è stata importante nella crescita dell'idea di sviluppo guidato da test (in inglese Test Driven Development), ed è uno di una famiglia di framework di unit testing noti collettivamente come xUnit.*
-.. [7] *Gradle è un sistema open source per l'automazione dello sviluppo fondato sulle idee di Apache Ant e Apache Maven, che introduce un domain-specific language (DSL) basato su Groovy, al posto della modalità XML usata da Apache Maven per dichiarare la configurazione del progetto. Gli script Gradle possono essere eseguiti direttamente, in contrasto con le definizioni dei progetti Apache Maven (pom.xml).*
-.. [8] *Travis CI è un servizio di integrazione continua utilizzato per costruire e testare progetti software ospitati su GitHub*
+.. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
+.. [2] `MVC <https://it.wikipedia.org/wiki/Model-view-controller>`_
+.. [3] `Observer <https://italiancoders.it/observer-pattern/>`_
+.. [4] `Factory <https://italiancoders.it/factory-method-design-pattern/>`_
+.. [5] `JUnit <https://junit.org/junit5>`_
+.. [6] `Gradle <https://gradle.org/>`_
+.. [7] `Travis CI <https://en.wikipedia.org/wiki/Travis_CI>`_
