@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.stream.IntStream;
 
 import it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry;
@@ -88,7 +85,7 @@ public class ConsoleStartView implements StartView {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a valid numeric value");
+					System.out.println(this.beautifyStartMessage("Please insert a valid numeric value", 40));
 				}
 			}
 		} catch (IOException e1) {
@@ -146,13 +143,13 @@ public class ConsoleStartView implements StartView {
 
 	@Override
 	public void showNewMatchStarting() {
-		System.out.println(this.beautifyStartMessage(" Now starting the game"));
+		System.out.println(this.beautifyStartMessage(" Now starting the game", 30));
 	}
 
-	private String beautifyStartMessage(String msg) {
-		String result = String.format("\n┏%30s┓\n", " ").replace(' ', '━');
+	private String beautifyStartMessage(String msg, int lenght) {
+		String result = String.format("\n┏%" + lenght +"s┓\n", " ").replace(' ', '━');
 		result += String.format("   %s \n", msg);
-		result += String.format("┗%30s┛", " ", " ").replace(' ', '━');
+		result += String.format("┗%"+ lenght +"s┛", " ", " ").replace(' ', '━');
 		return result;
 	}
 
@@ -178,8 +175,8 @@ public class ConsoleStartView implements StartView {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a numeric value between " + lowTreshold + " and " + highTreshhold
-							+ ", inclusive");
+					System.out.println(this.beautifyStartMessage("Please insert a numeric value between " + lowTreshold
+							+ " and " + highTreshhold + ", inclusive", 70));
 				}
 			}
 		} catch (IOException e1) {
@@ -210,7 +207,7 @@ public class ConsoleStartView implements StartView {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a numeric value greater than " + lowTreshold);
+					System.out.println(this.beautifyStartMessage("Please insert a numeric value greater than " + lowTreshold, 50));
 				}
 			}
 		} catch (IOException e1) {
@@ -238,7 +235,7 @@ public class ConsoleStartView implements StartView {
 						break;
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("Please insert a valid numeric value");
+					System.out.println(this.beautifyStartMessage("Please insert a valid numeric value", 40));
 				}
 			}
 		} catch (IOException e1) {
@@ -296,7 +293,7 @@ public class ConsoleStartView implements StartView {
 						break;
 					}
 				} catch (IllegalArgumentException e) {
-					System.out.println("Please write Y or N");
+					System.out.println(this.beautifyStartMessage("Please write Y or N", 30));
 				}
 			}
 		} catch (IOException e1) {
