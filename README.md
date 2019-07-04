@@ -12,7 +12,7 @@
     <b>MasterMind</b>, il famoso gioco da tavolo realizzato in <b>Java</b> per il corso di laurea <b>L-31</b> presso <b>Unicam</b>, <i>nell'anno accademico 2018/2019</i>, realizzato dagli studenti Francesco Coppola e Francesco Pio Stelluti per il progetto di <b>Programmazione Avanzata</b> seguendo i canoni di sviluppo proposti
     <br><br><b>
 <a href="https://www.unicam.it/">• Unicam</a>
-<a href="https://www.github.io/azzeccagarbugli/MasterMind">• Documentazione</a>
+<a href="https://azzeccagarbugli.github.io/MasterMind/">• Documentazione</a>
 <a href="https://it.wikipedia.org/wiki/Licenza_MIT">• Licenza</a>
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">• Contribuisci</a>
 <a href="https://travis-ci.com/Azzeccagarbugli/MasterMind">• <img src="https://travis-ci.com/Azzeccagarbugli/MasterMind.svg?token=AExPBgyhQEbq8cihCQQs&branch=master"></img></a>
@@ -125,6 +125,10 @@ un corretto avvio del programma. Il caricamento a runtime di tali
 informazioni permette l\'aggiunta di nuove funzionalità del programma,
 nei limiti di estendibilità già trattati, senza avere la necessità di
 ricompilare tutte le classi del progetto.
+
+Maker Factory             |  Breaker Facotry 
+:-------------------------:|:-------------------------:
+![](docs/_static/makerfact.png)  |  ![](docs/_static/breakfact.png)
 
 Si rimanda alle sezioni per ulteriori informazioni circa le implementazioni di `PlayerFactoryRegistry` fornite.
 
