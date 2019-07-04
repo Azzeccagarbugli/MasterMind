@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import it.unicam.cs.pa.mastermind.ui.ConsoleStartView;
 
 /**
- * Test di controllo utili al check dell'unica instanza della classe sotto
- * esamina.
+ * Test di controllo utili al check della classe <code>ConsoleStartView</code>.
  * 
  * @author Francesco Pio Stelluti, Francesco Coppola
  *
@@ -20,7 +19,7 @@ class UIConsoleStartViewTest {
 	 */
 	@Test
 	void testGetIstance() {
-		ConsoleStartView cs = ConsoleStartView.getInstance();
+		ConsoleStartView cs = new ConsoleStartView();
 		assertNotNull(cs);
 	}
 	

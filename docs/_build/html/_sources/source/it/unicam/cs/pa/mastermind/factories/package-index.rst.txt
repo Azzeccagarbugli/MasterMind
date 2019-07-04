@@ -12,6 +12,7 @@ Il package contiene le varie factory che hanno il compito di generare nuovi play
    BreakerFactory
    BreakerFactoryRegistry
    ConsoleGameViewFactory
+   ConsoleStartViewFactory
    DonaldKnuthBreakerFactory
    GameViewFactory
    InteractiveBreakerFactory
@@ -22,4 +23,5 @@ Il package contiene le varie factory che hanno il compito di generare nuovi play
    PlayerFactoryRegistry
    RandomBotBreakerFactory
    RandomBotMakerFactory
+   StartViewFactory
 

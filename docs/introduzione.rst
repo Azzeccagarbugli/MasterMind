@@ -149,10 +149,10 @@ Quest'ultimo garantisce all'intero progetto la possibilità di sviluppare una **
 
 Aver inserito anche una *feature* come quella del **CI** rende sicuramente l'intero parco software **robusto**, **elegante** e **flessibile**.
 
-.. [1] `Mastermind <https://it.wikipedia.org/wiki/Mastermind>`__
-.. [2] `MVC <https://it.wikipedia.org/wiki/Model-view-controller>`_
-.. [3] `Observer <https://italiancoders.it/observer-pattern/>`_
-.. [4] `Factory <https://italiancoders.it/factory-method-design-pattern/>`_
-.. [5] `JUnit <https://junit.org/junit5>`_
-.. [6] `Gradle <https://gradle.org/>`_
-.. [7] `Travis CI <https://en.wikipedia.org/wiki/Travis_CI>`_
+.. [1] *Mastermind o Master Mind è un gioco da tavolo astratto di crittoanalisi per due giocatori, in cui un giocatore, il "decodificatore", deve indovinare il codice segreto composto dal suo avversario, detto "codificatore".*
+.. [2] *Model-view-controller (MVC, talvolta tradotto in italiano con la dicitura modello-vista-controllo), in informatica, è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in particolare nell'ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.*
+.. [3] *L'Observer pattern è un design pattern che sostanzialemente si basa su uno o più oggetti, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall'oggetto "osservato", che può essere chiamato soggetto.*
+.. [4] *Nella programmazione ad oggetti, il Factory Method è uno dei design pattern fondamentali per l'implementazione del concetto di factory. Come altri pattern creazionali, esso indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.*
+.. [5] *In informatica JUnit è un framework di unit testing per il linguaggio di programmazione Java. L'esperienza avuta con JUnit è stata importante nella crescita dell'idea di sviluppo guidato da test (in inglese Test Driven Development), ed è uno di una famiglia di framework di unit testing noti collettivamente come xUnit.*
+.. [6] *Gradle è un sistema open source per l'automazione dello sviluppo fondato sulle idee di Apache Ant e Apache Maven, che introduce un domain-specific language (DSL) basato su Groovy, al posto della modalità XML usata da Apache Maven per dichiarare la configurazione del progetto. Gli script Gradle possono essere eseguiti direttamente, in contrasto con le definizioni dei progetti Apache Maven (pom.xml).*
+.. [7] *Travis CI è un servizio di integrazione continua utilizzato per costruire e testare progetti software ospitati su GitHub*

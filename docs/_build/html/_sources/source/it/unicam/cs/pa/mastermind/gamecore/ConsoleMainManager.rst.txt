@@ -1,10 +1,10 @@
 .. java:import:: it.unicam.cs.pa.mastermind.factories ConsoleGameViewFactory
 
+.. java:import:: it.unicam.cs.pa.mastermind.factories ConsoleStartViewFactory
+
 .. java:import:: it.unicam.cs.pa.mastermind.factories GameViewFactory
 
-.. java:import:: it.unicam.cs.pa.mastermind.ui ConsoleStartView
-
-.. java:import:: it.unicam.cs.pa.mastermind.ui StartView
+.. java:import:: it.unicam.cs.pa.mastermind.factories StartViewFactory
 
 ConsoleMainManager
 ==================
@@ -26,10 +26,10 @@ getGameViewFactory
 .. java:method:: @Override protected GameViewFactory getGameViewFactory()
    :outertype: ConsoleMainManager
 
-getStartViewInstance
-^^^^^^^^^^^^^^^^^^^^
+getStartViewFactory
+^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override protected StartView getStartViewInstance()
+.. java:method:: @Override protected StartViewFactory getStartViewFactory()
    :outertype: ConsoleMainManager
 
 main

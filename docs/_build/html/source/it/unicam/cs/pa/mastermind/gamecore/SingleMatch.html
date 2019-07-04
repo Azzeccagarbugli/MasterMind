@@ -187,7 +187,7 @@
 <h1>SingleMatch<a class="headerlink" href="#singlematch" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch">
-public class <code class="descname">SingleMatch</code> extends <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observable.html#it.unicam.cs.pa.mastermind.gamecore.Observable" title="it.unicam.cs.pa.mastermind.gamecore.Observable">Observable</a> implements <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observer.html#it.unicam.cs.pa.mastermind.gamecore.Observer" title="it.unicam.cs.pa.mastermind.gamecore.Observer">Observer</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch" title="Link a questa definizione">¶</a></dt>
+public class <code class="descname">SingleMatch</code> extends <a class="reference internal" href="Observable.html#it.unicam.cs.pa.mastermind.gamecore.Observable" title="it.unicam.cs.pa.mastermind.gamecore.Observable">Observable</a> implements <a class="reference internal" href="Observer.html#it.unicam.cs.pa.mastermind.gamecore.Observer" title="it.unicam.cs.pa.mastermind.gamecore.Observer">Observer</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch" title="Link a questa definizione">¶</a></dt>
 <dd><p><strong>Responsabilità</strong>: gestione dello svolgimento di una singola partita di gioco.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -202,7 +202,7 @@ public class <code class="descname">SingleMatch</code> extends <a class="referen
 <h3>gameState<a class="headerlink" href="#gamestate" title="Link a questa intestazione">¶</a></h3>
 <dl class="field">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState">
- <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/MatchState.html#it.unicam.cs.pa.mastermind.gamecore.MatchState" title="it.unicam.cs.pa.mastermind.gamecore.MatchState">MatchState</a> <code class="descname">gameState</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState" title="Link a questa definizione">¶</a></dt>
+ <a class="reference internal" href="MatchState.html#it.unicam.cs.pa.mastermind.gamecore.MatchState" title="it.unicam.cs.pa.mastermind.gamecore.MatchState">MatchState</a> <code class="descname">gameState</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState" title="Link a questa definizione">¶</a></dt>
 <dd><p>Oggetto contenente informazioni relative al vincitore della partita in corso.</p>
 </dd></dl>
 
@@ -211,7 +211,7 @@ public class <code class="descname">SingleMatch</code> extends <a class="referen
 <h3>sequenceToGuess<a class="headerlink" href="#sequencetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="field">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.sequenceToGuess">
- <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">sequenceToGuess</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.sequenceToGuess" title="Link a questa definizione">¶</a></dt>
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">sequenceToGuess</code><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.sequenceToGuess" title="Link a questa definizione">¶</a></dt>
 <dd><p>Copia della sequenza da indovinare nel match corrente</p>
 </dd></dl>
 
@@ -223,7 +223,7 @@ public class <code class="descname">SingleMatch</code> extends <a class="referen
 <h3>SingleMatch<a class="headerlink" href="#id1" title="Link a questa intestazione">¶</a></h3>
 <dl class="constructor">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)">
-public <code class="descname">SingleMatch</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a><em> viewFactory</em>, <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/BreakerFactory.html#it.unicam.cs.pa.mastermind.factories.BreakerFactory" title="it.unicam.cs.pa.mastermind.factories.BreakerFactory">BreakerFactory</a><em> bFactory</em>, <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a><em> mFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)" title="Link a questa definizione">¶</a></dt>
+public <code class="descname">SingleMatch</code><span class="sig-paren">(</span>int<em> sequenceLength</em>, int<em> attempts</em>, <a class="reference internal" href="../factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a><em> viewFactory</em>, <a class="reference internal" href="../factories/BreakerFactory.html#it.unicam.cs.pa.mastermind.factories.BreakerFactory" title="it.unicam.cs.pa.mastermind.factories.BreakerFactory">BreakerFactory</a><em> bFactory</em>, <a class="reference internal" href="../factories/MakerFactory.html#it.unicam.cs.pa.mastermind.factories.MakerFactory" title="it.unicam.cs.pa.mastermind.factories.MakerFactory">MakerFactory</a><em> mFactory</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore di una singola partita</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -260,7 +260,7 @@ public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/
 <h3>getSequenceToGuess<a class="headerlink" href="#getsequencetoguess" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.getSequenceToGuess()">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getSequenceToGuess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.getSequenceToGuess()" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt; <code class="descname">getSequenceToGuess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.getSequenceToGuess()" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -277,7 +277,7 @@ public void <code class="descname">start</code><span class="sig-paren">(</span><
 <h3>update<a class="headerlink" href="#update" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.SingleMatch.update(Observable)">
-public void <code class="descname">update</code><span class="sig-paren">(</span><a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observable.html#it.unicam.cs.pa.mastermind.gamecore.Observable" title="it.unicam.cs.pa.mastermind.gamecore.Observable">Observable</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.update(Observable)" title="Link a questa definizione">¶</a></dt>
+public void <code class="descname">update</code><span class="sig-paren">(</span><a class="reference internal" href="Observable.html#it.unicam.cs.pa.mastermind.gamecore.Observable" title="it.unicam.cs.pa.mastermind.gamecore.Observable">Observable</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.SingleMatch.update(Observable)" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 </div>

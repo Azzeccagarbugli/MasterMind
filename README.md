@@ -149,11 +149,7 @@ risulta deprecata. La sua implementazione all\'interno di questo
 progetto è quindi da vedere in un\'ottica puramente accademica e
 finalizzata all\'apprendimento del concetto alla base del pattern.
 
-3\. **Singleton**: Presente all\'interno della classe
-`ConsoleStartView`, esso garantisce che siano presenti **singole**
-istanze di tali classe all\'interno del progetto.
-
-4\. **Factory**: Implementato tramite le classi `PlayerFactory`,
+3\. **Factory**: Implementato tramite le classi `PlayerFactory`,
 `MakerFactory`, `BreakerFactory` e le loro implementazioni per poter
 fornire istanze di giocatori `CodeMaker` e `CodeBreaker`. Lo stesso
 pattern è stato inoltre implementato con `GameViewFactory` per poter

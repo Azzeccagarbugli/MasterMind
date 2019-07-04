@@ -2,6 +2,8 @@
 
 .. java:import:: it.unicam.cs.pa.mastermind.factories GameViewFactory
 
+.. java:import:: it.unicam.cs.pa.mastermind.factories StartViewFactory
+
 .. java:import:: it.unicam.cs.pa.mastermind.ui StartView
 
 MainManager
@@ -36,15 +38,15 @@ getGameViewFactory
 
    :return: GameViewFactory da impiegare in \ ``SingleMatch``\
 
-getStartViewInstance
-^^^^^^^^^^^^^^^^^^^^
+getStartViewFactory
+^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: protected abstract StartView getStartViewInstance()
+.. java:method:: protected abstract StartViewFactory getStartViewFactory()
    :outertype: MainManager
 
-   Ottenimento dell'istanza di \ ``StartView``\  che si desidera impiegare con l'istanza di \ ``MainManager``\  corrente. \ **Contratto**\ : il metodo deve risultare coerente con la particolare estensione di \ ``MainManager``\  in cui viene definito.
+   Ottenimento dell'istanza di \ ``StartViewFactory``\  che si desidera impiegare all'interno di \ ``MainManager``\  per poter generare istanze di \ ``StartView``\  utili per l'interazione con l'utente fisico. \ **Contratto**\ : il metodo deve risultare coerente con la particolare estensione di \ ``MainManager``\  in cui viene definito.
 
-   :return: StartView da impiegare nel \ ``MainManager``\
+   :return: StartViewFactory da impiegare in \ ``MainManager``\
 
 startUp
 ^^^^^^^

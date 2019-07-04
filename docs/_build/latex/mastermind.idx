@@ -7,243 +7,247 @@
 \indexentry{BreakerFactoryRegistry(String) (Java constructor)@\spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{15}
 \indexentry{ConsoleGameViewFactory (Java class)@\spxentry{ConsoleGameViewFactory}\spxextra{Java class}|hyperpage}{16}
 \indexentry{getGameView() (Java method)@\spxentry{getGameView()}\spxextra{Java method}|hyperpage}{16}
+\indexentry{ConsoleStartViewFactory (Java class)@\spxentry{ConsoleStartViewFactory}\spxextra{Java class}|hyperpage}{16}
+\indexentry{getStartView() (Java method)@\spxentry{getStartView()}\spxextra{Java method}|hyperpage}{16}
 \indexentry{DonaldKnuthBreakerFactory (Java class)@\spxentry{DonaldKnuthBreakerFactory}\spxextra{Java class}|hyperpage}{16}
 \indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{16}
-\indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{16}
-\indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{16}
-\indexentry{GameViewFactory (Java interface)@\spxentry{GameViewFactory}\spxextra{Java interface}|hyperpage}{16}
+\indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{17}
+\indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{17}
+\indexentry{GameViewFactory (Java interface)@\spxentry{GameViewFactory}\spxextra{Java interface}|hyperpage}{17}
 \indexentry{getGameView() (Java method)@\spxentry{getGameView()}\spxextra{Java method}|hyperpage}{17}
 \indexentry{InteractiveBreakerFactory (Java class)@\spxentry{InteractiveBreakerFactory}\spxextra{Java class}|hyperpage}{17}
 \indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{17}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{17}
 \indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{17}
-\indexentry{InteractiveMakerFactory (Java class)@\spxentry{InteractiveMakerFactory}\spxextra{Java class}|hyperpage}{17}
-\indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{17}
-\indexentry{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{17}
+\indexentry{InteractiveMakerFactory (Java class)@\spxentry{InteractiveMakerFactory}\spxextra{Java class}|hyperpage}{18}
+\indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{18}
+\indexentry{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{18}
 \indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{18}
 \indexentry{MakerFactory (Java interface)@\spxentry{MakerFactory}\spxextra{Java interface}|hyperpage}{18}
 \indexentry{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{18}
 \indexentry{MakerFactoryRegistry (Java class)@\spxentry{MakerFactoryRegistry}\spxextra{Java class}|hyperpage}{18}
-\indexentry{MakerFactoryRegistry(String) (Java constructor)@\spxentry{MakerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{18}
+\indexentry{MakerFactoryRegistry(String) (Java constructor)@\spxentry{MakerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{19}
 \indexentry{PlayerFactory (Java interface)@\spxentry{PlayerFactory}\spxextra{Java interface}|hyperpage}{19}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{19}
 \indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{19}
 \indexentry{PlayerFactoryRegistry (Java class)@\spxentry{PlayerFactoryRegistry}\spxextra{Java class}|hyperpage}{19}
-\indexentry{PlayerFactoryRegistry(String) (Java constructor)@\spxentry{PlayerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{19}
-\indexentry{getFactoryByName(String) (Java method)@\spxentry{getFactoryByName(String)}\spxextra{Java method}|hyperpage}{19}
+\indexentry{PlayerFactoryRegistry(String) (Java constructor)@\spxentry{PlayerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{20}
+\indexentry{getFactoryByName(String) (Java method)@\spxentry{getFactoryByName(String)}\spxextra{Java method}|hyperpage}{20}
 \indexentry{getPlayerFactoriesInstances() (Java method)@\spxentry{getPlayerFactoriesInstances()}\spxextra{Java method}|hyperpage}{20}
 \indexentry{getPlayersDescription() (Java method)@\spxentry{getPlayersDescription()}\spxextra{Java method}|hyperpage}{20}
 \indexentry{getPlayersNames() (Java method)@\spxentry{getPlayersNames()}\spxextra{Java method}|hyperpage}{20}
-\indexentry{RandomBotBreakerFactory (Java class)@\spxentry{RandomBotBreakerFactory}\spxextra{Java class}|hyperpage}{20}
-\indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{20}
-\indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{20}
-\indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{20}
+\indexentry{RandomBotBreakerFactory (Java class)@\spxentry{RandomBotBreakerFactory}\spxextra{Java class}|hyperpage}{21}
+\indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{21}
+\indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{21}
+\indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{21}
 \indexentry{RandomBotMakerFactory (Java class)@\spxentry{RandomBotMakerFactory}\spxextra{Java class}|hyperpage}{21}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{21}
 \indexentry{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{21}
 \indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{21}
-\indexentry{it.unicam.cs.pa.mastermind.gamecore (package)@\spxentry{it.unicam.cs.pa.mastermind.gamecore}\spxextra{package}|hyperpage}{21}
-\indexentry{BoardController (Java class)@\spxentry{BoardController}\spxextra{Java class}|hyperpage}{21}
-\indexentry{BoardController(BoardModel) (Java constructor)@\spxentry{BoardController(BoardModel)}\spxextra{Java constructor}|hyperpage}{21}
+\indexentry{StartViewFactory (Java interface)@\spxentry{StartViewFactory}\spxextra{Java interface}|hyperpage}{22}
+\indexentry{getStartView() (Java method)@\spxentry{getStartView()}\spxextra{Java method}|hyperpage}{22}
+\indexentry{it.unicam.cs.pa.mastermind.gamecore (package)@\spxentry{it.unicam.cs.pa.mastermind.gamecore}\spxextra{package}|hyperpage}{22}
+\indexentry{BoardController (Java class)@\spxentry{BoardController}\spxextra{Java class}|hyperpage}{22}
+\indexentry{BoardController(BoardModel) (Java constructor)@\spxentry{BoardController(BoardModel)}\spxextra{Java constructor}|hyperpage}{22}
 \indexentry{insertCodeToGuess(List) (Java method)@\spxentry{insertCodeToGuess(List)}\spxextra{Java method}|hyperpage}{22}
-\indexentry{insertNewAttempt(List) (Java method)@\spxentry{insertNewAttempt(List)}\spxextra{Java method}|hyperpage}{22}
-\indexentry{BoardModel (Java class)@\spxentry{BoardModel}\spxextra{Java class}|hyperpage}{22}
-\indexentry{BoardModel(int, int) (Java constructor)@\spxentry{BoardModel(int, int)}\spxextra{Java constructor}|hyperpage}{22}
-\indexentry{addAttempt(List) (Java method)@\spxentry{addAttempt(List)}\spxextra{Java method}|hyperpage}{22}
-\indexentry{attemptsInserted() (Java method)@\spxentry{attemptsInserted()}\spxextra{Java method}|hyperpage}{23}
-\indexentry{getAttemptAndClueList() (Java method)@\spxentry{getAttemptAndClueList()}\spxextra{Java method}|hyperpage}{23}
-\indexentry{getLastAttempt() (Java method)@\spxentry{getLastAttempt()}\spxextra{Java method}|hyperpage}{23}
-\indexentry{getLastClue() (Java method)@\spxentry{getLastClue()}\spxextra{Java method}|hyperpage}{23}
-\indexentry{getSequenceLength() (Java method)@\spxentry{getSequenceLength()}\spxextra{Java method}|hyperpage}{23}
-\indexentry{getSequenceToGuess() (Java method)@\spxentry{getSequenceToGuess()}\spxextra{Java method}|hyperpage}{23}
-\indexentry{hasBreakerGuessed() (Java method)@\spxentry{hasBreakerGuessed()}\spxextra{Java method}|hyperpage}{23}
+\indexentry{insertNewAttempt(List) (Java method)@\spxentry{insertNewAttempt(List)}\spxextra{Java method}|hyperpage}{23}
+\indexentry{BoardModel (Java class)@\spxentry{BoardModel}\spxextra{Java class}|hyperpage}{23}
+\indexentry{BoardModel(int, int) (Java constructor)@\spxentry{BoardModel(int, int)}\spxextra{Java constructor}|hyperpage}{23}
+\indexentry{addAttempt(List) (Java method)@\spxentry{addAttempt(List)}\spxextra{Java method}|hyperpage}{23}
+\indexentry{attemptsInserted() (Java method)@\spxentry{attemptsInserted()}\spxextra{Java method}|hyperpage}{24}
+\indexentry{getAttemptAndClueList() (Java method)@\spxentry{getAttemptAndClueList()}\spxextra{Java method}|hyperpage}{24}
+\indexentry{getLastAttempt() (Java method)@\spxentry{getLastAttempt()}\spxextra{Java method}|hyperpage}{24}
+\indexentry{getLastClue() (Java method)@\spxentry{getLastClue()}\spxextra{Java method}|hyperpage}{24}
+\indexentry{getSequenceLength() (Java method)@\spxentry{getSequenceLength()}\spxextra{Java method}|hyperpage}{24}
+\indexentry{getSequenceToGuess() (Java method)@\spxentry{getSequenceToGuess()}\spxextra{Java method}|hyperpage}{24}
+\indexentry{hasBreakerGuessed() (Java method)@\spxentry{hasBreakerGuessed()}\spxextra{Java method}|hyperpage}{24}
 \indexentry{isBoardEmpty() (Java method)@\spxentry{isBoardEmpty()}\spxextra{Java method}|hyperpage}{24}
-\indexentry{leftAttempts() (Java method)@\spxentry{leftAttempts()}\spxextra{Java method}|hyperpage}{24}
-\indexentry{removeLastAttemptAndClue() (Java method)@\spxentry{removeLastAttemptAndClue()}\spxextra{Java method}|hyperpage}{24}
-\indexentry{setSequenceToGuess(List) (Java method)@\spxentry{setSequenceToGuess(List)}\spxextra{Java method}|hyperpage}{24}
-\indexentry{ColorPegs (Java enum)@\spxentry{ColorPegs}\spxextra{Java enum}|hyperpage}{24}
-\indexentry{BLACK (Java field)@\spxentry{BLACK}\spxextra{Java field}|hyperpage}{24}
-\indexentry{BLUE (Java field)@\spxentry{BLUE}\spxextra{Java field}|hyperpage}{24}
+\indexentry{leftAttempts() (Java method)@\spxentry{leftAttempts()}\spxextra{Java method}|hyperpage}{25}
+\indexentry{removeLastAttemptAndClue() (Java method)@\spxentry{removeLastAttemptAndClue()}\spxextra{Java method}|hyperpage}{25}
+\indexentry{setSequenceToGuess(List) (Java method)@\spxentry{setSequenceToGuess(List)}\spxextra{Java method}|hyperpage}{25}
+\indexentry{ColorPegs (Java enum)@\spxentry{ColorPegs}\spxextra{Java enum}|hyperpage}{25}
+\indexentry{BLACK (Java field)@\spxentry{BLACK}\spxextra{Java field}|hyperpage}{25}
+\indexentry{BLUE (Java field)@\spxentry{BLUE}\spxextra{Java field}|hyperpage}{25}
 \indexentry{GREEN (Java field)@\spxentry{GREEN}\spxextra{Java field}|hyperpage}{25}
-\indexentry{RED (Java field)@\spxentry{RED}\spxextra{Java field}|hyperpage}{25}
-\indexentry{WHITE (Java field)@\spxentry{WHITE}\spxextra{Java field}|hyperpage}{25}
-\indexentry{YELLOW (Java field)@\spxentry{YELLOW}\spxextra{Java field}|hyperpage}{25}
-\indexentry{ConsoleMainManager (Java class)@\spxentry{ConsoleMainManager}\spxextra{Java class}|hyperpage}{25}
-\indexentry{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}|hyperpage}{25}
-\indexentry{getStartViewInstance() (Java method)@\spxentry{getStartViewInstance()}\spxextra{Java method}|hyperpage}{25}
-\indexentry{main(String{[}{]}) (Java method)@\spxentry{main(String{[}{]})}\spxextra{Java method}|hyperpage}{25}
+\indexentry{RED (Java field)@\spxentry{RED}\spxextra{Java field}|hyperpage}{26}
+\indexentry{WHITE (Java field)@\spxentry{WHITE}\spxextra{Java field}|hyperpage}{26}
+\indexentry{YELLOW (Java field)@\spxentry{YELLOW}\spxextra{Java field}|hyperpage}{26}
+\indexentry{ConsoleMainManager (Java class)@\spxentry{ConsoleMainManager}\spxextra{Java class}|hyperpage}{26}
+\indexentry{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}|hyperpage}{26}
+\indexentry{getStartViewFactory() (Java method)@\spxentry{getStartViewFactory()}\spxextra{Java method}|hyperpage}{26}
+\indexentry{main(String{[}{]}) (Java method)@\spxentry{main(String{[}{]})}\spxextra{Java method}|hyperpage}{26}
 \indexentry{GlobalSettings (Java class)@\spxentry{GlobalSettings}\spxextra{Java class}|hyperpage}{26}
-\indexentry{GlobalSettings() (Java constructor)@\spxentry{GlobalSettings()}\spxextra{Java constructor}|hyperpage}{26}
-\indexentry{getBreakers() (Java method)@\spxentry{getBreakers()}\spxextra{Java method}|hyperpage}{26}
-\indexentry{getMakers() (Java method)@\spxentry{getMakers()}\spxextra{Java method}|hyperpage}{26}
-\indexentry{MainManager (Java class)@\spxentry{MainManager}\spxextra{Java class}|hyperpage}{26}
-\indexentry{MainManager() (Java constructor)@\spxentry{MainManager()}\spxextra{Java constructor}|hyperpage}{26}
+\indexentry{GlobalSettings() (Java constructor)@\spxentry{GlobalSettings()}\spxextra{Java constructor}|hyperpage}{27}
+\indexentry{getBreakers() (Java method)@\spxentry{getBreakers()}\spxextra{Java method}|hyperpage}{27}
+\indexentry{getMakers() (Java method)@\spxentry{getMakers()}\spxextra{Java method}|hyperpage}{27}
+\indexentry{MainManager (Java class)@\spxentry{MainManager}\spxextra{Java class}|hyperpage}{27}
+\indexentry{MainManager() (Java constructor)@\spxentry{MainManager()}\spxextra{Java constructor}|hyperpage}{27}
 \indexentry{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}|hyperpage}{27}
-\indexentry{getStartViewInstance() (Java method)@\spxentry{getStartViewInstance()}\spxextra{Java method}|hyperpage}{27}
-\indexentry{startUp() (Java method)@\spxentry{startUp()}\spxextra{Java method}|hyperpage}{27}
-\indexentry{MatchStartSettings (Java class)@\spxentry{MatchStartSettings}\spxextra{Java class}|hyperpage}{27}
-\indexentry{highTresholdLength (Java field)@\spxentry{highTresholdLength}\spxextra{Java field}|hyperpage}{27}
-\indexentry{lowTresholdAttempts (Java field)@\spxentry{lowTresholdAttempts}\spxextra{Java field}|hyperpage}{27}
-\indexentry{lowTresholdLength (Java field)@\spxentry{lowTresholdLength}\spxextra{Java field}|hyperpage}{27}
+\indexentry{getStartViewFactory() (Java method)@\spxentry{getStartViewFactory()}\spxextra{Java method}|hyperpage}{28}
+\indexentry{startUp() (Java method)@\spxentry{startUp()}\spxextra{Java method}|hyperpage}{28}
+\indexentry{MatchStartSettings (Java class)@\spxentry{MatchStartSettings}\spxextra{Java class}|hyperpage}{28}
+\indexentry{highTresholdLength (Java field)@\spxentry{highTresholdLength}\spxextra{Java field}|hyperpage}{28}
+\indexentry{lowTresholdAttempts (Java field)@\spxentry{lowTresholdAttempts}\spxextra{Java field}|hyperpage}{28}
+\indexentry{lowTresholdLength (Java field)@\spxentry{lowTresholdLength}\spxextra{Java field}|hyperpage}{28}
 \indexentry{MatchStartSettings(GameViewFactory) (Java constructor)@\spxentry{MatchStartSettings(GameViewFactory)}\spxextra{Java constructor}|hyperpage}{28}
 \indexentry{getAttempts() (Java method)@\spxentry{getAttempts()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getBreakerFactory() (Java method)@\spxentry{getBreakerFactory()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getHighTresholdLength() (Java method)@\spxentry{getHighTresholdLength()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getLowTresholdAttempts() (Java method)@\spxentry{getLowTresholdAttempts()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getLowTresholdLength() (Java method)@\spxentry{getLowTresholdLength()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getMakerFactory() (Java method)@\spxentry{getMakerFactory()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{getSequenceLength() (Java method)@\spxentry{getSequenceLength()}\spxextra{Java method}|hyperpage}{28}
-\indexentry{resetLengthAttempts() (Java method)@\spxentry{resetLengthAttempts()}\spxextra{Java method}|hyperpage}{28}
+\indexentry{getBreakerFactory() (Java method)@\spxentry{getBreakerFactory()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{getHighTresholdLength() (Java method)@\spxentry{getHighTresholdLength()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{getLowTresholdAttempts() (Java method)@\spxentry{getLowTresholdAttempts()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{getLowTresholdLength() (Java method)@\spxentry{getLowTresholdLength()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{getMakerFactory() (Java method)@\spxentry{getMakerFactory()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{getSequenceLength() (Java method)@\spxentry{getSequenceLength()}\spxextra{Java method}|hyperpage}{29}
+\indexentry{resetLengthAttempts() (Java method)@\spxentry{resetLengthAttempts()}\spxextra{Java method}|hyperpage}{29}
 \indexentry{setAttempts(int) (Java method)@\spxentry{setAttempts(int)}\spxextra{Java method}|hyperpage}{29}
 \indexentry{setBreakerFactory(BreakerFactory) (Java method)@\spxentry{setBreakerFactory(BreakerFactory)}\spxextra{Java method}|hyperpage}{29}
 \indexentry{setHighTresholdLength(int) (Java method)@\spxentry{setHighTresholdLength(int)}\spxextra{Java method}|hyperpage}{29}
-\indexentry{setLowTresholdAttempts(int) (Java method)@\spxentry{setLowTresholdAttempts(int)}\spxextra{Java method}|hyperpage}{29}
-\indexentry{setLowTresholdLength(int) (Java method)@\spxentry{setLowTresholdLength(int)}\spxextra{Java method}|hyperpage}{29}
-\indexentry{setMakerFactory(MakerFactory) (Java method)@\spxentry{setMakerFactory(MakerFactory)}\spxextra{Java method}|hyperpage}{29}
-\indexentry{setSequenceLength(int) (Java method)@\spxentry{setSequenceLength(int)}\spxextra{Java method}|hyperpage}{29}
-\indexentry{MatchState (Java class)@\spxentry{MatchState}\spxextra{Java class}|hyperpage}{29}
-\indexentry{MatchState() (Java constructor)@\spxentry{MatchState()}\spxextra{Java constructor}|hyperpage}{29}
+\indexentry{setLowTresholdAttempts(int) (Java method)@\spxentry{setLowTresholdAttempts(int)}\spxextra{Java method}|hyperpage}{30}
+\indexentry{setLowTresholdLength(int) (Java method)@\spxentry{setLowTresholdLength(int)}\spxextra{Java method}|hyperpage}{30}
+\indexentry{setMakerFactory(MakerFactory) (Java method)@\spxentry{setMakerFactory(MakerFactory)}\spxextra{Java method}|hyperpage}{30}
+\indexentry{setSequenceLength(int) (Java method)@\spxentry{setSequenceLength(int)}\spxextra{Java method}|hyperpage}{30}
+\indexentry{MatchState (Java class)@\spxentry{MatchState}\spxextra{Java class}|hyperpage}{30}
+\indexentry{MatchState() (Java constructor)@\spxentry{MatchState()}\spxextra{Java constructor}|hyperpage}{30}
 \indexentry{getBreakerVictoryAttempts() (Java method)@\spxentry{getBreakerVictoryAttempts()}\spxextra{Java method}|hyperpage}{30}
 \indexentry{getHasBreakerWon() (Java method)@\spxentry{getHasBreakerWon()}\spxextra{Java method}|hyperpage}{30}
-\indexentry{getHasMakerWon() (Java method)@\spxentry{getHasMakerWon()}\spxextra{Java method}|hyperpage}{30}
-\indexentry{getMessage() (Java method)@\spxentry{getMessage()}\spxextra{Java method}|hyperpage}{30}
-\indexentry{toggleBreakerGiveUp() (Java method)@\spxentry{toggleBreakerGiveUp()}\spxextra{Java method}|hyperpage}{30}
-\indexentry{toggleBreakerWin(int) (Java method)@\spxentry{toggleBreakerWin(int)}\spxextra{Java method}|hyperpage}{30}
-\indexentry{toggleMakerWin() (Java method)@\spxentry{toggleMakerWin()}\spxextra{Java method}|hyperpage}{30}
+\indexentry{getHasMakerWon() (Java method)@\spxentry{getHasMakerWon()}\spxextra{Java method}|hyperpage}{31}
+\indexentry{getMessage() (Java method)@\spxentry{getMessage()}\spxextra{Java method}|hyperpage}{31}
+\indexentry{toggleBreakerGiveUp() (Java method)@\spxentry{toggleBreakerGiveUp()}\spxextra{Java method}|hyperpage}{31}
+\indexentry{toggleBreakerWin(int) (Java method)@\spxentry{toggleBreakerWin(int)}\spxextra{Java method}|hyperpage}{31}
+\indexentry{toggleMakerWin() (Java method)@\spxentry{toggleMakerWin()}\spxextra{Java method}|hyperpage}{31}
 \indexentry{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}|hyperpage}{31}
 \indexentry{Observable (Java class)@\spxentry{Observable}\spxextra{Java class}|hyperpage}{31}
-\indexentry{addObserver(Observer) (Java method)@\spxentry{addObserver(Observer)}\spxextra{Java method}|hyperpage}{31}
-\indexentry{notifyObservers() (Java method)@\spxentry{notifyObservers()}\spxextra{Java method}|hyperpage}{31}
-\indexentry{removeObserver(Observer) (Java method)@\spxentry{removeObserver(Observer)}\spxextra{Java method}|hyperpage}{31}
-\indexentry{Observer (Java interface)@\spxentry{Observer}\spxextra{Java interface}|hyperpage}{31}
+\indexentry{addObserver(Observer) (Java method)@\spxentry{addObserver(Observer)}\spxextra{Java method}|hyperpage}{32}
+\indexentry{notifyObservers() (Java method)@\spxentry{notifyObservers()}\spxextra{Java method}|hyperpage}{32}
+\indexentry{removeObserver(Observer) (Java method)@\spxentry{removeObserver(Observer)}\spxextra{Java method}|hyperpage}{32}
+\indexentry{Observer (Java interface)@\spxentry{Observer}\spxextra{Java interface}|hyperpage}{32}
 \indexentry{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}|hyperpage}{32}
 \indexentry{SingleMatch (Java class)@\spxentry{SingleMatch}\spxextra{Java class}|hyperpage}{32}
-\indexentry{gameState (Java field)@\spxentry{gameState}\spxextra{Java field}|hyperpage}{32}
-\indexentry{sequenceToGuess (Java field)@\spxentry{sequenceToGuess}\spxextra{Java field}|hyperpage}{32}
-\indexentry{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory) (Java constructor)@\spxentry{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)}\spxextra{Java constructor}|hyperpage}{32}
+\indexentry{gameState (Java field)@\spxentry{gameState}\spxextra{Java field}|hyperpage}{33}
+\indexentry{sequenceToGuess (Java field)@\spxentry{sequenceToGuess}\spxextra{Java field}|hyperpage}{33}
+\indexentry{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory) (Java constructor)@\spxentry{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)}\spxextra{Java constructor}|hyperpage}{33}
 \indexentry{endingMessage() (Java method)@\spxentry{endingMessage()}\spxextra{Java method}|hyperpage}{33}
 \indexentry{getSequenceToGuess() (Java method)@\spxentry{getSequenceToGuess()}\spxextra{Java method}|hyperpage}{33}
 \indexentry{start() (Java method)@\spxentry{start()}\spxextra{Java method}|hyperpage}{33}
-\indexentry{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}|hyperpage}{33}
-\indexentry{StartupSettings (Java class)@\spxentry{StartupSettings}\spxextra{Java class}|hyperpage}{33}
-\indexentry{StartupSettings() (Java constructor)@\spxentry{StartupSettings()}\spxextra{Java constructor}|hyperpage}{33}
-\indexentry{StartupSettings(boolean, boolean) (Java constructor)@\spxentry{StartupSettings(boolean, boolean)}\spxextra{Java constructor}|hyperpage}{33}
+\indexentry{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}|hyperpage}{34}
+\indexentry{StartupSettings (Java class)@\spxentry{StartupSettings}\spxextra{Java class}|hyperpage}{34}
+\indexentry{StartupSettings() (Java constructor)@\spxentry{StartupSettings()}\spxextra{Java constructor}|hyperpage}{34}
+\indexentry{StartupSettings(boolean, boolean) (Java constructor)@\spxentry{StartupSettings(boolean, boolean)}\spxextra{Java constructor}|hyperpage}{34}
 \indexentry{getContinue() (Java method)@\spxentry{getContinue()}\spxextra{Java method}|hyperpage}{34}
 \indexentry{getKeepMatchStartSettings() (Java method)@\spxentry{getKeepMatchStartSettings()}\spxextra{Java method}|hyperpage}{34}
-\indexentry{setKeepMatchStartSettings(boolean) (Java method)@\spxentry{setKeepMatchStartSettings(boolean)}\spxextra{Java method}|hyperpage}{34}
-\indexentry{setToContinue(boolean) (Java method)@\spxentry{setToContinue(boolean)}\spxextra{Java method}|hyperpage}{34}
-\indexentry{it.unicam.cs.pa.mastermind.players (package)@\spxentry{it.unicam.cs.pa.mastermind.players}\spxextra{package}|hyperpage}{34}
-\indexentry{CodeBreaker (Java class)@\spxentry{CodeBreaker}\spxextra{Java class}|hyperpage}{34}
+\indexentry{setKeepMatchStartSettings(boolean) (Java method)@\spxentry{setKeepMatchStartSettings(boolean)}\spxextra{Java method}|hyperpage}{35}
+\indexentry{setToContinue(boolean) (Java method)@\spxentry{setToContinue(boolean)}\spxextra{Java method}|hyperpage}{35}
+\indexentry{it.unicam.cs.pa.mastermind.players (package)@\spxentry{it.unicam.cs.pa.mastermind.players}\spxextra{package}|hyperpage}{35}
+\indexentry{CodeBreaker (Java class)@\spxentry{CodeBreaker}\spxextra{Java class}|hyperpage}{35}
 \indexentry{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}|hyperpage}{35}
 \indexentry{getLastClue() (Java method)@\spxentry{getLastClue()}\spxextra{Java method}|hyperpage}{35}
 \indexentry{hasGivenUp() (Java method)@\spxentry{hasGivenUp()}\spxextra{Java method}|hyperpage}{35}
-\indexentry{setGiveUp(boolean) (Java method)@\spxentry{setGiveUp(boolean)}\spxextra{Java method}|hyperpage}{35}
-\indexentry{setLastClue(List) (Java method)@\spxentry{setLastClue(List)}\spxextra{Java method}|hyperpage}{35}
-\indexentry{toggleGiveUp() (Java method)@\spxentry{toggleGiveUp()}\spxextra{Java method}|hyperpage}{35}
-\indexentry{CodeMaker (Java class)@\spxentry{CodeMaker}\spxextra{Java class}|hyperpage}{35}
+\indexentry{setGiveUp(boolean) (Java method)@\spxentry{setGiveUp(boolean)}\spxextra{Java method}|hyperpage}{36}
+\indexentry{setLastClue(List) (Java method)@\spxentry{setLastClue(List)}\spxextra{Java method}|hyperpage}{36}
+\indexentry{toggleGiveUp() (Java method)@\spxentry{toggleGiveUp()}\spxextra{Java method}|hyperpage}{36}
+\indexentry{CodeMaker (Java class)@\spxentry{CodeMaker}\spxextra{Java class}|hyperpage}{36}
 \indexentry{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}|hyperpage}{36}
 \indexentry{DonaldKnuthBreaker (Java class)@\spxentry{DonaldKnuthBreaker}\spxextra{Java class}|hyperpage}{36}
-\indexentry{DonaldKnuthBreaker(int, int) (Java constructor)@\spxentry{DonaldKnuthBreaker(int, int)}\spxextra{Java constructor}|hyperpage}{36}
-\indexentry{generateSet() (Java method)@\spxentry{generateSet()}\spxextra{Java method}|hyperpage}{36}
-\indexentry{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}|hyperpage}{36}
-\indexentry{InteractiveBreaker (Java class)@\spxentry{InteractiveBreaker}\spxextra{Java class}|hyperpage}{36}
+\indexentry{DonaldKnuthBreaker(int, int) (Java constructor)@\spxentry{DonaldKnuthBreaker(int, int)}\spxextra{Java constructor}|hyperpage}{37}
+\indexentry{generateSet() (Java method)@\spxentry{generateSet()}\spxextra{Java method}|hyperpage}{37}
+\indexentry{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}|hyperpage}{37}
+\indexentry{InteractiveBreaker (Java class)@\spxentry{InteractiveBreaker}\spxextra{Java class}|hyperpage}{37}
 \indexentry{InteractiveBreaker(GameView, int) (Java constructor)@\spxentry{InteractiveBreaker(GameView, int)}\spxextra{Java constructor}|hyperpage}{37}
 \indexentry{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}|hyperpage}{37}
-\indexentry{InteractiveMaker (Java class)@\spxentry{InteractiveMaker}\spxextra{Java class}|hyperpage}{37}
-\indexentry{InteractiveMaker(GameView, int) (Java constructor)@\spxentry{InteractiveMaker(GameView, int)}\spxextra{Java constructor}|hyperpage}{37}
-\indexentry{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}|hyperpage}{37}
-\indexentry{RandomBotBreaker (Java class)@\spxentry{RandomBotBreaker}\spxextra{Java class}|hyperpage}{37}
-\indexentry{RandomBotBreaker(int) (Java constructor)@\spxentry{RandomBotBreaker(int)}\spxextra{Java constructor}|hyperpage}{37}
+\indexentry{InteractiveMaker (Java class)@\spxentry{InteractiveMaker}\spxextra{Java class}|hyperpage}{38}
+\indexentry{InteractiveMaker(GameView, int) (Java constructor)@\spxentry{InteractiveMaker(GameView, int)}\spxextra{Java constructor}|hyperpage}{38}
+\indexentry{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}|hyperpage}{38}
+\indexentry{RandomBotBreaker (Java class)@\spxentry{RandomBotBreaker}\spxextra{Java class}|hyperpage}{38}
+\indexentry{RandomBotBreaker(int) (Java constructor)@\spxentry{RandomBotBreaker(int)}\spxextra{Java constructor}|hyperpage}{38}
 \indexentry{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}|hyperpage}{38}
 \indexentry{RandomBotMaker (Java class)@\spxentry{RandomBotMaker}\spxextra{Java class}|hyperpage}{38}
-\indexentry{RandomBotMaker(int) (Java constructor)@\spxentry{RandomBotMaker(int)}\spxextra{Java constructor}|hyperpage}{38}
-\indexentry{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}|hyperpage}{38}
-\indexentry{it.unicam.cs.pa.mastermind.ui (package)@\spxentry{it.unicam.cs.pa.mastermind.ui}\spxextra{package}|hyperpage}{38}
-\indexentry{AnsiUtility (Java class)@\spxentry{AnsiUtility}\spxextra{Java class}|hyperpage}{38}
-\indexentry{ANSI\_BLACK\_BACKGROUND (Java field)@\spxentry{ANSI\_BLACK\_BACKGROUND}\spxextra{Java field}|hyperpage}{38}
+\indexentry{RandomBotMaker(int) (Java constructor)@\spxentry{RandomBotMaker(int)}\spxextra{Java constructor}|hyperpage}{39}
+\indexentry{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}|hyperpage}{39}
+\indexentry{it.unicam.cs.pa.mastermind.ui (package)@\spxentry{it.unicam.cs.pa.mastermind.ui}\spxextra{package}|hyperpage}{39}
+\indexentry{AnsiUtility (Java class)@\spxentry{AnsiUtility}\spxextra{Java class}|hyperpage}{39}
+\indexentry{ANSI\_BLACK\_BACKGROUND (Java field)@\spxentry{ANSI\_BLACK\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
 \indexentry{ANSI\_BLUE\_BACKGROUND (Java field)@\spxentry{ANSI\_BLUE\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
 \indexentry{ANSI\_CYAN\_BACKGROUND (Java field)@\spxentry{ANSI\_CYAN\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
 \indexentry{ANSI\_CYAN\_BOLD (Java field)@\spxentry{ANSI\_CYAN\_BOLD}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_GREEN\_BACKGROUND (Java field)@\spxentry{ANSI\_GREEN\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_PURPLE\_BACKGROUND (Java field)@\spxentry{ANSI\_PURPLE\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_RED\_BACKGROUND (Java field)@\spxentry{ANSI\_RED\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_RED\_BOLD (Java field)@\spxentry{ANSI\_RED\_BOLD}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_RESET (Java field)@\spxentry{ANSI\_RESET}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_WHITE\_BACKGROUND (Java field)@\spxentry{ANSI\_WHITE\_BACKGROUND}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_WHITE\_BOLD (Java field)@\spxentry{ANSI\_WHITE\_BOLD}\spxextra{Java field}|hyperpage}{39}
-\indexentry{ANSI\_YELLOW (Java field)@\spxentry{ANSI\_YELLOW}\spxextra{Java field}|hyperpage}{39}
+\indexentry{ANSI\_GREEN\_BACKGROUND (Java field)@\spxentry{ANSI\_GREEN\_BACKGROUND}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_PURPLE\_BACKGROUND (Java field)@\spxentry{ANSI\_PURPLE\_BACKGROUND}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_RED\_BACKGROUND (Java field)@\spxentry{ANSI\_RED\_BACKGROUND}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_RED\_BOLD (Java field)@\spxentry{ANSI\_RED\_BOLD}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_RESET (Java field)@\spxentry{ANSI\_RESET}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_WHITE\_BACKGROUND (Java field)@\spxentry{ANSI\_WHITE\_BACKGROUND}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_WHITE\_BOLD (Java field)@\spxentry{ANSI\_WHITE\_BOLD}\spxextra{Java field}|hyperpage}{40}
+\indexentry{ANSI\_YELLOW (Java field)@\spxentry{ANSI\_YELLOW}\spxextra{Java field}|hyperpage}{40}
 \indexentry{ANSI\_YELLOW\_BACKGROUND (Java field)@\spxentry{ANSI\_YELLOW\_BACKGROUND}\spxextra{Java field}|hyperpage}{40}
 \indexentry{ConsoleGameView (Java class)@\spxentry{ConsoleGameView}\spxextra{Java class}|hyperpage}{40}
-\indexentry{ConsoleGameView() (Java constructor)@\spxentry{ConsoleGameView()}\spxextra{Java constructor}|hyperpage}{40}
-\indexentry{endingScreen(String, List) (Java method)@\spxentry{endingScreen(String, List)}\spxextra{Java method}|hyperpage}{40}
-\indexentry{getIndexSequence(int, boolean) (Java method)@\spxentry{getIndexSequence(int, boolean)}\spxextra{Java method}|hyperpage}{40}
-\indexentry{showGame(BoardModel) (Java method)@\spxentry{showGame(BoardModel)}\spxextra{Java method}|hyperpage}{40}
-\indexentry{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}|hyperpage}{40}
-\indexentry{ConsoleStartView (Java class)@\spxentry{ConsoleStartView}\spxextra{Java class}|hyperpage}{40}
+\indexentry{ConsoleGameView() (Java constructor)@\spxentry{ConsoleGameView()}\spxextra{Java constructor}|hyperpage}{41}
+\indexentry{endingScreen(String, List) (Java method)@\spxentry{endingScreen(String, List)}\spxextra{Java method}|hyperpage}{41}
+\indexentry{getIndexSequence(int, boolean) (Java method)@\spxentry{getIndexSequence(int, boolean)}\spxextra{Java method}|hyperpage}{41}
+\indexentry{showGame(BoardModel) (Java method)@\spxentry{showGame(BoardModel)}\spxextra{Java method}|hyperpage}{41}
+\indexentry{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}|hyperpage}{41}
+\indexentry{ConsoleStartView (Java class)@\spxentry{ConsoleStartView}\spxextra{Java class}|hyperpage}{41}
+\indexentry{ConsoleStartView() (Java constructor)@\spxentry{ConsoleStartView()}\spxextra{Java constructor}|hyperpage}{41}
 \indexentry{askNewAttempts(int) (Java method)@\spxentry{askNewAttempts(int)}\spxextra{Java method}|hyperpage}{41}
-\indexentry{askNewLength(int, int) (Java method)@\spxentry{askNewLength(int, int)}\spxextra{Java method}|hyperpage}{41}
-\indexentry{askNewLengthsAndAttempts() (Java method)@\spxentry{askNewLengthsAndAttempts()}\spxextra{Java method}|hyperpage}{41}
-\indexentry{askNewStartupSettings() (Java method)@\spxentry{askNewStartupSettings()}\spxextra{Java method}|hyperpage}{41}
-\indexentry{badEnding(String) (Java method)@\spxentry{badEnding(String)}\spxextra{Java method}|hyperpage}{41}
-\indexentry{ending() (Java method)@\spxentry{ending()}\spxextra{Java method}|hyperpage}{41}
-\indexentry{getInstance() (Java method)@\spxentry{getInstance()}\spxextra{Java method}|hyperpage}{41}
-\indexentry{getPlayerName(PlayerFactoryRegistry, boolean) (Java method)@\spxentry{getPlayerName(PlayerFactoryRegistry, boolean)}\spxextra{Java method}|hyperpage}{41}
-\indexentry{showLogo() (Java method)@\spxentry{showLogo()}\spxextra{Java method}|hyperpage}{41}
-\indexentry{showNewMatchStarting() (Java method)@\spxentry{showNewMatchStarting()}\spxextra{Java method}|hyperpage}{41}
+\indexentry{askNewLength(int, int) (Java method)@\spxentry{askNewLength(int, int)}\spxextra{Java method}|hyperpage}{42}
+\indexentry{askNewLengthsAndAttempts() (Java method)@\spxentry{askNewLengthsAndAttempts()}\spxextra{Java method}|hyperpage}{42}
+\indexentry{askNewStartupSettings() (Java method)@\spxentry{askNewStartupSettings()}\spxextra{Java method}|hyperpage}{42}
+\indexentry{badEnding(String) (Java method)@\spxentry{badEnding(String)}\spxextra{Java method}|hyperpage}{42}
+\indexentry{ending() (Java method)@\spxentry{ending()}\spxextra{Java method}|hyperpage}{42}
+\indexentry{getPlayerName(PlayerFactoryRegistry, boolean) (Java method)@\spxentry{getPlayerName(PlayerFactoryRegistry, boolean)}\spxextra{Java method}|hyperpage}{42}
+\indexentry{showLogo() (Java method)@\spxentry{showLogo()}\spxextra{Java method}|hyperpage}{42}
+\indexentry{showNewMatchStarting() (Java method)@\spxentry{showNewMatchStarting()}\spxextra{Java method}|hyperpage}{42}
 \indexentry{GameView (Java class)@\spxentry{GameView}\spxextra{Java class}|hyperpage}{42}
-\indexentry{endingScreen(String, List) (Java method)@\spxentry{endingScreen(String, List)}\spxextra{Java method}|hyperpage}{42}
-\indexentry{getIndexSequence(int, boolean) (Java method)@\spxentry{getIndexSequence(int, boolean)}\spxextra{Java method}|hyperpage}{42}
-\indexentry{showGame(BoardModel) (Java method)@\spxentry{showGame(BoardModel)}\spxextra{Java method}|hyperpage}{42}
-\indexentry{StartView (Java interface)@\spxentry{StartView}\spxextra{Java interface}|hyperpage}{42}
+\indexentry{endingScreen(String, List) (Java method)@\spxentry{endingScreen(String, List)}\spxextra{Java method}|hyperpage}{43}
+\indexentry{getIndexSequence(int, boolean) (Java method)@\spxentry{getIndexSequence(int, boolean)}\spxextra{Java method}|hyperpage}{43}
+\indexentry{showGame(BoardModel) (Java method)@\spxentry{showGame(BoardModel)}\spxextra{Java method}|hyperpage}{43}
+\indexentry{StartView (Java interface)@\spxentry{StartView}\spxextra{Java interface}|hyperpage}{43}
 \indexentry{askNewAttempts(int) (Java method)@\spxentry{askNewAttempts(int)}\spxextra{Java method}|hyperpage}{43}
-\indexentry{askNewLength(int, int) (Java method)@\spxentry{askNewLength(int, int)}\spxextra{Java method}|hyperpage}{43}
-\indexentry{askNewLengthsAndAttempts() (Java method)@\spxentry{askNewLengthsAndAttempts()}\spxextra{Java method}|hyperpage}{43}
-\indexentry{askNewStartupSettings() (Java method)@\spxentry{askNewStartupSettings()}\spxextra{Java method}|hyperpage}{43}
-\indexentry{badEnding(String) (Java method)@\spxentry{badEnding(String)}\spxextra{Java method}|hyperpage}{43}
+\indexentry{askNewLength(int, int) (Java method)@\spxentry{askNewLength(int, int)}\spxextra{Java method}|hyperpage}{44}
+\indexentry{askNewLengthsAndAttempts() (Java method)@\spxentry{askNewLengthsAndAttempts()}\spxextra{Java method}|hyperpage}{44}
+\indexentry{askNewStartupSettings() (Java method)@\spxentry{askNewStartupSettings()}\spxextra{Java method}|hyperpage}{44}
+\indexentry{badEnding(String) (Java method)@\spxentry{badEnding(String)}\spxextra{Java method}|hyperpage}{44}
 \indexentry{ending() (Java method)@\spxentry{ending()}\spxextra{Java method}|hyperpage}{44}
 \indexentry{getPlayerName(PlayerFactoryRegistry, boolean) (Java method)@\spxentry{getPlayerName(PlayerFactoryRegistry, boolean)}\spxextra{Java method}|hyperpage}{44}
-\indexentry{setupBreaker(BreakerFactoryRegistry) (Java method)@\spxentry{setupBreaker(BreakerFactoryRegistry)}\spxextra{Java method}|hyperpage}{44}
-\indexentry{setupMaker(MakerFactoryRegistry) (Java method)@\spxentry{setupMaker(MakerFactoryRegistry)}\spxextra{Java method}|hyperpage}{44}
-\indexentry{showLogo() (Java method)@\spxentry{showLogo()}\spxextra{Java method}|hyperpage}{44}
-\indexentry{showNewMatchStarting() (Java method)@\spxentry{showNewMatchStarting()}\spxextra{Java method}|hyperpage}{44}
-\indexentry{it.unicam.cs.pa.mastermind.test (package)@\spxentry{it.unicam.cs.pa.mastermind.test}\spxextra{package}|hyperpage}{45}
-\indexentry{GameCoreBoardControllerTest (Java class)@\spxentry{GameCoreBoardControllerTest}\spxextra{Java class}|hyperpage}{45}
-\indexentry{attempt (Java field)@\spxentry{attempt}\spxextra{Java field}|hyperpage}{45}
-\indexentry{toGuess (Java field)@\spxentry{toGuess}\spxextra{Java field}|hyperpage}{45}
-\indexentry{setUp() (Java method)@\spxentry{setUp()}\spxextra{Java method}|hyperpage}{46}
-\indexentry{testBoardController() (Java method)@\spxentry{testBoardController()}\spxextra{Java method}|hyperpage}{46}
-\indexentry{testGetSequenceLength() (Java method)@\spxentry{testGetSequenceLength()}\spxextra{Java method}|hyperpage}{46}
-\indexentry{testGetSequenceToGuess() (Java method)@\spxentry{testGetSequenceToGuess()}\spxextra{Java method}|hyperpage}{46}
-\indexentry{testInsertCodeToGuess() (Java method)@\spxentry{testInsertCodeToGuess()}\spxextra{Java method}|hyperpage}{46}
-\indexentry{testInsertNewAttempt() (Java method)@\spxentry{testInsertNewAttempt()}\spxextra{Java method}|hyperpage}{46}
-\indexentry{GameCoreBoardModelTest (Java class)@\spxentry{GameCoreBoardModelTest}\spxextra{Java class}|hyperpage}{46}
-\indexentry{attempt (Java field)@\spxentry{attempt}\spxextra{Java field}|hyperpage}{47}
-\indexentry{toGuess (Java field)@\spxentry{toGuess}\spxextra{Java field}|hyperpage}{47}
+\indexentry{setupBreaker(BreakerFactoryRegistry) (Java method)@\spxentry{setupBreaker(BreakerFactoryRegistry)}\spxextra{Java method}|hyperpage}{45}
+\indexentry{setupMaker(MakerFactoryRegistry) (Java method)@\spxentry{setupMaker(MakerFactoryRegistry)}\spxextra{Java method}|hyperpage}{45}
+\indexentry{showLogo() (Java method)@\spxentry{showLogo()}\spxextra{Java method}|hyperpage}{45}
+\indexentry{showNewMatchStarting() (Java method)@\spxentry{showNewMatchStarting()}\spxextra{Java method}|hyperpage}{45}
+\indexentry{it.unicam.cs.pa.mastermind.test (package)@\spxentry{it.unicam.cs.pa.mastermind.test}\spxextra{package}|hyperpage}{46}
+\indexentry{GameCoreBoardControllerTest (Java class)@\spxentry{GameCoreBoardControllerTest}\spxextra{Java class}|hyperpage}{46}
+\indexentry{attempt (Java field)@\spxentry{attempt}\spxextra{Java field}|hyperpage}{46}
+\indexentry{toGuess (Java field)@\spxentry{toGuess}\spxextra{Java field}|hyperpage}{46}
 \indexentry{setUp() (Java method)@\spxentry{setUp()}\spxextra{Java method}|hyperpage}{47}
-\indexentry{testAddAttempt() (Java method)@\spxentry{testAddAttempt()}\spxextra{Java method}|hyperpage}{47}
-\indexentry{testAttemptsInserted() (Java method)@\spxentry{testAttemptsInserted()}\spxextra{Java method}|hyperpage}{47}
-\indexentry{testBoard() (Java method)@\spxentry{testBoard()}\spxextra{Java method}|hyperpage}{47}
-\indexentry{testIsEmpty() (Java method)@\spxentry{testIsEmpty()}\spxextra{Java method}|hyperpage}{47}
-\indexentry{testLastAttemptAndClue() (Java method)@\spxentry{testLastAttemptAndClue()}\spxextra{Java method}|hyperpage}{47}
-\indexentry{testLeftAttempts() (Java method)@\spxentry{testLeftAttempts()}\spxextra{Java method}|hyperpage}{48}
-\indexentry{testSetSequenceToGuess() (Java method)@\spxentry{testSetSequenceToGuess()}\spxextra{Java method}|hyperpage}{48}
-\indexentry{PlayersFactoryRegistry (Java class)@\spxentry{PlayersFactoryRegistry}\spxextra{Java class}|hyperpage}{48}
-\indexentry{playersFactory (Java field)@\spxentry{playersFactory}\spxextra{Java field}|hyperpage}{48}
-\indexentry{testBreakerFactoryRegistry() (Java method)@\spxentry{testBreakerFactoryRegistry()}\spxextra{Java method}|hyperpage}{48}
-\indexentry{testCheckRightPathName() (Java method)@\spxentry{testCheckRightPathName()}\spxextra{Java method}|hyperpage}{48}
-\indexentry{testGetFactoryByName() (Java method)@\spxentry{testGetFactoryByName()}\spxextra{Java method}|hyperpage}{49}
-\indexentry{testGetPlayersNames() (Java method)@\spxentry{testGetPlayersNames()}\spxextra{Java method}|hyperpage}{49}
-\indexentry{testMakerFactoryRegistry() (Java method)@\spxentry{testMakerFactoryRegistry()}\spxextra{Java method}|hyperpage}{49}
-\indexentry{PlayersInteractiveBreakerTest (Java class)@\spxentry{PlayersInteractiveBreakerTest}\spxextra{Java class}|hyperpage}{49}
-\indexentry{testGetAttempt() (Java method)@\spxentry{testGetAttempt()}\spxextra{Java method}|hyperpage}{49}
-\indexentry{PlayersInteractiveMakerTest (Java class)@\spxentry{PlayersInteractiveMakerTest}\spxextra{Java class}|hyperpage}{49}
-\indexentry{testGetCodeToGuess() (Java method)@\spxentry{testGetCodeToGuess()}\spxextra{Java method}|hyperpage}{50}
-\indexentry{PlayersRandomBotBreakerTest (Java class)@\spxentry{PlayersRandomBotBreakerTest}\spxextra{Java class}|hyperpage}{50}
+\indexentry{testBoardController() (Java method)@\spxentry{testBoardController()}\spxextra{Java method}|hyperpage}{47}
+\indexentry{testGetSequenceLength() (Java method)@\spxentry{testGetSequenceLength()}\spxextra{Java method}|hyperpage}{47}
+\indexentry{testGetSequenceToGuess() (Java method)@\spxentry{testGetSequenceToGuess()}\spxextra{Java method}|hyperpage}{47}
+\indexentry{testInsertCodeToGuess() (Java method)@\spxentry{testInsertCodeToGuess()}\spxextra{Java method}|hyperpage}{47}
+\indexentry{testInsertNewAttempt() (Java method)@\spxentry{testInsertNewAttempt()}\spxextra{Java method}|hyperpage}{47}
+\indexentry{GameCoreBoardModelTest (Java class)@\spxentry{GameCoreBoardModelTest}\spxextra{Java class}|hyperpage}{47}
+\indexentry{attempt (Java field)@\spxentry{attempt}\spxextra{Java field}|hyperpage}{48}
+\indexentry{toGuess (Java field)@\spxentry{toGuess}\spxextra{Java field}|hyperpage}{48}
+\indexentry{setUp() (Java method)@\spxentry{setUp()}\spxextra{Java method}|hyperpage}{48}
+\indexentry{testAddAttempt() (Java method)@\spxentry{testAddAttempt()}\spxextra{Java method}|hyperpage}{48}
+\indexentry{testAttemptsInserted() (Java method)@\spxentry{testAttemptsInserted()}\spxextra{Java method}|hyperpage}{48}
+\indexentry{testBoard() (Java method)@\spxentry{testBoard()}\spxextra{Java method}|hyperpage}{48}
+\indexentry{testIsEmpty() (Java method)@\spxentry{testIsEmpty()}\spxextra{Java method}|hyperpage}{48}
+\indexentry{testLastAttemptAndClue() (Java method)@\spxentry{testLastAttemptAndClue()}\spxextra{Java method}|hyperpage}{48}
+\indexentry{testLeftAttempts() (Java method)@\spxentry{testLeftAttempts()}\spxextra{Java method}|hyperpage}{49}
+\indexentry{testSetSequenceToGuess() (Java method)@\spxentry{testSetSequenceToGuess()}\spxextra{Java method}|hyperpage}{49}
+\indexentry{PlayersFactoryRegistry (Java class)@\spxentry{PlayersFactoryRegistry}\spxextra{Java class}|hyperpage}{49}
+\indexentry{playersFactory (Java field)@\spxentry{playersFactory}\spxextra{Java field}|hyperpage}{49}
+\indexentry{testBreakerFactoryRegistry() (Java method)@\spxentry{testBreakerFactoryRegistry()}\spxextra{Java method}|hyperpage}{49}
+\indexentry{testCheckRightPathName() (Java method)@\spxentry{testCheckRightPathName()}\spxextra{Java method}|hyperpage}{49}
+\indexentry{testGetFactoryByName() (Java method)@\spxentry{testGetFactoryByName()}\spxextra{Java method}|hyperpage}{50}
+\indexentry{testGetPlayersNames() (Java method)@\spxentry{testGetPlayersNames()}\spxextra{Java method}|hyperpage}{50}
+\indexentry{testMakerFactoryRegistry() (Java method)@\spxentry{testMakerFactoryRegistry()}\spxextra{Java method}|hyperpage}{50}
+\indexentry{PlayersInteractiveBreakerTest (Java class)@\spxentry{PlayersInteractiveBreakerTest}\spxextra{Java class}|hyperpage}{50}
 \indexentry{testGetAttempt() (Java method)@\spxentry{testGetAttempt()}\spxextra{Java method}|hyperpage}{50}
-\indexentry{PlayersRandomBotMakerTest (Java class)@\spxentry{PlayersRandomBotMakerTest}\spxextra{Java class}|hyperpage}{50}
-\indexentry{testGetCodeToGuess() (Java method)@\spxentry{testGetCodeToGuess()}\spxextra{Java method}|hyperpage}{50}
-\indexentry{SimulationGame (Java class)@\spxentry{SimulationGame}\spxextra{Java class}|hyperpage}{50}
-\indexentry{testSimulationGame() (Java method)@\spxentry{testSimulationGame()}\spxextra{Java method}|hyperpage}{50}
-\indexentry{UIConsoleStartViewTest (Java class)@\spxentry{UIConsoleStartViewTest}\spxextra{Java class}|hyperpage}{51}
-\indexentry{testGetIstance() (Java method)@\spxentry{testGetIstance()}\spxextra{Java method}|hyperpage}{51}
+\indexentry{PlayersInteractiveMakerTest (Java class)@\spxentry{PlayersInteractiveMakerTest}\spxextra{Java class}|hyperpage}{50}
+\indexentry{testGetCodeToGuess() (Java method)@\spxentry{testGetCodeToGuess()}\spxextra{Java method}|hyperpage}{51}
+\indexentry{PlayersRandomBotBreakerTest (Java class)@\spxentry{PlayersRandomBotBreakerTest}\spxextra{Java class}|hyperpage}{51}
+\indexentry{testGetAttempt() (Java method)@\spxentry{testGetAttempt()}\spxextra{Java method}|hyperpage}{51}
+\indexentry{PlayersRandomBotMakerTest (Java class)@\spxentry{PlayersRandomBotMakerTest}\spxextra{Java class}|hyperpage}{51}
+\indexentry{testGetCodeToGuess() (Java method)@\spxentry{testGetCodeToGuess()}\spxextra{Java method}|hyperpage}{51}
+\indexentry{SimulationGame (Java class)@\spxentry{SimulationGame}\spxextra{Java class}|hyperpage}{51}
+\indexentry{testSimulationGame() (Java method)@\spxentry{testSimulationGame()}\spxextra{Java method}|hyperpage}{51}
+\indexentry{UIConsoleStartViewTest (Java class)@\spxentry{UIConsoleStartViewTest}\spxextra{Java class}|hyperpage}{52}
+\indexentry{testGetIstance() (Java method)@\spxentry{testGetIstance()}\spxextra{Java method}|hyperpage}{52}

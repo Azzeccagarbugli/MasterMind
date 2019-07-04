@@ -212,7 +212,7 @@ public <code class="descname">MainManager</code><span class="sig-paren">(</span>
 <h3>getGameViewFactory<a class="headerlink" href="#getgameviewfactory" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()">
-protected abstract <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a> <code class="descname">getGameViewFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()" title="Link a questa definizione">¶</a></dt>
+protected abstract <a class="reference internal" href="../factories/GameViewFactory.html#it.unicam.cs.pa.mastermind.factories.GameViewFactory" title="it.unicam.cs.pa.mastermind.factories.GameViewFactory">GameViewFactory</a> <code class="descname">getGameViewFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()" title="Link a questa definizione">¶</a></dt>
 <dd><p>Ottenimento dell’istanza di <code class="docutils literal notranslate"><span class="pre">GameViewFactory</span></code> che si desidera impiegare all’interno di tutti i match per poter generare istanze di <code class="docutils literal notranslate"><span class="pre">GameView</span></code> utili per l’interazione con l’utente fisico durante il loro svolgimento. <strong>Contratto</strong>: il metodo deve risultare coerente con la particolare estensione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> in cui viene definito.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -222,15 +222,15 @@ protected abstract <a class="reference internal" href="../../../../../../../test
 </dd></dl>
 
 </div>
-<div class="section" id="getstartviewinstance">
-<h3>getStartViewInstance<a class="headerlink" href="#getstartviewinstance" title="Link a questa intestazione">¶</a></h3>
+<div class="section" id="getstartviewfactory">
+<h3>getStartViewFactory<a class="headerlink" href="#getstartviewfactory" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
-<dt id="it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewInstance()">
-protected abstract <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/ui/StartView.html#it.unicam.cs.pa.mastermind.ui.StartView" title="it.unicam.cs.pa.mastermind.ui.StartView">StartView</a> <code class="descname">getStartViewInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewInstance()" title="Link a questa definizione">¶</a></dt>
-<dd><p>Ottenimento dell’istanza di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> che si desidera impiegare con l’istanza di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> corrente. <strong>Contratto</strong>: il metodo deve risultare coerente con la particolare estensione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> in cui viene definito.</p>
+<dt id="it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewFactory()">
+protected abstract <a class="reference internal" href="../factories/StartViewFactory.html#it.unicam.cs.pa.mastermind.factories.StartViewFactory" title="it.unicam.cs.pa.mastermind.factories.StartViewFactory">StartViewFactory</a> <code class="descname">getStartViewFactory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewFactory()" title="Link a questa definizione">¶</a></dt>
+<dd><p>Ottenimento dell’istanza di <code class="docutils literal notranslate"><span class="pre">StartViewFactory</span></code> che si desidera impiegare all’interno di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> per poter generare istanze di <code class="docutils literal notranslate"><span class="pre">StartView</span></code> utili per l’interazione con l’utente fisico. <strong>Contratto</strong>: il metodo deve risultare coerente con la particolare estensione di <code class="docutils literal notranslate"><span class="pre">MainManager</span></code> in cui viene definito.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>StartView da impiegare nel <code class="docutils literal notranslate"><span class="pre">MainManager</span></code></p>
+<dd class="field-odd"><p>StartViewFactory da impiegare in <code class="docutils literal notranslate"><span class="pre">MainManager</span></code></p>
 </dd>
 </dl>
 </dd></dl>

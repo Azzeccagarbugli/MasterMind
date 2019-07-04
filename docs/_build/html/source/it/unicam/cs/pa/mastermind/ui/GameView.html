@@ -178,7 +178,7 @@
 <h1>GameView<a class="headerlink" href="#gameview" title="Link a questa intestazione">¶</a></h1>
 <dl class="type">
 <dt id="it.unicam.cs.pa.mastermind.ui.GameView">
-public abstract class <code class="descname">GameView</code> implements <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/Observer.html#it.unicam.cs.pa.mastermind.gamecore.Observer" title="it.unicam.cs.pa.mastermind.gamecore.Observer">Observer</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView" title="Link a questa definizione">¶</a></dt>
+public abstract class <code class="descname">GameView</code> implements <a class="reference internal" href="../gamecore/Observer.html#it.unicam.cs.pa.mastermind.gamecore.Observer" title="it.unicam.cs.pa.mastermind.gamecore.Observer">Observer</a><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView" title="Link a questa definizione">¶</a></dt>
 <dd><p><strong>Responsabilità</strong>: fornire agli utenti fisici coinvolti in una singola partita operazioni di Input/Output. Rientra nel pattern <strong>Observer</strong> per poter fornire in output all’utente fisico una rappresentazione di quelle che sono le azioni effettuate dai giocatori nel gioco. Rientra nel pattern <strong>MVC</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Author</dt>
@@ -193,7 +193,7 @@ public abstract class <code class="descname">GameView</code> implements <a class
 <h3>endingScreen<a class="headerlink" href="#endingscreen" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)">
-public abstract void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> seqToGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)" title="Link a questa definizione">¶</a></dt>
+public abstract void <code class="descname">endingScreen</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gameEndingMessage</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../gamecore/ColorPegs.html#it.unicam.cs.pa.mastermind.gamecore.ColorPegs" title="it.unicam.cs.pa.mastermind.gamecore.ColorPegs">ColorPegs</a>&gt;<em> seqToGuess</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Interazione con l’utente fisico per la terminazione di una partita</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -230,7 +230,7 @@ public abstract <a class="reference external" href="http://docs.oracle.com/javas
 <h3>showGame<a class="headerlink" href="#showgame" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)">
-public abstract void <code class="descname">showGame</code><span class="sig-paren">(</span><a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/gamecore/BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)" title="Link a questa definizione">¶</a></dt>
+public abstract void <code class="descname">showGame</code><span class="sig-paren">(</span><a class="reference internal" href="../gamecore/BoardModel.html#it.unicam.cs.pa.mastermind.gamecore.BoardModel" title="it.unicam.cs.pa.mastermind.gamecore.BoardModel">BoardModel</a><em> o</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Interazione con l’utente fisico per mostrare la situazione di gioco.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>

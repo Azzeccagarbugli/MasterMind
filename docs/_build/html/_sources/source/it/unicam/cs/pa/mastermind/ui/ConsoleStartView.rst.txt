@@ -22,9 +22,19 @@ ConsoleStartView
 
 .. java:type:: public class ConsoleStartView implements StartView
 
-   Implementazione con interazione via console della classe \ ``StartView``\ . Integra il pattern \ **Singleton**\ .
+   Implementazione con interazione via console della classe \ ``StartView``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
+
+Constructors
+------------
+ConsoleStartView
+^^^^^^^^^^^^^^^^
+
+.. java:constructor:: public ConsoleStartView()
+   :outertype: ConsoleStartView
+
+   Inizializzazione della vista con un \ ``FilterInputStream``\  che non porta alla chiusura di \ ``System.in``\  all'interno del suo metodo \ ``close()``\ .
 
 Methods
 -------
@@ -63,14 +73,6 @@ ending
 
 .. java:method:: @Override public void ending()
    :outertype: ConsoleStartView
-
-getInstance
-^^^^^^^^^^^
-
-.. java:method:: public static ConsoleStartView getInstance()
-   :outertype: ConsoleStartView
-
-   :return: ConsoleStartView istanza \ **Singleton**\  di \ ``ConsoleStartView``\ .
 
 getPlayerName
 ^^^^^^^^^^^^^

@@ -73,7 +73,7 @@
 
 
 \title{MasterMind}
-\date{02 lug 2019}
+\date{04 lug 2019}
 \release{1.0.0}
 \author{Francesco Pio Stelluti, Francesco Coppola}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -159,6 +159,9 @@ L’estendibilità del progetto si sostanzia nella possibilità di definire nuov
 \sphinxstylestrong{Gestione dell’interazione con l’utente fisico per l’avvio di nuove partite}, rappresentata da \sphinxcode{\sphinxupquote{StartView}}.
 
 \item {} 
+\sphinxstylestrong{Fornire istanze di implementazioni di StartView}, rapprsentata da \sphinxcode{\sphinxupquote{StartViewFactory}}.
+
+\item {} 
 \sphinxstylestrong{Gestione dell’interazione con l’utente fisico per la gestione delle azioni all’interno di singole partite}, rappresentata da \sphinxcode{\sphinxupquote{GameView}}.
 
 \item {} 
@@ -185,6 +188,9 @@ Esempi di implementazioni già incluse nella release attuale del progetto sono:
 
 \item {} 
 \sphinxstylestrong{ConsoleStartView}, implementazione di \sphinxcode{\sphinxupquote{StartView}}.
+
+\item {} 
+\sphinxstylestrong{ConsoleStartViewFactory}, implementazione di \sphinxcode{\sphinxupquote{StartViewFactory}}.
 
 \item {} 
 \sphinxstylestrong{ConsoleGameView}, estensione di \sphinxcode{\sphinxupquote{GameView}}.
@@ -239,7 +245,7 @@ Si rimanda alle {\hyperref[\detokenize{source/packages::doc}]{\sphinxcrossref{\D
 \sphinxstyleemphasis{Model-view-controller (MVC, talvolta tradotto in italiano con la dicitura modello-vista-controllo), in informatica, è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in particolare nell’ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.}
 %
 \end{footnote}
-Rappresenta la struttura alla base del funzionamento delle singole partite.
+Rappresenta la struttura alla base del funzionamento delle singole partite ed il suo funzionamento è orientato principalmente all’interazione dei giocatori rappresentati con utenti fisici.
 È stata implementata tramite le classi \sphinxcode{\sphinxupquote{GameView}}, \sphinxcode{\sphinxupquote{BoardModel}} e \sphinxcode{\sphinxupquote{BoardCoordinator}}, classi le cui istanze comunicano all’interno di \sphinxcode{\sphinxupquote{SingleMatch}}.
 La relazione tra \sphinxcode{\sphinxupquote{GameView}} e \sphinxcode{\sphinxupquote{BoardModel}} non solo rientra nel pattern \sphinxstylestrong{Model View Controller} ma anche nel pattern \sphinxstylestrong{Observer}.
 
@@ -257,26 +263,20 @@ Esempi di relazioni tra classi nel progetto che rientrano nel pattern \sphinxsty
 e tra \sphinxcode{\sphinxupquote{SingleMatch}} \sphinxstyleemphasis{(Observable)} e \sphinxcode{\sphinxupquote{GameView}} \sphinxstyleemphasis{(Observer)}.
 La relazione tra \sphinxcode{\sphinxupquote{GameView}} e \sphinxcode{\sphinxupquote{BoardModel}} non solo rientra nel pattern \sphinxstylestrong{Observer} ma anche nel pattern \sphinxstylestrong{Model View Controller}.
 
-3. \sphinxstylestrong{Singleton} %
+3. \sphinxstylestrong{Factory} %
 \begin{footnote}[4]\sphinxAtStartFootnote
-\sphinxstyleemphasis{Il singleton è un design pattern creazionale che ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.}
-%
-\end{footnote}
-Presente all’interno della classe \sphinxcode{\sphinxupquote{ConsoleStartView}}, esso garantisce che siano presenti \sphinxstylestrong{singole} istanze di tali classe all’interno del progetto.
-
-4. \sphinxstylestrong{Factory} %
-\begin{footnote}[5]\sphinxAtStartFootnote
 \sphinxstyleemphasis{Nella programmazione ad oggetti, il Factory Method è uno dei design pattern fondamentali per l’implementazione del concetto di factory. Come altri pattern creazionali, esso indirizza il problema della creazione di oggetti senza specificarne l’esatta classe. Questo pattern raggiunge il suo scopo fornendo un’interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.}
 %
 \end{footnote}
 Implementato tramite le classi \sphinxcode{\sphinxupquote{PlayerFactory}}, \sphinxcode{\sphinxupquote{MakerFactory}}, \sphinxcode{\sphinxupquote{BreakerFactory}} e le loro implementazioni per poter fornire istanze di giocatori \sphinxcode{\sphinxupquote{CodeMaker}} e \sphinxcode{\sphinxupquote{CodeBreaker}}.
-Lo stesso pattern è stato inoltre implementato con \sphinxcode{\sphinxupquote{GameViewFactory}} per poter fornire istanze di \sphinxcode{\sphinxupquote{GameView}} all’inizializzazione dei vari \sphinxcode{\sphinxupquote{SingleMatch}}.
+Lo stesso pattern è stato inoltre implementato con \sphinxcode{\sphinxupquote{GameViewFactory}} e \sphinxcode{\sphinxupquote{StartViewFactory}} per poter fornire rispettivamente
+istanze di \sphinxcode{\sphinxupquote{GameView}} e \sphinxcode{\sphinxupquote{StartView}} all’inizializzazione dei vari \sphinxcode{\sphinxupquote{SingleMatch}}.
 
 
 \section{Testing}
 \label{\detokenize{introduzione:testing}}
 Sono stati ideati dei test, scritti sotto ambiente \sphinxstylestrong{JUnit 5} %
-\begin{footnote}[6]\sphinxAtStartFootnote
+\begin{footnote}[5]\sphinxAtStartFootnote
 \sphinxstyleemphasis{In informatica JUnit è un framework di unit testing per il linguaggio di programmazione Java. L’esperienza avuta con JUnit è stata importante nella crescita dell’idea di sviluppo guidato da test (in inglese Test Driven Development), ed è uno di una famiglia di framework di unit testing noti collettivamente come xUnit.}
 %
 \end{footnote}, per poter testare in modo mirato le singole \sphinxstyleemphasis{funzionalità} del progetto.
@@ -287,10 +287,10 @@ Per ulteriori informazioni si rimanda alle {\hyperref[\detokenize{test/packages:
 \section{Gradle}
 \label{\detokenize{introduzione:gradle}}
 Nell’ottica di garantire continuità al progetto si è deciso anche di implementare il tool di building \sphinxstylestrong{Gradle} %
-\begin{footnote}[7]\sphinxAtStartFootnote
+\begin{footnote}[6]\sphinxAtStartFootnote
 \sphinxstyleemphasis{Gradle è un sistema open source per l’automazione dello sviluppo fondato sulle idee di Apache Ant e Apache Maven, che introduce un domain-specific language (DSL) basato su Groovy, al posto della modalità XML usata da Apache Maven per dichiarare la configurazione del progetto. Gli script Gradle possono essere eseguiti direttamente, in contrasto con le definizioni dei progetti Apache Maven (pom.xml).}
 %
-\end{footnote}, in versione \sphinxstylestrong{5.4.1},
+\end{footnote}, in versione 5.4.1,
 per facilitare il deploy e la distribuzione di tale software all’interno di altri sistemi.
 
 
@@ -304,7 +304,7 @@ per facilitare il deploy e la distribuzione di tale software all’interno di al
 
 Mediante l’implementazione di \sphinxstylestrong{Gradle}, illustrata in precedenza, si è riuscito a integrare all’interno della natura del progetto
 anche il software \sphinxstylestrong{Travis CI} %
-\begin{footnote}[8]\sphinxAtStartFootnote
+\begin{footnote}[7]\sphinxAtStartFootnote
 \sphinxstyleemphasis{Travis CI è un servizio di integrazione continua utilizzato per costruire e testare progetti software ospitati su GitHub}
 %
 \end{footnote}.
@@ -571,7 +571,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:breakerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory::doc}}\index{BreakerFactory (Java interface)@\spxentry{BreakerFactory}\spxextra{Java interface}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}}\pysigline{public interface \sphinxbfcode{\sphinxupquote{BreakerFactory}} extends PlayerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}}\pysigline{public interface \sphinxbfcode{\sphinxupquote{BreakerFactory}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactory:it.unicam.cs.pa.mastermind.factories.PlayerFactory}]{\sphinxcrossref{PlayerFactory}}}}
 \sphinxstylestrong{Responsabilità}: fornire istanze di implementazioni di \sphinxcode{\sphinxupquote{CodeBreaker}}. Interfaccia finalizzata all’implementazione di classi factory per le particolari implementazioni dei giocatori \sphinxcode{\sphinxupquote{CodeBreaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -590,7 +590,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:getbreaker}}\index{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public CodeBreaker \sphinxbfcode{\sphinxupquote{getBreaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}} \sphinxbfcode{\sphinxupquote{getBreaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 Ottenimento di un’istanza di un giocatore \sphinxcode{\sphinxupquote{CodeBreaker}}.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -618,7 +618,7 @@ CodeBreaker istanza di un giocatore \sphinxcode{\sphinxupquote{CodeBreaker}}
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry:breakerfactoryregistry}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry::doc}}\index{BreakerFactoryRegistry (Java class)@\spxentry{BreakerFactoryRegistry}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry}}\pysigline{public class \sphinxbfcode{\sphinxupquote{BreakerFactoryRegistry}} extends PlayerFactoryRegistry}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry}}\pysigline{public class \sphinxbfcode{\sphinxupquote{BreakerFactoryRegistry}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry}]{\sphinxcrossref{PlayerFactoryRegistry}}}}
 Estensione di \sphinxcode{\sphinxupquote{PlayerFactoryRegistry}} per poter contenere informazioni circa le implementazioni di \sphinxcode{\sphinxupquote{BreakerFactory}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -660,7 +660,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory:consolegameviewfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory::doc}}\index{ConsoleGameViewFactory (Java class)@\spxentry{ConsoleGameViewFactory}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory:it.unicam.cs.pa.mastermind.factories.ConsoleGameViewFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleGameViewFactory}} implements GameViewFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory:it.unicam.cs.pa.mastermind.factories.ConsoleGameViewFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleGameViewFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory}]{\sphinxcrossref{GameViewFactory}}}}
 Classe factory estensione di \sphinxcode{\sphinxupquote{GameViewFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{ConsoleGameView}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -679,7 +679,35 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory:getgameview}}\index{getGameView() (Java method)@\spxentry{getGameView()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory:it.unicam.cs.pa.mastermind.factories.ConsoleGameViewFactory.getGameView()}}\pysiglinewithargsret{public GameView \sphinxbfcode{\sphinxupquote{getGameView}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory:it.unicam.cs.pa.mastermind.factories.ConsoleGameViewFactory.getGameView()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}} \sphinxbfcode{\sphinxupquote{getGameView}}}{}{}
+\end{fulllineitems}
+
+
+
+\subsection{ConsoleStartViewFactory}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory:consolestartviewfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory::doc}}\index{ConsoleStartViewFactory (Java class)@\spxentry{ConsoleStartViewFactory}\spxextra{Java class}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory:it.unicam.cs.pa.mastermind.factories.ConsoleStartViewFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleStartViewFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:it.unicam.cs.pa.mastermind.factories.StartViewFactory}]{\sphinxcrossref{StartViewFactory}}}}
+Classe factory estensione di \sphinxcode{\sphinxupquote{StartViewFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{ConsoleStartView}}.
+\begin{quote}\begin{description}
+\item[{Author}] \leavevmode
+Francesco Pio Stelluti, Francesco Coppola
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsubsection{Methods}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory:methods}}
+
+\paragraph{getStartView}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory:getstartview}}\index{getStartView() (Java method)@\spxentry{getStartView()}\spxextra{Java method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory:it.unicam.cs.pa.mastermind.factories.ConsoleStartViewFactory.getStartView()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView}]{\sphinxcrossref{StartView}}} \sphinxbfcode{\sphinxupquote{getStartView}}}{}{}
 \end{fulllineitems}
 
 
@@ -688,7 +716,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory:donaldknuthbreakerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory::doc}}\index{DonaldKnuthBreakerFactory (Java class)@\spxentry{DonaldKnuthBreakerFactory}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory:it.unicam.cs.pa.mastermind.factories.DonaldKnuthBreakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{DonaldKnuthBreakerFactory}} implements BreakerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory:it.unicam.cs.pa.mastermind.factories.DonaldKnuthBreakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{DonaldKnuthBreakerFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}}}
 Classe factory implementazione di \sphinxcode{\sphinxupquote{BreakerFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{DonaldKnuthBreaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -707,7 +735,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory:getbreaker}}\index{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory:it.unicam.cs.pa.mastermind.factories.DonaldKnuthBreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public CodeBreaker \sphinxbfcode{\sphinxupquote{getBreaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory:it.unicam.cs.pa.mastermind.factories.DonaldKnuthBreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}} \sphinxbfcode{\sphinxupquote{getBreaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 \end{fulllineitems}
 
 
@@ -753,7 +781,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:getgameview}}\index{getGameView() (Java method)@\spxentry{getGameView()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory.getGameView()}}\pysiglinewithargsret{public GameView \sphinxbfcode{\sphinxupquote{getGameView}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory.getGameView()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}} \sphinxbfcode{\sphinxupquote{getGameView}}}{}{}
 Ottenimento di un’istanza di una vista \sphinxcode{\sphinxupquote{GameView}}.
 
 \end{fulllineitems}
@@ -764,7 +792,7 @@ Ottenimento di un’istanza di una vista \sphinxcode{\sphinxupquote{GameView}}.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory:interactivebreakerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory::doc}}\index{InteractiveBreakerFactory (Java class)@\spxentry{InteractiveBreakerFactory}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveBreakerFactory}} implements BreakerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveBreakerFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}}}
 Classe factory implementazione di \sphinxcode{\sphinxupquote{BreakerFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{InteractiveBreaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -783,7 +811,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory:getbreaker}}\index{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public CodeBreaker \sphinxbfcode{\sphinxupquote{getBreaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}} \sphinxbfcode{\sphinxupquote{getBreaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 \end{fulllineitems}
 
 
@@ -810,7 +838,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory:interactivemakerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory::doc}}\index{InteractiveMakerFactory (Java class)@\spxentry{InteractiveMakerFactory}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveMakerFactory}} implements MakerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveMakerFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}]{\sphinxcrossref{MakerFactory}}}}
 Classe factory implementazione di \sphinxcode{\sphinxupquote{MakerFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{InteractiveMaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -838,7 +866,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory:getmaker}}\index{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory.getMaker(GameView, int, int)}}\pysiglinewithargsret{public CodeMaker \sphinxbfcode{\sphinxupquote{getMaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory:it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory.getMaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker}]{\sphinxcrossref{CodeMaker}}} \sphinxbfcode{\sphinxupquote{getMaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 \end{fulllineitems}
 
 
@@ -856,7 +884,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:makerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory::doc}}\index{MakerFactory (Java interface)@\spxentry{MakerFactory}\spxextra{Java interface}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}}\pysigline{public interface \sphinxbfcode{\sphinxupquote{MakerFactory}} extends PlayerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}}\pysigline{public interface \sphinxbfcode{\sphinxupquote{MakerFactory}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactory:it.unicam.cs.pa.mastermind.factories.PlayerFactory}]{\sphinxcrossref{PlayerFactory}}}}
 \sphinxstylestrong{Responsabilità}: fornire istanze di implementazioni di \sphinxcode{\sphinxupquote{CodeMaker}}. Interfaccia finalizzata all’implementazione di classi factory per le particolari implementazioni dei giocatori \sphinxcode{\sphinxupquote{CodeMaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -875,7 +903,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:getmaker}}\index{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory.getMaker(GameView, int, int)}}\pysiglinewithargsret{public CodeMaker \sphinxbfcode{\sphinxupquote{getMaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory.getMaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker}]{\sphinxcrossref{CodeMaker}}} \sphinxbfcode{\sphinxupquote{getMaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 Ottenimento di un’istanza di un giocatore \sphinxcode{\sphinxupquote{CodeMaker}}.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -903,7 +931,7 @@ CodeMaker istanza di un giocatore \sphinxcode{\sphinxupquote{CodeMaker}}
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry:makerfactoryregistry}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry::doc}}\index{MakerFactoryRegistry (Java class)@\spxentry{MakerFactoryRegistry}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry}}\pysigline{public class \sphinxbfcode{\sphinxupquote{MakerFactoryRegistry}} extends PlayerFactoryRegistry}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry}}\pysigline{public class \sphinxbfcode{\sphinxupquote{MakerFactoryRegistry}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry}]{\sphinxcrossref{PlayerFactoryRegistry}}}}
 Estensione di \sphinxcode{\sphinxupquote{PlayerFactoryRegistry}} per poter contenere informazioni circa le implementazioni di \sphinxcode{\sphinxupquote{MakerFactory}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -1039,7 +1067,7 @@ Costruttore di \sphinxcode{\sphinxupquote{PlayerFactoryRegistry}}.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:getfactorybyname}}\index{getFactoryByName(String) (Java method)@\spxentry{getFactoryByName(String)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getFactoryByName(String)}}\pysiglinewithargsret{public PlayerFactory \sphinxbfcode{\sphinxupquote{getFactoryByName}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ name}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getFactoryByName(String)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactory:it.unicam.cs.pa.mastermind.factories.PlayerFactory}]{\sphinxcrossref{PlayerFactory}}} \sphinxbfcode{\sphinxupquote{getFactoryByName}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ name}}{}
 Ottenimento di un’istanza di \sphinxcode{\sphinxupquote{PlayerFactory}} dalla struttura dati di base conoscendo il suo nome.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -1067,7 +1095,7 @@ PlayerFactory richiesta
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:getplayerfactoriesinstances}}\index{getPlayerFactoriesInstances() (Java method)@\spxentry{getPlayerFactoriesInstances()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayerFactoriesInstances()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}PlayerFactory\textgreater{} \sphinxbfcode{\sphinxupquote{getPlayerFactoriesInstances}}}{}{}~\begin{quote}\begin{description}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayerFactoriesInstances()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactory:it.unicam.cs.pa.mastermind.factories.PlayerFactory}]{\sphinxcrossref{PlayerFactory}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getPlayerFactoriesInstances}}}{}{}~\begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
 List contenente tutte le istanze \sphinxcode{\sphinxupquote{PlayerFactory}} caricate
 
@@ -1109,7 +1137,7 @@ List contenente tutti i nomi delle istanze \sphinxcode{\sphinxupquote{PlayerFact
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory:randombotbreakerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory::doc}}\index{RandomBotBreakerFactory (Java class)@\spxentry{RandomBotBreakerFactory}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotBreakerFactory}} implements BreakerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotBreakerFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}}}
 Classe factory implementazione di \sphinxcode{\sphinxupquote{BreakerFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{RandomBotBreaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -1128,7 +1156,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory:getbreaker}}\index{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public CodeBreaker \sphinxbfcode{\sphinxupquote{getBreaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory.getBreaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}} \sphinxbfcode{\sphinxupquote{getBreaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 \end{fulllineitems}
 
 
@@ -1155,7 +1183,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:randombotmakerfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory::doc}}\index{RandomBotMakerFactory (Java class)@\spxentry{RandomBotMakerFactory}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotMakerFactory}} implements MakerFactory}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotMakerFactory}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}]{\sphinxcrossref{MakerFactory}}}}
 Classe factory implementazione di \sphinxcode{\sphinxupquote{MakerFactory}} impiegata per ottenere istanze di \sphinxcode{\sphinxupquote{RandomBotMaker}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -1183,7 +1211,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:getmaker}}\index{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getMaker(GameView, int, int)}}\pysiglinewithargsret{public CodeMaker \sphinxbfcode{\sphinxupquote{getMaker}}}{GameView\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getMaker(GameView, int, int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker}]{\sphinxcrossref{CodeMaker}}} \sphinxbfcode{\sphinxupquote{getMaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ view}, int\sphinxstyleemphasis{ seqLength}, int\sphinxstyleemphasis{ attempts}}{}
 \end{fulllineitems}
 
 
@@ -1193,6 +1221,36 @@ Francesco Pio Stelluti, Francesco Coppola
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory:it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory.getName()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{\sphinxupquote{getName}}}{}{}
+\end{fulllineitems}
+
+
+
+\subsection{StartViewFactory}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:startviewfactory}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory::doc}}\index{StartViewFactory (Java interface)@\spxentry{StartViewFactory}\spxextra{Java interface}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:it.unicam.cs.pa.mastermind.factories.StartViewFactory}}\pysigline{public interface \sphinxbfcode{\sphinxupquote{StartViewFactory}}}
+Interfaccia finalizzata all’implementazione di classi factory per le particolari implementazioni della vista \sphinxcode{\sphinxupquote{StartView}}.
+\begin{quote}\begin{description}
+\item[{Author}] \leavevmode
+Francesco Pio Stelluti, Francesco Coppola
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsubsection{Methods}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:methods}}
+
+\paragraph{getStartView}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:getstartview}}\index{getStartView() (Java method)@\spxentry{getStartView()}\spxextra{Java method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:it.unicam.cs.pa.mastermind.factories.StartViewFactory.getStartView()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView}]{\sphinxcrossref{StartView}}} \sphinxbfcode{\sphinxupquote{getStartView}}}{}{}
+Ottenimento di un’istanza di una vista \sphinxcode{\sphinxupquote{StartView}}.
+
 \end{fulllineitems}
 
 
@@ -1226,7 +1284,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:id1}}\index{BoardController(BoardModel) (Java constructor)@\spxentry{BoardController(BoardModel)}\spxextra{Java constructor}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(BoardModel)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{BoardController}}}{BoardModel\sphinxstyleemphasis{ newBoard}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:it.unicam.cs.pa.mastermind.gamecore.BoardController.BoardController(BoardModel)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{BoardController}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel}]{\sphinxcrossref{BoardModel}}}\sphinxstyleemphasis{ newBoard}}{}
 Costruttore
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -1248,7 +1306,7 @@ Costruttore
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:insertcodetoguess}}\index{insertCodeToGuess(List) (Java method)@\spxentry{insertCodeToGuess(List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(List)}}\pysiglinewithargsret{public boolean \sphinxbfcode{\sphinxupquote{insertCodeToGuess}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ toGuess}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:it.unicam.cs.pa.mastermind.gamecore.BoardController.insertCodeToGuess(List)}}\pysiglinewithargsret{public boolean \sphinxbfcode{\sphinxupquote{insertCodeToGuess}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ toGuess}}{}
 Metodo che consente l’inserimento di una sequenza da indovinare all’interno della \sphinxcode{\sphinxupquote{BoardModel}}.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -1270,7 +1328,7 @@ boolean a rappresentazione dell’esito dell’inserimento
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:insertnewattempt}}\index{insertNewAttempt(List) (Java method)@\spxentry{insertNewAttempt(List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(List)}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{insertNewAttempt}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ attempt}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardController:it.unicam.cs.pa.mastermind.gamecore.BoardController.insertNewAttempt(List)}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{insertNewAttempt}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ attempt}}{}
 Metodo che consente l’inserimento di un nuovo tentativo all’interno della \sphinxcode{\sphinxupquote{BoardModel}}.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -1292,7 +1350,7 @@ List contenente la sequenza di \sphinxcode{\sphinxupquote{ColorPegs}} indizio ge
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:boardmodel}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel::doc}}\index{BoardModel (Java class)@\spxentry{BoardModel}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel}}\pysigline{public class \sphinxbfcode{\sphinxupquote{BoardModel}} extends Observable}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel}}\pysigline{public class \sphinxbfcode{\sphinxupquote{BoardModel}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable}]{\sphinxcrossref{Observable}}}}
 \sphinxstylestrong{Responsabilità}: gestire le informazioni relative ad una plancia di gioco. Rientra nei pattern \sphinxstylestrong{MVC} e \sphinxstylestrong{Observer}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -1336,7 +1394,7 @@ Costruttore di una plancia. L’impiego di una LinkedHashMap quale particolare s
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:addattempt}}\index{addAttempt(List) (Java method)@\spxentry{addAttempt(List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.addAttempt(List)}}\pysiglinewithargsret{public boolean \sphinxbfcode{\sphinxupquote{addAttempt}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ attempt}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.addAttempt(List)}}\pysiglinewithargsret{public boolean \sphinxbfcode{\sphinxupquote{addAttempt}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ attempt}}{}
 Aggiunge alla plancia una nuova sequenza di pioli tentativo e la relativa sequenza di pioli indizio, calcolata all’interno del metodo
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -1378,7 +1436,7 @@ int numero di tentativi inseriti fino ad ora
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:getattemptandcluelist}}\index{getAttemptAndClueList() (Java method)@\spxentry{getAttemptAndClueList()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getAttemptAndClueList()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/Map.html}{Map}.Entry\textless{}\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}, \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\textgreater{}\textgreater{} \sphinxbfcode{\sphinxupquote{getAttemptAndClueList}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getAttemptAndClueList()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/Map.html}{Map}.Entry\textless{}\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}, \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\textgreater{}\textgreater{} \sphinxbfcode{\sphinxupquote{getAttemptAndClueList}}}{}{}
 Ottenimento di una \sphinxcode{\sphinxupquote{List}} contenente tutta le coppie sequenza tentativo - sequenza indizio inserite nella plancia.
 \begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
@@ -1394,7 +1452,7 @@ List contenenti Map.Entry con le sequenze di \sphinxcode{\sphinxupquote{ColorPeg
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:getlastattempt}}\index{getLastAttempt() (Java method)@\spxentry{getLastAttempt()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getLastAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getLastAttempt}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getLastAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getLastAttempt}}}{}{}
 \end{fulllineitems}
 
 
@@ -1403,7 +1461,7 @@ List contenenti Map.Entry con le sequenze di \sphinxcode{\sphinxupquote{ColorPeg
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:getlastclue}}\index{getLastClue() (Java method)@\spxentry{getLastClue()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getLastClue()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getLastClue}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getLastClue()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getLastClue}}}{}{}
 \end{fulllineitems}
 
 
@@ -1426,7 +1484,7 @@ int lunghezza massima delle sequenze presenti in questa plancia
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:getsequencetoguess}}\index{getSequenceToGuess() (Java method)@\spxentry{getSequenceToGuess()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getSequenceToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getSequenceToGuess}}}{}{}~\begin{quote}\begin{description}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.getSequenceToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getSequenceToGuess}}}{}{}~\begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
 List di \sphinxcode{\sphinxupquote{ColorPegs}} da indovinare.
 
@@ -1498,7 +1556,7 @@ boolean relativo alla riuscita della rimozione.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:setsequencetoguess}}\index{setSequenceToGuess(List) (Java method)@\spxentry{setSequenceToGuess(List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.setSequenceToGuess(List)}}\pysiglinewithargsret{public boolean \sphinxbfcode{\sphinxupquote{setSequenceToGuess}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ toGuess}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.setSequenceToGuess(List)}}\pysiglinewithargsret{public boolean \sphinxbfcode{\sphinxupquote{setSequenceToGuess}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ toGuess}}{}
 Imposta la sequenza di pioli da indovinare.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -1545,7 +1603,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:black}}\index{BLACK (Java field)@\spxentry{BLACK}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.BLACK}}\pysigline{public static final ColorPegs \sphinxbfcode{\sphinxupquote{BLACK}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.BLACK}}\pysigline{public static final {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}} \sphinxbfcode{\sphinxupquote{BLACK}}}
 \end{fulllineitems}
 
 
@@ -1554,7 +1612,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:blue}}\index{BLUE (Java field)@\spxentry{BLUE}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.BLUE}}\pysigline{public static final ColorPegs \sphinxbfcode{\sphinxupquote{BLUE}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.BLUE}}\pysigline{public static final {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}} \sphinxbfcode{\sphinxupquote{BLUE}}}
 \end{fulllineitems}
 
 
@@ -1563,7 +1621,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:green}}\index{GREEN (Java field)@\spxentry{GREEN}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.GREEN}}\pysigline{public static final ColorPegs \sphinxbfcode{\sphinxupquote{GREEN}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.GREEN}}\pysigline{public static final {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}} \sphinxbfcode{\sphinxupquote{GREEN}}}
 \end{fulllineitems}
 
 
@@ -1572,7 +1630,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:red}}\index{RED (Java field)@\spxentry{RED}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.RED}}\pysigline{public static final ColorPegs \sphinxbfcode{\sphinxupquote{RED}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.RED}}\pysigline{public static final {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}} \sphinxbfcode{\sphinxupquote{RED}}}
 \end{fulllineitems}
 
 
@@ -1581,7 +1639,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:white}}\index{WHITE (Java field)@\spxentry{WHITE}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.WHITE}}\pysigline{public static final ColorPegs \sphinxbfcode{\sphinxupquote{WHITE}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.WHITE}}\pysigline{public static final {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}} \sphinxbfcode{\sphinxupquote{WHITE}}}
 \end{fulllineitems}
 
 
@@ -1590,7 +1648,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:yellow}}\index{YELLOW (Java field)@\spxentry{YELLOW}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.YELLOW}}\pysigline{public static final ColorPegs \sphinxbfcode{\sphinxupquote{YELLOW}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs.YELLOW}}\pysigline{public static final {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}} \sphinxbfcode{\sphinxupquote{YELLOW}}}
 \end{fulllineitems}
 
 
@@ -1599,7 +1657,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:consolemainmanager}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager::doc}}\index{ConsoleMainManager (Java class)@\spxentry{ConsoleMainManager}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleMainManager}} extends MainManager}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleMainManager}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:it.unicam.cs.pa.mastermind.gamecore.MainManager}]{\sphinxcrossref{MainManager}}}}
 Implementazione di \sphinxcode{\sphinxupquote{MainManager}} correlata ad implementazioni di \sphinxcode{\sphinxupquote{GameView}} e \sphinxcode{\sphinxupquote{StartView}} basate su interazione via console.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -1618,16 +1676,16 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:getgameviewfactory}}\index{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager.getGameViewFactory()}}\pysiglinewithargsret{protected GameViewFactory \sphinxbfcode{\sphinxupquote{getGameViewFactory}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager.getGameViewFactory()}}\pysiglinewithargsret{protected {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory}]{\sphinxcrossref{GameViewFactory}}} \sphinxbfcode{\sphinxupquote{getGameViewFactory}}}{}{}
 \end{fulllineitems}
 
 
 
-\paragraph{getStartViewInstance}
-\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:getstartviewinstance}}\index{getStartViewInstance() (Java method)@\spxentry{getStartViewInstance()}\spxextra{Java method}}
+\paragraph{getStartViewFactory}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:getstartviewfactory}}\index{getStartViewFactory() (Java method)@\spxentry{getStartViewFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager.getStartViewInstance()}}\pysiglinewithargsret{protected StartView \sphinxbfcode{\sphinxupquote{getStartViewInstance}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager:it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager.getStartViewFactory()}}\pysiglinewithargsret{protected {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:it.unicam.cs.pa.mastermind.factories.StartViewFactory}]{\sphinxcrossref{StartViewFactory}}} \sphinxbfcode{\sphinxupquote{getStartViewFactory}}}{}{}
 \end{fulllineitems}
 
 
@@ -1696,7 +1754,7 @@ Inizializzazione con generazione dei registri
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings:getbreakers}}\index{getBreakers() (Java method)@\spxentry{getBreakers()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings:it.unicam.cs.pa.mastermind.gamecore.GlobalSettings.getBreakers()}}\pysiglinewithargsret{public BreakerFactoryRegistry \sphinxbfcode{\sphinxupquote{getBreakers}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings:it.unicam.cs.pa.mastermind.gamecore.GlobalSettings.getBreakers()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry}]{\sphinxcrossref{BreakerFactoryRegistry}}} \sphinxbfcode{\sphinxupquote{getBreakers}}}{}{}
 \end{fulllineitems}
 
 
@@ -1705,7 +1763,7 @@ Inizializzazione con generazione dei registri
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings:getmakers}}\index{getMakers() (Java method)@\spxentry{getMakers()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings:it.unicam.cs.pa.mastermind.gamecore.GlobalSettings.getMakers()}}\pysiglinewithargsret{public MakerFactoryRegistry \sphinxbfcode{\sphinxupquote{getMakers}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings:it.unicam.cs.pa.mastermind.gamecore.GlobalSettings.getMakers()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry}]{\sphinxcrossref{MakerFactoryRegistry}}} \sphinxbfcode{\sphinxupquote{getMakers}}}{}{}
 \end{fulllineitems}
 
 
@@ -1745,7 +1803,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:getgameviewfactory}}\index{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()}}\pysiglinewithargsret{protected abstract GameViewFactory \sphinxbfcode{\sphinxupquote{getGameViewFactory}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:it.unicam.cs.pa.mastermind.gamecore.MainManager.getGameViewFactory()}}\pysiglinewithargsret{protected abstract {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory}]{\sphinxcrossref{GameViewFactory}}} \sphinxbfcode{\sphinxupquote{getGameViewFactory}}}{}{}
 Ottenimento dell’istanza di \sphinxcode{\sphinxupquote{GameViewFactory}} che si desidera impiegare all’interno di tutti i match per poter generare istanze di \sphinxcode{\sphinxupquote{GameView}} utili per l’interazione con l’utente fisico durante il loro svolgimento. \sphinxstylestrong{Contratto}: il metodo deve risultare coerente con la particolare estensione di \sphinxcode{\sphinxupquote{MainManager}} in cui viene definito.
 \begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
@@ -1757,15 +1815,15 @@ GameViewFactory da impiegare in \sphinxcode{\sphinxupquote{SingleMatch}}
 
 
 
-\paragraph{getStartViewInstance}
-\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:getstartviewinstance}}\index{getStartViewInstance() (Java method)@\spxentry{getStartViewInstance()}\spxextra{Java method}}
+\paragraph{getStartViewFactory}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:getstartviewfactory}}\index{getStartViewFactory() (Java method)@\spxentry{getStartViewFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewInstance()}}\pysiglinewithargsret{protected abstract StartView \sphinxbfcode{\sphinxupquote{getStartViewInstance}}}{}{}
-Ottenimento dell’istanza di \sphinxcode{\sphinxupquote{StartView}} che si desidera impiegare con l’istanza di \sphinxcode{\sphinxupquote{MainManager}} corrente. \sphinxstylestrong{Contratto}: il metodo deve risultare coerente con la particolare estensione di \sphinxcode{\sphinxupquote{MainManager}} in cui viene definito.
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MainManager:it.unicam.cs.pa.mastermind.gamecore.MainManager.getStartViewFactory()}}\pysiglinewithargsret{protected abstract {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/StartViewFactory:it.unicam.cs.pa.mastermind.factories.StartViewFactory}]{\sphinxcrossref{StartViewFactory}}} \sphinxbfcode{\sphinxupquote{getStartViewFactory}}}{}{}
+Ottenimento dell’istanza di \sphinxcode{\sphinxupquote{StartViewFactory}} che si desidera impiegare all’interno di \sphinxcode{\sphinxupquote{MainManager}} per poter generare istanze di \sphinxcode{\sphinxupquote{StartView}} utili per l’interazione con l’utente fisico. \sphinxstylestrong{Contratto}: il metodo deve risultare coerente con la particolare estensione di \sphinxcode{\sphinxupquote{MainManager}} in cui viene definito.
 \begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
-StartView da impiegare nel \sphinxcode{\sphinxupquote{MainManager}}
+StartViewFactory da impiegare in \sphinxcode{\sphinxupquote{MainManager}}
 
 \end{description}\end{quote}
 
@@ -1837,7 +1895,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:id1}}\index{MatchStartSettings(GameViewFactory) (Java constructor)@\spxentry{MatchStartSettings(GameViewFactory)}\spxextra{Java constructor}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.MatchStartSettings(GameViewFactory)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{MatchStartSettings}}}{GameViewFactory\sphinxstyleemphasis{ gameViewFactory}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.MatchStartSettings(GameViewFactory)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{MatchStartSettings}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory}]{\sphinxcrossref{GameViewFactory}}}\sphinxstyleemphasis{ gameViewFactory}}{}
 \end{fulllineitems}
 
 
@@ -1858,7 +1916,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:getbreakerfactory}}\index{getBreakerFactory() (Java method)@\spxentry{getBreakerFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getBreakerFactory()}}\pysiglinewithargsret{public BreakerFactory \sphinxbfcode{\sphinxupquote{getBreakerFactory}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getBreakerFactory()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}} \sphinxbfcode{\sphinxupquote{getBreakerFactory}}}{}{}
 \end{fulllineitems}
 
 
@@ -1867,7 +1925,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:getgameviewfactory}}\index{getGameViewFactory() (Java method)@\spxentry{getGameViewFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getGameViewFactory()}}\pysiglinewithargsret{public GameViewFactory \sphinxbfcode{\sphinxupquote{getGameViewFactory}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getGameViewFactory()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory}]{\sphinxcrossref{GameViewFactory}}} \sphinxbfcode{\sphinxupquote{getGameViewFactory}}}{}{}
 \end{fulllineitems}
 
 
@@ -1903,7 +1961,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:getmakerfactory}}\index{getMakerFactory() (Java method)@\spxentry{getMakerFactory()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getMakerFactory()}}\pysiglinewithargsret{public MakerFactory \sphinxbfcode{\sphinxupquote{getMakerFactory}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.getMakerFactory()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}]{\sphinxcrossref{MakerFactory}}} \sphinxbfcode{\sphinxupquote{getMakerFactory}}}{}{}
 \end{fulllineitems}
 
 
@@ -1939,7 +1997,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:setbreakerfactory}}\index{setBreakerFactory(BreakerFactory) (Java method)@\spxentry{setBreakerFactory(BreakerFactory)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setBreakerFactory(BreakerFactory)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{setBreakerFactory}}}{BreakerFactory\sphinxstyleemphasis{ breakerFactory}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setBreakerFactory(BreakerFactory)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{setBreakerFactory}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}}\sphinxstyleemphasis{ breakerFactory}}{}
 \end{fulllineitems}
 
 
@@ -1975,7 +2033,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:setmakerfactory}}\index{setMakerFactory(MakerFactory) (Java method)@\spxentry{setMakerFactory(MakerFactory)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setMakerFactory(MakerFactory)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{setMakerFactory}}}{MakerFactory\sphinxstyleemphasis{ makerFactory}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings:it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings.setMakerFactory(MakerFactory)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{setMakerFactory}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}]{\sphinxcrossref{MakerFactory}}}\sphinxstyleemphasis{ makerFactory}}{}
 \end{fulllineitems}
 
 
@@ -1993,7 +2051,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:matchstate}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState::doc}}\index{MatchState (Java class)@\spxentry{MatchState}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:it.unicam.cs.pa.mastermind.gamecore.MatchState}}\pysigline{public class \sphinxbfcode{\sphinxupquote{MatchState}} implements Observer}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:it.unicam.cs.pa.mastermind.gamecore.MatchState}}\pysigline{public class \sphinxbfcode{\sphinxupquote{MatchState}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer}]{\sphinxcrossref{Observer}}}}
 \sphinxstylestrong{Responsabilità}: tenere traccia delle informazioni necessarie per poter decretare se una partita è ancora in corso o meno. Rientra nel pattern \sphinxstylestrong{Observer}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2139,7 +2197,7 @@ Toggle sulle variabili private per indicare la vittoria del Maker.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:update}}\index{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:it.unicam.cs.pa.mastermind.gamecore.MatchState.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{Observable\sphinxstyleemphasis{ o}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:it.unicam.cs.pa.mastermind.gamecore.MatchState.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable}]{\sphinxcrossref{Observable}}}\sphinxstyleemphasis{ o}}{}
 Lo stato dell’oggetto si aggiorna grazie a oggetti \sphinxcode{\sphinxupquote{BoardModel}}.
 
 \end{fulllineitems}
@@ -2169,7 +2227,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:addobserver}}\index{addObserver(Observer) (Java method)@\spxentry{addObserver(Observer)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable.addObserver(Observer)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{addObserver}}}{Observer\sphinxstyleemphasis{ obs}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable.addObserver(Observer)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{addObserver}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer}]{\sphinxcrossref{Observer}}}\sphinxstyleemphasis{ obs}}{}
 Metodo il quale registra un nuovo \sphinxcode{\sphinxupquote{BoardObserver}} e notifica tutti i \sphinxcode{\sphinxupquote{Observer}} attualmente associati all’istanza di \sphinxcode{\sphinxupquote{Observable}}.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -2199,7 +2257,7 @@ Metodo che notifica ogni observer iscritto al registro \sphinxcode{\sphinxupquot
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:removeobserver}}\index{removeObserver(Observer) (Java method)@\spxentry{removeObserver(Observer)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable.removeObserver(Observer)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{removeObserver}}}{Observer\sphinxstyleemphasis{ obs}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable.removeObserver(Observer)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{removeObserver}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer}]{\sphinxcrossref{Observer}}}\sphinxstyleemphasis{ obs}}{}
 Metodo di rimozione di un \sphinxcode{\sphinxupquote{Observer}} da \sphinxcode{\sphinxupquote{observers}}.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -2237,7 +2295,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:update}}\index{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{Observable\sphinxstyleemphasis{ o}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable}]{\sphinxcrossref{Observable}}}\sphinxstyleemphasis{ o}}{}
 Aggiornamento dello stato dell’oggetto.
 
 \end{fulllineitems}
@@ -2248,7 +2306,7 @@ Aggiornamento dello stato dell’oggetto.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:singlematch}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch::doc}}\index{SingleMatch (Java class)@\spxentry{SingleMatch}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch}}\pysigline{public class \sphinxbfcode{\sphinxupquote{SingleMatch}} extends Observable implements Observer}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch}}\pysigline{public class \sphinxbfcode{\sphinxupquote{SingleMatch}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable}]{\sphinxcrossref{Observable}}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer}]{\sphinxcrossref{Observer}}}}
 \sphinxstylestrong{Responsabilità}: gestione dello svolgimento di una singola partita di gioco.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2267,7 +2325,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:gamestate}}\index{gameState (Java field)@\spxentry{gameState}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState}}\pysigline{ MatchState \sphinxbfcode{\sphinxupquote{gameState}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.gameState}}\pysigline{ {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/MatchState:it.unicam.cs.pa.mastermind.gamecore.MatchState}]{\sphinxcrossref{MatchState}}} \sphinxbfcode{\sphinxupquote{gameState}}}
 Oggetto contenente informazioni relative al vincitore della partita in corso.
 
 \end{fulllineitems}
@@ -2278,7 +2336,7 @@ Oggetto contenente informazioni relative al vincitore della partita in corso.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:sequencetoguess}}\index{sequenceToGuess (Java field)@\spxentry{sequenceToGuess}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.sequenceToGuess}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{sequenceToGuess}}}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.sequenceToGuess}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{sequenceToGuess}}}
 Copia della sequenza da indovinare nel match corrente
 
 \end{fulllineitems}
@@ -2292,7 +2350,7 @@ Copia della sequenza da indovinare nel match corrente
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:id1}}\index{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory) (Java constructor)@\spxentry{SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)}\spxextra{Java constructor}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{SingleMatch}}}{int\sphinxstyleemphasis{ sequenceLength}, int\sphinxstyleemphasis{ attempts}, GameViewFactory\sphinxstyleemphasis{ viewFactory}, BreakerFactory\sphinxstyleemphasis{ bFactory}, MakerFactory\sphinxstyleemphasis{ mFactory}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.SingleMatch(int, int, GameViewFactory, BreakerFactory, MakerFactory)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{SingleMatch}}}{int\sphinxstyleemphasis{ sequenceLength}, int\sphinxstyleemphasis{ attempts}, {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/GameViewFactory:it.unicam.cs.pa.mastermind.factories.GameViewFactory}]{\sphinxcrossref{GameViewFactory}}}\sphinxstyleemphasis{ viewFactory}, {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}}\sphinxstyleemphasis{ bFactory}, {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}]{\sphinxcrossref{MakerFactory}}}\sphinxstyleemphasis{ mFactory}}{}
 Costruttore di una singola partita
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -2342,7 +2400,7 @@ String che comunica il vincitore attuale della partita
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:getsequencetoguess}}\index{getSequenceToGuess() (Java method)@\spxentry{getSequenceToGuess()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.getSequenceToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getSequenceToGuess}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.getSequenceToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getSequenceToGuess}}}{}{}
 \end{fulllineitems}
 
 
@@ -2362,7 +2420,7 @@ Avvio e gestione completa di una singola partita di gioco.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:update}}\index{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{Observable\sphinxstyleemphasis{ o}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/SingleMatch:it.unicam.cs.pa.mastermind.gamecore.SingleMatch.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable}]{\sphinxcrossref{Observable}}}\sphinxstyleemphasis{ o}}{}
 \end{fulllineitems}
 
 
@@ -2517,7 +2575,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:getattempt}}\index{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt()}}\pysiglinewithargsret{public abstract \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}~\begin{quote}\begin{description}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker.getAttempt()}}\pysiglinewithargsret{public abstract \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}~\begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
 List contenente i \sphinxcode{\sphinxupquote{ColorPegs}} validi come sequenza tentativo.
 
@@ -2531,7 +2589,7 @@ List contenente i \sphinxcode{\sphinxupquote{ColorPegs}} validi come sequenza te
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:getlastclue}}\index{getLastClue() (Java method)@\spxentry{getLastClue()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker.getLastClue()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getLastClue}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker.getLastClue()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getLastClue}}}{}{}
 Ritorna il valore memorizzato dell’ultima sequenza indizio relativa all’ultimo tentativo generato.
 
 \end{fulllineitems}
@@ -2575,7 +2633,7 @@ Imposta una volontà del giocatore di arrendersi o meno.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:setlastclue}}\index{setLastClue(List) (Java method)@\spxentry{setLastClue(List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker.setLastClue(List)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{setLastClue}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ lastClue}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker.setLastClue(List)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{setLastClue}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ lastClue}}{}
 Imposta il valore memorizzato dell’ultima sequenza indizio relativa all’ultimo tentativo generato.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -2624,7 +2682,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:getcodetoguess}}\index{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess()}}\pysiglinewithargsret{public abstract \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getCodeToGuess}}}{}{}~\begin{quote}\begin{description}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker.getCodeToGuess()}}\pysiglinewithargsret{public abstract \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getCodeToGuess}}}{}{}~\begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
 List contenente i \sphinxcode{\sphinxupquote{ColorPegs}} validi come sequenza da indovinare
 
@@ -2638,7 +2696,7 @@ List contenente i \sphinxcode{\sphinxupquote{ColorPegs}} validi come sequenza da
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker:donaldknuthbreaker}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker::doc}}\index{DonaldKnuthBreaker (Java class)@\spxentry{DonaldKnuthBreaker}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker:it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{DonaldKnuthBreaker}} extends CodeBreaker}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker:it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{DonaldKnuthBreaker}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}}}
 Estensione di \sphinxcode{\sphinxupquote{CodeBreaker}} mirata ad una gestione del comportamento è basato sull’algoritmo di risoluzione teorizzato dal matematico Donald Knuth, il quale attesta di risolvere il gioco del Mastermind in cinque mosse al massimo mediante una precisa serie di passaggi.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2693,7 +2751,7 @@ Viene generato il set contenente le 1296 combinazioni possibili.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker:getattempt}}\index{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker:it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.getAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker:it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker.getAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}
 \end{fulllineitems}
 
 
@@ -2702,7 +2760,7 @@ Viene generato il set contenente le 1296 combinazioni possibili.
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:interactivebreaker}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker::doc}}\index{InteractiveBreaker (Java class)@\spxentry{InteractiveBreaker}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:it.unicam.cs.pa.mastermind.players.InteractiveBreaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveBreaker}} extends CodeBreaker}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:it.unicam.cs.pa.mastermind.players.InteractiveBreaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveBreaker}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}}}
 Particolare estensione di \sphinxcode{\sphinxupquote{CodeBreaker}}, rappresentante un utente fisico. Nello specifico l’utente umano può effettuare decisioni ed impartire comandi passando da un’istanza di \sphinxcode{\sphinxupquote{GameView}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2721,7 +2779,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:id1}}\index{InteractiveBreaker(GameView, int) (Java constructor)@\spxentry{InteractiveBreaker(GameView, int)}\spxextra{Java constructor}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(GameView, int)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{InteractiveBreaker}}}{GameView\sphinxstyleemphasis{ newView}, int\sphinxstyleemphasis{ seqLength}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:it.unicam.cs.pa.mastermind.players.InteractiveBreaker.InteractiveBreaker(GameView, int)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{InteractiveBreaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ newView}, int\sphinxstyleemphasis{ seqLength}}{}
 \end{fulllineitems}
 
 
@@ -2733,7 +2791,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:getattempt}}\index{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveBreaker:it.unicam.cs.pa.mastermind.players.InteractiveBreaker.getAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}
 L’utente fisico può decidere di voler reinserire una sequenza di \sphinxcode{\sphinxupquote{ColorPegs}} già inserita precedentemente. In tal caso ripeterà l’azione di definizione di una nuova sequenza. \sphinxstylestrong{Contratto}: se dalla vista \sphinxcode{\sphinxupquote{GameView}} viene restuito il valore 0 allora tale valore viene interpretato come la volontà dell’utente fisico di arrendersi.
 
 \end{fulllineitems}
@@ -2744,7 +2802,7 @@ L’utente fisico può decidere di voler reinserire una sequenza di \sphinxcode{
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:interactivemaker}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker::doc}}\index{InteractiveMaker (Java class)@\spxentry{InteractiveMaker}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:it.unicam.cs.pa.mastermind.players.InteractiveMaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveMaker}} extends CodeMaker}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:it.unicam.cs.pa.mastermind.players.InteractiveMaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{InteractiveMaker}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker}]{\sphinxcrossref{CodeMaker}}}}
 Particolare estensione di \sphinxcode{\sphinxupquote{CodeMaker}}, rappresentante un giocatore umano. Nello specifico l’utente umano può effettuare decisioni ed impartire comandi passando da un’istanza di \sphinxcode{\sphinxupquote{GameView}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2763,7 +2821,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:id1}}\index{InteractiveMaker(GameView, int) (Java constructor)@\spxentry{InteractiveMaker(GameView, int)}\spxextra{Java constructor}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:it.unicam.cs.pa.mastermind.players.InteractiveMaker.InteractiveMaker(GameView, int)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{InteractiveMaker}}}{GameView\sphinxstyleemphasis{ newView}, int\sphinxstyleemphasis{ seqLength}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:it.unicam.cs.pa.mastermind.players.InteractiveMaker.InteractiveMaker(GameView, int)}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{InteractiveMaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}\sphinxstyleemphasis{ newView}, int\sphinxstyleemphasis{ seqLength}}{}
 \end{fulllineitems}
 
 
@@ -2775,7 +2833,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:getcodetoguess}}\index{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:it.unicam.cs.pa.mastermind.players.InteractiveMaker.getCodeToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getCodeToGuess}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/InteractiveMaker:it.unicam.cs.pa.mastermind.players.InteractiveMaker.getCodeToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getCodeToGuess}}}{}{}
 \end{fulllineitems}
 
 
@@ -2784,7 +2842,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker:randombotbreaker}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker::doc}}\index{RandomBotBreaker (Java class)@\spxentry{RandomBotBreaker}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker:it.unicam.cs.pa.mastermind.players.RandomBotBreaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotBreaker}} extends CodeBreaker}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker:it.unicam.cs.pa.mastermind.players.RandomBotBreaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotBreaker}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeBreaker:it.unicam.cs.pa.mastermind.players.CodeBreaker}]{\sphinxcrossref{CodeBreaker}}}}
 Estensione di \sphinxcode{\sphinxupquote{CodeBreaker}} mirata ad una gestione del comportamento del giocatore in maniera casuale.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2815,7 +2873,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker:getattempt}}\index{getAttempt() (Java method)@\spxentry{getAttempt()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker:it.unicam.cs.pa.mastermind.players.RandomBotBreaker.getAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotBreaker:it.unicam.cs.pa.mastermind.players.RandomBotBreaker.getAttempt()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getAttempt}}}{}{}
 Potrebbe capitare che la generazione casuale delle sequenze porti ad una sequenza di \sphinxcode{\sphinxupquote{ColorPegs}} già inserita precedentemente. In tal caso verrà ripetuta l’azione di definizione di una nuova sequenza.
 
 \end{fulllineitems}
@@ -2826,7 +2884,7 @@ Potrebbe capitare che la generazione casuale delle sequenze porti ad una sequenz
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker:randombotmaker}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker::doc}}\index{RandomBotMaker (Java class)@\spxentry{RandomBotMaker}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker:it.unicam.cs.pa.mastermind.players.RandomBotMaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotMaker}} extends CodeMaker}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker:it.unicam.cs.pa.mastermind.players.RandomBotMaker}}\pysigline{public class \sphinxbfcode{\sphinxupquote{RandomBotMaker}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/players/CodeMaker:it.unicam.cs.pa.mastermind.players.CodeMaker}]{\sphinxcrossref{CodeMaker}}}}
 Estensione di \sphinxcode{\sphinxupquote{CodeMaker}} mirata ad una gestione del comportamento del giocatore in maniera casuale.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -2857,7 +2915,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker:getcodetoguess}}\index{getCodeToGuess() (Java method)@\spxentry{getCodeToGuess()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker:it.unicam.cs.pa.mastermind.players.RandomBotMaker.getCodeToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{getCodeToGuess}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/players/RandomBotMaker:it.unicam.cs.pa.mastermind.players.RandomBotMaker.getCodeToGuess()}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{getCodeToGuess}}}{}{}
 \end{fulllineitems}
 
 
@@ -3008,7 +3066,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:consolegameview}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView::doc}}\index{ConsoleGameView (Java class)@\spxentry{ConsoleGameView}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleGameView}} extends GameView}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleGameView}} extends {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}]{\sphinxcrossref{GameView}}}}
 Implementazione di una vista con interazione via console della classe \sphinxcode{\sphinxupquote{GameView}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -3041,7 +3099,7 @@ Inizializzazione della vista con un \sphinxcode{\sphinxupquote{FilterInputStream
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:endingscreen}}\index{endingScreen(String, List) (Java method)@\spxentry{endingScreen(String, List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView.endingScreen(String, List)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{endingScreen}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ gameEndingMessage}, \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ seqToGuess}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView.endingScreen(String, List)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{endingScreen}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ gameEndingMessage}, \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ seqToGuess}}{}
 \end{fulllineitems}
 
 
@@ -3059,7 +3117,7 @@ Inizializzazione della vista con un \sphinxcode{\sphinxupquote{FilterInputStream
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:showgame}}\index{showGame(BoardModel) (Java method)@\spxentry{showGame(BoardModel)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView.showGame(BoardModel)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{showGame}}}{BoardModel\sphinxstyleemphasis{ o}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView.showGame(BoardModel)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{showGame}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel}]{\sphinxcrossref{BoardModel}}}\sphinxstyleemphasis{ o}}{}
 \end{fulllineitems}
 
 
@@ -3068,7 +3126,7 @@ Inizializzazione della vista con un \sphinxcode{\sphinxupquote{FilterInputStream
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:update}}\index{update(Observable) (Java method)@\spxentry{update(Observable)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{Observable\sphinxstyleemphasis{ o}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleGameView:it.unicam.cs.pa.mastermind.ui.ConsoleGameView.update(Observable)}}\pysiglinewithargsret{public void \sphinxbfcode{\sphinxupquote{update}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observable:it.unicam.cs.pa.mastermind.gamecore.Observable}]{\sphinxcrossref{Observable}}}\sphinxstyleemphasis{ o}}{}
 Lo stato dell’oggetto si aggiorna grazie a oggetti \sphinxcode{\sphinxupquote{BoardModel}} e oggetti \sphinxcode{\sphinxupquote{SingleMatch}}.
 
 \end{fulllineitems}
@@ -3079,13 +3137,27 @@ Lo stato dell’oggetto si aggiorna grazie a oggetti \sphinxcode{\sphinxupquote{
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:consolestartview}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView::doc}}\index{ConsoleStartView (Java class)@\spxentry{ConsoleStartView}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleStartView}} implements StartView}
-Implementazione con interazione via console della classe \sphinxcode{\sphinxupquote{StartView}}. Integra il pattern \sphinxstylestrong{Singleton}.
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView}}\pysigline{public class \sphinxbfcode{\sphinxupquote{ConsoleStartView}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView}]{\sphinxcrossref{StartView}}}}
+Implementazione con interazione via console della classe \sphinxcode{\sphinxupquote{StartView}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
 Francesco Pio Stelluti, Francesco Coppola
 
 \end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsubsection{Constructors}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:constructors}}
+
+\paragraph{ConsoleStartView}
+\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:id1}}\index{ConsoleStartView() (Java constructor)@\spxentry{ConsoleStartView()}\spxextra{Java constructor}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView.ConsoleStartView()}}\pysiglinewithargsret{public \sphinxbfcode{\sphinxupquote{ConsoleStartView}}}{}{}
+Inizializzazione della vista con un \sphinxcode{\sphinxupquote{FilterInputStream}} che non porta alla chiusura di \sphinxcode{\sphinxupquote{System.in}} all’interno del suo metodo \sphinxcode{\sphinxupquote{close()}}.
 
 \end{fulllineitems}
 
@@ -3125,7 +3197,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:asknewstartupsettings}}\index{askNewStartupSettings() (Java method)@\spxentry{askNewStartupSettings()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView.askNewStartupSettings()}}\pysiglinewithargsret{public StartupSettings \sphinxbfcode{\sphinxupquote{askNewStartupSettings}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView.askNewStartupSettings()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/StartupSettings:it.unicam.cs.pa.mastermind.gamecore.StartupSettings}]{\sphinxcrossref{StartupSettings}}} \sphinxbfcode{\sphinxupquote{askNewStartupSettings}}}{}{}
 \end{fulllineitems}
 
 
@@ -3148,25 +3220,11 @@ Francesco Pio Stelluti, Francesco Coppola
 
 
 
-\paragraph{getInstance}
-\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:getinstance}}\index{getInstance() (Java method)@\spxentry{getInstance()}\spxextra{Java method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView.getInstance()}}\pysiglinewithargsret{public static ConsoleStartView \sphinxbfcode{\sphinxupquote{getInstance}}}{}{}~\begin{quote}\begin{description}
-\item[{Ritorna}] \leavevmode
-ConsoleStartView istanza \sphinxstylestrong{Singleton} di \sphinxcode{\sphinxupquote{ConsoleStartView}}.
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
-
-
 \paragraph{getPlayerName}
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:getplayername}}\index{getPlayerName(PlayerFactoryRegistry, boolean) (Java method)@\spxentry{getPlayerName(PlayerFactoryRegistry, boolean)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView.getPlayerName(PlayerFactoryRegistry, boolean)}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{\sphinxupquote{getPlayerName}}}{PlayerFactoryRegistry\sphinxstyleemphasis{ registry}, boolean\sphinxstyleemphasis{ isBreaker}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/ConsoleStartView:it.unicam.cs.pa.mastermind.ui.ConsoleStartView.getPlayerName(PlayerFactoryRegistry, boolean)}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{\sphinxupquote{getPlayerName}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry}]{\sphinxcrossref{PlayerFactoryRegistry}}}\sphinxstyleemphasis{ registry}, boolean\sphinxstyleemphasis{ isBreaker}}{}
 \end{fulllineitems}
 
 
@@ -3193,7 +3251,7 @@ ConsoleStartView istanza \sphinxstylestrong{Singleton} di \sphinxcode{\sphinxupq
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:gameview}}\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView::doc}}\index{GameView (Java class)@\spxentry{GameView}\spxextra{Java class}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}}\pysigline{public abstract class \sphinxbfcode{\sphinxupquote{GameView}} implements Observer}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView}}\pysigline{public abstract class \sphinxbfcode{\sphinxupquote{GameView}} implements {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/Observer:it.unicam.cs.pa.mastermind.gamecore.Observer}]{\sphinxcrossref{Observer}}}}
 \sphinxstylestrong{Responsabilità}: fornire agli utenti fisici coinvolti in una singola partita operazioni di Input/Output. Rientra nel pattern \sphinxstylestrong{Observer} per poter fornire in output all’utente fisico una rappresentazione di quelle che sono le azioni effettuate dai giocatori nel gioco. Rientra nel pattern \sphinxstylestrong{MVC}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
@@ -3212,7 +3270,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:endingscreen}}\index{endingScreen(String, List) (Java method)@\spxentry{endingScreen(String, List)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)}}\pysiglinewithargsret{public abstract void \sphinxbfcode{\sphinxupquote{endingScreen}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ gameEndingMessage}, \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{}\sphinxstyleemphasis{ seqToGuess}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView.endingScreen(String, List)}}\pysiglinewithargsret{public abstract void \sphinxbfcode{\sphinxupquote{endingScreen}}}{\sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ gameEndingMessage}, \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{}\sphinxstyleemphasis{ seqToGuess}}{}
 Interazione con l’utente fisico per la terminazione di una partita
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -3259,7 +3317,7 @@ List contenente gli indici interi associati all’enum ColorPegs
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:showgame}}\index{showGame(BoardModel) (Java method)@\spxentry{showGame(BoardModel)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)}}\pysiglinewithargsret{public abstract void \sphinxbfcode{\sphinxupquote{showGame}}}{BoardModel\sphinxstyleemphasis{ o}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/GameView:it.unicam.cs.pa.mastermind.ui.GameView.showGame(BoardModel)}}\pysiglinewithargsret{public abstract void \sphinxbfcode{\sphinxupquote{showGame}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel}]{\sphinxcrossref{BoardModel}}}\sphinxstyleemphasis{ o}}{}
 Interazione con l’utente fisico per mostrare la situazione di gioco.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -3360,7 +3418,7 @@ boolean volontà dell’utente fisico di decidere nuove impostazioni per un nuov
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:asknewstartupsettings}}\index{askNewStartupSettings() (Java method)@\spxentry{askNewStartupSettings()}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.askNewStartupSettings()}}\pysiglinewithargsret{public StartupSettings \sphinxbfcode{\sphinxupquote{askNewStartupSettings}}}{}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.askNewStartupSettings()}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/StartupSettings:it.unicam.cs.pa.mastermind.gamecore.StartupSettings}]{\sphinxcrossref{StartupSettings}}} \sphinxbfcode{\sphinxupquote{askNewStartupSettings}}}{}{}
 Gestione dell’interazione con l’utente fisico circa le decisioni per l’inizio di un nuovo match o meno dopo che uno è stato concluso.
 \begin{quote}\begin{description}
 \item[{Ritorna}] \leavevmode
@@ -3406,7 +3464,7 @@ Gestione della conclusione dell’intero gioco dopo la fine di ogni singola part
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:getplayername}}\index{getPlayerName(PlayerFactoryRegistry, boolean) (Java method)@\spxentry{getPlayerName(PlayerFactoryRegistry, boolean)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{\sphinxupquote{getPlayerName}}}{PlayerFactoryRegistry\sphinxstyleemphasis{ registry}, boolean\sphinxstyleemphasis{ isBreaker}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.getPlayerName(PlayerFactoryRegistry, boolean)}}\pysiglinewithargsret{public \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{\sphinxupquote{getPlayerName}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry}]{\sphinxcrossref{PlayerFactoryRegistry}}}\sphinxstyleemphasis{ registry}, boolean\sphinxstyleemphasis{ isBreaker}}{}
 Gestione dell’interazione dell’utente fisico per la scelta della particolare implementazione dei giocatori che verranno coinvolti nella nuova partita.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -3431,7 +3489,7 @@ String rappresentante l’implementazione del giocatore scelta per la nuova part
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:setupbreaker}}\index{setupBreaker(BreakerFactoryRegistry) (Java method)@\spxentry{setupBreaker(BreakerFactoryRegistry)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.setupBreaker(BreakerFactoryRegistry)}}\pysiglinewithargsret{public BreakerFactory \sphinxbfcode{\sphinxupquote{setupBreaker}}}{BreakerFactoryRegistry\sphinxstyleemphasis{ registry}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.setupBreaker(BreakerFactoryRegistry)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactory:it.unicam.cs.pa.mastermind.factories.BreakerFactory}]{\sphinxcrossref{BreakerFactory}}} \sphinxbfcode{\sphinxupquote{setupBreaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry}]{\sphinxcrossref{BreakerFactoryRegistry}}}\sphinxstyleemphasis{ registry}}{}
 Gestione dell’interazione con l’utente fisico circa la particolare implementazione di \sphinxcode{\sphinxupquote{CodeBreaker}} da impiegare nel gioco.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -3453,7 +3511,7 @@ BreakerFactory per la generazione di nuovi giocatori \sphinxcode{\sphinxupquote{
 \label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:setupmaker}}\index{setupMaker(MakerFactoryRegistry) (Java method)@\spxentry{setupMaker(MakerFactoryRegistry)}\spxextra{Java method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.setupMaker(MakerFactoryRegistry)}}\pysiglinewithargsret{public MakerFactory \sphinxbfcode{\sphinxupquote{setupMaker}}}{MakerFactoryRegistry\sphinxstyleemphasis{ registry}}{}
+\phantomsection\label{\detokenize{source/it/unicam/cs/pa/mastermind/ui/StartView:it.unicam.cs.pa.mastermind.ui.StartView.setupMaker(MakerFactoryRegistry)}}\pysiglinewithargsret{public {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactory:it.unicam.cs.pa.mastermind.factories.MakerFactory}]{\sphinxcrossref{MakerFactory}}} \sphinxbfcode{\sphinxupquote{setupMaker}}}{{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry}]{\sphinxcrossref{MakerFactoryRegistry}}}\sphinxstyleemphasis{ registry}}{}
 Gestione dell’interazione con l’utente fisico circa la particolare implementazione di \sphinxcode{\sphinxupquote{CodeMaker}} da impiegare nel gioco.
 \begin{quote}\begin{description}
 \item[{Parametri}] \leavevmode\begin{itemize}
@@ -3530,7 +3588,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest:attempt}}\index{attempt (Java field)@\spxentry{attempt}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.attempt}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{attempt}}}
+\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.attempt}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{attempt}}}
 \end{fulllineitems}
 
 
@@ -3539,7 +3597,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest:toguess}}\index{toGuess (Java field)@\spxentry{toGuess}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.toGuess}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{toGuess}}}
+\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardControllerTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardControllerTest.toGuess}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{toGuess}}}
 \end{fulllineitems}
 
 
@@ -3636,7 +3694,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:attempt}}\index{attempt (Java field)@\spxentry{attempt}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardModelTest.attempt}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{attempt}}}
+\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardModelTest.attempt}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{attempt}}}
 \end{fulllineitems}
 
 
@@ -3645,7 +3703,7 @@ Francesco Pio Stelluti, Francesco Coppola
 \label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:toguess}}\index{toGuess (Java field)@\spxentry{toGuess}\spxextra{Java field}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardModelTest.toGuess}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}ColorPegs\textgreater{} \sphinxbfcode{\sphinxupquote{toGuess}}}
+\phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardModelTest.toGuess}}\pysigline{ \sphinxhref{http://docs.oracle.com/javase/8/docs/api/java/util/List.html}{List}\textless{}{\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/ColorPegs:it.unicam.cs.pa.mastermind.gamecore.ColorPegs}]{\sphinxcrossref{ColorPegs}}}\textgreater{} \sphinxbfcode{\sphinxupquote{toGuess}}}
 \end{fulllineitems}
 
 
@@ -3680,7 +3738,7 @@ Test method for \sphinxhref{https://docs.oracle.com/en/java/javase/12/docs/api/i
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardModelTest.testAttemptsInserted()}}\pysiglinewithargsret{ void \sphinxbfcode{\sphinxupquote{testAttemptsInserted}}}{}{}
-Test method for \sphinxcode{\sphinxupquote{it.unicam.cs.pa.mastermind.gamecore.BoardModel.attemptsInserted()}}.
+Test method for {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.attemptsInserted()}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{it.unicam.cs.pa.mastermind.gamecore.BoardModel.attemptsInserted()}}}}}.
 
 \end{fulllineitems}
 
@@ -3724,7 +3782,7 @@ Test method for \sphinxhref{https://docs.oracle.com/en/java/javase/12/docs/api/i
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/GameCoreBoardModelTest:it.unicam.cs.pa.mastermind.test.GameCoreBoardModelTest.testLeftAttempts()}}\pysiglinewithargsret{ void \sphinxbfcode{\sphinxupquote{testLeftAttempts}}}{}{}
-Test method for \sphinxcode{\sphinxupquote{it.unicam.cs.pa.mastermind.gamecore.BoardModel.leftAttempts()}}.
+Test method for {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/gamecore/BoardModel:it.unicam.cs.pa.mastermind.gamecore.BoardModel.leftAttempts()}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{it.unicam.cs.pa.mastermind.gamecore.BoardModel.leftAttempts()}}}}}.
 
 \end{fulllineitems}
 
@@ -3837,7 +3895,7 @@ Test method for \sphinxhref{https://docs.oracle.com/en/java/javase/12/docs/api/i
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/PlayersFactoryRegistry:it.unicam.cs.pa.mastermind.test.PlayersFactoryRegistry.testGetPlayersNames()}}\pysiglinewithargsret{ void \sphinxbfcode{\sphinxupquote{testGetPlayersNames}}}{}{}
-Test method for \sphinxcode{\sphinxupquote{it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayersNames()}}.
+Test method for {\hyperref[\detokenize{source/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry:it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayersNames()}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayersNames()}}}}}.
 \begin{quote}\begin{description}
 \item[{Solleva}] \leavevmode\begin{itemize}
 \item {} 
@@ -4023,7 +4081,7 @@ Francesco Pio Stelluti, Francesco Coppola
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{test/it/unicam/cs/pa/mastermind/test/UIConsoleStartViewTest:it.unicam.cs.pa.mastermind.test.UIConsoleStartViewTest}}\pysigline{ class \sphinxbfcode{\sphinxupquote{UIConsoleStartViewTest}}}
-Test di controllo utili al check dell’unica instanza della classe sotto esamina.
+Test di controllo utili al check della classe \sphinxcode{\sphinxupquote{ConsoleStartView}}.
 \begin{quote}\begin{description}
 \item[{Author}] \leavevmode
 Francesco Pio Stelluti, Francesco Coppola

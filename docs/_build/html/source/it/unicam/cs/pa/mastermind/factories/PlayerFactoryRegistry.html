@@ -94,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactory.html">BreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="BreakerFactoryRegistry.html">BreakerFactoryRegistry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ConsoleGameViewFactory.html">ConsoleGameViewFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConsoleStartViewFactory.html">ConsoleStartViewFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DonaldKnuthBreakerFactory.html">DonaldKnuthBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GameViewFactory.html">GameViewFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InteractiveBreakerFactory.html">InteractiveBreakerFactory</a></li>
@@ -108,6 +109,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotBreakerFactory.html">RandomBotBreakerFactory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RandomBotMakerFactory.html">RandomBotMakerFactory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StartViewFactory.html">StartViewFactory</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../gamecore/package-index.html">it.unicam.cs.pa.mastermind.gamecore</a></li>
@@ -227,7 +229,7 @@ public <code class="descname">PlayerFactoryRegistry</code><span class="sig-paren
 <h3>getFactoryByName<a class="headerlink" href="#getfactorybyname" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getFactoryByName(String)">
-public <a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a> <code class="descname">getFactoryByName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getFactoryByName(String)" title="Link a questa definizione">¶</a></dt>
+public <a class="reference internal" href="PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a> <code class="descname">getFactoryByName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getFactoryByName(String)" title="Link a questa definizione">¶</a></dt>
 <dd><p>Ottenimento di un’istanza di <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> dalla struttura dati di base conoscendo il suo nome.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -251,7 +253,7 @@ public <a class="reference internal" href="../../../../../../../test/it/unicam/c
 <h3>getPlayerFactoriesInstances<a class="headerlink" href="#getplayerfactoriesinstances" title="Link a questa intestazione">¶</a></h3>
 <dl class="method">
 <dt id="it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayerFactoriesInstances()">
-public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../../../../../../../test/it/unicam/cs/pa/mastermind/factories/PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a>&gt; <code class="descname">getPlayerFactoriesInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayerFactoriesInstances()" title="Link a questa definizione">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="PlayerFactory.html#it.unicam.cs.pa.mastermind.factories.PlayerFactory" title="it.unicam.cs.pa.mastermind.factories.PlayerFactory">PlayerFactory</a>&gt; <code class="descname">getPlayerFactoriesInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry.getPlayerFactoriesInstances()" title="Link a questa definizione">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>List contenente tutte le istanze <code class="docutils literal notranslate"><span class="pre">PlayerFactory</span></code> caricate</p>

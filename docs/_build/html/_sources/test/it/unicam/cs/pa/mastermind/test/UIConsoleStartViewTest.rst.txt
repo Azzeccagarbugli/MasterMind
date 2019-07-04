@@ -10,7 +10,7 @@ UIConsoleStartViewTest
 
 .. java:type::  class UIConsoleStartViewTest
 
-   Test di controllo utili al check dell'unica instanza della classe sotto esamina.
+   Test di controllo utili al check della classe \ ``ConsoleStartView``\ .
 
    :author: Francesco Pio Stelluti, Francesco Coppola
 
