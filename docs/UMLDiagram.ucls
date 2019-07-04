@@ -1,6 +1,712 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true">  
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="it.unicam.cs.pa.mastermind.gamecore.GlobalSettings" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/GlobalSettings.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="187" width="208" x="2280" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="it.unicam.cs.pa.mastermind.ui.AnsiUtility" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/ui/AnsiUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="313" width="218" x="707" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="it.unicam.cs.pa.mastermind.players.RandomBotBreaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/RandomBotBreaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="237" x="3210" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="it.unicam.cs.pa.mastermind.factories.BreakerFactoryRegistry" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/BreakerFactoryRegistry.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="175" x="2065" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="it.unicam.cs.pa.mastermind.factories.InteractiveBreakerFactory" 
+    project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/InteractiveBreakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="233" x="589" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="it.unicam.cs.pa.mastermind.factories.InteractiveMakerFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/InteractiveMakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="217" x="1067" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="7" language="java" name="it.unicam.cs.pa.mastermind.gamecore.ColorPegs" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/ColorPegs.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="187" width="170" x="3444" y="1719"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <interface id="8" language="java" name="it.unicam.cs.pa.mastermind.factories.PlayerFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/PlayerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="165" x="862" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="9" language="java" name="it.unicam.cs.pa.mastermind.gamecore.Observable" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/Observable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="180" x="4498" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="it.unicam.cs.pa.mastermind.factories.MakerFactoryRegistry" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/MakerFactoryRegistry.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="167" x="2280" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="it.unicam.cs.pa.mastermind.gamecore.ConsoleMainManager" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/ConsoleMainManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="228" x="1423" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="it.unicam.cs.pa.mastermind.players.CodeBreaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/CodeBreaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="205" width="190" x="3170" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="it.unicam.cs.pa.mastermind.factories.BadRegistryException" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/BadRegistryException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="166" x="1582" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="it.unicam.cs.pa.mastermind.factories.ConsoleGameViewFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/ConsoleGameViewFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="176" x="1849" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="it.unicam.cs.pa.mastermind.players.DonaldKnuthBreaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/DonaldKnuthBreaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="295" width="364" x="2785" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="it.unicam.cs.pa.mastermind.players.RandomBotMaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/RandomBotMaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="198" x="3746" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="it.unicam.cs.pa.mastermind.factories.BreakerFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/BreakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="233" x="589" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="18" language="java" name="it.unicam.cs.pa.mastermind.factories.GameViewFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/GameViewFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="165" x="1715" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="19" language="java" name="it.unicam.cs.pa.mastermind.factories.ConsoleStartViewFactory" 
+    project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/ConsoleStartViewFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="170" x="368" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="it.unicam.cs.pa.mastermind.gamecore.SingleMatch" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/SingleMatch.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="187" width="352" x="3706" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="it.unicam.cs.pa.mastermind.players.CodeMaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/CodeMaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="198" x="3746" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="it.unicam.cs.pa.mastermind.gamecore.MatchStartSettings" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/MatchStartSettings.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="457" width="228" x="1581" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="it.unicam.cs.pa.mastermind.gamecore.MainManager" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/MainManager.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="205" width="228" x="1935" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="it.unicam.cs.pa.mastermind.gamecore.BoardController" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/BoardController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="278" x="4199" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="it.unicam.cs.pa.mastermind.ui.ConsoleGameView" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/ui/ConsoleGameView.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="367" width="276" x="2508" y="1946"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="26" language="java" name="it.unicam.cs.pa.mastermind.gamecore.Observer" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/Observer.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="170" x="4508" y="1946"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="27" language="java" name="it.unicam.cs.pa.mastermind.factories.PlayerFactoryRegistry" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/PlayerFactoryRegistry.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="205" width="265" x="1975" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="it.unicam.cs.pa.mastermind.factories.RandomBotMakerFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/RandomBotMakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="217" x="1324" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="it.unicam.cs.pa.mastermind.gamecore.BoardModel" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/BoardModel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="385" width="370" x="4128" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="it.unicam.cs.pa.mastermind.players.InteractiveBreaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/InteractiveBreaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="237" x="2508" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="31" language="java" name="it.unicam.cs.pa.mastermind.factories.StartViewFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/StartViewFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="165" x="368" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="32" language="java" name="it.unicam.cs.pa.mastermind.factories.MakerFactory" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/MakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="217" x="1209" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="33" language="java" name="it.unicam.cs.pa.mastermind.ui.ConsoleStartView" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/ui/ConsoleStartView.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="421" width="301" x="1095" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="it.unicam.cs.pa.mastermind.factories.RandomBotBreakerFactory" 
+    project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/RandomBotBreakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="233" x="316" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="it.unicam.cs.pa.mastermind.gamecore.StartupSettings" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/StartupSettings.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="205" width="223" x="1691" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="it.unicam.cs.pa.mastermind.factories.DonaldKnuthBreakerFactory" 
+    project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/factories/DonaldKnuthBreakerFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="133" width="233" x="43" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="it.unicam.cs.pa.mastermind.players.InteractiveMaker" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/players/InteractiveMaker.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="198" x="3487" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="it.unicam.cs.pa.mastermind.gamecore.MatchState" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/gamecore/MatchState.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="295" width="175" x="3984" y="797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="39" language="java" name="it.unicam.cs.pa.mastermind.ui.StartView" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/ui/StartView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="259" width="288" x="1095" y="498"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="40" language="java" name="it.unicam.cs.pa.mastermind.ui.GameView" project="MasterMind" 
+    file="/MasterMind/src/main/java/it/unicam/cs/pa/mastermind/ui/GameView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="133" width="240" x="2508" y="1719"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="41">    
+    <bendpoint x="3179" y="1294"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="42" name="lastClue"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <realization id="45">    
+    <bendpoint x="4528" y="797"/>    
+    <bendpoint x="4528" y="1294"/>    
+    <bendpoint x="4528" y="1719"/>    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="46">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="47" name="breakerFactory"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="50" name="currentAttempt"/>      
+      <multiplicity id="51" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <realization id="53">    
+    <bendpoint x="4097" y="1294"/>    
+    <bendpoint x="4097" y="1719"/>    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <association id="55">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="56" name="sequenceToGuess"/>      
+      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="59" name="currentMatch"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="61">    
+    <bendpoint x="4507" y="797"/>    
+    <bendpoint x="4507" y="498"/>    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="62">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <realization id="63">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <association id="64">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="65" name="breaker"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="68" name="startView"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="71" name="view"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="74" name="makers"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="77">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <association id="78">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="79" name="view"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <bendpoint x="1944" y="498"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="82" name="currentMatchSettings"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="39"/>  
+  </realization>  
+  <association id="85">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="86" name="breakers"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="88">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <generalization id="89">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <generalization id="90">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="91">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="18"/>  
+  </realization>  
+  <realization id="92">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="93">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="94" name="globalSettings"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <bendpoint x="4549" y="498"/>    
+    <bendpoint x="4549" y="797"/>    
+    <bendpoint x="4549" y="1294"/>    
+    <bendpoint x="4549" y="1719"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="97" name="observers"/>      
+      <multiplicity id="98" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="99">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <association id="100">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="101" name="gameViewFactory"/>      
+      <multiplicity id="102" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="104" name="board"/>      
+      <multiplicity id="105" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="106">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="107">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <association id="108">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="109" name="maker"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="111">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="112">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="113">    
+    <bendpoint x="2477" y="797"/>    
+    <bendpoint x="2477" y="1294"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="114" name="view"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="117">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="118" name="registryFactoryPlayers"/>      
+      <multiplicity id="119" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="121" name="gameState"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="123">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="124">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="125" name="controller"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="128" name="makerFactory"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="131" name="startupSettings"/>      
+      <multiplicity id="132" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="133">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="134">    
+    <bendpoint x="3715" y="797"/>    
+    <bendpoint x="3715" y="1294"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="135" name="sequenceToGuess"/>      
+      <multiplicity id="136" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

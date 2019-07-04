@@ -9,6 +9,10 @@ che è stato realizzato, abbiamo reso disponibile un **diagramma UML** il quale 
 
 .. image:: ../_static/diagram.png
 
+È inoltre possibile accedere alla classica documentazione **JavaDoc** al seguente `link`__.
+
+__ https://azzeccagarbugli.github.io/MasterMind/
+
 .. toctree::
    :maxdepth: 2
 

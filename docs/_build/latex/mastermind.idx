@@ -1,16 +1,16 @@
-\indexentry{it.unicam.cs.pa.mastermind.factories (package)@\spxentry{it.unicam.cs.pa.mastermind.factories}\spxextra{package}|hyperpage}{14}
+\indexentry{it.unicam.cs.pa.mastermind.factories (package)@\spxentry{it.unicam.cs.pa.mastermind.factories}\spxextra{package}|hyperpage}{15}
 \indexentry{BadRegistryException (Java class)@\spxentry{BadRegistryException}\spxextra{Java class}|hyperpage}{15}
 \indexentry{BadRegistryException(String) (Java constructor)@\spxentry{BadRegistryException(String)}\spxextra{Java constructor}|hyperpage}{15}
 \indexentry{BreakerFactory (Java interface)@\spxentry{BreakerFactory}\spxextra{Java interface}|hyperpage}{15}
 \indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{15}
 \indexentry{BreakerFactoryRegistry (Java class)@\spxentry{BreakerFactoryRegistry}\spxextra{Java class}|hyperpage}{15}
-\indexentry{BreakerFactoryRegistry(String) (Java constructor)@\spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{15}
+\indexentry{BreakerFactoryRegistry(String) (Java constructor)@\spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{16}
 \indexentry{ConsoleGameViewFactory (Java class)@\spxentry{ConsoleGameViewFactory}\spxextra{Java class}|hyperpage}{16}
 \indexentry{getGameView() (Java method)@\spxentry{getGameView()}\spxextra{Java method}|hyperpage}{16}
 \indexentry{ConsoleStartViewFactory (Java class)@\spxentry{ConsoleStartViewFactory}\spxextra{Java class}|hyperpage}{16}
 \indexentry{getStartView() (Java method)@\spxentry{getStartView()}\spxextra{Java method}|hyperpage}{16}
 \indexentry{DonaldKnuthBreakerFactory (Java class)@\spxentry{DonaldKnuthBreakerFactory}\spxextra{Java class}|hyperpage}{16}
-\indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{16}
+\indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{17}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{17}
 \indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{17}
 \indexentry{GameViewFactory (Java interface)@\spxentry{GameViewFactory}\spxextra{Java interface}|hyperpage}{17}
@@ -18,14 +18,14 @@
 \indexentry{InteractiveBreakerFactory (Java class)@\spxentry{InteractiveBreakerFactory}\spxextra{Java class}|hyperpage}{17}
 \indexentry{getBreaker(GameView, int, int) (Java method)@\spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{17}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{17}
-\indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{17}
+\indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{18}
 \indexentry{InteractiveMakerFactory (Java class)@\spxentry{InteractiveMakerFactory}\spxextra{Java class}|hyperpage}{18}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{18}
 \indexentry{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{18}
 \indexentry{getName() (Java method)@\spxentry{getName()}\spxextra{Java method}|hyperpage}{18}
 \indexentry{MakerFactory (Java interface)@\spxentry{MakerFactory}\spxextra{Java interface}|hyperpage}{18}
 \indexentry{getMaker(GameView, int, int) (Java method)@\spxentry{getMaker(GameView, int, int)}\spxextra{Java method}|hyperpage}{18}
-\indexentry{MakerFactoryRegistry (Java class)@\spxentry{MakerFactoryRegistry}\spxextra{Java class}|hyperpage}{18}
+\indexentry{MakerFactoryRegistry (Java class)@\spxentry{MakerFactoryRegistry}\spxextra{Java class}|hyperpage}{19}
 \indexentry{MakerFactoryRegistry(String) (Java constructor)@\spxentry{MakerFactoryRegistry(String)}\spxextra{Java constructor}|hyperpage}{19}
 \indexentry{PlayerFactory (Java interface)@\spxentry{PlayerFactory}\spxextra{Java interface}|hyperpage}{19}
 \indexentry{getDescription() (Java method)@\spxentry{getDescription()}\spxextra{Java method}|hyperpage}{19}

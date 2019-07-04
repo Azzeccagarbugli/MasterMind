@@ -17,7 +17,7 @@
 \contentsline {section}{\numberline {3.1}Strumenti con cui \IeC {\`e} stata realizzata}{12}{section.3.1}% 
 \contentsline {section}{\numberline {3.2}Autogenerazione della sintassi convertita da JavaDoc a Sphinx}{12}{section.3.2}% 
 \contentsline {chapter}{\numberline {4}Documentazione del codice}{14}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}it.unicam.cs.pa.mastermind.factories}{14}{section.4.1}% 
+\contentsline {section}{\numberline {4.1}it.unicam.cs.pa.mastermind.factories}{15}{section.4.1}% 
 \contentsline {subsection}{\numberline {4.1.1}BadRegistryException}{15}{subsection.4.1.1}% 
 \contentsline {subsubsection}{Constructors}{15}{subsubsection*.5}% 
 \contentsline {paragraph}{BadRegistryException}{15}{paragraph*.6}% 
@@ -25,8 +25,8 @@
 \contentsline {subsubsection}{Methods}{15}{subsubsection*.9}% 
 \contentsline {paragraph}{getBreaker}{15}{paragraph*.10}% 
 \contentsline {subsection}{\numberline {4.1.3}BreakerFactoryRegistry}{15}{subsection.4.1.3}% 
-\contentsline {subsubsection}{Constructors}{15}{subsubsection*.13}% 
-\contentsline {paragraph}{BreakerFactoryRegistry}{15}{paragraph*.14}% 
+\contentsline {subsubsection}{Constructors}{16}{subsubsection*.13}% 
+\contentsline {paragraph}{BreakerFactoryRegistry}{16}{paragraph*.14}% 
 \contentsline {subsection}{\numberline {4.1.4}ConsoleGameViewFactory}{16}{subsection.4.1.4}% 
 \contentsline {subsubsection}{Methods}{16}{subsubsection*.17}% 
 \contentsline {paragraph}{getGameView}{16}{paragraph*.18}% 
@@ -34,8 +34,8 @@
 \contentsline {subsubsection}{Methods}{16}{subsubsection*.21}% 
 \contentsline {paragraph}{getStartView}{16}{paragraph*.22}% 
 \contentsline {subsection}{\numberline {4.1.6}DonaldKnuthBreakerFactory}{16}{subsection.4.1.6}% 
-\contentsline {subsubsection}{Methods}{16}{subsubsection*.25}% 
-\contentsline {paragraph}{getBreaker}{16}{paragraph*.26}% 
+\contentsline {subsubsection}{Methods}{17}{subsubsection*.25}% 
+\contentsline {paragraph}{getBreaker}{17}{paragraph*.26}% 
 \contentsline {paragraph}{getDescription}{17}{paragraph*.28}% 
 \contentsline {paragraph}{getName}{17}{paragraph*.30}% 
 \contentsline {subsection}{\numberline {4.1.7}GameViewFactory}{17}{subsection.4.1.7}% 
@@ -45,7 +45,7 @@
 \contentsline {subsubsection}{Methods}{17}{subsubsection*.37}% 
 \contentsline {paragraph}{getBreaker}{17}{paragraph*.38}% 
 \contentsline {paragraph}{getDescription}{17}{paragraph*.40}% 
-\contentsline {paragraph}{getName}{17}{paragraph*.42}% 
+\contentsline {paragraph}{getName}{18}{paragraph*.42}% 
 \contentsline {subsection}{\numberline {4.1.9}InteractiveMakerFactory}{18}{subsection.4.1.9}% 
 \contentsline {subsubsection}{Methods}{18}{subsubsection*.45}% 
 \contentsline {paragraph}{getDescription}{18}{paragraph*.46}% 
@@ -54,7 +54,7 @@
 \contentsline {subsection}{\numberline {4.1.10}MakerFactory}{18}{subsection.4.1.10}% 
 \contentsline {subsubsection}{Methods}{18}{subsubsection*.53}% 
 \contentsline {paragraph}{getMaker}{18}{paragraph*.54}% 
-\contentsline {subsection}{\numberline {4.1.11}MakerFactoryRegistry}{18}{subsection.4.1.11}% 
+\contentsline {subsection}{\numberline {4.1.11}MakerFactoryRegistry}{19}{subsection.4.1.11}% 
 \contentsline {subsubsection}{Constructors}{19}{subsubsection*.57}% 
 \contentsline {paragraph}{MakerFactoryRegistry}{19}{paragraph*.58}% 
 \contentsline {subsection}{\numberline {4.1.12}PlayerFactory}{19}{subsection.4.1.12}% 

@@ -41,7 +41,7 @@
   \item \spxentry{BoardModel(int, int)}\spxextra{Java constructor}, \hyperpage{23}
   \item \spxentry{BreakerFactory}\spxextra{Java interface}, \hyperpage{15}
   \item \spxentry{BreakerFactoryRegistry}\spxextra{Java class}, \hyperpage{15}
-  \item \spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{15}
+  \item \spxentry{BreakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{16}
 
   \indexspace
   \bigletter C
@@ -79,8 +79,8 @@
   \item \spxentry{getAttempt()}\spxextra{Java method}, \hyperpage{35}, \hyperpage{37, 38}
   \item \spxentry{getAttemptAndClueList()}\spxextra{Java method}, \hyperpage{24}
   \item \spxentry{getAttempts()}\spxextra{Java method}, \hyperpage{28}
-  \item \spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}, \hyperpage{15--17}, 
-		\hyperpage{21}
+  \item \spxentry{getBreaker(GameView, int, int)}\spxextra{Java method}, \hyperpage{15}, 
+		\hyperpage{17}, \hyperpage{21}
   \item \spxentry{getBreakerFactory()}\spxextra{Java method}, \hyperpage{29}
   \item \spxentry{getBreakers()}\spxextra{Java method}, \hyperpage{27}
   \item \spxentry{getBreakerVictoryAttempts()}\spxextra{Java method}, \hyperpage{30}
@@ -136,7 +136,7 @@
   \item \spxentry{InteractiveMaker(GameView, int)}\spxextra{Java constructor}, \hyperpage{38}
   \item \spxentry{InteractiveMakerFactory}\spxextra{Java class}, \hyperpage{18}
   \item \spxentry{isBoardEmpty()}\spxextra{Java method}, \hyperpage{24}
-  \item \spxentry{it.unicam.cs.pa.mastermind.factories}\spxextra{package}, \hyperpage{14}
+  \item \spxentry{it.unicam.cs.pa.mastermind.factories}\spxextra{package}, \hyperpage{15}
   \item \spxentry{it.unicam.cs.pa.mastermind.gamecore}\spxextra{package}, \hyperpage{22}
   \item \spxentry{it.unicam.cs.pa.mastermind.players}\spxextra{package}, \hyperpage{35}
   \item \spxentry{it.unicam.cs.pa.mastermind.test}\spxextra{package}, \hyperpage{46}
@@ -154,7 +154,7 @@
   \item \spxentry{MainManager}\spxextra{Java class}, \hyperpage{27}
   \item \spxentry{MainManager()}\spxextra{Java constructor}, \hyperpage{27}
   \item \spxentry{MakerFactory}\spxextra{Java interface}, \hyperpage{18}
-  \item \spxentry{MakerFactoryRegistry}\spxextra{Java class}, \hyperpage{18}
+  \item \spxentry{MakerFactoryRegistry}\spxextra{Java class}, \hyperpage{19}
   \item \spxentry{MakerFactoryRegistry(String)}\spxextra{Java constructor}, \hyperpage{19}
   \item \spxentry{MatchStartSettings}\spxextra{Java class}, \hyperpage{28}
   \item \spxentry{MatchStartSettings(GameViewFactory)}\spxextra{Java constructor}, \hyperpage{28}

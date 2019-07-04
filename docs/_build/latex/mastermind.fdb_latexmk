@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex mastermind.idx"] 1562234016 "mastermind.idx" "mastermind.ind" "mastermind" 1562234679
-  "mastermind.idx" 1562234679 29006 8e21c964116e38f39fb2a33685a7a482 "pdflatex"
+["makeindex mastermind.idx"] 1562245427 "mastermind.idx" "mastermind.ind" "mastermind" 1562245428
+  "mastermind.idx" 1562245427 29006 d0ae4b6b68327fa3355d384e5986596f "pdflatex"
   (generated)
   "mastermind.ilg"
   "mastermind.ind"
-["pdflatex"] 1562234678 "mastermind.tex" "mastermind.pdf" "mastermind" 1562234679
+["pdflatex"] 1562245427 "mastermind.tex" "mastermind.pdf" "mastermind" 1562245428
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1557554374 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1557554374 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm" 1557554374 1292 3059476c50a24578715759f22652f3d0 ""
@@ -168,16 +168,16 @@
   "footnotehyper-sphinx.sty" 1557338773 8888 1bbd7bdeae8c8bed1d10d551bddb1cc9 ""
   "gameplay.png" 1561848058 21081 685e79084daf55a2f80a5195bc633adb ""
   "makerfact.png" 1562071266 23048 9c0996ec557bcfc53240e0a7e0a5df9b ""
-  "mastermind.aux" 1562234679 136345 e2ca4b3bd8808259f296df373ae781b2 "pdflatex"
-  "mastermind.ind" 1562234016 17187 1846868f6ffa12354b91a1ea70b51b14 "makeindex mastermind.idx"
-  "mastermind.out" 1562234679 4612 fdc32a20f7a75412cd71368a1cb3cb6f "pdflatex"
-  "mastermind.tex" 1562234014 252437 8c322b3cd801690ae12fbde0b3aa61cd ""
-  "mastermind.toc" 1562234679 23979 c2f44bba703dfa61ead1ebbd19d2b1b8 "pdflatex"
+  "mastermind.aux" 1562245427 136345 e57cd83469197656648ad01d365dc78d "pdflatex"
+  "mastermind.ind" 1562245427 17199 2b57941334cc7efbfbedfdf02a6a5b21 "makeindex mastermind.idx"
+  "mastermind.out" 1562245427 4612 fdc32a20f7a75412cd71368a1cb3cb6f "pdflatex"
+  "mastermind.tex" 1562245426 252603 15e3c58da368e12759e9449ad0ad82b8 ""
+  "mastermind.toc" 1562245427 23979 f78d73ca8ba8f4287fe3687d421c9f9d "pdflatex"
   "selectstuff.png" 1561847718 29594 fd09aaae0f4a54cbc0fa484307162a7a ""
   "sphinx.sty" 1557338773 77208 3556b0a144030bef8427c8d5109dbe32 ""
-  "sphinxhighlight.sty" 1562234678 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1562245425 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1557338773 3764 e7c0a8da02dc45450256dd4cfdafb426 ""
-  "sphinxmessages.sty" 1562234678 739 e442023904f1cef54bf1f9484521f473 ""
+  "sphinxmessages.sty" 1562245426 739 e442023904f1cef54bf1f9484521f473 ""
   "sphinxmulticell.sty" 1557338773 14618 0defbdc8536ad2e67f1eac6a1431bc55 ""
   "start.png" 1561816063 18376 1ecaf9cd5a54490f03fa4a988ec9ad11 ""
   (generated)
@@ -185,5 +185,5 @@
   "mastermind.idx"
   "mastermind.pdf"
   "mastermind.log"
-  "mastermind.toc"
   "mastermind.aux"
+  "mastermind.toc"
