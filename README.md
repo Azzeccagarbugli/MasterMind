@@ -225,5 +225,4 @@ sicuramente l\'intero parco software **robusto**, **elegante** e
 
 # Crediti
 
-Lo sviluppo di tale codice è da attribuire interamente agli studenti **Francesco Coppola**
-e **Francesco Pio Stelluti**, i quali hanno perso sangue, sudore e diverse diottrie durante la stesura di quest'ultimo.
+Lo sviluppo di tale codice è da attribuire interamente agli studenti **Francesco Coppola** e **Francesco Pio Stelluti**, i quali hanno perso sangue, sudore e diverse diottrie durante la stesura di quest'ultimo.
