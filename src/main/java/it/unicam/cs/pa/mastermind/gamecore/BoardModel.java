@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  * <b>Responsabilità</b>: gestire le informazioni relative ad una plancia di
  * gioco. Rientra nei pattern <b>MVC</b> e <b>Observer</b>.
  * 
- * @author Francesco Pio Stelluti, Francesco Coppola
+ * @author Francesco Pioooo Stelluti, Francesco Coppola
  *
  */
 public class BoardModel extends Observable{
